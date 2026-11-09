@@ -1,0 +1,81 @@
+{
+  "schema_version": 4,
+  "source": "unity",
+  "run_id": "run_example",
+  "instance_id": "instance_example",
+  "boot_id": "boot_example",
+  "assignment_id": "assignment_example",
+  "source_generation": 1,
+  "sequence": 12,
+  "frame_id": "frame_terminal_example",
+  "world_frame_id": 36000,
+  "elapsed_ms": 1200000,
+  "wall_elapsed_ms": 1200000,
+  "manual_pause_ms": 0,
+  "control_version": 2,
+  "facts": [
+    {
+      "event_id": "fact_boss_kill",
+      "kind": "kill",
+      "actor_player_id": "101",
+      "target_id": "boss_life_1",
+      "action_id": "action_heavy_last",
+      "effective_amount": 0,
+      "life_generation": 1,
+      "downed_generation": 0,
+      "event_game_ms": 1200000,
+      "contributors": [
+        "101"
+      ],
+      "proof": null,
+      "contribution_proofs": []
+    },
+    {
+      "event_id": "fact_player_downed",
+      "kind": "downed",
+      "actor_player_id": "101",
+      "target_id": "player_101",
+      "action_id": null,
+      "effective_amount": 0,
+      "life_generation": 1,
+      "downed_generation": 1,
+      "event_game_ms": 1200000,
+      "contributors": [],
+      "proof": null,
+      "contribution_proofs": []
+    }
+  ],
+  "terminal": {
+    "outcome": "success",
+    "reason": "objective_complete",
+    "cutoff_frame": 36000,
+    "cutoff_sequence": 12
+  },
+  "summary": {
+    "participants": [
+      {
+        "player_id": "101",
+        "slot": 0,
+        "loadout_id": "ranger",
+        "damage": 8000,
+        "kills": 120,
+        "assists": 0,
+        "interactions": 2,
+        "knockdowns": 1,
+        "deaths": 0,
+        "rescues": 0,
+        "protected_damage": 0,
+        "control_effect_ms": 3000,
+        "choices": [
+          "ranger_pierce",
+          "swift",
+          "ranger_tension"
+        ],
+        "effective_contribution": true
+      }
+    ],
+    "trial_eligible": false,
+    "ineligible_reason": "not_trial"
+  },
+  "fingerprint": "d98dde7f6ec7f713d41e2fa168a2f906967cf22df3539ff3878bbc46bf5b90f1"
+}

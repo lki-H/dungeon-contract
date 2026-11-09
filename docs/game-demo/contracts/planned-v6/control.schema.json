@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "type",
+    "request_id",
+    "operation_id",
+    "data"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 2,
+      "type": "number"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "v2.run.pause",
+        "v2.run.resume"
+      ]
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+    },
+    "operation_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "reason",
+        "expected_clock_revision",
+        "pause_id"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "menu",
+            "focus_loss",
+            "explicit_resume"
+          ]
+        },
+        "expected_clock_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "pause_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

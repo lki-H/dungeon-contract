@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_registered",
+  "examples": [
+    {
+      "path": "admission.example.json",
+      "schema": "admission.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "attack.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "charge-release.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "dash-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "dash-blocked-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "dynamic.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "emitter.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "input.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "lifecycle-ack.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "owner-field-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "pause.example.json",
+      "schema": "control.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "periodic-trap-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "presentation.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "projectile-dynamic.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "projectile-lifecycle.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "receipt.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "reload-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "resume.example.json",
+      "schema": "control.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "slam-windup-baseline.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "state.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "summon.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "switch.example.json",
+      "schema": "battle.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    },
+    {
+      "path": "terminal-frame.example.json",
+      "schema": "frame.schema.json",
+      "role": "synthetic_document_fixture_not_runtime_or_gameplay_evidence"
+    }
+  ]
+}

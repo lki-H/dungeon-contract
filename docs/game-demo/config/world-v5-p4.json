@@ -1,0 +1,644 @@
+{
+  "definition_id": "dc_rooms.v5.p4.1",
+  "lifecycle_stage": "personal_growth_content_stage",
+  "rooms": [
+    {
+      "id": "entry",
+      "kind": "room",
+      "width": 20,
+      "height": 12,
+      "spawn": [
+        3,
+        6
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "foyer",
+      "kind": "room",
+      "width": 30,
+      "height": 18,
+      "spawn": [
+        3,
+        9
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          8,
+          12
+        ],
+        [
+          23,
+          6
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [
+        [
+          10500,
+          4500,
+          1000,
+          1000
+        ],
+        [
+          18500,
+          12500,
+          1000,
+          1000
+        ]
+      ],
+      "exists": true,
+      "variants": [
+        {
+          "id": "foyer_a",
+          "obstacles_milli": [
+            [
+              10500,
+              4500,
+              1000,
+              1000
+            ],
+            [
+              18500,
+              12500,
+              1000,
+              1000
+            ]
+          ]
+        },
+        {
+          "id": "foyer_b",
+          "obstacles_milli": [
+            [
+              8500,
+              4500,
+              1000,
+              1000
+            ],
+            [
+              20500,
+              12500,
+              1000,
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mechanism",
+      "kind": "room",
+      "width": 34,
+      "height": 20,
+      "spawn": [
+        3,
+        10
+      ],
+      "objective": [
+        22,
+        10
+      ],
+      "cover_points": [
+        [
+          8,
+          15
+        ],
+        [
+          27,
+          5
+        ]
+      ],
+      "trap_points": [
+        [
+          13,
+          10
+        ],
+        [
+          27,
+          15
+        ]
+      ],
+      "obstacles_milli": [
+        [
+          11500,
+          4500,
+          1000,
+          1000
+        ],
+        [
+          21500,
+          14500,
+          1000,
+          1000
+        ],
+        [
+          10500,
+          14500,
+          1000,
+          1000
+        ],
+        [
+          22500,
+          4500,
+          1000,
+          1000
+        ]
+      ],
+      "exists": true,
+      "variants": [
+        {
+          "id": "mechanism_a",
+          "obstacles_milli": [
+            [
+              11500,
+              4500,
+              1000,
+              1000
+            ],
+            [
+              21500,
+              14500,
+              1000,
+              1000
+            ]
+          ]
+        },
+        {
+          "id": "mechanism_b",
+          "obstacles_milli": [
+            [
+              10500,
+              14500,
+              1000,
+              1000
+            ],
+            [
+              22500,
+              4500,
+              1000,
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defense",
+      "kind": "room",
+      "width": 34,
+      "height": 20,
+      "spawn": [
+        3,
+        10
+      ],
+      "objective": [
+        17,
+        10
+      ],
+      "cover_points": [
+        [
+          8,
+          6
+        ],
+        [
+          26,
+          14
+        ],
+        [
+          28,
+          6
+        ]
+      ],
+      "trap_points": [
+        [
+          11,
+          13
+        ],
+        [
+          23,
+          7
+        ]
+      ],
+      "obstacles_milli": [
+        [
+          12500,
+          4500,
+          1000,
+          1000
+        ],
+        [
+          20500,
+          14500,
+          1000,
+          1000
+        ],
+        [
+          10500,
+          4500,
+          1000,
+          1000
+        ],
+        [
+          22500,
+          14500,
+          1000,
+          1000
+        ]
+      ],
+      "exists": true,
+      "variants": [
+        {
+          "id": "defense_a",
+          "obstacles_milli": [
+            [
+              12500,
+              4500,
+              1000,
+              1000
+            ],
+            [
+              20500,
+              14500,
+              1000,
+              1000
+            ]
+          ]
+        },
+        {
+          "id": "defense_b",
+          "obstacles_milli": [
+            [
+              10500,
+              4500,
+              1000,
+              1000
+            ],
+            [
+              22500,
+              14500,
+              1000,
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanctum",
+      "kind": "room",
+      "width": 30,
+      "height": 18,
+      "spawn": [
+        3,
+        9
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          8,
+          13
+        ],
+        [
+          24,
+          5
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [
+        [
+          14500,
+          4500,
+          1000,
+          1000
+        ],
+        [
+          14500,
+          12500,
+          1000,
+          1000
+        ]
+      ],
+      "exists": true,
+      "variants": [
+        {
+          "id": "sanctum_a",
+          "obstacles_milli": [
+            [
+              14500,
+              4500,
+              1000,
+              1000
+            ]
+          ]
+        },
+        {
+          "id": "sanctum_b",
+          "obstacles_milli": [
+            [
+              14500,
+              12500,
+              1000,
+              1000
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boss_room",
+      "kind": "room",
+      "width": 34,
+      "height": 20,
+      "spawn": [
+        3,
+        10
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "rune_branch",
+      "kind": "room",
+      "width": 20,
+      "height": 12,
+      "spawn": [
+        3,
+        6
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          10,
+          4
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "supply_branch",
+      "kind": "room",
+      "width": 20,
+      "height": 12,
+      "spawn": [
+        3,
+        6
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          10,
+          4
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_entry_foyer",
+      "kind": "corridor",
+      "width": 7,
+      "height": 5,
+      "spawn": [
+        1,
+        2
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_foyer_mechanism",
+      "kind": "corridor",
+      "width": 6,
+      "height": 5,
+      "spawn": [
+        1,
+        2
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_mechanism_defense",
+      "kind": "corridor",
+      "width": 8,
+      "height": 6,
+      "spawn": [
+        1,
+        3
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_defense_sanctum",
+      "kind": "corridor",
+      "width": 6,
+      "height": 5,
+      "spawn": [
+        1,
+        2
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_sanctum_boss",
+      "kind": "corridor",
+      "width": 7,
+      "height": 6,
+      "spawn": [
+        1,
+        3
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_mechanism_rune",
+      "kind": "corridor",
+      "width": 5,
+      "height": 6,
+      "spawn": [
+        2,
+        4
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    },
+    {
+      "id": "corridor_sanctum_supply",
+      "kind": "corridor",
+      "width": 5,
+      "height": 6,
+      "spawn": [
+        2,
+        4
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": [],
+      "exists": true
+    }
+  ],
+  "doors": [
+    {
+      "from": 0,
+      "to": 8,
+      "side": "east"
+    },
+    {
+      "from": 8,
+      "to": 1,
+      "side": "east"
+    },
+    {
+      "from": 1,
+      "to": 9,
+      "side": "east"
+    },
+    {
+      "from": 9,
+      "to": 2,
+      "side": "east"
+    },
+    {
+      "from": 2,
+      "to": 10,
+      "side": "east"
+    },
+    {
+      "from": 10,
+      "to": 3,
+      "side": "east"
+    },
+    {
+      "from": 3,
+      "to": 11,
+      "side": "east"
+    },
+    {
+      "from": 11,
+      "to": 4,
+      "side": "east"
+    },
+    {
+      "from": 4,
+      "to": 12,
+      "side": "east"
+    },
+    {
+      "from": 12,
+      "to": 5,
+      "side": "east"
+    },
+    {
+      "from": 2,
+      "to": 13,
+      "side": "south"
+    },
+    {
+      "from": 13,
+      "to": 6,
+      "side": "south"
+    },
+    {
+      "from": 4,
+      "to": 14,
+      "side": "south"
+    },
+    {
+      "from": 14,
+      "to": 7,
+      "side": "south"
+    }
+  ],
+  "physics": {
+    "enemy_radius_milli": 420,
+    "elite_radius_milli": 600,
+    "boss_radius_milli": 900,
+    "projectile_radius_milli": 100,
+    "sweep_step_milli": 100,
+    "contact_protection_ms": 0,
+    "knockback_milli": 250,
+    "knockback_interval_ms": 500
+  },
+  "encounter": {
+    "room_warning_ms": 2000,
+    "room_alive_limits": [
+      8,
+      12,
+      16,
+      20
+    ],
+    "wave_start_warning_ms": 1000,
+    "room_spawn_block_timeout_ms": 5000,
+    "spawn_warning_ms": 800,
+    "spawn_player_distance_milli": 2000,
+    "spawn_visible_first": true
+  },
+  "trap": {
+    "radius_milli": 700,
+    "warning_ms": 600,
+    "active_ms": 200,
+    "cooldown_ms": 2000,
+    "player_damage": 12,
+    "enemy_damage": 25,
+    "remain_after_clear": true
+  },
+  "corridors": {
+    "length_min_tiles": 4,
+    "length_max_tiles": 6,
+    "width_min_tiles": 3,
+    "width_max_tiles": 4,
+    "encounters": false,
+    "spawns": false,
+    "interactives": false,
+    "projectile_crossing": false,
+    "dimensions": "walkable_inner_length_width_excludes_one_tile_wall"
+  },
+  "camera": {
+    "view_width_milli_tiles": 24000,
+    "view_height_milli_tiles": 13500,
+    "orthographic_size_milli_tiles": 6750,
+    "follow_deadzone_x_milli_tiles": 400,
+    "follow_deadzone_y_milli_tiles": 250,
+    "damping_ms": 60
+  },
+  "spawn_policy": {
+    "selection": "server_shared_visibility_first_fixed_seed_fallback",
+    "client_camera_report": false,
+    "last_enemy_hint_remaining": 2,
+    "last_enemy_hint_idle_ms": 5000
+  },
+  "p4_stage": true
+}

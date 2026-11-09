@@ -1,0 +1,51 @@
+{
+  "input": {
+    "protocol_version": 5,
+    "message": "dc.input.v5",
+    "run_id": "v5_contract_fixture",
+    "source_generation": 7,
+    "connection_generation": 9,
+    "input_sequence": 31,
+    "action_watermark": 2,
+    "weapon_id": "rune_hammer",
+    "weapon_revision": 2,
+    "move_x": 0,
+    "move_y": 0,
+    "aim_u16": 0,
+    "attack_held": false,
+    "charge_held": true,
+    "interact_held": false,
+    "attack_episode_id": null,
+    "charge_episode_id": "11111111-1111-4111-8111-111111111111"
+  },
+  "charge_release": {
+    "protocol_version": 5,
+    "message": "dc.action.v5",
+    "run_id": "v5_contract_fixture",
+    "source_generation": 7,
+    "connection_generation": 9,
+    "operation_id": "22222222-2222-4222-8222-222222222222",
+    "action_id": "22222222-2222-4222-8222-222222222222",
+    "input_sequence": 31,
+    "action_sequence": 3,
+    "weapon_id": "rune_hammer",
+    "weapon_revision": 2,
+    "requested_weapon_id": null,
+    "action": "charge_release",
+    "press_action_id": "11111111-1111-4111-8111-111111111111",
+    "aim_u16": 0,
+    "move_x": 0,
+    "move_y": 0,
+    "choice_node": -1,
+    "choice_revision": 0,
+    "choice_hash": null,
+    "choice_option": null
+  },
+  "baseline_ack": {
+    "protocol_version": 5,
+    "run_id": "v5_contract_fixture",
+    "source_generation": 7,
+    "connection_generation": 9,
+    "state_revision": 3
+  }
+}

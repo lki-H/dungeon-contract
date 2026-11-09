@@ -1,0 +1,264 @@
+{
+  "$schema": "./projectiles.schema.json",
+  "specification_version": "2.1-projectiles.1",
+  "status": "planned_not_loaded",
+  "published": false,
+  "balance_status": "unverified_initial",
+  "bases": [
+    {
+      "path": "../planned-v4/parameters.json",
+      "sha256": "b6df1bbaea5e0c951960d19b0dcfe8d8baa7312343fd7b025d40e4dd7aca9473"
+    },
+    {
+      "path": "../planned-v4-room-camera/room-camera.json",
+      "sha256": "07e0b9d46d5fe3f4069acd0bfe9865615b3ab7c98ed1abac90b882bcc97032de"
+    }
+  ],
+  "application": "explicit_design_override_not_runtime_merge",
+  "planned_versions": {
+    "operation": "dc_ruins.v4",
+    "content": "dc_content.v4.draft3",
+    "world": "dc_rooms.v4.draft2",
+    "trial": "trial.v4.draft3",
+    "battle_protocol": 4,
+    "control_schema": 2
+  },
+  "answers": [
+    {
+      "id": "QPR-01",
+      "decision": "all_flying_projectiles_unbounded",
+      "confirmed_answer": "全部实际飞行弹体取消距离上限",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-02",
+      "decision": "same_room_collisions_no_room_crossing",
+      "confirmed_answer": "仍碰撞、始终留在原房，不跨开放门",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-03",
+      "decision": "no_fixed_flight_lifetime",
+      "confirmed_answer": "正常飞行不设固定距离或寿命截断",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-04",
+      "decision": "turret_acquisition_12_tiles",
+      "confirmed_answer": "普通及双炮塔索敌12格，炮弹飞行不限距离",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-05",
+      "decision": "enemy_engagement_limits_preserved",
+      "confirmed_answer": "敌人保留接敌/发动距离，远处被击中正常警戒靠近",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-06",
+      "decision": "penetration_bounce_chain_unchanged",
+      "confirmed_answer": "弩2目标/模块3，符弹一次反弹，连锁一目标/3格保持",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-07",
+      "decision": "other_combat_parameters_unchanged",
+      "confirmed_answer": "其他伤害/弹速/攻速/弹匣/装填/CD保持，无距离衰减",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-08",
+      "decision": "offscreen_hit_generic_feedback",
+      "confirmed_answer": "屏外合法命中提供简要确认，不泄露精确敌位/数字或增加探索",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-09",
+      "decision": "retain_player_projectiles_after_incapacitation",
+      "confirmed_answer": "临时倒地/死亡保留已发弹；永久退出/终态清理",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-10",
+      "decision": "retain_projectiles_in_source_room_after_owner_transition",
+      "confirmed_answer": "切房不清弹，留在原房继续运行",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-11",
+      "decision": "retain_between_waves_clear_on_room_completion",
+      "confirmed_answer": "波次间保留，清敌及机关等房间条件齐备后清全房残弹",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-12",
+      "decision": "technical_wait_clears_projectiles",
+      "confirmed_answer": "技术等待清理在途弹、不退款，恢复敌人完整重新起手",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-13",
+      "decision": "door_uses_shared_rune_bounce",
+      "confirmed_answer": "符弹可在开门/锁门边界反弹，与墙柱箱共用总一次",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-14",
+      "decision": "turret_survives_owner_incapacitation",
+      "confirmed_answer": "主人倒地/死亡炮塔也继续剩余寿命，切房留原房",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-15",
+      "decision": "self_progress_but_spatial_eligible_checks",
+      "confirmed_answer": "合法延迟伤害/击杀与普通self继续，eligible仍按原区域/5秒证据，未倒地失败不恢复",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-16",
+      "decision": "reserve_committed_capacity_reject_new_actions",
+      "confirmed_answer": "保留在途弹、预约已承诺攻击，新攻击超限明确拒绝且不扣资源",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-17",
+      "decision": "enemy_start_ranges_8_and_12",
+      "confirmed_answer": "射手8格内起手/约5格站位，Boss扇弹12格内起手",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-18",
+      "decision": "wipe_does_not_wait_for_projectiles_or_turrets",
+      "confirmed_answer": "全队无恢复手段即时失败，同帧必需目标完成优先，不等炮塔代打",
+      "confirmed": true
+    },
+    {
+      "id": "QPR-19",
+      "decision": "turret_lifetime_advances_in_technical_wait",
+      "confirmed_answer": "技术等待炮塔停射、game寿命继续，恢复不补射，过期/清房/退出/终态清理",
+      "confirmed": true
+    }
+  ],
+  "flight": {
+    "range_mode": "unbounded_in_source_room",
+    "max_travel_distance_milli_tiles": null,
+    "fixed_flight_lifetime_game_ms": null,
+    "cross_room": false,
+    "wall_collision": true,
+    "distance_damage_falloff": false,
+    "offscreen_simulation": true,
+    "door_boundary_mode": "closed_collision_plane_even_when_open",
+    "rune_reflection_surfaces": [
+      "wall",
+      "pillar",
+      "destructible_cover",
+      "door_boundary"
+    ],
+    "rune_total_bounces": 1,
+    "crossbow_initial_extra_targets": 1,
+    "crossbow_module_extra_targets": 1,
+    "chain_extra_targets": 1,
+    "chain_range_milli_tiles": 3000
+  },
+  "profiles": [
+    {
+      "id": "crossbow",
+      "base_damage": 12,
+      "speed_milli_tiles_per_second": 20000,
+      "collision_radius_milli_tiles": 100
+    },
+    {
+      "id": "rune_bolt",
+      "base_damage": 16,
+      "speed_milli_tiles_per_second": 10000,
+      "collision_radius_milli_tiles": 180
+    },
+    {
+      "id": "gust_arrow",
+      "base_damage": 22,
+      "speed_milli_tiles_per_second": 16000,
+      "collision_radius_milli_tiles": 100
+    },
+    {
+      "id": "turret_standard_bolt",
+      "base_damage": 14,
+      "speed_milli_tiles_per_second": 10000,
+      "collision_radius_milli_tiles": 100
+    },
+    {
+      "id": "turret_twin_bolt",
+      "base_damage": 9,
+      "speed_milli_tiles_per_second": 10000,
+      "collision_radius_milli_tiles": 100
+    },
+    {
+      "id": "archer_bolt",
+      "base_damage": 12,
+      "speed_milli_tiles_per_second": 6000,
+      "collision_radius_milli_tiles": 100
+    },
+    {
+      "id": "boss_fan_bolt",
+      "base_damage": 18,
+      "speed_milli_tiles_per_second": 6000,
+      "collision_radius_milli_tiles": 100
+    }
+  ],
+  "turret": {
+    "acquisition_range_milli_tiles": 12000,
+    "lifetime_game_ms": 8000,
+    "attack_interval_ms": 600,
+    "skill_cooldown_ms": 12000,
+    "requires_line_of_sight": true,
+    "continues_after_owner_downed": true,
+    "continues_after_owner_dead": true,
+    "stays_in_source_room_after_owner_transition": true,
+    "expiry_or_replacement_removes_fired_projectiles": false,
+    "technical_wait": "stop_fire_lifetime_advances_no_catchup",
+    "room_complete_or_permanent_exit_or_terminal": "remove"
+  },
+  "enemy": {
+    "archer_attack_start_range_milli_tiles": 8000,
+    "archer_preferred_distance_milli_tiles": 5000,
+    "boss_fan_attack_start_range_milli_tiles": 12000,
+    "line_of_sight_required": true,
+    "committed_attack_tracks_target": false,
+    "melee_charge_stomp_ranges_changed": false
+  },
+  "lifecycle": {
+    "owner_downed": "retain",
+    "owner_dead": "retain",
+    "owner_room_changed": "retain_in_source_room",
+    "source_enemy_dead": "retain_until_other_removal",
+    "wave_changed": "retain",
+    "room_completed": "clear_room_projectiles_and_turrets_after_frame",
+    "technical_wait_enter": "clear_run_projectiles_and_reservations_no_refund",
+    "manual_pause": "freeze_entire_world_and_game_clocks",
+    "short_disconnect": "keep_authoritative_world",
+    "permanent_exit": "clear_owned_projectiles_and_turrets_at_cutoff",
+    "terminal": "clear_all_after_complete_frame",
+    "wipe_without_recovery": "fail_without_waiting_for_remaining_attacks",
+    "same_frame_objectives_and_wipe": "success_preserve_real_life_facts"
+  },
+  "contribution": {
+    "freeze_actual_shot_parameters": true,
+    "ordinary_self_contracts_after_owner_incapacitation": true,
+    "ordinary_self_contracts_after_owner_room_change": true,
+    "eligible_requires_original_spatial_and_five_second_evidence": true,
+    "no_knockdown_failure_persists": true,
+    "post_permanent_exit_progress": false,
+    "offscreen_feedback": "generic_no_target_position_or_damage_number_no_exploration"
+  },
+  "capacity": {
+    "live_plus_reserved_initial": 128,
+    "reserve_enemy_before_prepare": true,
+    "atomic_multi_projectile_shots": true,
+    "committed_attack_reservations_preserved": true,
+    "new_player_action_over_capacity": "reject_without_magazine_or_cooldown_cost",
+    "enemy_over_capacity": "defer_before_prepare",
+    "turret_over_capacity": "defer_without_catchup",
+    "evict_live_projectiles": false,
+    "stress_measurement_status": "NOT_RUN"
+  },
+  "runtime_acceptance": "NOT_RUN"
+}

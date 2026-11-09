@@ -1,0 +1,8 @@
+{
+  "player_id": "1",
+  "turret_charges": 2,
+  "turret_group": null,
+  "battle_until_ms": 0,
+  "death_hammer": null,
+  "last_slam": null
+}

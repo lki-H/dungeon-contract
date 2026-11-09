@@ -1,0 +1,9 @@
+{
+  "run_id": "run_example",
+  "operation_id": "operation_pause",
+  "control_version": 5,
+  "status": "applied",
+  "reason": "accepted",
+  "clock_revision": 2,
+  "request_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+}

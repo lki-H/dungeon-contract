@@ -1,0 +1,5287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dungeon Contract 2.2 planned logical messages; not an implemented wire codec",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "input_sequence",
+        "action_watermark",
+        "weapon_id",
+        "weapon_revision",
+        "move_x",
+        "move_y",
+        "aim_u16",
+        "attack_held",
+        "attack_episode_id",
+        "charge_held",
+        "charge_episode_id",
+        "interact_held"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.input.v5",
+          "type": "string"
+        },
+        "input_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "action_watermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "weapon_id": {
+          "type": "string",
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "move_x": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "move_y": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "attack_held": {
+          "type": "boolean"
+        },
+        "attack_episode_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "charge_held": {
+          "type": "boolean"
+        },
+        "charge_episode_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "interact_held": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "action_id",
+        "action_sequence",
+        "input_sequence",
+        "weapon_id",
+        "weapon_revision",
+        "depends_on_switch_id",
+        "move_x",
+        "move_y",
+        "aim_u16",
+        "data"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.action.v5",
+          "type": "string"
+        },
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "action_sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "input_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "weapon_id": {
+          "type": "string",
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "depends_on_switch_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "move_x": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "move_y": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "data": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "episode_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "attack_press",
+                  "type": "string"
+                },
+                "episode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "episode_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "attack_release",
+                  "type": "string"
+                },
+                "episode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "episode_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "charge_begin",
+                  "type": "string"
+                },
+                "episode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "episode_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "charge_release",
+                  "type": "string"
+                },
+                "episode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "episode_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "charge_cancel",
+                  "type": "string"
+                },
+                "episode_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "switch_id",
+                "requested_weapon_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "switch_weapon",
+                  "type": "string"
+                },
+                "switch_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "requested_weapon_id": {
+                  "type": "string",
+                  "enum": [
+                    "repeating_crossbow",
+                    "ruin_blade",
+                    "rune_bolt",
+                    "rune_hammer"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "dodge",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "ability_primary",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "ability_secondary",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "reload",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "interact_begin",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "interact_end",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "rescue_begin",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "rescue_end",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "cancel_input",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "kind",
+                "node_id",
+                "candidate_revision",
+                "candidate_hash",
+                "option_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "choose_growth",
+                  "type": "string"
+                },
+                "node_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "candidate_revision": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                },
+                "candidate_hash": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "option_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "action_id",
+        "status",
+        "reason",
+        "effective_frame",
+        "weapon_id",
+        "weapon_revision",
+        "release_required"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.receipt.v5",
+          "type": "string"
+        },
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "duplicate",
+            "buffered",
+            "rejected"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "duplicate",
+            "buffered",
+            "cooldown",
+            "life_state",
+            "paused",
+            "forbidden",
+            "invalid_phase",
+            "charge_unsupported",
+            "stale_weapon_revision",
+            "stale_episode",
+            "input_sequence",
+            "capacity",
+            "switch_dependency",
+            "choice_revision"
+          ]
+        },
+        "effective_frame": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          ]
+        },
+        "weapon_id": {
+          "type": "string",
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "release_required": {
+          "type": "boolean"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "interest_revision",
+        "frame",
+        "processed_input_sequence",
+        "action_watermark",
+        "presentation_watermark",
+        "clock",
+        "own",
+        "team",
+        "peers",
+        "observed_room",
+        "stat_catalog",
+        "known_map"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.baseline.v5",
+          "type": "string"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "frame": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "processed_input_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "action_watermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "presentation_watermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "clock": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "game_ms",
+            "wall_ms",
+            "manual_pause_ms",
+            "paused",
+            "clock_revision"
+          ],
+          "properties": {
+            "game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "wall_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "manual_pause_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "paused": {
+              "type": "boolean"
+            },
+            "clock_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "own": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "player_id",
+            "slot",
+            "loadout",
+            "life_state",
+            "life_generation",
+            "downed_generation",
+            "room_id",
+            "position_milli",
+            "health",
+            "max_health",
+            "shield",
+            "shield_until_game_ms",
+            "shield_source_cast",
+            "weapon_id",
+            "weapon_revision",
+            "weapons",
+            "attack_state",
+            "charge",
+            "release_required",
+            "dodge_ready_game_ms",
+            "primary_ready_game_ms",
+            "secondary_ready_game_ms",
+            "dodge_until_game_ms",
+            "invulnerable_until_game_ms",
+            "hurt_protection_until_game_ms",
+            "downed_until_game_ms",
+            "rescue_target",
+            "rescue_until_game_ms",
+            "reinforcement_status",
+            "reinforcement_id",
+            "growth",
+            "pending_choices",
+            "pending_branch_shield",
+            "supply_used",
+            "last_move_milli",
+            "dodge_origin_milli",
+            "dodge_direction_u16",
+            "dodge_started_game_ms",
+            "rescue_target_life_generation",
+            "rescue_target_downed_generation",
+            "reinforcement_spawn_game_ms"
+          ],
+          "properties": {
+            "player_id": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,18}$",
+              "maxLength": 19
+            },
+            "slot": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "loadout": {
+              "type": "string",
+              "enum": [
+                "ranger",
+                "runesmith"
+              ]
+            },
+            "life_state": {
+              "type": "string",
+              "enum": [
+                "alive",
+                "downed",
+                "dead",
+                "left"
+              ]
+            },
+            "life_generation": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "downed_generation": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "room_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "position_milli": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                }
+              }
+            },
+            "health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "shield": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "shield_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "shield_source_cast": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              ]
+            },
+            "weapon_id": {
+              "type": "string",
+              "enum": [
+                "repeating_crossbow",
+                "ruin_blade",
+                "rune_bolt",
+                "rune_hammer"
+              ]
+            },
+            "weapon_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "weapons": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "weapon_id",
+                  "ammo",
+                  "capacity",
+                  "ready_game_ms",
+                  "reload_until_game_ms"
+                ],
+                "properties": {
+                  "weapon_id": {
+                    "type": "string",
+                    "enum": [
+                      "repeating_crossbow",
+                      "ruin_blade",
+                      "rune_bolt",
+                      "rune_hammer"
+                    ]
+                  },
+                  "ammo": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  "capacity": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  "ready_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "reload_until_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              "maxItems": 2,
+              "minItems": 2
+            },
+            "attack_state": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "phase",
+                "root_attack_id",
+                "damage_instance_id",
+                "phase_end_game_ms",
+                "ready_game_ms",
+                "aim_u16"
+              ],
+              "properties": {
+                "phase": {
+                  "type": "string",
+                  "enum": [
+                    "idle",
+                    "windup",
+                    "active",
+                    "recover",
+                    "charging",
+                    "release_windup"
+                  ]
+                },
+                "root_attack_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "damage_instance_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "phase_end_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "ready_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "aim_u16": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                }
+              }
+            },
+            "charge": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "episode_id",
+                    "started_game_ms",
+                    "minimum_ms",
+                    "full_ms"
+                  ],
+                  "properties": {
+                    "episode_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "started_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "minimum_ms": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    },
+                    "full_ms": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    }
+                  }
+                }
+              ]
+            },
+            "release_required": {
+              "type": "boolean"
+            },
+            "dodge_ready_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "primary_ready_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "secondary_ready_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "dodge_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "invulnerable_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "hurt_protection_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "downed_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "rescue_target": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,18}$",
+                  "maxLength": 19
+                }
+              ]
+            },
+            "rescue_until_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "reinforcement_status": {
+              "type": "string",
+              "enum": [
+                "none",
+                "reserved",
+                "waiting",
+                "spawned",
+                "insufficient"
+              ]
+            },
+            "reinforcement_id": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                }
+              ]
+            },
+            "growth": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "maxItems": 3,
+              "minItems": 0
+            },
+            "pending_choices": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "node_id",
+                  "revision",
+                  "candidate_hash",
+                  "opened_game_ms",
+                  "deadline_game_ms",
+                  "options"
+                ],
+                "properties": {
+                  "node_id": {
+                    "type": "string",
+                    "enum": [
+                      "growth_1",
+                      "growth_2",
+                      "growth_3"
+                    ]
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "candidate_hash": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "opened_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "deadline_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "maxItems": 3,
+                    "minItems": 3
+                  }
+                }
+              },
+              "maxItems": 3,
+              "minItems": 0
+            },
+            "pending_branch_shield": {
+              "type": "boolean"
+            },
+            "supply_used": {
+              "type": "boolean"
+            },
+            "last_move_milli": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                }
+              }
+            },
+            "dodge_origin_milli": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                }
+              }
+            },
+            "dodge_direction_u16": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "dodge_started_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "rescue_target_life_generation": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                }
+              ]
+            },
+            "rescue_target_downed_generation": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                }
+              ]
+            },
+            "reinforcement_spawn_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "team": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "remaining_reinforcements",
+            "hub_a",
+            "hub_b",
+            "result"
+          ],
+          "properties": {
+            "remaining_reinforcements": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "hub_a": {
+              "type": "boolean"
+            },
+            "hub_b": {
+              "type": "boolean"
+            },
+            "result": {
+              "type": "string",
+              "enum": [
+                "running",
+                "success",
+                "failed",
+                "aborted"
+              ]
+            }
+          }
+        },
+        "peers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "player_id",
+              "slot",
+              "room_id",
+              "life_state",
+              "health",
+              "max_health",
+              "contract_category",
+              "position_milli"
+            ],
+            "properties": {
+              "player_id": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$",
+                "maxLength": 19
+              },
+              "slot": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "room_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "life_state": {
+                "type": "string",
+                "enum": [
+                  "alive",
+                  "downed",
+                  "dead",
+                  "left"
+                ]
+              },
+              "health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "contract_category": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "enum": [
+                      "kill",
+                      "damage",
+                      "reach",
+                      "interact",
+                      "survival"
+                    ]
+                  }
+                ]
+              },
+              "position_milli": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "maxItems": 3,
+          "minItems": 0
+        },
+        "observed_room": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "room_id",
+            "state_revision",
+            "terrain_revision",
+            "status",
+            "mechanism",
+            "doors",
+            "covers",
+            "traps",
+            "enemies",
+            "projectiles",
+            "turrets",
+            "fields",
+            "emitters",
+            "summon_batch",
+            "summon_live_count",
+            "spawn_reservations",
+            "remaining_waves",
+            "finite_enemy_budget_remaining"
+          ],
+          "properties": {
+            "room_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "state_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "terrain_revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "unvisited",
+                "warning",
+                "active",
+                "cleared"
+              ]
+            },
+            "mechanism": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "object_id",
+                "completed",
+                "operator_player_id",
+                "progress_game_ms"
+              ],
+              "properties": {
+                "object_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "operator_player_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[1-9][0-9]{0,18}$",
+                      "maxLength": 19
+                    }
+                  ]
+                },
+                "progress_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "doors": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "door_id",
+                  "open",
+                  "forward_allowed",
+                  "lock_reason"
+                ],
+                "properties": {
+                  "door_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "open": {
+                    "type": "boolean"
+                  },
+                  "forward_allowed": {
+                    "type": "boolean"
+                  },
+                  "lock_reason": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "battle",
+                      "previous_objective",
+                      "waves",
+                      "mechanism",
+                      "loading"
+                    ]
+                  }
+                }
+              },
+              "maxItems": 6,
+              "minItems": 0
+            },
+            "covers": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "cover_id",
+                  "health",
+                  "destroyed"
+                ],
+                "properties": {
+                  "cover_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "health": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 30
+                  },
+                  "destroyed": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "traps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "trap_id",
+                  "state",
+                  "phase_end_game_ms",
+                  "position_milli"
+                ],
+                "properties": {
+                  "trap_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "idle",
+                      "warning",
+                      "active",
+                      "cooldown"
+                    ]
+                  },
+                  "phase_end_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  }
+                }
+              },
+              "maxItems": 4,
+              "minItems": 0
+            },
+            "enemies": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_id",
+                  "generation",
+                  "life_generation",
+                  "kind",
+                  "spawn_origin",
+                  "position_milli",
+                  "health",
+                  "max_health",
+                  "attack"
+                ],
+                "properties": {
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "life_generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "guard",
+                      "archer",
+                      "charger",
+                      "elite",
+                      "boss"
+                    ]
+                  },
+                  "spawn_origin": {
+                    "type": "string",
+                    "enum": [
+                      "main_wave",
+                      "branch_wave",
+                      "boss_body",
+                      "boss_summon",
+                      "practice"
+                    ]
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "health": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "max_health": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "attack": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "kind",
+                      "phase",
+                      "root_attack_id",
+                      "origin_milli",
+                      "aim_u16",
+                      "phase_end_game_ms"
+                    ],
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "none",
+                          "melee",
+                          "charge",
+                          "fan_three",
+                          "burst_three",
+                          "barrage",
+                          "summon"
+                        ]
+                      },
+                      "phase": {
+                        "type": "string",
+                        "enum": [
+                          "entering",
+                          "seek",
+                          "prepare",
+                          "committed",
+                          "execute",
+                          "recover",
+                          "suppressed"
+                        ]
+                      },
+                      "root_attack_id": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                          }
+                        ]
+                      },
+                      "origin_milli": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": -1000000,
+                            "maximum": 1000000
+                          },
+                          "y": {
+                            "type": "integer",
+                            "minimum": -1000000,
+                            "maximum": 1000000
+                          }
+                        }
+                      },
+                      "aim_u16": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 65535
+                      },
+                      "phase_end_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      }
+                    }
+                  }
+                }
+              },
+              "maxItems": 24,
+              "minItems": 0
+            },
+            "projectiles": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_id",
+                  "generation",
+                  "root_attack_id",
+                  "damage_instance_id",
+                  "parent_damage_instance_id",
+                  "owner_player_id",
+                  "source_life_generation",
+                  "target_spawn_origin",
+                  "room_id",
+                  "position_milli",
+                  "aim_u16",
+                  "hostile",
+                  "bounces_remaining",
+                  "extra_targets_remaining",
+                  "stat_snapshot"
+                ],
+                "properties": {
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "root_attack_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "damage_instance_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "parent_damage_instance_id": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      }
+                    ]
+                  },
+                  "owner_player_id": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^[1-9][0-9]{0,18}$",
+                        "maxLength": 19
+                      }
+                    ]
+                  },
+                  "source_life_generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "target_spawn_origin": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "enum": [
+                          "main_wave",
+                          "branch_wave",
+                          "boss_body",
+                          "boss_summon",
+                          "practice"
+                        ]
+                      }
+                    ]
+                  },
+                  "room_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "aim_u16": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "hostile": {
+                    "type": "boolean"
+                  },
+                  "bounces_remaining": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "extra_targets_remaining": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "stat_snapshot": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "stat_snapshot_id",
+                      "damage",
+                      "speed_milli_tiles_per_second",
+                      "radius_milli_tiles",
+                      "extra_targets",
+                      "bounce_count",
+                      "chain",
+                      "slow_milli_factor"
+                    ],
+                    "properties": {
+                      "stat_snapshot_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      },
+                      "damage": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000000
+                      },
+                      "speed_milli_tiles_per_second": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100000
+                      },
+                      "radius_milli_tiles": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      },
+                      "extra_targets": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2
+                      },
+                      "bounce_count": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "chain": {
+                        "type": "boolean"
+                      },
+                      "slow_milli_factor": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      }
+                    }
+                  }
+                }
+              },
+              "maxItems": 1024,
+              "minItems": 0
+            },
+            "turrets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_id",
+                  "generation",
+                  "owner_player_id",
+                  "source_life_generation",
+                  "deployment_cast",
+                  "room_id",
+                  "position_milli",
+                  "ends_game_ms",
+                  "next_shot_game_ms"
+                ],
+                "properties": {
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "owner_player_id": {
+                    "type": "string",
+                    "pattern": "^[1-9][0-9]{0,18}$",
+                    "maxLength": 19
+                  },
+                  "source_life_generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "deployment_cast": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "room_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "ends_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "next_shot_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_id",
+                  "generation",
+                  "owner_player_id",
+                  "cast_id",
+                  "kind",
+                  "center_milli",
+                  "radius_milli_tiles",
+                  "ends_game_ms",
+                  "granted_player_ids"
+                ],
+                "properties": {
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "owner_player_id": {
+                    "type": "string",
+                    "pattern": "^[1-9][0-9]{0,18}$",
+                    "maxLength": 19
+                  },
+                  "cast_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "wind_bind",
+                      "shield_field"
+                    ]
+                  },
+                  "center_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "radius_milli_tiles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "ends_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "granted_player_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[1-9][0-9]{0,18}$",
+                      "maxLength": 19
+                    },
+                    "maxItems": 4,
+                    "minItems": 0
+                  }
+                }
+              },
+              "maxItems": 8,
+              "minItems": 0
+            },
+            "emitters": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "emitter_id",
+                  "root_attack_id",
+                  "source_generation",
+                  "boss_id",
+                  "phase",
+                  "started_game_ms",
+                  "ends_game_ms",
+                  "next_pulse_game_ms",
+                  "next_pulse_index",
+                  "total_pulses",
+                  "shots_per_pulse",
+                  "reserved_remaining",
+                  "initial_angle_u16",
+                  "rotation_deg_per_pulse",
+                  "stat_snapshot"
+                ],
+                "properties": {
+                  "emitter_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "root_attack_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "source_generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "boss_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "phase": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2
+                  },
+                  "started_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "ends_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "next_pulse_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "next_pulse_index": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                  },
+                  "total_pulses": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 15
+                  },
+                  "shots_per_pulse": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 16
+                  },
+                  "reserved_remaining": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 240
+                  },
+                  "initial_angle_u16": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "rotation_deg_per_pulse": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 360
+                  },
+                  "stat_snapshot": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "stat_snapshot_id",
+                      "damage",
+                      "speed_milli_tiles_per_second",
+                      "radius_milli_tiles",
+                      "extra_targets",
+                      "bounce_count",
+                      "chain",
+                      "slow_milli_factor"
+                    ],
+                    "properties": {
+                      "stat_snapshot_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      },
+                      "damage": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000000
+                      },
+                      "speed_milli_tiles_per_second": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 100000
+                      },
+                      "radius_milli_tiles": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      },
+                      "extra_targets": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2
+                      },
+                      "bounce_count": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "chain": {
+                        "type": "boolean"
+                      },
+                      "slow_milli_factor": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      }
+                    }
+                  }
+                }
+              },
+              "maxItems": 24,
+              "minItems": 0
+            },
+            "summon_batch": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "batch_id",
+                    "source_boss_id",
+                    "spawn_origin",
+                    "requested_game_ms",
+                    "last_actual_spawn_game_ms",
+                    "state",
+                    "reserved_enemy_slots",
+                    "points",
+                    "contract_progress_eligible"
+                  ],
+                  "properties": {
+                    "batch_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "source_boss_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "spawn_origin": {
+                      "const": "boss_summon",
+                      "type": "string"
+                    },
+                    "requested_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "last_actual_spawn_game_ms": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 2147483647
+                        }
+                      ]
+                    },
+                    "state": {
+                      "type": "string",
+                      "enum": [
+                        "waiting_capacity",
+                        "warning",
+                        "ready"
+                      ]
+                    },
+                    "reserved_enemy_slots": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 6
+                    },
+                    "points": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "reservation_id",
+                          "slot",
+                          "kind",
+                          "position_milli",
+                          "revision",
+                          "terrain_revision",
+                          "warning_begin_game_ms",
+                          "warning_end_game_ms",
+                          "warning_complete"
+                        ],
+                        "properties": {
+                          "reservation_id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 64,
+                            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                          },
+                          "slot": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 5
+                          },
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "guard",
+                              "archer",
+                              "charger",
+                              "elite"
+                            ]
+                          },
+                          "position_milli": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "x",
+                              "y"
+                            ],
+                            "properties": {
+                              "x": {
+                                "type": "integer",
+                                "minimum": -1000000,
+                                "maximum": 1000000
+                              },
+                              "y": {
+                                "type": "integer",
+                                "minimum": -1000000,
+                                "maximum": 1000000
+                              }
+                            }
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 2147483647
+                          },
+                          "terrain_revision": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 2147483647
+                          },
+                          "warning_begin_game_ms": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2147483647
+                          },
+                          "warning_end_game_ms": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 2147483647
+                          },
+                          "warning_complete": {
+                            "type": "boolean"
+                          }
+                        }
+                      },
+                      "maxItems": 6,
+                      "minItems": 0
+                    },
+                    "contract_progress_eligible": {
+                      "const": false,
+                      "type": "boolean"
+                    }
+                  }
+                }
+              ]
+            },
+            "summon_live_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 12
+            },
+            "spawn_reservations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reservation_id",
+                  "entity_id",
+                  "entity_generation",
+                  "room_id",
+                  "spawn_origin",
+                  "kind",
+                  "position_milli",
+                  "revision",
+                  "terrain_revision",
+                  "warning_begin_game_ms",
+                  "warning_end_game_ms",
+                  "warning_complete"
+                ],
+                "properties": {
+                  "reservation_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "entity_generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "room_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "spawn_origin": {
+                    "type": "string",
+                    "enum": [
+                      "main_wave",
+                      "branch_wave",
+                      "boss_body",
+                      "boss_summon",
+                      "practice"
+                    ]
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "guard",
+                      "archer",
+                      "charger",
+                      "elite",
+                      "boss"
+                    ]
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "terrain_revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "warning_begin_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "warning_end_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "warning_complete": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "maxItems": 24,
+              "minItems": 0
+            },
+            "remaining_waves": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ]
+            },
+            "finite_enemy_budget_remaining": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ]
+            }
+          }
+        },
+        "stat_catalog": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "handle",
+              "stat_snapshot"
+            ],
+            "properties": {
+              "handle": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "stat_snapshot": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "stat_snapshot_id",
+                  "damage",
+                  "speed_milli_tiles_per_second",
+                  "radius_milli_tiles",
+                  "extra_targets",
+                  "bounce_count",
+                  "chain",
+                  "slow_milli_factor"
+                ],
+                "properties": {
+                  "stat_snapshot_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "damage": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000000
+                  },
+                  "speed_milli_tiles_per_second": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  },
+                  "radius_milli_tiles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  },
+                  "extra_targets": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "bounce_count": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "chain": {
+                    "type": "boolean"
+                  },
+                  "slow_milli_factor": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  }
+                }
+              }
+            }
+          },
+          "maxItems": 256,
+          "minItems": 0
+        },
+        "known_map": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "room_id",
+              "visited",
+              "completed",
+              "width_tiles",
+              "height_tiles",
+              "known_door_ids",
+              "known_trap_ids"
+            ],
+            "properties": {
+              "room_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "visited": {
+                "type": "boolean"
+              },
+              "completed": {
+                "type": "boolean"
+              },
+              "width_tiles": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 34
+              },
+              "height_tiles": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 20
+              },
+              "known_door_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "maxItems": 6,
+                "minItems": 0
+              },
+              "known_trap_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "maxItems": 4,
+                "minItems": 0
+              }
+            }
+          },
+          "maxItems": 8,
+          "minItems": 0
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "frame",
+        "state_revision",
+        "interest_revision",
+        "group_id",
+        "entities",
+        "group_kind",
+        "processed_input_sequence"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.dynamic.v5",
+          "type": "string"
+        },
+        "frame": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "group_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 63
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_id",
+                  "generation",
+                  "position_milli",
+                  "aim_u16",
+                  "health",
+                  "max_health"
+                ],
+                "properties": {
+                  "entity_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "aim_u16": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "health": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "max_health": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "entity_handle",
+                  "generation",
+                  "prototype_handle",
+                  "stat_snapshot_handle",
+                  "root_attack_handle",
+                  "owner_slot",
+                  "position_milli",
+                  "aim_u16",
+                  "speed_milli_tiles_per_second",
+                  "bounces_remaining",
+                  "extra_targets_remaining",
+                  "hostile"
+                ],
+                "properties": {
+                  "entity_handle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4294967295
+                  },
+                  "generation": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4294967295
+                  },
+                  "prototype_handle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                  },
+                  "stat_snapshot_handle": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "root_attack_handle": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4294967295
+                  },
+                  "owner_slot": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "aim_u16": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "speed_milli_tiles_per_second": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65535
+                  },
+                  "bounces_remaining": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "extra_targets_remaining": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "hostile": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            ]
+          },
+          "maxItems": 24,
+          "minItems": 0
+        },
+        "group_kind": {
+          "type": "string",
+          "enum": [
+            "actors",
+            "projectiles",
+            "own"
+          ]
+        },
+        "processed_input_sequence": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "event_id",
+        "event_game_ms",
+        "kind",
+        "root_attack_id",
+        "damage_instance_id",
+        "entity_id",
+        "position_milli",
+        "value",
+        "expires_game_ms"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.presentation.v5",
+          "type": "string"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "event_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "melee_start",
+            "impact",
+            "projectile_cleared",
+            "hurt",
+            "kill",
+            "barrage_pulse",
+            "summon_warning"
+          ]
+        },
+        "root_attack_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "damage_instance_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "entity_id": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          ]
+        },
+        "position_milli": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "x",
+            "y"
+          ],
+          "properties": {
+            "x": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000
+            },
+            "y": {
+              "type": "integer",
+              "minimum": -1000000,
+              "maximum": 1000000
+            }
+          }
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "expires_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "interest_revision",
+        "data"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.emitter.v5",
+          "type": "string"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "emitter_id",
+            "root_attack_id",
+            "source_generation",
+            "boss_id",
+            "phase",
+            "started_game_ms",
+            "ends_game_ms",
+            "next_pulse_game_ms",
+            "next_pulse_index",
+            "total_pulses",
+            "shots_per_pulse",
+            "reserved_remaining",
+            "initial_angle_u16",
+            "rotation_deg_per_pulse",
+            "stat_snapshot"
+          ],
+          "properties": {
+            "emitter_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "root_attack_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "source_generation": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647
+            },
+            "boss_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "phase": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2
+            },
+            "started_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "ends_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next_pulse_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next_pulse_index": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15
+            },
+            "total_pulses": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 15
+            },
+            "shots_per_pulse": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16
+            },
+            "reserved_remaining": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 240
+            },
+            "initial_angle_u16": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "rotation_deg_per_pulse": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 360
+            },
+            "stat_snapshot": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "stat_snapshot_id",
+                "damage",
+                "speed_milli_tiles_per_second",
+                "radius_milli_tiles",
+                "extra_targets",
+                "bounce_count",
+                "chain",
+                "slow_milli_factor"
+              ],
+              "properties": {
+                "stat_snapshot_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000000
+                },
+                "speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100000
+                },
+                "radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "extra_targets": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2
+                },
+                "bounce_count": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "chain": {
+                  "type": "boolean"
+                },
+                "slow_milli_factor": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "interest_revision",
+        "data"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.summon.v5",
+          "type": "string"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "batch_id",
+            "source_boss_id",
+            "spawn_origin",
+            "requested_game_ms",
+            "last_actual_spawn_game_ms",
+            "state",
+            "reserved_enemy_slots",
+            "points",
+            "contract_progress_eligible"
+          ],
+          "properties": {
+            "batch_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "source_boss_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "spawn_origin": {
+              "const": "boss_summon",
+              "type": "string"
+            },
+            "requested_game_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "last_actual_spawn_game_ms": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ]
+            },
+            "state": {
+              "type": "string",
+              "enum": [
+                "waiting_capacity",
+                "warning",
+                "ready"
+              ]
+            },
+            "reserved_enemy_slots": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            },
+            "points": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "reservation_id",
+                  "slot",
+                  "kind",
+                  "position_milli",
+                  "revision",
+                  "terrain_revision",
+                  "warning_begin_game_ms",
+                  "warning_end_game_ms",
+                  "warning_complete"
+                ],
+                "properties": {
+                  "reservation_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "slot": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 5
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "guard",
+                      "archer",
+                      "charger",
+                      "elite"
+                    ]
+                  },
+                  "position_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "terrain_revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "warning_begin_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "warning_end_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "warning_complete": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "maxItems": 6,
+              "minItems": 0
+            },
+            "contract_progress_eligible": {
+              "const": false,
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "operation",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "interest_revision",
+        "effective_frame",
+        "own",
+        "enemy_upserts",
+        "emitter_upserts",
+        "summon_batch",
+        "terrain_revision",
+        "cover_upserts",
+        "tombstones",
+        "turret_upserts",
+        "field_upserts",
+        "door_upserts",
+        "mechanism",
+        "team",
+        "spawn_reservations",
+        "stat_catalog_upserts"
+      ],
+      "properties": {
+        "protocol_version": {
+          "const": 5,
+          "type": "number"
+        },
+        "operation": {
+          "const": "dc_ruins.v5",
+          "type": "string"
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.state.v5",
+          "type": "string"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "effective_frame": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "own": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "player_id",
+                "slot",
+                "loadout",
+                "life_state",
+                "life_generation",
+                "downed_generation",
+                "room_id",
+                "position_milli",
+                "health",
+                "max_health",
+                "shield",
+                "shield_until_game_ms",
+                "shield_source_cast",
+                "weapon_id",
+                "weapon_revision",
+                "weapons",
+                "attack_state",
+                "charge",
+                "release_required",
+                "dodge_ready_game_ms",
+                "primary_ready_game_ms",
+                "secondary_ready_game_ms",
+                "dodge_until_game_ms",
+                "invulnerable_until_game_ms",
+                "hurt_protection_until_game_ms",
+                "downed_until_game_ms",
+                "rescue_target",
+                "rescue_until_game_ms",
+                "reinforcement_status",
+                "reinforcement_id",
+                "growth",
+                "pending_choices",
+                "pending_branch_shield",
+                "supply_used",
+                "last_move_milli",
+                "dodge_origin_milli",
+                "dodge_direction_u16",
+                "dodge_started_game_ms",
+                "rescue_target_life_generation",
+                "rescue_target_downed_generation",
+                "reinforcement_spawn_game_ms"
+              ],
+              "properties": {
+                "player_id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,18}$",
+                  "maxLength": 19
+                },
+                "slot": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "loadout": {
+                  "type": "string",
+                  "enum": [
+                    "ranger",
+                    "runesmith"
+                  ]
+                },
+                "life_state": {
+                  "type": "string",
+                  "enum": [
+                    "alive",
+                    "downed",
+                    "dead",
+                    "left"
+                  ]
+                },
+                "life_generation": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                },
+                "downed_generation": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "room_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "position_milli": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    },
+                    "y": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    }
+                  }
+                },
+                "health": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "max_health": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                },
+                "shield": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "shield_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "shield_source_cast": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "weapon_id": {
+                  "type": "string",
+                  "enum": [
+                    "repeating_crossbow",
+                    "ruin_blade",
+                    "rune_bolt",
+                    "rune_hammer"
+                  ]
+                },
+                "weapon_revision": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2147483647
+                },
+                "weapons": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "weapon_id",
+                      "ammo",
+                      "capacity",
+                      "ready_game_ms",
+                      "reload_until_game_ms"
+                    ],
+                    "properties": {
+                      "weapon_id": {
+                        "type": "string",
+                        "enum": [
+                          "repeating_crossbow",
+                          "ruin_blade",
+                          "rune_bolt",
+                          "rune_hammer"
+                        ]
+                      },
+                      "ammo": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                      },
+                      "capacity": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 10
+                      },
+                      "ready_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "reload_until_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      }
+                    }
+                  },
+                  "maxItems": 2,
+                  "minItems": 2
+                },
+                "attack_state": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "phase",
+                    "root_attack_id",
+                    "damage_instance_id",
+                    "phase_end_game_ms",
+                    "ready_game_ms",
+                    "aim_u16"
+                  ],
+                  "properties": {
+                    "phase": {
+                      "type": "string",
+                      "enum": [
+                        "idle",
+                        "windup",
+                        "active",
+                        "recover",
+                        "charging",
+                        "release_windup"
+                      ]
+                    },
+                    "root_attack_id": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        }
+                      ]
+                    },
+                    "damage_instance_id": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        }
+                      ]
+                    },
+                    "phase_end_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "ready_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "aim_u16": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 65535
+                    }
+                  }
+                },
+                "charge": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "episode_id",
+                        "started_game_ms",
+                        "minimum_ms",
+                        "full_ms"
+                      ],
+                      "properties": {
+                        "episode_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        },
+                        "started_game_ms": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 2147483647
+                        },
+                        "minimum_ms": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 2147483647
+                        },
+                        "full_ms": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 2147483647
+                        }
+                      }
+                    }
+                  ]
+                },
+                "release_required": {
+                  "type": "boolean"
+                },
+                "dodge_ready_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "primary_ready_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "secondary_ready_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "dodge_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "invulnerable_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "hurt_protection_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "downed_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "rescue_target": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[1-9][0-9]{0,18}$",
+                      "maxLength": 19
+                    }
+                  ]
+                },
+                "rescue_until_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "reinforcement_status": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "reserved",
+                    "waiting",
+                    "spawned",
+                    "insufficient"
+                  ]
+                },
+                "reinforcement_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "growth": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "maxItems": 3,
+                  "minItems": 0
+                },
+                "pending_choices": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "node_id",
+                      "revision",
+                      "candidate_hash",
+                      "opened_game_ms",
+                      "deadline_game_ms",
+                      "options"
+                    ],
+                    "properties": {
+                      "node_id": {
+                        "type": "string",
+                        "enum": [
+                          "growth_1",
+                          "growth_2",
+                          "growth_3"
+                        ]
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 2147483647
+                      },
+                      "candidate_hash": {
+                        "type": "string",
+                        "pattern": "^[0-9a-f]{64}$"
+                      },
+                      "opened_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "deadline_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "options": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3
+                      }
+                    }
+                  },
+                  "maxItems": 3,
+                  "minItems": 0
+                },
+                "pending_branch_shield": {
+                  "type": "boolean"
+                },
+                "supply_used": {
+                  "type": "boolean"
+                },
+                "last_move_milli": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    },
+                    "y": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    }
+                  }
+                },
+                "dodge_origin_milli": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "x",
+                    "y"
+                  ],
+                  "properties": {
+                    "x": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    },
+                    "y": {
+                      "type": "integer",
+                      "minimum": -1000000,
+                      "maximum": 1000000
+                    }
+                  }
+                },
+                "dodge_direction_u16": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                "dodge_started_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "rescue_target_life_generation": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    }
+                  ]
+                },
+                "rescue_target_downed_generation": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 2147483647
+                    }
+                  ]
+                },
+                "reinforcement_spawn_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          ]
+        },
+        "enemy_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entity_id",
+              "generation",
+              "life_generation",
+              "kind",
+              "spawn_origin",
+              "position_milli",
+              "health",
+              "max_health",
+              "attack"
+            ],
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "life_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "guard",
+                  "archer",
+                  "charger",
+                  "elite",
+                  "boss"
+                ]
+              },
+              "spawn_origin": {
+                "type": "string",
+                "enum": [
+                  "main_wave",
+                  "branch_wave",
+                  "boss_body",
+                  "boss_summon",
+                  "practice"
+                ]
+              },
+              "position_milli": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  }
+                }
+              },
+              "health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "attack": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "phase",
+                  "root_attack_id",
+                  "origin_milli",
+                  "aim_u16",
+                  "phase_end_game_ms"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "melee",
+                      "charge",
+                      "fan_three",
+                      "burst_three",
+                      "barrage",
+                      "summon"
+                    ]
+                  },
+                  "phase": {
+                    "type": "string",
+                    "enum": [
+                      "entering",
+                      "seek",
+                      "prepare",
+                      "committed",
+                      "execute",
+                      "recover",
+                      "suppressed"
+                    ]
+                  },
+                  "root_attack_id": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      }
+                    ]
+                  },
+                  "origin_milli": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -1000000,
+                        "maximum": 1000000
+                      }
+                    }
+                  },
+                  "aim_u16": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                  },
+                  "phase_end_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  }
+                }
+              }
+            }
+          },
+          "maxItems": 24,
+          "minItems": 0
+        },
+        "emitter_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "emitter_id",
+              "root_attack_id",
+              "source_generation",
+              "boss_id",
+              "phase",
+              "started_game_ms",
+              "ends_game_ms",
+              "next_pulse_game_ms",
+              "next_pulse_index",
+              "total_pulses",
+              "shots_per_pulse",
+              "reserved_remaining",
+              "initial_angle_u16",
+              "rotation_deg_per_pulse",
+              "stat_snapshot"
+            ],
+            "properties": {
+              "emitter_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "root_attack_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "source_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "boss_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "phase": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2
+              },
+              "started_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "ends_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "next_pulse_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "next_pulse_index": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 15
+              },
+              "total_pulses": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 15
+              },
+              "shots_per_pulse": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16
+              },
+              "reserved_remaining": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 240
+              },
+              "initial_angle_u16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "rotation_deg_per_pulse": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 360
+              },
+              "stat_snapshot": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "stat_snapshot_id",
+                  "damage",
+                  "speed_milli_tiles_per_second",
+                  "radius_milli_tiles",
+                  "extra_targets",
+                  "bounce_count",
+                  "chain",
+                  "slow_milli_factor"
+                ],
+                "properties": {
+                  "stat_snapshot_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "damage": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000000
+                  },
+                  "speed_milli_tiles_per_second": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  },
+                  "radius_milli_tiles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  },
+                  "extra_targets": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "bounce_count": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "chain": {
+                    "type": "boolean"
+                  },
+                  "slow_milli_factor": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  }
+                }
+              }
+            }
+          },
+          "maxItems": 24,
+          "minItems": 0
+        },
+        "summon_batch": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "batch_id",
+                "source_boss_id",
+                "spawn_origin",
+                "requested_game_ms",
+                "last_actual_spawn_game_ms",
+                "state",
+                "reserved_enemy_slots",
+                "points",
+                "contract_progress_eligible"
+              ],
+              "properties": {
+                "batch_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "source_boss_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                },
+                "spawn_origin": {
+                  "const": "boss_summon",
+                  "type": "string"
+                },
+                "requested_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "last_actual_spawn_game_ms": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    }
+                  ]
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "waiting_capacity",
+                    "warning",
+                    "ready"
+                  ]
+                },
+                "reserved_enemy_slots": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 6
+                },
+                "points": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "reservation_id",
+                      "slot",
+                      "kind",
+                      "position_milli",
+                      "revision",
+                      "terrain_revision",
+                      "warning_begin_game_ms",
+                      "warning_end_game_ms",
+                      "warning_complete"
+                    ],
+                    "properties": {
+                      "reservation_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      },
+                      "slot": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 5
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "guard",
+                          "archer",
+                          "charger",
+                          "elite"
+                        ]
+                      },
+                      "position_milli": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": -1000000,
+                            "maximum": 1000000
+                          },
+                          "y": {
+                            "type": "integer",
+                            "minimum": -1000000,
+                            "maximum": 1000000
+                          }
+                        }
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 2147483647
+                      },
+                      "terrain_revision": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 2147483647
+                      },
+                      "warning_begin_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "warning_end_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 2147483647
+                      },
+                      "warning_complete": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "maxItems": 6,
+                  "minItems": 0
+                },
+                "contract_progress_eligible": {
+                  "const": false,
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "terrain_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        },
+        "cover_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cover_id",
+              "health",
+              "destroyed"
+            ],
+            "properties": {
+              "cover_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 30
+              },
+              "destroyed": {
+                "type": "boolean"
+              }
+            }
+          },
+          "maxItems": 8,
+          "minItems": 0
+        },
+        "tombstones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entity_id",
+              "generation",
+              "reason"
+            ],
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "death",
+                  "cleared",
+                  "cancelled",
+                  "technical_wait",
+                  "terminal",
+                  "permanent_exit",
+                  "expired"
+                ]
+              }
+            }
+          },
+          "maxItems": 128,
+          "minItems": 0
+        },
+        "turret_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entity_id",
+              "generation",
+              "owner_player_id",
+              "source_life_generation",
+              "deployment_cast",
+              "room_id",
+              "position_milli",
+              "ends_game_ms",
+              "next_shot_game_ms"
+            ],
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "owner_player_id": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$",
+                "maxLength": 19
+              },
+              "source_life_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "deployment_cast": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "room_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "position_milli": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  }
+                }
+              },
+              "ends_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "next_shot_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "maxItems": 8,
+          "minItems": 0
+        },
+        "field_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "entity_id",
+              "generation",
+              "owner_player_id",
+              "cast_id",
+              "kind",
+              "center_milli",
+              "radius_milli_tiles",
+              "ends_game_ms",
+              "granted_player_ids"
+            ],
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "owner_player_id": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$",
+                "maxLength": 19
+              },
+              "cast_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "wind_bind",
+                  "shield_field"
+                ]
+              },
+              "center_milli": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  }
+                }
+              },
+              "radius_milli_tiles": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "ends_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "granted_player_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,18}$",
+                  "maxLength": 19
+                },
+                "maxItems": 4,
+                "minItems": 0
+              }
+            }
+          },
+          "maxItems": 8,
+          "minItems": 0
+        },
+        "door_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "door_id",
+              "open",
+              "forward_allowed",
+              "lock_reason"
+            ],
+            "properties": {
+              "door_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "open": {
+                "type": "boolean"
+              },
+              "forward_allowed": {
+                "type": "boolean"
+              },
+              "lock_reason": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "battle",
+                  "previous_objective",
+                  "waves",
+                  "mechanism",
+                  "loading"
+                ]
+              }
+            }
+          },
+          "maxItems": 6,
+          "minItems": 0
+        },
+        "mechanism": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "object_id",
+                "completed",
+                "operator_player_id",
+                "progress_game_ms"
+              ],
+              "properties": {
+                "object_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    }
+                  ]
+                },
+                "completed": {
+                  "type": "boolean"
+                },
+                "operator_player_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "pattern": "^[1-9][0-9]{0,18}$",
+                      "maxLength": 19
+                    }
+                  ]
+                },
+                "progress_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          ]
+        },
+        "team": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "remaining_reinforcements",
+                "hub_a",
+                "hub_b",
+                "result"
+              ],
+              "properties": {
+                "remaining_reinforcements": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "hub_a": {
+                  "type": "boolean"
+                },
+                "hub_b": {
+                  "type": "boolean"
+                },
+                "result": {
+                  "type": "string",
+                  "enum": [
+                    "running",
+                    "success",
+                    "failed",
+                    "aborted"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "spawn_reservations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "reservation_id",
+              "entity_id",
+              "entity_generation",
+              "room_id",
+              "spawn_origin",
+              "kind",
+              "position_milli",
+              "revision",
+              "terrain_revision",
+              "warning_begin_game_ms",
+              "warning_end_game_ms",
+              "warning_complete"
+            ],
+            "properties": {
+              "reservation_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "entity_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "room_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "spawn_origin": {
+                "type": "string",
+                "enum": [
+                  "main_wave",
+                  "branch_wave",
+                  "boss_body",
+                  "boss_summon",
+                  "practice"
+                ]
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "guard",
+                  "archer",
+                  "charger",
+                  "elite",
+                  "boss"
+                ]
+              },
+              "position_milli": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": -1000000,
+                    "maximum": 1000000
+                  }
+                }
+              },
+              "revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "terrain_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "warning_begin_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "warning_end_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "warning_complete": {
+                "type": "boolean"
+              }
+            }
+          },
+          "maxItems": 24,
+          "minItems": 0
+        },
+        "stat_catalog_upserts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "handle",
+              "stat_snapshot"
+            ],
+            "properties": {
+              "handle": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "stat_snapshot": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "stat_snapshot_id",
+                  "damage",
+                  "speed_milli_tiles_per_second",
+                  "radius_milli_tiles",
+                  "extra_targets",
+                  "bounce_count",
+                  "chain",
+                  "slow_milli_factor"
+                ],
+                "properties": {
+                  "stat_snapshot_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "damage": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000000
+                  },
+                  "speed_milli_tiles_per_second": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 100000
+                  },
+                  "radius_milli_tiles": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  },
+                  "extra_targets": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2
+                  },
+                  "bounce_count": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "chain": {
+                    "type": "boolean"
+                  },
+                  "slow_milli_factor": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000
+                  }
+                }
+              }
+            }
+          },
+          "maxItems": 256,
+          "minItems": 0
+        }
+      }
+    }
+  ]
+}

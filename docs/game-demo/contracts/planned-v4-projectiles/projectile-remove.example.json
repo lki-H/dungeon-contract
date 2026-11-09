@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "planned_record_not_registered",
+  "record_kind": "projectile_remove",
+  "entity_id": "projectile_turret_01",
+  "entity_generation": 1,
+  "room_id": "defense",
+  "effective_frame": 330,
+  "remove_reason": "technical_wait"
+}

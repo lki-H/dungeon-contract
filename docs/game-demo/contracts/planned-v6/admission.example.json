@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "planned_not_registered",
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "versions": {
+    "operation": "dc_ruins.v6",
+    "content": "dc_content.v6.draft1",
+    "world": "dc_rooms.v6.draft1",
+    "tasks": "dc_tasks.v5.p4.1",
+    "trial": "trial.v6.draft1",
+    "battle_protocol": 6,
+    "control_schema": 2
+  },
+  "seed": 20261012,
+  "endpoint_key": "fixture_loopback",
+  "content_artifacts": {
+    "parameters": {
+      "definition_id": "dc_parameters.v6.draft1",
+      "sha256": "38b872c03e55776c52ef3897721e75bfbd01a143c075e1878e11411922a5f276",
+      "bytes": 35699
+    },
+    "world": {
+      "definition_id": "dc_rooms.v6.draft1",
+      "sha256": "65c8216ac69755623842c477e7135a8414db470f6941cc4b3966097c28b92fe1",
+      "bytes": 461614
+    }
+  },
+  "selected_variants": [
+    {
+      "room_id": "entry",
+      "variant_id": "entry_a"
+    },
+    {
+      "room_id": "foyer",
+      "variant_id": "foyer_a"
+    },
+    {
+      "room_id": "mechanism",
+      "variant_id": "mechanism_a"
+    },
+    {
+      "room_id": "defense",
+      "variant_id": "defense_a"
+    },
+    {
+      "room_id": "sanctum",
+      "variant_id": "sanctum_a"
+    },
+    {
+      "room_id": "boss_room",
+      "variant_id": "boss_room_a"
+    },
+    {
+      "room_id": "rune_branch",
+      "variant_id": "rune_branch_a"
+    },
+    {
+      "room_id": "supply_branch",
+      "variant_id": "supply_branch_a"
+    },
+    {
+      "room_id": "corridor_entry_foyer",
+      "variant_id": "corridor_entry_foyer_a"
+    },
+    {
+      "room_id": "corridor_foyer_mechanism",
+      "variant_id": "corridor_foyer_mechanism_a"
+    },
+    {
+      "room_id": "corridor_mechanism_defense",
+      "variant_id": "corridor_mechanism_defense_a"
+    },
+    {
+      "room_id": "corridor_defense_sanctum",
+      "variant_id": "corridor_defense_sanctum_a"
+    },
+    {
+      "room_id": "corridor_sanctum_boss",
+      "variant_id": "corridor_sanctum_boss_a"
+    },
+    {
+      "room_id": "corridor_mechanism_rune",
+      "variant_id": "corridor_mechanism_rune_a"
+    },
+    {
+      "room_id": "corridor_sanctum_supply",
+      "variant_id": "corridor_sanctum_supply_a"
+    }
+  ],
+  "branch_exists": {
+    "rune_branch": true,
+    "supply_branch": false
+  }
+}

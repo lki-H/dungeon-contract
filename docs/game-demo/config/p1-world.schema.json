@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["definition_id", "status", "physics", "encounter", "view"],
+  "properties": {
+    "definition_id": {"const": "dc_graybox.v1"},
+    "status": {"const": "unverified_initial"},
+    "physics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["enemy_radius_milli", "elite_radius_milli", "boss_radius_milli", "projectile_radius_milli", "sweep_step_milli", "contact_protection_ms"],
+      "properties": {
+        "enemy_radius_milli": {"type": "integer", "minimum": 100, "maximum": 1000},
+        "elite_radius_milli": {"type": "integer", "minimum": 100, "maximum": 1000},
+        "boss_radius_milli": {"type": "integer", "minimum": 100, "maximum": 2000},
+        "projectile_radius_milli": {"type": "integer", "minimum": 10, "maximum": 300},
+        "sweep_step_milli": {"type": "integer", "minimum": 10, "maximum": 200},
+        "contact_protection_ms": {"type": "integer", "minimum": 0, "maximum": 1000}
+      }
+    },
+    "encounter": {
+      "type": "object", "additionalProperties": false,
+      "required": ["room_width", "room_height", "door_rows", "boss_spawn", "supply_position", "projectile_lifetime_ms", "wave_start_warning_ms"],
+      "properties": {
+        "room_width": {"const": 16}, "room_height": {"const": 12},
+        "door_rows": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 10}, "minItems": 2, "maxItems": 2},
+        "boss_spawn": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 14}, "minItems": 2, "maxItems": 2},
+        "supply_position": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 10}, "minItems": 2, "maxItems": 2},
+        "projectile_lifetime_ms": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "wave_start_warning_ms": {"type": "integer", "minimum": 0, "maximum": 5000}
+      }
+    },
+    "view": {
+      "type": "object", "additionalProperties": false,
+      "required": ["snapshot_hz", "interpolation_ms", "camera_size_milli", "width", "height"],
+      "properties": {
+        "snapshot_hz": {"type": "integer", "minimum": 1, "maximum": 30},
+        "interpolation_ms": {"type": "integer", "minimum": 0, "maximum": 250},
+        "camera_size_milli": {"type": "integer", "minimum": 1000, "maximum": 12000},
+        "width": {"const": 1280}, "height": {"const": 720}
+      }
+    }
+  }
+}

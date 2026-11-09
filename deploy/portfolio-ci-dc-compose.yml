@@ -1,0 +1,80 @@
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
+    cpus: 1.0
+    mem_limit: 512m
+    environment:
+      MYSQL_ROOT_PASSWORD: ${PORTFOLIO_CI_ROOT_PASSWORD:?required}
+      MYSQL_DATABASE: game_realtime_dc_demo
+      MYSQL_USER: dc_demo
+      MYSQL_PASSWORD: ${PORTFOLIO_CI_DB_PASSWORD:?required}
+    command: ["--default-time-zone=+00:00", "--port=23316", "--innodb-buffer-pool-size=134217728", "--skip-log-bin"]
+    volumes:
+      - portfolio-ci-mysql:/var/lib/mysql
+      - ${PORTFOLIO_PROJECT_ROOT}/backend/internal/database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_ROOT_PASSWORD mysqladmin -h127.0.0.1 -P23316 -uroot ping --silent"]
+      interval: 3s
+      timeout: 3s
+      retries: 60
+  redis:
+    image: redis:7@sha256:33d7c9a245edd95e6703a0addbeaa48fe40c3b3b4783627a72085155462ebfdb
+    cpus: 0.5
+    mem_limit: 96m
+    network_mode: service:mysql
+    environment:
+      PORTFOLIO_CI_REDIS_PASSWORD: ${PORTFOLIO_CI_REDIS_PASSWORD:?required}
+    command: ["redis-server", "--bind", "127.0.0.1", "--port", "26389", "--appendonly", "no", "--requirepass", "${PORTFOLIO_CI_REDIS_PASSWORD:?required}"]
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=$$PORTFOLIO_CI_REDIS_PASSWORD redis-cli -h 127.0.0.1 -p 26389 ping | grep -qx PONG"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+  runner:
+    image: golang:1.25.6-bookworm
+    cpus: 2.0
+    mem_limit: 1152m
+    network_mode: service:mysql
+    working_dir: /workspace/backend
+    depends_on:
+      redis:
+        condition: service_healthy
+    environment:
+      CGO_ENABLED: "1"
+      GOMAXPROCS: "2"
+      GOFLAGS: "-p=1 -buildvcs=false"
+      GOTOOLCHAIN: local
+      GOCACHE: /tmp/go-build
+      GOMODCACHE: /go/pkg/mod
+      DB_HOST: 127.0.0.1
+      DB_PORT: "23316"
+      DB_USER: dc_demo
+      DB_PASSWORD: ${PORTFOLIO_CI_DB_PASSWORD:?required}
+      DB_NAME: game_realtime_dc_demo
+      REDIS_ADDR: 127.0.0.1:26389
+      REDIS_PASSWORD: ${PORTFOLIO_CI_REDIS_PASSWORD:?required}
+      REDIS_DB: "0"
+      GAMEPLAY_MODE: v2
+      APP_HOST: 127.0.0.1
+      APP_PORT: "12880"
+      JWT_SECRET: ${PORTFOLIO_CI_JWT_SECRET:?required}
+      DC_ADMISSION_KEY: ${PORTFOLIO_CI_ADMISSION_KEY:?required}
+      DC_INTEGRATION: "1"
+      PORTFOLIO_DC_ISOLATED_TEST: "1"
+      DC_V8_TEST: "1"
+      DC_ENGINEERING_RUN: "1"
+      PVE_INTEGRATION: ""
+      PVE_TEST_NETWORK: ""
+    volumes:
+      - ${PORTFOLIO_PROJECT_ROOT}:/workspace:ro
+      - portfolio-ci-go:/go
+      - portfolio-ci-tmp:/tmp
+    command: ["sleep", "infinity"]
+
+volumes:
+  portfolio-ci-mysql:
+  portfolio-ci-go:
+  portfolio-ci-tmp:

@@ -1,0 +1,80 @@
+name: Verify Demo source
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  tooling:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Source tooling and portable path checks
+        run: python -B deploy/portfolio-ci-checks.py
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+      - name: Tests and vet
+        shell: pwsh
+        run: ./deploy/portfolio-ci-backend.ps1 -Race -ReportPath "$env:RUNNER_TEMP/backend-unit-summary.json"
+      - name: Isolated integration and race
+        shell: bash
+        working-directory: backend
+        run: |
+          set -euo pipefail
+          export PVE_TEST_PASSWORD="$(openssl rand -hex 32)"
+          echo "::add-mask::$PVE_TEST_PASSWORD"
+          export PVE_INTEGRATION=1 GIN_MODE=release
+          compose_file="$GITHUB_WORKSPACE/deploy/docker-compose.v2-test.yml"
+          trap 'docker compose -p gm-v2-test -f "$compose_file" down -v' EXIT
+          docker compose -p gm-v2-test -f "$compose_file" up -d --wait --wait-timeout 150
+          unset PVE_TEST_NETWORK
+          go test -race -p 1 -count=1 -timeout 300s -json ./tests/v2 | tee "$RUNNER_TEMP/legacy-storage-tests.jsonl"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          events = [json.loads(line) for line in (Path(os.environ['RUNNER_TEMP']) / 'legacy-storage-tests.jsonl').read_text().splitlines()]
+          skips = [row['Test'] for row in events if row.get('Action') == 'skip' and 'Test' in row]
+          unexpected = set(skips) - {'TestR4ActualBinarySwitchAndRollback'}
+          if unexpected:
+              raise SystemExit('Unexpected integration skips: ' + ', '.join(sorted(unexpected)))
+          if not any(row.get('Action') == 'pass' and 'Test' in row for row in events):
+              raise SystemExit('No integration tests executed')
+          print(json.dumps({'status': 'PASS', 'skipped_historical_binary_rehearsal': skips}))
+          PY
+      - name: Current v8 isolated storage and race
+        shell: pwsh
+        run: ./deploy/portfolio-ci-dc.ps1 -Race -ReportPath "$env:RUNNER_TEMP/v8-storage-summary.json"
+      - name: Build service image
+        run: |
+          docker build --tag "game-realtime-gm:r4-$GITHUB_SHA" backend
+          docker image inspect --format '{{.Id}}' "game-realtime-gm:r4-$GITHUB_SHA"
+  frontend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [gm-admin, pve-demo]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/${{ matrix.app }}/package-lock.json
+      - working-directory: frontend/${{ matrix.app }}
+        run: npm ci --ignore-scripts
+      - working-directory: frontend/${{ matrix.app }}
+        run: npm run build

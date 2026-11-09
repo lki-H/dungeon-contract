@@ -1,0 +1,4362 @@
+{
+  "provenance": "D:\\dev-cache\\dungeon-contract\\evidence\\v8-ranger-2-success-process-20261018-232757\\client-driver-0.json",
+  "scope": "recorded authority-received position/terrain fixture; not a full replay",
+  "own": {
+    "room": 1,
+    "x": 3.377573,
+    "y": 9.660462,
+    "health": 42,
+    "weapon": "repeating_crossbow",
+    "release_required": false,
+    "body_facing": "right",
+    "secondary_remaining_ms": 5547,
+    "ability_remaining_ms": 0,
+    "rescue_target": null,
+    "rescue_remaining_ms": 0
+  },
+  "enemies": [
+    {
+      "room_id": 1,
+      "x": 5.84226274,
+      "y": 9.282942,
+      "id": "charger_001336",
+      "kind": "charger",
+      "health": 90,
+      "maximum": 138,
+      "warning": "",
+      "warning_remaining_ms": 0,
+      "warning_x": 8.358085,
+      "warning_y": 9.437997,
+      "aim_x": -0.9741763,
+      "aim_y": 0.2257888,
+      "phase": 1,
+      "summon": false,
+      "visual_phase": "idle",
+      "body_profile_id": "charger:left",
+      "body_facing": "left",
+      "body_center_x": 5.780263,
+      "body_center_y": 10.0329418
+    },
+    {
+      "room_id": 1,
+      "x": 27.4328136,
+      "y": 10.5673447,
+      "id": "guard_001338",
+      "kind": "guard",
+      "health": 100,
+      "maximum": 100,
+      "warning": "",
+      "warning_remaining_ms": 0,
+      "warning_x": 27.5620022,
+      "warning_y": 10.7438345,
+      "aim_x": -0.9976847,
+      "aim_y": 0.06800783,
+      "phase": 1,
+      "summon": false,
+      "visual_phase": "idle",
+      "body_profile_id": "guard:left",
+      "body_facing": "left",
+      "body_center_x": 27.3708134,
+      "body_center_y": 11.2553444
+    },
+    {
+      "room_id": 1,
+      "x": 27.6745987,
+      "y": 5.98603725,
+      "id": "guard_001353",
+      "kind": "guard",
+      "health": 100,
+      "maximum": 100,
+      "warning": "",
+      "warning_remaining_ms": 0,
+      "warning_x": 27.6745987,
+      "warning_y": 5.98603725,
+      "aim_x": -0.9879858,
+      "aim_y": -0.154545009,
+      "phase": 1,
+      "summon": false,
+      "visual_phase": "idle",
+      "body_profile_id": "guard:left",
+      "body_facing": "left",
+      "body_center_x": 27.6125984,
+      "body_center_y": 6.67403746
+    },
+    {
+      "room_id": 1,
+      "x": 27.0925827,
+      "y": 9.06021,
+      "id": "guard_001356",
+      "kind": "guard",
+      "health": 100,
+      "maximum": 100,
+      "warning": "",
+      "warning_remaining_ms": 0,
+      "warning_x": 28.0,
+      "warning_y": 10.5,
+      "aim_x": 0.0,
+      "aim_y": 0.0,
+      "phase": 1,
+      "summon": false,
+      "visual_phase": "idle",
+      "body_profile_id": "guard:left",
+      "body_facing": "left",
+      "body_center_x": 27.0305824,
+      "body_center_y": 9.74821
+    },
+    {
+      "room_id": 1,
+      "x": 27.5589066,
+      "y": 7.49488926,
+      "id": "archer_001371",
+      "kind": "archer",
+      "health": 75,
+      "maximum": 75,
+      "warning": "",
+      "warning_remaining_ms": 0,
+      "warning_x": 27.5589066,
+      "warning_y": 7.49488926,
+      "aim_x": -0.657862365,
+      "aim_y": 0.7531382,
+      "phase": 1,
+      "summon": false,
+      "visual_phase": "idle",
+      "phase_pending": false,
+      "barrage_active": false,
+      "barrage_pulse": 0,
+      "reserved_shots": 0,
+      "barrage_remaining_ms": 0,
+      "summon_pending": false,
+      "summon_live": 0,
+      "summon_reserved": 0,
+      "body_profile_id": "archer:left",
+      "body_facing": "left",
+      "body_center_x": 27.4969063,
+      "body_center_y": 8.213889
+    }
+  ],
+  "covers": [
+    {
+      "room_id": 1,
+      "x": 22.5,
+      "y": 7.5,
+      "id": "cover_000002",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 18.5,
+      "y": 4.5,
+      "id": "cover_000003",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 11.5,
+      "y": 4.5,
+      "id": "cover_000005",
+      "health": 6,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 20.5,
+      "y": 10.5,
+      "id": "cover_000007",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 18.5,
+      "y": 7.5,
+      "id": "cover_000010",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 23.5,
+      "y": 6.5,
+      "id": "cover_000014",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 23.5,
+      "y": 5.5,
+      "id": "cover_000015",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 17.5,
+      "y": 4.5,
+      "id": "cover_000017",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 19.5,
+      "y": 4.5,
+      "id": "cover_000018",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 10.5,
+      "y": 7.5,
+      "id": "cover_000019",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 8.5,
+      "y": 4.5,
+      "id": "cover_000020",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 21.5,
+      "y": 7.5,
+      "id": "cover_000021",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 23.5,
+      "y": 4.5,
+      "id": "cover_000022",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 19.5,
+      "y": 7.5,
+      "id": "cover_000023",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 9.5,
+      "y": 4.5,
+      "id": "cover_000024",
+      "health": 18,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 20.5,
+      "y": 4.5,
+      "id": "cover_000025",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 12.5,
+      "y": 4.5,
+      "id": "cover_000026",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 9.5,
+      "y": 7.5,
+      "id": "cover_000029",
+      "health": 18,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 20.5,
+      "y": 7.5,
+      "id": "cover_000030",
+      "health": 18,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 16.5,
+      "y": 4.5,
+      "id": "cover_000031",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 13.5,
+      "y": 4.5,
+      "id": "cover_000032",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 20.5,
+      "y": 1.5,
+      "id": "cover_000034",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 9.5,
+      "y": 1.5,
+      "id": "cover_000035",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 8.5,
+      "y": 1.5,
+      "id": "cover_000036",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 19.5,
+      "y": 1.5,
+      "id": "cover_000037",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 21.5,
+      "y": 1.5,
+      "id": "cover_000038",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 10.5,
+      "y": 1.5,
+      "id": "cover_000039",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 24.5,
+      "y": 10.5,
+      "id": "cover_000040",
+      "health": 18,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 18.5,
+      "y": 1.5,
+      "id": "cover_000042",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 22.5,
+      "y": 1.5,
+      "id": "cover_000043",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 11.5,
+      "y": 1.5,
+      "id": "cover_000044",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 15.5,
+      "y": 4.5,
+      "id": "cover_000045",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 17.5,
+      "y": 1.5,
+      "id": "cover_000048",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 23.5,
+      "y": 1.5,
+      "id": "cover_000049",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 12.5,
+      "y": 1.5,
+      "id": "cover_000050",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 14.5,
+      "y": 10.5,
+      "id": "cover_000052",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 4.5,
+      "y": 16.5,
+      "id": "cover_000057",
+      "health": 6,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 15.5,
+      "y": 16.5,
+      "id": "cover_000060",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 16.5,
+      "y": 1.5,
+      "id": "cover_000061",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 26.5,
+      "y": 12.5,
+      "id": "cover_000063",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 26.5,
+      "y": 13.5,
+      "id": "cover_000064",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 26.5,
+      "y": 5.5,
+      "id": "cover_000065",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 24.5,
+      "y": 1.5,
+      "id": "cover_000066",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 14.5,
+      "y": 16.5,
+      "id": "cover_000069",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 26.5,
+      "y": 14.5,
+      "id": "cover_000070",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    },
+    {
+      "room_id": 1,
+      "x": 26.5,
+      "y": 4.5,
+      "id": "cover_000072",
+      "health": 30,
+      "revision": 0,
+      "shape": "rectangle",
+      "width": 0.875,
+      "height": 0.875
+    }
+  ],
+  "layout": {
+    "id": "foyer",
+    "kind": "room",
+    "width": 30,
+    "height": 18,
+    "spawn_milli": [
+      3000,
+      8750
+    ],
+    "objective": null,
+    "exists": true,
+    "regions": [],
+    "shared_objects": [],
+    "obstacles_milli": [
+      [
+        19000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        8000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        19000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        8000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        19000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        8000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        19000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        8000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        21000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        21000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        21000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        10000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        21000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        10000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        10000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        10000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        8000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        10000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        18000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        18000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        18000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        22000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        22000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        22000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        11000,
+        6000,
+        1000,
+        1000
+      ],
+      [
+        11000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        11000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        11000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        18000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        22000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        6000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        17000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        17000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        23000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        6000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        12000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        20000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        9000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        7000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        18000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        22000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        11000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        13000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        13000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        24000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        12000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        13000,
+        15000,
+        1000,
+        1000
+      ],
+      [
+        15000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        4000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        15000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        25000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        5000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        14000,
+        12000,
+        1000,
+        1000
+      ],
+      [
+        14000,
+        13000,
+        1000,
+        1000
+      ],
+      [
+        14000,
+        5000,
+        1000,
+        1000
+      ],
+      [
+        16000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        25000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        25000,
+        14000,
+        1000,
+        1000
+      ],
+      [
+        14000,
+        11000,
+        1000,
+        1000
+      ],
+      [
+        24000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        13000,
+        16000,
+        1000,
+        1000
+      ],
+      [
+        25000,
+        15000,
+        1000,
+        1000
+      ]
+    ],
+    "cover_points_milli": [
+      [
+        8500,
+        10500
+      ],
+      [
+        22500,
+        7500
+      ],
+      [
+        18500,
+        4500
+      ],
+      [
+        9500,
+        10500
+      ],
+      [
+        11500,
+        4500
+      ],
+      [
+        10500,
+        10500
+      ],
+      [
+        20500,
+        10500
+      ],
+      [
+        7500,
+        4500
+      ],
+      [
+        6500,
+        6500
+      ],
+      [
+        18500,
+        7500
+      ],
+      [
+        6500,
+        5500
+      ],
+      [
+        7500,
+        10500
+      ],
+      [
+        6500,
+        7500
+      ],
+      [
+        23500,
+        6500
+      ],
+      [
+        23500,
+        5500
+      ],
+      [
+        10500,
+        4500
+      ],
+      [
+        17500,
+        4500
+      ],
+      [
+        19500,
+        4500
+      ],
+      [
+        10500,
+        7500
+      ],
+      [
+        8500,
+        4500
+      ],
+      [
+        21500,
+        7500
+      ],
+      [
+        23500,
+        4500
+      ],
+      [
+        19500,
+        7500
+      ],
+      [
+        9500,
+        4500
+      ],
+      [
+        20500,
+        4500
+      ],
+      [
+        12500,
+        4500
+      ],
+      [
+        8500,
+        7500
+      ],
+      [
+        6500,
+        10500
+      ],
+      [
+        9500,
+        7500
+      ],
+      [
+        20500,
+        7500
+      ],
+      [
+        16500,
+        4500
+      ],
+      [
+        13500,
+        4500
+      ],
+      [
+        5500,
+        10500
+      ],
+      [
+        20500,
+        1500
+      ],
+      [
+        9500,
+        1500
+      ],
+      [
+        8500,
+        1500
+      ],
+      [
+        19500,
+        1500
+      ],
+      [
+        21500,
+        1500
+      ],
+      [
+        10500,
+        1500
+      ],
+      [
+        24500,
+        10500
+      ],
+      [
+        7500,
+        1500
+      ],
+      [
+        18500,
+        1500
+      ],
+      [
+        22500,
+        1500
+      ],
+      [
+        11500,
+        1500
+      ],
+      [
+        15500,
+        4500
+      ],
+      [
+        4500,
+        10500
+      ],
+      [
+        6500,
+        1500
+      ],
+      [
+        17500,
+        1500
+      ],
+      [
+        23500,
+        1500
+      ],
+      [
+        12500,
+        1500
+      ],
+      [
+        25500,
+        10500
+      ],
+      [
+        14500,
+        10500
+      ],
+      [
+        3500,
+        6500
+      ],
+      [
+        3500,
+        12500
+      ],
+      [
+        3500,
+        5500
+      ],
+      [
+        3500,
+        7500
+      ],
+      [
+        4500,
+        16500
+      ],
+      [
+        5500,
+        1500
+      ],
+      [
+        3500,
+        4500
+      ],
+      [
+        15500,
+        16500
+      ],
+      [
+        16500,
+        1500
+      ],
+      [
+        26500,
+        6500
+      ],
+      [
+        26500,
+        12500
+      ],
+      [
+        26500,
+        13500
+      ],
+      [
+        26500,
+        5500
+      ],
+      [
+        24500,
+        1500
+      ],
+      [
+        26500,
+        7500
+      ],
+      [
+        26500,
+        11500
+      ],
+      [
+        14500,
+        16500
+      ],
+      [
+        26500,
+        14500
+      ],
+      [
+        3500,
+        10500
+      ],
+      [
+        26500,
+        4500
+      ]
+    ],
+    "trap_points_milli": [
+      [
+        6000,
+        15250
+      ],
+      [
+        5000,
+        12750
+      ],
+      [
+        17000,
+        15250
+      ],
+      [
+        16500,
+        6750
+      ],
+      [
+        16000,
+        12750
+      ],
+      [
+        23500,
+        12250
+      ],
+      [
+        12000,
+        14750
+      ],
+      [
+        12500,
+        11250
+      ],
+      [
+        24000,
+        12250
+      ],
+      [
+        13500,
+        6750
+      ],
+      [
+        11000,
+        15250
+      ],
+      [
+        23000,
+        12250
+      ],
+      [
+        17000,
+        15250
+      ],
+      [
+        6000,
+        15250
+      ],
+      [
+        4500,
+        14500
+      ],
+      [
+        22500,
+        11250
+      ],
+      [
+        15500,
+        14750
+      ],
+      [
+        18500,
+        11250
+      ]
+    ],
+    "covers": [
+      {
+        "id": "foyer_b_cover_002",
+        "x_milli": 8500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_005",
+        "x_milli": 22500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_007",
+        "x_milli": 18500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_008",
+        "x_milli": 9500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_009",
+        "x_milli": 11500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_010",
+        "x_milli": 10500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_011",
+        "x_milli": 20500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_012",
+        "x_milli": 7500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_013",
+        "x_milli": 6500,
+        "y_milli": 6500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_014",
+        "x_milli": 18500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_015",
+        "x_milli": 6500,
+        "y_milli": 5500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_017",
+        "x_milli": 7500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_018",
+        "x_milli": 6500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_019",
+        "x_milli": 23500,
+        "y_milli": 6500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_020",
+        "x_milli": 23500,
+        "y_milli": 5500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_021",
+        "x_milli": 10500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_026",
+        "x_milli": 17500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_027",
+        "x_milli": 19500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_028",
+        "x_milli": 10500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_029",
+        "x_milli": 8500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_031",
+        "x_milli": 21500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_033",
+        "x_milli": 23500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_034",
+        "x_milli": 19500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_035",
+        "x_milli": 9500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_036",
+        "x_milli": 20500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_037",
+        "x_milli": 12500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_038",
+        "x_milli": 8500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_039",
+        "x_milli": 6500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_041",
+        "x_milli": 9500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_042",
+        "x_milli": 20500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_044",
+        "x_milli": 16500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_045",
+        "x_milli": 13500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_046",
+        "x_milli": 5500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_048",
+        "x_milli": 20500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_049",
+        "x_milli": 9500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_050",
+        "x_milli": 8500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_051",
+        "x_milli": 19500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_052",
+        "x_milli": 21500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_053",
+        "x_milli": 10500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_054",
+        "x_milli": 24500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_056",
+        "x_milli": 7500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_057",
+        "x_milli": 18500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_058",
+        "x_milli": 22500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_060",
+        "x_milli": 11500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_061",
+        "x_milli": 15500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_063",
+        "x_milli": 4500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_064",
+        "x_milli": 6500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_066",
+        "x_milli": 17500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_068",
+        "x_milli": 23500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_069",
+        "x_milli": 12500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_070",
+        "x_milli": 25500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_071",
+        "x_milli": 14500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_073",
+        "x_milli": 3500,
+        "y_milli": 6500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_074",
+        "x_milli": 3500,
+        "y_milli": 12500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_076",
+        "x_milli": 3500,
+        "y_milli": 5500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_077",
+        "x_milli": 3500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_078",
+        "x_milli": 4500,
+        "y_milli": 16500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_080",
+        "x_milli": 5500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_081",
+        "x_milli": 3500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_082",
+        "x_milli": 15500,
+        "y_milli": 16500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_083",
+        "x_milli": 16500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_084",
+        "x_milli": 26500,
+        "y_milli": 6500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_085",
+        "x_milli": 26500,
+        "y_milli": 12500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_086",
+        "x_milli": 26500,
+        "y_milli": 13500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_087",
+        "x_milli": 26500,
+        "y_milli": 5500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_088",
+        "x_milli": 24500,
+        "y_milli": 1500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_091",
+        "x_milli": 26500,
+        "y_milli": 7500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_092",
+        "x_milli": 26500,
+        "y_milli": 11500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_093",
+        "x_milli": 14500,
+        "y_milli": 16500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_094",
+        "x_milli": 26500,
+        "y_milli": 14500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_095",
+        "x_milli": 3500,
+        "y_milli": 10500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      },
+      {
+        "id": "foyer_b_cover_096",
+        "x_milli": 26500,
+        "y_milli": 4500,
+        "radius_milli": 450,
+        "health": 30,
+        "mandatory_group": null,
+        "shape": "rectangle",
+        "width_milli": 875,
+        "height_milli": 875
+      }
+    ],
+    "traps": [
+      {
+        "id": "foyer_b_trap_01",
+        "x_milli": 6000,
+        "y_milli": 15250,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_02",
+        "x_milli": 5000,
+        "y_milli": 12750,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_03",
+        "x_milli": 17000,
+        "y_milli": 15250,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_04",
+        "x_milli": 16500,
+        "y_milli": 6750,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_05",
+        "x_milli": 16000,
+        "y_milli": 12750,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_06",
+        "x_milli": 23500,
+        "y_milli": 12250,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_07",
+        "x_milli": 12000,
+        "y_milli": 14750,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_08",
+        "x_milli": 12500,
+        "y_milli": 11250,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_09",
+        "x_milli": 24000,
+        "y_milli": 12250,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_10",
+        "x_milli": 13500,
+        "y_milli": 6750,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_11",
+        "x_milli": 11000,
+        "y_milli": 15250,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_12",
+        "x_milli": 23000,
+        "y_milli": 12250,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_13",
+        "x_milli": 17000,
+        "y_milli": 15250,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_14",
+        "x_milli": 6000,
+        "y_milli": 15250,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_15",
+        "x_milli": 4500,
+        "y_milli": 14500,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_16",
+        "x_milli": 22500,
+        "y_milli": 11250,
+        "radius_milli": 700,
+        "group": "B",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_17",
+        "x_milli": 15500,
+        "y_milli": 14750,
+        "radius_milli": 700,
+        "group": "C",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      },
+      {
+        "id": "foyer_b_trap_18",
+        "x_milli": 18500,
+        "y_milli": 11250,
+        "radius_milli": 700,
+        "group": "A",
+        "shape": "rectangle",
+        "width_milli": 1500,
+        "height_milli": 1000
+      }
+    ],
+    "spawn_candidates_milli": [
+      [
+        2000,
+        3500
+      ],
+      [
+        2000,
+        6000
+      ],
+      [
+        2000,
+        10500
+      ],
+      [
+        3000,
+        15000
+      ],
+      [
+        5500,
+        2500
+      ],
+      [
+        5000,
+        6000
+      ],
+      [
+        5000,
+        8000
+      ],
+      [
+        11500,
+        7500
+      ],
+      [
+        11500,
+        9000
+      ],
+      [
+        14000,
+        2000
+      ],
+      [
+        15000,
+        6500
+      ],
+      [
+        14000,
+        8000
+      ],
+      [
+        17000,
+        7500
+      ],
+      [
+        17000,
+        9500
+      ],
+      [
+        21500,
+        3000
+      ],
+      [
+        23500,
+        7500
+      ],
+      [
+        23000,
+        9000
+      ],
+      [
+        27500,
+        2000
+      ],
+      [
+        25000,
+        7500
+      ],
+      [
+        24500,
+        8000
+      ],
+      [
+        27500,
+        14000
+      ],
+      [
+        28000,
+        3000
+      ],
+      [
+        28000,
+        6000
+      ],
+      [
+        28000,
+        11500
+      ],
+      [
+        28000,
+        13500
+      ],
+      [
+        2000,
+        2500
+      ],
+      [
+        2000,
+        5500
+      ],
+      [
+        1500,
+        10500
+      ],
+      [
+        3000,
+        14500
+      ],
+      [
+        5000,
+        2500
+      ],
+      [
+        5000,
+        4000
+      ],
+      [
+        4500,
+        8000
+      ],
+      [
+        11500,
+        8500
+      ],
+      [
+        13500,
+        2000
+      ],
+      [
+        14500,
+        7500
+      ],
+      [
+        13500,
+        8000
+      ],
+      [
+        16000,
+        7500
+      ],
+      [
+        16500,
+        9000
+      ],
+      [
+        21500,
+        2500
+      ],
+      [
+        22000,
+        8500
+      ],
+      [
+        24500,
+        2500
+      ],
+      [
+        27500,
+        6000
+      ],
+      [
+        27000,
+        9000
+      ],
+      [
+        27500,
+        12000
+      ],
+      [
+        28000,
+        1500
+      ],
+      [
+        28000,
+        4000
+      ],
+      [
+        28000,
+        11000
+      ],
+      [
+        28000,
+        12000
+      ],
+      [
+        3500,
+        2000
+      ],
+      [
+        1500,
+        4500
+      ],
+      [
+        2000,
+        11500
+      ],
+      [
+        2000,
+        12500
+      ],
+      [
+        6000,
+        3000
+      ],
+      [
+        4500,
+        7000
+      ],
+      [
+        11500,
+        8000
+      ],
+      [
+        15000,
+        1500
+      ],
+      [
+        12000,
+        7500
+      ],
+      [
+        12000,
+        8500
+      ],
+      [
+        16500,
+        7500
+      ],
+      [
+        17000,
+        10000
+      ],
+      [
+        22000,
+        3000
+      ],
+      [
+        23500,
+        8000
+      ],
+      [
+        26000,
+        1500
+      ],
+      [
+        27500,
+        4000
+      ],
+      [
+        27500,
+        11500
+      ],
+      [
+        27500,
+        12500
+      ],
+      [
+        28000,
+        2500
+      ],
+      [
+        28000,
+        5500
+      ],
+      [
+        28000,
+        10500
+      ],
+      [
+        28000,
+        14000
+      ],
+      [
+        2000,
+        1500
+      ],
+      [
+        1500,
+        4000
+      ],
+      [
+        2000,
+        11000
+      ],
+      [
+        2000,
+        13000
+      ],
+      [
+        5000,
+        3500
+      ],
+      [
+        4500,
+        7500
+      ],
+      [
+        14500,
+        2000
+      ],
+      [
+        13500,
+        7500
+      ],
+      [
+        12500,
+        8500
+      ],
+      [
+        17000,
+        10500
+      ],
+      [
+        22000,
+        2500
+      ],
+      [
+        23000,
+        8500
+      ],
+      [
+        25000,
+        3000
+      ],
+      [
+        24500,
+        5000
+      ],
+      [
+        24000,
+        8000
+      ],
+      [
+        27500,
+        13000
+      ],
+      [
+        28000,
+        3500
+      ],
+      [
+        28000,
+        4500
+      ],
+      [
+        28000,
+        14500
+      ],
+      [
+        1500,
+        3000
+      ],
+      [
+        2000,
+        4000
+      ],
+      [
+        1500,
+        11000
+      ],
+      [
+        3000,
+        14000
+      ],
+      [
+        4500,
+        3000
+      ],
+      [
+        5000,
+        6500
+      ],
+      [
+        14000,
+        1500
+      ],
+      [
+        15500,
+        7500
+      ],
+      [
+        12000,
+        8000
+      ],
+      [
+        16000,
+        8000
+      ],
+      [
+        22500,
+        8500
+      ],
+      [
+        27500,
+        3000
+      ],
+      [
+        27500,
+        6500
+      ],
+      [
+        26500,
+        8500
+      ],
+      [
+        27500,
+        13500
+      ],
+      [
+        28000,
+        2000
+      ],
+      [
+        28000,
+        5000
+      ],
+      [
+        28000,
+        12500
+      ],
+      [
+        3000,
+        2000
+      ],
+      [
+        2000,
+        4500
+      ],
+      [
+        1500,
+        11500
+      ],
+      [
+        1500,
+        13000
+      ],
+      [
+        4500,
+        3500
+      ],
+      [
+        4500,
+        5500
+      ],
+      [
+        14500,
+        1500
+      ],
+      [
+        13000,
+        7500
+      ],
+      [
+        13000,
+        8500
+      ],
+      [
+        18000,
+        8500
+      ],
+      [
+        22000,
+        9000
+      ],
+      [
+        27500,
+        3500
+      ],
+      [
+        24000,
+        7500
+      ],
+      [
+        27500,
+        11000
+      ],
+      [
+        27500,
+        15000
+      ],
+      [
+        28000,
+        13000
+      ],
+      [
+        2500,
+        1500
+      ],
+      [
+        1500,
+        5500
+      ],
+      [
+        2500,
+        13500
+      ],
+      [
+        4000,
+        1500
+      ],
+      [
+        4500,
+        5000
+      ]
+    ],
+    "mandatory_cover_groups": [],
+    "variant_id": "foyer_b",
+    "obstacles": [
+      [
+        19.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        8.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        19.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        8.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        19.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        8.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        19.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        8.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        21.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        21.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        21.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        10.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        21.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        10.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        10.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        10.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        8.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        10.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        18.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        18.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        18.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        22.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        22.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        22.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        11.0,
+        6.0,
+        1.0,
+        1.0
+      ],
+      [
+        11.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        11.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        11.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        18.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        22.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        6.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        17.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        17.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        23.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        6.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        12.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        20.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        9.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        7.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        18.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        22.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        11.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        13.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        13.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        24.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        12.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        13.0,
+        15.0,
+        1.0,
+        1.0
+      ],
+      [
+        15.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        4.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        15.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        25.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        5.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        14.0,
+        12.0,
+        1.0,
+        1.0
+      ],
+      [
+        14.0,
+        13.0,
+        1.0,
+        1.0
+      ],
+      [
+        14.0,
+        5.0,
+        1.0,
+        1.0
+      ],
+      [
+        16.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        25.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        25.0,
+        14.0,
+        1.0,
+        1.0
+      ],
+      [
+        14.0,
+        11.0,
+        1.0,
+        1.0
+      ],
+      [
+        24.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        13.0,
+        16.0,
+        1.0,
+        1.0
+      ],
+      [
+        25.0,
+        15.0,
+        1.0,
+        1.0
+      ]
+    ],
+    "v6_geometry": true,
+    "spawn": [
+      3.0,
+      8.75
+    ],
+    "cover_points": [
+      [
+        8.5,
+        10.5
+      ],
+      [
+        22.5,
+        7.5
+      ],
+      [
+        18.5,
+        4.5
+      ],
+      [
+        9.5,
+        10.5
+      ],
+      [
+        11.5,
+        4.5
+      ],
+      [
+        10.5,
+        10.5
+      ],
+      [
+        20.5,
+        10.5
+      ],
+      [
+        7.5,
+        4.5
+      ],
+      [
+        6.5,
+        6.5
+      ],
+      [
+        18.5,
+        7.5
+      ],
+      [
+        6.5,
+        5.5
+      ],
+      [
+        7.5,
+        10.5
+      ],
+      [
+        6.5,
+        7.5
+      ],
+      [
+        23.5,
+        6.5
+      ],
+      [
+        23.5,
+        5.5
+      ],
+      [
+        10.5,
+        4.5
+      ],
+      [
+        17.5,
+        4.5
+      ],
+      [
+        19.5,
+        4.5
+      ],
+      [
+        10.5,
+        7.5
+      ],
+      [
+        8.5,
+        4.5
+      ],
+      [
+        21.5,
+        7.5
+      ],
+      [
+        23.5,
+        4.5
+      ],
+      [
+        19.5,
+        7.5
+      ],
+      [
+        9.5,
+        4.5
+      ],
+      [
+        20.5,
+        4.5
+      ],
+      [
+        12.5,
+        4.5
+      ],
+      [
+        8.5,
+        7.5
+      ],
+      [
+        6.5,
+        10.5
+      ],
+      [
+        9.5,
+        7.5
+      ],
+      [
+        20.5,
+        7.5
+      ],
+      [
+        16.5,
+        4.5
+      ],
+      [
+        13.5,
+        4.5
+      ],
+      [
+        5.5,
+        10.5
+      ],
+      [
+        20.5,
+        1.5
+      ],
+      [
+        9.5,
+        1.5
+      ],
+      [
+        8.5,
+        1.5
+      ],
+      [
+        19.5,
+        1.5
+      ],
+      [
+        21.5,
+        1.5
+      ],
+      [
+        10.5,
+        1.5
+      ],
+      [
+        24.5,
+        10.5
+      ],
+      [
+        7.5,
+        1.5
+      ],
+      [
+        18.5,
+        1.5
+      ],
+      [
+        22.5,
+        1.5
+      ],
+      [
+        11.5,
+        1.5
+      ],
+      [
+        15.5,
+        4.5
+      ],
+      [
+        4.5,
+        10.5
+      ],
+      [
+        6.5,
+        1.5
+      ],
+      [
+        17.5,
+        1.5
+      ],
+      [
+        23.5,
+        1.5
+      ],
+      [
+        12.5,
+        1.5
+      ],
+      [
+        25.5,
+        10.5
+      ],
+      [
+        14.5,
+        10.5
+      ],
+      [
+        3.5,
+        6.5
+      ],
+      [
+        3.5,
+        12.5
+      ],
+      [
+        3.5,
+        5.5
+      ],
+      [
+        3.5,
+        7.5
+      ],
+      [
+        4.5,
+        16.5
+      ],
+      [
+        5.5,
+        1.5
+      ],
+      [
+        3.5,
+        4.5
+      ],
+      [
+        15.5,
+        16.5
+      ],
+      [
+        16.5,
+        1.5
+      ],
+      [
+        26.5,
+        6.5
+      ],
+      [
+        26.5,
+        12.5
+      ],
+      [
+        26.5,
+        13.5
+      ],
+      [
+        26.5,
+        5.5
+      ],
+      [
+        24.5,
+        1.5
+      ],
+      [
+        26.5,
+        7.5
+      ],
+      [
+        26.5,
+        11.5
+      ],
+      [
+        14.5,
+        16.5
+      ],
+      [
+        26.5,
+        14.5
+      ],
+      [
+        3.5,
+        10.5
+      ],
+      [
+        26.5,
+        4.5
+      ]
+    ],
+    "trap_points": [
+      [
+        6.0,
+        15.25
+      ],
+      [
+        5.0,
+        12.75
+      ],
+      [
+        17.0,
+        15.25
+      ],
+      [
+        16.5,
+        6.75
+      ],
+      [
+        16.0,
+        12.75
+      ],
+      [
+        23.5,
+        12.25
+      ],
+      [
+        12.0,
+        14.75
+      ],
+      [
+        12.5,
+        11.25
+      ],
+      [
+        24.0,
+        12.25
+      ],
+      [
+        13.5,
+        6.75
+      ],
+      [
+        11.0,
+        15.25
+      ],
+      [
+        23.0,
+        12.25
+      ],
+      [
+        17.0,
+        15.25
+      ],
+      [
+        6.0,
+        15.25
+      ],
+      [
+        4.5,
+        14.5
+      ],
+      [
+        22.5,
+        11.25
+      ],
+      [
+        15.5,
+        14.75
+      ],
+      [
+        18.5,
+        11.25
+      ]
+    ],
+    "spawn_candidates": [
+      [
+        2.0,
+        3.5
+      ],
+      [
+        2.0,
+        6.0
+      ],
+      [
+        2.0,
+        10.5
+      ],
+      [
+        3.0,
+        15.0
+      ],
+      [
+        5.5,
+        2.5
+      ],
+      [
+        5.0,
+        6.0
+      ],
+      [
+        5.0,
+        8.0
+      ],
+      [
+        11.5,
+        7.5
+      ],
+      [
+        11.5,
+        9.0
+      ],
+      [
+        14.0,
+        2.0
+      ],
+      [
+        15.0,
+        6.5
+      ],
+      [
+        14.0,
+        8.0
+      ],
+      [
+        17.0,
+        7.5
+      ],
+      [
+        17.0,
+        9.5
+      ],
+      [
+        21.5,
+        3.0
+      ],
+      [
+        23.5,
+        7.5
+      ],
+      [
+        23.0,
+        9.0
+      ],
+      [
+        27.5,
+        2.0
+      ],
+      [
+        25.0,
+        7.5
+      ],
+      [
+        24.5,
+        8.0
+      ],
+      [
+        27.5,
+        14.0
+      ],
+      [
+        28.0,
+        3.0
+      ],
+      [
+        28.0,
+        6.0
+      ],
+      [
+        28.0,
+        11.5
+      ],
+      [
+        28.0,
+        13.5
+      ],
+      [
+        2.0,
+        2.5
+      ],
+      [
+        2.0,
+        5.5
+      ],
+      [
+        1.5,
+        10.5
+      ],
+      [
+        3.0,
+        14.5
+      ],
+      [
+        5.0,
+        2.5
+      ],
+      [
+        5.0,
+        4.0
+      ],
+      [
+        4.5,
+        8.0
+      ],
+      [
+        11.5,
+        8.5
+      ],
+      [
+        13.5,
+        2.0
+      ],
+      [
+        14.5,
+        7.5
+      ],
+      [
+        13.5,
+        8.0
+      ],
+      [
+        16.0,
+        7.5
+      ],
+      [
+        16.5,
+        9.0
+      ],
+      [
+        21.5,
+        2.5
+      ],
+      [
+        22.0,
+        8.5
+      ],
+      [
+        24.5,
+        2.5
+      ],
+      [
+        27.5,
+        6.0
+      ],
+      [
+        27.0,
+        9.0
+      ],
+      [
+        27.5,
+        12.0
+      ],
+      [
+        28.0,
+        1.5
+      ],
+      [
+        28.0,
+        4.0
+      ],
+      [
+        28.0,
+        11.0
+      ],
+      [
+        28.0,
+        12.0
+      ],
+      [
+        3.5,
+        2.0
+      ],
+      [
+        1.5,
+        4.5
+      ],
+      [
+        2.0,
+        11.5
+      ],
+      [
+        2.0,
+        12.5
+      ],
+      [
+        6.0,
+        3.0
+      ],
+      [
+        4.5,
+        7.0
+      ],
+      [
+        11.5,
+        8.0
+      ],
+      [
+        15.0,
+        1.5
+      ],
+      [
+        12.0,
+        7.5
+      ],
+      [
+        12.0,
+        8.5
+      ],
+      [
+        16.5,
+        7.5
+      ],
+      [
+        17.0,
+        10.0
+      ],
+      [
+        22.0,
+        3.0
+      ],
+      [
+        23.5,
+        8.0
+      ],
+      [
+        26.0,
+        1.5
+      ],
+      [
+        27.5,
+        4.0
+      ],
+      [
+        27.5,
+        11.5
+      ],
+      [
+        27.5,
+        12.5
+      ],
+      [
+        28.0,
+        2.5
+      ],
+      [
+        28.0,
+        5.5
+      ],
+      [
+        28.0,
+        10.5
+      ],
+      [
+        28.0,
+        14.0
+      ],
+      [
+        2.0,
+        1.5
+      ],
+      [
+        1.5,
+        4.0
+      ],
+      [
+        2.0,
+        11.0
+      ],
+      [
+        2.0,
+        13.0
+      ],
+      [
+        5.0,
+        3.5
+      ],
+      [
+        4.5,
+        7.5
+      ],
+      [
+        14.5,
+        2.0
+      ],
+      [
+        13.5,
+        7.5
+      ],
+      [
+        12.5,
+        8.5
+      ],
+      [
+        17.0,
+        10.5
+      ],
+      [
+        22.0,
+        2.5
+      ],
+      [
+        23.0,
+        8.5
+      ],
+      [
+        25.0,
+        3.0
+      ],
+      [
+        24.5,
+        5.0
+      ],
+      [
+        24.0,
+        8.0
+      ],
+      [
+        27.5,
+        13.0
+      ],
+      [
+        28.0,
+        3.5
+      ],
+      [
+        28.0,
+        4.5
+      ],
+      [
+        28.0,
+        14.5
+      ],
+      [
+        1.5,
+        3.0
+      ],
+      [
+        2.0,
+        4.0
+      ],
+      [
+        1.5,
+        11.0
+      ],
+      [
+        3.0,
+        14.0
+      ],
+      [
+        4.5,
+        3.0
+      ],
+      [
+        5.0,
+        6.5
+      ],
+      [
+        14.0,
+        1.5
+      ],
+      [
+        15.5,
+        7.5
+      ],
+      [
+        12.0,
+        8.0
+      ],
+      [
+        16.0,
+        8.0
+      ],
+      [
+        22.5,
+        8.5
+      ],
+      [
+        27.5,
+        3.0
+      ],
+      [
+        27.5,
+        6.5
+      ],
+      [
+        26.5,
+        8.5
+      ],
+      [
+        27.5,
+        13.5
+      ],
+      [
+        28.0,
+        2.0
+      ],
+      [
+        28.0,
+        5.0
+      ],
+      [
+        28.0,
+        12.5
+      ],
+      [
+        3.0,
+        2.0
+      ],
+      [
+        2.0,
+        4.5
+      ],
+      [
+        1.5,
+        11.5
+      ],
+      [
+        1.5,
+        13.0
+      ],
+      [
+        4.5,
+        3.5
+      ],
+      [
+        4.5,
+        5.5
+      ],
+      [
+        14.5,
+        1.5
+      ],
+      [
+        13.0,
+        7.5
+      ],
+      [
+        13.0,
+        8.5
+      ],
+      [
+        18.0,
+        8.5
+      ],
+      [
+        22.0,
+        9.0
+      ],
+      [
+        27.5,
+        3.5
+      ],
+      [
+        24.0,
+        7.5
+      ],
+      [
+        27.5,
+        11.0
+      ],
+      [
+        27.5,
+        15.0
+      ],
+      [
+        28.0,
+        13.0
+      ],
+      [
+        2.5,
+        1.5
+      ],
+      [
+        1.5,
+        5.5
+      ],
+      [
+        2.5,
+        13.5
+      ],
+      [
+        4.0,
+        1.5
+      ],
+      [
+        4.5,
+        5.0
+      ]
+    ]
+  }
+}

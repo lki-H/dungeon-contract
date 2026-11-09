@@ -1,0 +1,17 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.input.v4",
+  "input_sequence": 43,
+  "weapon_id": "repeating_crossbow",
+  "weapon_revision": 1,
+  "move_x": 1000,
+  "move_y": 0,
+  "aim_u16": 0,
+  "attack_held": false,
+  "interact_held": false,
+  "rescue_held": false,
+  "action_watermark": 43
+}

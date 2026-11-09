@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "planned_record_not_registered",
+  "attack_id": "attack_archer_example",
+  "revision": 1,
+  "source_entity_id": "enemy_archer_example",
+  "source_entity_generation": 1,
+  "room_id": "mechanism",
+  "attack_definition_id": "archer",
+  "attack_kind": "projectile",
+  "phase": "prepare",
+  "origin_milli": [
+    17000,
+    17000
+  ],
+  "aim_u16": 49151,
+  "target_point_milli": [
+    17000,
+    10000
+  ],
+  "prepare_begin_game_ms": 10000,
+  "commit_begin_game_ms": 10500,
+  "execute_game_ms": 10700,
+  "expires_game_ms": 13000
+}

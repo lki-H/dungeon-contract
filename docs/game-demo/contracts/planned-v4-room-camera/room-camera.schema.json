@@ -1,0 +1,856 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "./room-camera.schema.json"
+    },
+    "specification_version": {
+      "const": "2.1-camera.2"
+    },
+    "status": {
+      "const": "planned_not_loaded"
+    },
+    "balance_status": {
+      "const": "unverified_initial"
+    },
+    "published": {
+      "const": false
+    },
+    "base": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parameters_path": {
+          "const": "../planned-v4/parameters.json"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "runtime_profile_preserved": {
+          "const": "dc_ruins.v4.s2"
+        },
+        "application": {
+          "const": "explicit_design_overrides_not_runtime_merge"
+        }
+      },
+      "required": [
+        "parameters_path",
+        "sha256",
+        "runtime_profile_preserved",
+        "application"
+      ]
+    },
+    "planned_versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation": {
+          "const": "dc_ruins.v4"
+        },
+        "content": {
+          "const": "dc_content.v4.draft3"
+        },
+        "world": {
+          "const": "dc_rooms.v4.draft2"
+        },
+        "trial": {
+          "const": "trial.v4.draft3"
+        },
+        "battle_protocol": {
+          "const": 4
+        },
+        "control_schema": {
+          "const": 2
+        }
+      },
+      "required": [
+        "operation",
+        "content",
+        "world",
+        "trial",
+        "battle_protocol",
+        "control_schema"
+      ]
+    },
+    "answers": {
+      "type": "array",
+      "minItems": 26,
+      "maxItems": 26,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "QCAM-01",
+              "QCAM-02",
+              "QCAM-03",
+              "QCAM-04",
+              "QCAM-05",
+              "QCAM-06",
+              "QCAM-07",
+              "QCAM-08",
+              "QCAM-09",
+              "QCAM-10",
+              "QCAM-11",
+              "QCAM-12",
+              "QCAM-13",
+              "QCAM-14",
+              "QCAM-15",
+              "QCAM-16",
+              "QCAM-17",
+              "QCAM-18",
+              "QCAM-19",
+              "QCAM-20",
+              "QCAM-21",
+              "QCAM-22",
+              "QCAM-23",
+              "QCAM-24",
+              "QCAM-25",
+              "QCAM-26"
+            ]
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "confirmed": {
+            "const": true
+          }
+        },
+        "required": [
+          "id",
+          "decision",
+          "confirmed"
+        ]
+      }
+    },
+    "display": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tile_pixels": {
+          "const": 16
+        },
+        "pixels_per_unit": {
+          "const": 16
+        },
+        "canvas_width": {
+          "type": "integer",
+          "minimum": 384,
+          "maximum": 1024
+        },
+        "canvas_height": {
+          "type": "integer",
+          "minimum": 216,
+          "maximum": 576
+        },
+        "combat_rect_pixels": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 512
+            },
+            "y": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 288
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 512
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 288
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "width",
+            "height"
+          ]
+        },
+        "view_width_milli_tiles": {
+          "type": "integer",
+          "minimum": 10000,
+          "maximum": 34000
+        },
+        "view_height_milli_tiles": {
+          "type": "integer",
+          "minimum": 8000,
+          "maximum": 20000
+        },
+        "orthographic_size_milli_tiles": {
+          "type": "integer",
+          "minimum": 4000,
+          "maximum": 10000
+        },
+        "default_window_width": {
+          "type": "integer",
+          "minimum": 1280,
+          "maximum": 3840
+        },
+        "default_window_height": {
+          "type": "integer",
+          "minimum": 720,
+          "maximum": 2160
+        },
+        "min_window_width": {
+          "const": 1280
+        },
+        "min_window_height": {
+          "const": 720
+        },
+        "optional_window_width": {
+          "type": "integer",
+          "minimum": 1280,
+          "maximum": 3840
+        },
+        "optional_window_height": {
+          "type": "integer",
+          "minimum": 720,
+          "maximum": 2160
+        },
+        "pixel_scale_mode": {
+          "const": "integer_letterbox"
+        },
+        "variable_fov_by_resolution": {
+          "const": false
+        },
+        "hud_policy": {
+          "const": "compact_edge_overlay_combat_dominant"
+        },
+        "hud_combat_overlap_allowed": {
+          "const": true
+        },
+        "default_window_policy": {
+          "const": "1536x864_window_fullscreen_optional_fallback_to_work_area"
+        },
+        "integer_scale_primary": {
+          "const": true
+        }
+      },
+      "required": [
+        "tile_pixels",
+        "pixels_per_unit",
+        "canvas_width",
+        "canvas_height",
+        "combat_rect_pixels",
+        "view_width_milli_tiles",
+        "view_height_milli_tiles",
+        "orthographic_size_milli_tiles",
+        "default_window_width",
+        "default_window_height",
+        "min_window_width",
+        "min_window_height",
+        "optional_window_width",
+        "optional_window_height",
+        "pixel_scale_mode",
+        "variable_fov_by_resolution",
+        "hud_policy",
+        "hud_combat_overlap_allowed",
+        "default_window_policy",
+        "integer_scale_primary"
+      ]
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "target": {
+          "const": "local_predicted_visual_position"
+        },
+        "projection": {
+          "const": "orthographic"
+        },
+        "world_plane": {
+          "const": "xy"
+        },
+        "mouse_pan": {
+          "const": false
+        },
+        "deadzone_half_width_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "deadzone_half_height_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "damping_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200
+        },
+        "max_lag_milli_tiles": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 2000
+        },
+        "room_transition_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 500
+        },
+        "small_room_policy": {
+          "const": "center_axis_and_show_nonplayable_padding"
+        },
+        "pause_freezes": {
+          "const": true
+        },
+        "follow_policy": {
+          "const": "direct_small_deadzone_fast_light_damping"
+        },
+        "corridor_policy": {
+          "const": "continuous_follow_transition_not_room"
+        },
+        "boss_policy": {
+          "const": "same_as_normal_room"
+        },
+        "auto_open_door_transition": {
+          "const": true
+        }
+      },
+      "required": [
+        "target",
+        "projection",
+        "world_plane",
+        "mouse_pan",
+        "deadzone_half_width_milli_tiles",
+        "deadzone_half_height_milli_tiles",
+        "damping_ms",
+        "max_lag_milli_tiles",
+        "room_transition_ms",
+        "small_room_policy",
+        "pause_freezes",
+        "follow_policy",
+        "corridor_policy",
+        "boss_policy",
+        "auto_open_door_transition"
+      ]
+    },
+    "offscreen": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "const": true
+        },
+        "requires_source_on_screen": {
+          "const": false
+        },
+        "scope": {
+          "const": "current_observed_room_only"
+        },
+        "edge_inset_logical_pixels": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 16
+        },
+        "incoming_lookahead_game_ms": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 2000
+        },
+        "reactable_warning_target_ms": {
+          "type": "integer",
+          "minimum": 200,
+          "maximum": 1000
+        },
+        "reactable_warning_kind": {
+          "const": "human_acceptance_target_no_damage_immunity"
+        },
+        "direction_bins": {
+          "const": 8
+        },
+        "max_direction_groups": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "max_incoming_groups": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "world_simulation_culling": {
+          "const": false
+        },
+        "collision_depends_on_camera": {
+          "const": false
+        },
+        "critical_cues_optional": {
+          "const": false
+        }
+      },
+      "required": [
+        "enabled",
+        "requires_source_on_screen",
+        "scope",
+        "edge_inset_logical_pixels",
+        "incoming_lookahead_game_ms",
+        "reactable_warning_target_ms",
+        "reactable_warning_kind",
+        "direction_bins",
+        "max_direction_groups",
+        "max_incoming_groups",
+        "world_simulation_culling",
+        "collision_depends_on_camera",
+        "critical_cues_optional"
+      ]
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "entry",
+              "foyer",
+              "mechanism",
+              "defense",
+              "sanctum",
+              "boss_room",
+              "rune_branch",
+              "supply_branch"
+            ]
+          },
+          "width_tiles": {
+            "type": "integer",
+            "minimum": 16,
+            "maximum": 34
+          },
+          "height_tiles": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 20
+          },
+          "spawn": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 34
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "pillars_a": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 34
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "maxItems": 8
+          },
+          "pillars_b": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 34
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "maxItems": 8
+          },
+          "covers": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 34
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "maxItems": 8
+          },
+          "objective": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 34
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "traps": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 34
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "maxItems": 8
+          },
+          "special_point": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 34
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "width_tiles",
+          "height_tiles",
+          "spawn",
+          "pillars_a",
+          "pillars_b",
+          "covers",
+          "objective",
+          "traps",
+          "special_point"
+        ]
+      },
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "inherit_unchanged": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 128
+      },
+      "minItems": 6,
+      "maxItems": 6,
+      "uniqueItems": true
+    },
+    "runtime_acceptance": {
+      "const": "NOT_RUN"
+    },
+    "corridors": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_:-]{1,64}$"
+          },
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z0-9_:-]{1,64}$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z0-9_:-]{1,64}$"
+          },
+          "length_tiles": {
+            "type": "integer",
+            "minimum": 4,
+            "maximum": 6
+          },
+          "width_tiles": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 4
+          },
+          "encounter": {
+            "const": false
+          },
+          "spawns": {
+            "const": false
+          },
+          "interactives": {
+            "const": false
+          },
+          "projectile_crossing": {
+            "const": false
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "length_tiles",
+          "width_tiles",
+          "encounter",
+          "spawns",
+          "interactives",
+          "projectile_crossing"
+        ]
+      }
+    },
+    "spawn_visibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "selection_policy": {
+          "const": "server_shared_visibility_first_fixed_seed_fallback"
+        },
+        "min_visible_players": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1
+        },
+        "uses_client_camera_report": {
+          "const": false
+        },
+        "visibility_reference": {
+          "const": "server_player_positions_plus_configured_viewport"
+        },
+        "offscreen_fallback": {
+          "const": true
+        },
+        "fairness_tiebreak": {
+          "const": "seed_room_wave_spawn_index"
+        },
+        "warning": {
+          "const": "800ms_point_warning_or_edge_direction_if_offscreen"
+        }
+      },
+      "required": [
+        "selection_policy",
+        "min_visible_players",
+        "uses_client_camera_report",
+        "visibility_reference",
+        "offscreen_fallback",
+        "fairness_tiebreak",
+        "warning"
+      ]
+    },
+    "minimap": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "policy": {
+          "const": "simplified_interior"
+        },
+        "show_room_outline": {
+          "const": true
+        },
+        "show_explored_region": {
+          "const": true
+        },
+        "show_doors": {
+          "const": true
+        },
+        "show_objectives": {
+          "const": true
+        },
+        "show_known_traps": {
+          "const": true
+        },
+        "show_pillars_and_covers": {
+          "const": false
+        },
+        "show_enemy_exact_positions": {
+          "const": false
+        },
+        "show_unexplored_room_content": {
+          "const": false
+        },
+        "show_same_room_living_teammate_position": {
+          "const": true
+        },
+        "show_downed_teammate_edge_marker": {
+          "const": true
+        }
+      },
+      "required": [
+        "policy",
+        "show_room_outline",
+        "show_explored_region",
+        "show_doors",
+        "show_objectives",
+        "show_known_traps",
+        "show_pillars_and_covers",
+        "show_enemy_exact_positions",
+        "show_unexplored_room_content",
+        "show_same_room_living_teammate_position",
+        "show_downed_teammate_edge_marker"
+      ]
+    },
+    "occlusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "style": {
+          "const": "foreground_fade"
+        },
+        "fade_local_player_and_teammates": {
+          "const": true
+        },
+        "fade_threshold_alpha_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "keep_danger_cues_readable": {
+          "const": true
+        },
+        "collision_and_los_unchanged": {
+          "const": true
+        }
+      },
+      "required": [
+        "style",
+        "fade_local_player_and_teammates",
+        "fade_threshold_alpha_milli",
+        "keep_danger_cues_readable",
+        "collision_and_los_unchanged"
+      ]
+    },
+    "trap_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "after_room_complete": {
+          "const": "remain_active"
+        },
+        "cooldown_continues": {
+          "const": true
+        },
+        "damages_players_and_normal_enemies": {
+          "const": true
+        },
+        "starts_no_new_waves": {
+          "const": false
+        },
+        "changes_room_complete": {
+          "const": false
+        },
+        "resets_on_return": {
+          "const": false
+        },
+        "contract_or_reward_progress": {
+          "const": false
+        }
+      },
+      "required": [
+        "after_room_complete",
+        "cooldown_continues",
+        "damages_players_and_normal_enemies",
+        "starts_no_new_waves",
+        "changes_room_complete",
+        "resets_on_return",
+        "contract_or_reward_progress"
+      ]
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "corridor": {
+          "const": "walkable_transition_no_encounters_no_spawns_no_interactives"
+        },
+        "door_transition": {
+          "const": "automatic_when_opened_and_entered"
+        },
+        "room_boundary": {
+          "const": "enemy_turret_projectile_isolated"
+        },
+        "entry_protection": {
+          "const": "none_beyond_authoritative_load_and_warning"
+        },
+        "room_complete_trap": {
+          "const": "active_with_existing_cooldown"
+        },
+        "last_enemy_hint": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "remaining_count": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2
+            },
+            "idle_game_ms": {
+              "type": "integer",
+              "minimum": 1000,
+              "maximum": 30000
+            },
+            "kind": {
+              "const": "approximate_direction_current_room_only"
+            }
+          },
+          "required": [
+            "remaining_count",
+            "idle_game_ms",
+            "kind"
+          ]
+        }
+      },
+      "required": [
+        "corridor",
+        "door_transition",
+        "room_boundary",
+        "entry_protection",
+        "room_complete_trap",
+        "last_enemy_hint"
+      ]
+    }
+  },
+  "required": [
+    "$schema",
+    "specification_version",
+    "status",
+    "balance_status",
+    "published",
+    "base",
+    "planned_versions",
+    "answers",
+    "display",
+    "camera",
+    "offscreen",
+    "rooms",
+    "inherit_unchanged",
+    "runtime_acceptance"
+  ]
+}

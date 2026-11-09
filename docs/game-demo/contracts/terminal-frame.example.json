@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "source": "unity_game_server",
+  "run_id": "run_example",
+  "instance_id": "dc_local_01",
+  "boot_id": "00000000-0000-4000-8000-000000000001",
+  "assignment_id": "assign_example",
+  "source_generation": 1,
+  "sequence": 12,
+  "frame_id": "00000000-0000-4000-8000-000000000004",
+  "world_frame_id": 18000,
+  "elapsed_ms": 600000,
+  "control_version": 0,
+  "facts": [
+    {
+      "event_id": "00000000-0000-4000-8000-000000000005",
+      "kind": "damage",
+      "actor_player_id": "1001",
+      "target_id": "boss",
+      "contributors": [],
+      "action_id": "attack_final",
+      "effective_amount": 18
+    },
+    {
+      "event_id": "00000000-0000-4000-8000-000000000006",
+      "kind": "kill",
+      "actor_player_id": "1001",
+      "target_id": "boss",
+      "contributors": [],
+      "action_id": "attack_final",
+      "effective_amount": 0,
+      "contract_kill_eligible": true
+    },
+    {
+      "event_id": "00000000-0000-4000-8000-000000000007",
+      "kind": "death",
+      "actor_player_id": "1001",
+      "target_id": "player_life_01",
+      "contributors": [],
+      "action_id": null,
+      "effective_amount": 0
+    }
+  ],
+  "terminal": {
+    "outcome": "success",
+    "reason": "objectives_complete",
+    "cutoff_frame": 18000,
+    "cutoff_sequence": 12
+  },
+  "summary": {
+    "participants": [
+      {
+        "player_id": "1001",
+        "slot": 0,
+        "loadout_id": "ranger",
+        "damage": 2000,
+        "kills": 40,
+        "assists": 0,
+        "interactions": 2,
+        "deaths": 1,
+        "choices": [
+          "swift_dodge",
+          "frost",
+          "charged_volley"
+        ],
+        "effective_contribution": true
+      }
+    ],
+    "trial_eligible": true,
+    "ineligible_reason": "none"
+  },
+  "fingerprint": "9b41b1e1f4d957db3d6466d4d6cf00890118119e46e2406a92d4d71abe226c71"
+}

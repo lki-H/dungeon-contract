@@ -1,0 +1,20 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.presentation.v4",
+  "event_id": "fx_example_95",
+  "source_action_id": "action_switch_001",
+  "entity_id": "player_101",
+  "entity_generation": 1,
+  "world_frame_id": 300,
+  "game_elapsed_ms": 10000,
+  "expires_game_ms": 10250,
+  "kind": "weapon_switched",
+  "amount": 0,
+  "x_milli": 5000,
+  "y_milli": 7000,
+  "interest_revision": 1,
+  "event_sequence": 96
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 6,
+  "operation": "dc_ruins.v6",
+  "task_version": "dc_tasks.v5.p4.1",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "sequence": 2,
+  "world_frame_id": 930,
+  "control_watermark": 6,
+  "clock": {
+    "game_ms": 31000,
+    "wall_ms": 36000,
+    "manual_pause_ms": 5000,
+    "paused": false,
+    "clock_revision": 6
+  },
+  "facts": [
+    {
+      "event_id": "fact_boss_kill",
+      "kind": "kill",
+      "event_game_ms": 31000,
+      "actor_player_id": "101",
+      "source_life_generation": 2,
+      "root_attack_id": "root_hammer_7",
+      "target_id": "boss",
+      "target_life_generation": 1,
+      "target_spawn_origin": "boss_body",
+      "contract_progress_eligible": true,
+      "amount": 1,
+      "proof": null,
+      "actor_downed_generation": 0,
+      "target_downed_generation": 0,
+      "life_state": null,
+      "reinforcement_id": null,
+      "contributors": [],
+      "contribution_proofs": [],
+      "growth_choice": null
+    }
+  ],
+  "terminal": {
+    "result": "success",
+    "reason": "boss_defeated",
+    "cutoff_frame": 930,
+    "cutoff_sequence": 2
+  },
+  "summary": {
+    "totals_complete": true,
+    "players": [
+      {
+        "player_id": "101",
+        "slot": 0,
+        "damage": 2230,
+        "kills": 5,
+        "assists": 0,
+        "knockdowns": 1,
+        "deaths": 0,
+        "rescues": 0,
+        "protected_damage": 0,
+        "cleared_projectiles": 12,
+        "eligible_damage_actions": 12,
+        "growth": [
+          "runesmith_heavy"
+        ],
+        "choices": [
+          {
+            "node_id": "growth_1",
+            "option_id": "runesmith_heavy",
+            "candidate_revision": 1,
+            "candidate_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "opened_game_ms": 20000,
+            "deadline_game_ms": 80000,
+            "selected_game_ms": 21000,
+            "automatic": false
+          }
+        ]
+      }
+    ]
+  },
+  "fingerprint": "bcd6e132c8ed6f32a22436ec8caec7a021af4aaa3c889b3186e9cf9f3e76e168"
+}

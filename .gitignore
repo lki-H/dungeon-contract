@@ -1,0 +1,75 @@
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+private/
+**/private/
+portfolio-cache/
+portfolio-private/
+public-export/
+*.vhd
+*.vhdx
+*.avhdx
+*.pfx
+*.p12
+*.pem
+*.key
+
+# Logs and temporary files
+*.log
+*.tmp
+tmp/
+temp/
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+__pycache__/
+*.pyc
+artifacts/
+evidence/
+**/evidence/
+
+client/unity-demo/[Ll]ibrary/
+client/unity-demo/[Tt]emp/
+client/unity-demo/[Oo]bj/
+client/unity-demo/[Ll]ogs/
+client/unity-demo/[Uu]ser[Ss]ettings/
+client/unity-demo/*.csproj
+client/unity-demo/*.sln
+client/unity-demo/*.slnx
+
+# Go build output
+*.exe
+*.test
+*.out
+backend/*.exe
+backend/tmp/
+backend/.air/
+
+# Docker / database local data
+*.pid
+*.dump
+*.sql.gz
+postgres_data/
+mysql_data/
+redis_data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Internal collaboration docs
+AGENTS.md
+docs/codex-context.md
+docs/conversation-handoff-gpt55.md
+docs/mcp-adoption-plan.md
+docs/skill-adoption-plan.md

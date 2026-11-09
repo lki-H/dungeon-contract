@@ -1,0 +1,289 @@
+{
+  "definition_id": "dc_rooms.v3.draft1",
+  "lifecycle_stage": "p1_fixed_rooms",
+  "rooms": [
+    {
+      "id": "entry",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": []
+    },
+    {
+      "id": "foyer",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          6,
+          6
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [
+        [
+          8500,
+          2500,
+          1000,
+          1000
+        ],
+        [
+          8500,
+          6500,
+          1000,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "mechanism",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": [
+        11,
+        5
+      ],
+      "cover_points": [
+        [
+          5,
+          7
+        ],
+        [
+          13,
+          3
+        ]
+      ],
+      "trap_points": [
+        [
+          7,
+          5
+        ],
+        [
+          14,
+          7
+        ]
+      ],
+      "obstacles_milli": [
+        [
+          7500,
+          2500,
+          1000,
+          1000
+        ],
+        [
+          7500,
+          6500,
+          1000,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "defense",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": [
+        9,
+        5
+      ],
+      "cover_points": [
+        [
+          5,
+          3
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          14,
+          3
+        ]
+      ],
+      "trap_points": [
+        [
+          6,
+          6
+        ],
+        [
+          12,
+          4
+        ]
+      ],
+      "obstacles_milli": [
+        [
+          8500,
+          1500,
+          1000,
+          1000
+        ],
+        [
+          8500,
+          7500,
+          1000,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "sanctum",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          5,
+          7
+        ],
+        [
+          13,
+          3
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": [
+        [
+          8500,
+          2500,
+          1000,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "boss_room",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [],
+      "trap_points": [],
+      "obstacles_milli": []
+    },
+    {
+      "id": "rune_branch",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          9,
+          3
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": []
+    },
+    {
+      "id": "supply_branch",
+      "width": 18,
+      "height": 10,
+      "spawn": [
+        3,
+        5
+      ],
+      "objective": null,
+      "cover_points": [
+        [
+          9,
+          3
+        ]
+      ],
+      "trap_points": [],
+      "obstacles_milli": []
+    }
+  ],
+  "doors": [
+    {
+      "from": 0,
+      "to": 1,
+      "side": "east"
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "side": "east"
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "side": "east"
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "side": "east"
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "side": "east"
+    }
+  ],
+  "physics": {
+    "enemy_radius_milli": 420,
+    "elite_radius_milli": 600,
+    "boss_radius_milli": 900,
+    "projectile_radius_milli": 100,
+    "sweep_step_milli": 100,
+    "contact_protection_ms": 0,
+    "knockback_milli": 250,
+    "knockback_interval_ms": 500
+  },
+  "encounter": {
+    "room_warning_ms": 2000,
+    "room_alive_limits": [
+      8,
+      12,
+      16,
+      20
+    ],
+    "wave_start_warning_ms": 1000,
+    "room_spawn_block_timeout_ms": 5000
+  },
+  "trap": {
+    "radius_milli": 700,
+    "warning_ms": 600,
+    "active_ms": 200,
+    "cooldown_ms": 2000,
+    "player_damage": 12,
+    "enemy_damage": 25
+  },
+  "input": {
+    "buffer_ms": 100
+  }
+}

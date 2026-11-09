@@ -1,0 +1,1890 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Dungeon Contract v5 P2.2-P4 runtime stage",
+    "version": "2.2-p5.1",
+    "description": "Versioned rescue, reinforcements, real contribution proofs, contracts and reliable per-member settlement; engineering acceptance recorded separately."
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:12880",
+      "description": "Implemented player listener"
+    },
+    {
+      "url": "http://127.0.0.1:12890",
+      "description": "Implemented internal listener"
+    }
+  ],
+  "paths": {
+    "/api/v2/runs/{run_id}/admissions": {
+      "post": {
+        "summary": "Issue original-member short admission",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "playerBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admission"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdmissionRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/instances/register": {
+      "post": {
+        "summary": "Register service boot",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "registered",
+                    "instance_id",
+                    "source_generation"
+                  ],
+                  "properties": {
+                    "registered": {
+                      "const": true
+                    },
+                    "instance_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "source_generation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/instances/{instance_id}/heartbeat": {
+      "post": {
+        "summary": "Renew instance lease",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "heartbeat"
+                  ],
+                  "properties": {
+                    "heartbeat": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HeartbeatRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/instances/{instance_id}/claim": {
+      "post": {
+        "summary": "Get assigned immutable manifest",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "assignment"
+                  ],
+                  "properties": {
+                    "assignment": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "p1_world",
+                            "p1_world_hash",
+                            "task_requirements",
+                            "run_id",
+                            "assignment_id",
+                            "instance_id",
+                            "boot_id",
+                            "source_generation",
+                            "config_hash",
+                            "operation_version",
+                            "mode",
+                            "trial_version",
+                            "seed",
+                            "members",
+                            "config",
+                            "versions"
+                          ],
+                          "properties": {
+                            "p1_world": {
+                              "type": "object"
+                            },
+                            "p1_world_hash": {
+                              "type": "string"
+                            },
+                            "task_requirements": {
+                              "type": "object",
+                              "additionalProperties": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              }
+                            },
+                            "run_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 64
+                            },
+                            "assignment_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 64
+                            },
+                            "instance_id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 64
+                            },
+                            "boot_id": {
+                              "type": "string"
+                            },
+                            "source_generation": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "config_hash": {
+                              "type": "string"
+                            },
+                            "operation_version": {
+                              "const": "dc_ruins.v5"
+                            },
+                            "mode": {
+                              "const": "normal"
+                            },
+                            "trial_version": {
+                              "const": ""
+                            },
+                            "seed": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "members": {
+                              "type": "array",
+                              "minItems": 1,
+                              "maxItems": 4,
+                              "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "player_id",
+                                  "slot",
+                                  "loadout_id"
+                                ],
+                                "properties": {
+                                  "player_id": {
+                                    "type": "string",
+                                    "pattern": "^[1-9][0-9]{0,18}$"
+                                  },
+                                  "slot": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 3
+                                  },
+                                  "loadout_id": {
+                                    "enum": [
+                                      "ranger",
+                                      "runesmith"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "config": {
+                              "type": "object"
+                            },
+                            "versions": {
+                              "type": "object",
+                              "properties": {
+                                "protocol_version": {
+                                  "const": 5
+                                },
+                                "operation_version": {
+                                  "const": "dc_ruins.v5"
+                                },
+                                "content_version": {
+                                  "const": "dc_content.v5.p5.1"
+                                },
+                                "world_version": {
+                                  "const": "dc_rooms.v5.p4.1"
+                                },
+                                "parameters_hash": {
+                                  "type": "string",
+                                  "pattern": "^[0-9a-f]{64}$"
+                                }
+                              },
+                              "required": [
+                                "protocol_version",
+                                "operation_version",
+                                "content_version",
+                                "world_version",
+                                "parameters_hash"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClaimRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/admissions/consume": {
+      "post": {
+        "summary": "Validate and consume one connection ticket",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "player_id",
+                    "slot",
+                    "connection_generation",
+                    "run_id",
+                    "assignment_id",
+                    "generation",
+                    "config_hash",
+                    "versions"
+                  ],
+                  "properties": {
+                    "player_id": {
+                      "type": "string"
+                    },
+                    "slot": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "connection_generation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "run_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "assignment_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "generation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "config_hash": {
+                      "type": "string"
+                    },
+                    "versions": {
+                      "type": "object",
+                      "properties": {
+                        "protocol_version": {
+                          "const": 5
+                        },
+                        "operation_version": {
+                          "const": "dc_ruins.v5"
+                        },
+                        "content_version": {
+                          "const": "dc_content.v5.p5.1"
+                        },
+                        "world_version": {
+                          "const": "dc_rooms.v5.p4.1"
+                        },
+                        "parameters_hash": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{64}$"
+                        }
+                      },
+                      "required": [
+                        "protocol_version",
+                        "operation_version",
+                        "content_version",
+                        "world_version",
+                        "parameters_hash"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsumeRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/commands": {
+      "get": {
+        "summary": "Read pending ordered control fence",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "commands",
+                    "control_version"
+                  ],
+                  "properties": {
+                    "commands": {
+                      "type": "array",
+                      "maxItems": 32,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "control_version",
+                          "type",
+                          "payload"
+                        ],
+                        "properties": {
+                          "control_version": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "type": {
+                            "enum": [
+                              "leave"
+                            ]
+                          },
+                          "payload": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "player_id"
+                            ],
+                            "properties": {
+                              "player_id": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "control_version": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "after_control_version",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        ],
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/start": {
+      "post": {
+        "summary": "Commit loaded assignment start",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "start_operation",
+                        "run_id"
+                      ],
+                      "properties": {
+                        "start_operation": {
+                          "type": "string"
+                        },
+                        "run_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64
+                        }
+                      }
+                    },
+                    {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "ready",
+                        "run_id"
+                      ],
+                      "properties": {
+                        "ready": {
+                          "const": true
+                        },
+                        "run_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StartRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/frames": {
+      "post": {
+        "summary": "Apply whole reliable key frame",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "status",
+                    "applied_sequence",
+                    "control_version",
+                    "run_status",
+                    "reinforcements",
+                    "task_requirements"
+                  ],
+                  "properties": {
+                    "status": {
+                      "enum": [
+                        "received",
+                        "applied"
+                      ]
+                    },
+                    "applied_sequence": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "control_version": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "run_status": {
+                      "enum": [
+                        "loading",
+                        "running",
+                        "ending",
+                        "closed",
+                        "aborted"
+                      ]
+                    },
+                    "reinforcements": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "required": [
+                              "player_id",
+                              "deaths",
+                              "status",
+                              "deadline"
+                            ],
+                            "properties": {
+                              "player_id": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "deaths": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "status": {
+                                "enum": [
+                                  "pending_spawn",
+                                  "spawned",
+                                  "failed",
+                                  "canceled"
+                                ]
+                              },
+                              "deadline": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    "task_requirements": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 9007199254740991
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Frame"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/abort": {
+      "post": {
+        "summary": "Idempotent technical abort",
+        "description": "Implemented in P0/P1. Success bodies are direct JSON objects, not the inherited code/message/data envelope. Error behavior is defined in protocols.md.",
+        "security": [
+          {
+            "serviceBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Actual direct JSON response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "aborted"
+                  ],
+                  "properties": {
+                    "aborted": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON, schema or field (code 40001)"
+          },
+          "401": {
+            "description": "Internal credential mismatch: empty body; player endpoint follows inherited authentication errors"
+          },
+          "403": {
+            "description": "Wrong player, instance or assignment (code 40381)"
+          },
+          "409": {
+            "description": "Conflict/resource budget (40981), or control fence (40982)"
+          },
+          "410": {
+            "description": "Expired/terminal (41081)"
+          },
+          "503": {
+            "description": "Storage unavailable (50381)"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-DC-Service-ID",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          },
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AbortRequest"
+              }
+            }
+          }
+        },
+        "x-dc-status": "implemented"
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/control-acks": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/S1ControlAck"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "durable stage clock"
+          }
+        }
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/presence": {
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/S1Presence"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Battle presence and forced pause recovery"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "playerBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "serviceBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Independent service token, never a player/GM JWT"
+      }
+    },
+    "schemas": {
+      "RegisterRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "instance_id",
+          "boot_id",
+          "protocol_version",
+          "config_versions",
+          "versions"
+        ],
+        "properties": {
+          "instance_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "boot_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "protocol_version": {
+            "const": 5
+          },
+          "config_versions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "definition_id",
+                "hash"
+              ],
+              "properties": {
+                "definition_id": {
+                  "const": "dc_ruins.v5.p5.1"
+                },
+                "hash": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "HeartbeatRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "boot_id",
+          "assignment_id",
+          "source_generation",
+          "instance_status",
+          "last_applied_sequence",
+          "versions"
+        ],
+        "properties": {
+          "boot_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "assignment_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "instance_status": {
+            "enum": [
+              "idle",
+              "reserved",
+              "loading",
+              "running",
+              "draining",
+              "failed"
+            ]
+          },
+          "last_applied_sequence": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "ClaimRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "boot_id",
+          "versions"
+        ],
+        "properties": {
+          "boot_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "ConsumeRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ticket",
+          "client_nonce",
+          "instance_id",
+          "boot_id",
+          "versions",
+          "config_hash"
+        ],
+        "properties": {
+          "ticket": {
+            "type": "string",
+            "minLength": 43,
+            "maxLength": 43
+          },
+          "client_nonce": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "instance_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "boot_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          },
+          "config_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      },
+      "StartRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assignment_id",
+          "source_generation",
+          "config_hash",
+          "loaded_members",
+          "versions"
+        ],
+        "properties": {
+          "ready_only": {
+            "type": "boolean",
+            "description": "Implemented loading readiness snapshot; true records ready members without starting the Run, false requires the full frozen roster."
+          },
+          "assignment_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "config_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "loaded_members": {
+            "type": "array",
+            "minItems": 0,
+            "maxItems": 4,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "player_id",
+                "slot",
+                "connection_generation"
+              ],
+              "properties": {
+                "player_id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,18}$"
+                },
+                "slot": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "connection_generation": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                }
+              }
+            }
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "AbortRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operation_id",
+          "assignment_id",
+          "source_generation",
+          "reason"
+        ],
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "assignment_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "reason": {
+            "const": "technical_failure"
+          }
+        }
+      },
+      "AdmissionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operation_id",
+          "versions",
+          "config_hash"
+        ],
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "format": "uuid",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          },
+          "config_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      },
+      "Admission": {
+        "type": "object",
+        "required": [
+          "ticket",
+          "expires_at",
+          "instance_id",
+          "source_generation",
+          "connection_generation",
+          "endpoint",
+          "config_hash",
+          "versions"
+        ],
+        "properties": {
+          "ticket": {
+            "type": "string",
+            "maxLength": 128
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "instance_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_.:-]+$"
+          },
+          "source_generation": {
+            "type": "integer"
+          },
+          "connection_generation": {
+            "type": "integer"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Configured host/port; not arbitrary internal fetch URL"
+          },
+          "config_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "protocol_version": {
+                "const": 5
+              },
+              "operation_version": {
+                "const": "dc_ruins.v5"
+              },
+              "content_version": {
+                "const": "dc_content.v5.p5.1"
+              },
+              "world_version": {
+                "const": "dc_rooms.v5.p4.1"
+              },
+              "parameters_hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "protocol_version",
+              "operation_version",
+              "content_version",
+              "world_version",
+              "parameters_hash"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "Frame": {
+        "$ref": "frame-v5-p5.schema.json"
+      },
+      "VersionBinding": {
+        "type": "object",
+        "properties": {
+          "protocol_version": {
+            "const": 5
+          },
+          "operation_version": {
+            "const": "dc_ruins.v5"
+          },
+          "content_version": {
+            "const": "dc_content.v5.p5.1"
+          },
+          "world_version": {
+            "const": "dc_rooms.v5.p4.1"
+          },
+          "parameters_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "protocol_version",
+          "operation_version",
+          "content_version",
+          "world_version",
+          "parameters_hash"
+        ],
+        "additionalProperties": false
+      },
+      "S1ControlAck": {
+        "type": "object",
+        "properties": {
+          "protocol_version": {
+            "const": 5
+          },
+          "assignment_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "boot_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "control_version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "action": {
+            "enum": [
+              "pause",
+              "resume"
+            ]
+          },
+          "effective_frame": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "game_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "wall_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "manual_pause_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pause_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "clock_revision": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "checkpoint_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "protocol_version",
+          "assignment_id",
+          "boot_id",
+          "source_generation",
+          "operation_id",
+          "control_version",
+          "action",
+          "effective_frame",
+          "game_elapsed_ms",
+          "wall_elapsed_ms",
+          "manual_pause_ms",
+          "pause_id",
+          "clock_revision",
+          "checkpoint_hash"
+        ],
+        "additionalProperties": false
+      },
+      "S1Presence": {
+        "type": "object",
+        "properties": {
+          "assignment_id": {
+            "type": "string"
+          },
+          "boot_id": {
+            "type": "string"
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "player_id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]*$"
+          },
+          "connection_generation": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "connected": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "assignment_id",
+          "boot_id",
+          "source_generation",
+          "player_id",
+          "connection_generation",
+          "connected"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "x-design-status": "implemented_local_engineering_verified_P2.2_through_P4_P5_pending",
+  "x-snapshot-extensions": {
+    "schema": "../p2-2-runtime-contract.md",
+    "room_id": "region handle: main/branch 0-7, connector 8-14",
+    "spawn_reservations": "non-interactable reserved spawn positions with full warning",
+    "interest": "same room entity arrays, coarse other rooms, sanitized owner hit confirmation"
+  },
+  "x-p4-frame-schema": "frame-v5-p5.schema.json",
+  "x-p4-action-schema": "action-v5-p4.schema.json",
+  "x-v5-input-schema": "input-v5-p4.schema.json",
+  "x-v5-baseline-ack-schema": "baseline-ack-v5-p4.schema.json",
+  "x-v5-json-wire": "int32 little-endian UTF8 byte length followed by UTF8; body <=60000 bytes",
+  "x-p4-snapshot": {
+    "scope": "P4 fields retained; protocol 5 additions and actual codec in ../p2-2-runtime-contract.md",
+    "private_player_fields": [
+      "growth",
+      "candidates",
+      "choice_node",
+      "choice_revision",
+      "choice_hash",
+      "choice_remaining_ms"
+    ],
+    "owner_resources": [
+      "max_health",
+      "pending_shield",
+      "branch_supply_used",
+      "upgrades"
+    ],
+    "frozen_room_fields": [
+      "variant_id",
+      "exists"
+    ],
+    "growth_entry_fields": [
+      "node_index",
+      "revision",
+      "candidate_hash",
+      "opened_game_ms",
+      "deadline_game_ms",
+      "remaining_ms",
+      "candidates",
+      "selected",
+      "automatic",
+      "installed_game_ms"
+    ],
+    "reconnect_input_gate": "current connection reliable baseline first",
+    "game_clock": "choice deadline and branch shield lifetime",
+    "growth_fact": "trusted internal bounded frame only, no public control action or contribution"
+  }
+}

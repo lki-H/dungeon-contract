@@ -1,0 +1,408 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "definition_id",
+    "status",
+    "physics",
+    "encounter",
+    "input",
+    "feedback",
+    "view",
+    "trap",
+    "rooms",
+    "doors"
+  ],
+  "properties": {
+    "definition_id": {
+      "const": "dc_world.v2"
+    },
+    "status": {
+      "const": "unverified_initial"
+    },
+    "physics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enemy_radius_milli",
+        "elite_radius_milli",
+        "boss_radius_milli",
+        "projectile_radius_milli",
+        "sweep_step_milli",
+        "contact_protection_ms",
+        "knockback_milli",
+        "knockback_interval_ms"
+      ],
+      "properties": {
+        "enemy_radius_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1680
+        },
+        "elite_radius_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2400
+        },
+        "boss_radius_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3600
+        },
+        "projectile_radius_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "sweep_step_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "contact_protection_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "knockback_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "knockback_interval_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000
+        }
+      }
+    },
+    "encounter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "room_warning_ms",
+        "room_alive_limits",
+        "wave_start_warning_ms",
+        "projectile_lifetime_ms",
+        "room_spawn_block_timeout_ms"
+      ],
+      "properties": {
+        "room_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        },
+        "room_alive_limits": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 40
+          }
+        },
+        "wave_start_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4000
+        },
+        "projectile_lifetime_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        },
+        "room_spawn_block_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20000
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "buffer_ms",
+        "history_ticks",
+        "correction_ms",
+        "hard_correction_milli"
+      ],
+      "properties": {
+        "buffer_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "history_ticks": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "correction_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 320
+        },
+        "hard_correction_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6000
+        }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hit_stop_ms",
+        "hit_flash_ms",
+        "max_effects",
+        "max_audio_voices"
+      ],
+      "properties": {
+        "hit_stop_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "hit_flash_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 280
+        },
+        "max_effects": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "max_audio_voices": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        }
+      }
+    },
+    "view": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_hz",
+        "interpolation_ms",
+        "camera_size_milli",
+        "transition_ms",
+        "reference_width",
+        "reference_height",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "snapshot_hz": {
+          "const": 30
+        },
+        "interpolation_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 264
+        },
+        "camera_size_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 27000
+        },
+        "transition_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 800
+        },
+        "reference_width": {
+          "const": 384
+        },
+        "reference_height": {
+          "const": 216
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5120
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2880
+        }
+      }
+    },
+    "trap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warning_ms",
+        "active_ms",
+        "cooldown_ms",
+        "player_damage",
+        "enemy_damage",
+        "radius_milli"
+      ],
+      "properties": {
+        "warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2400
+        },
+        "active_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 800
+        },
+        "cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8000
+        },
+        "player_damage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "enemy_damage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "radius_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2800
+        }
+      }
+    },
+    "rooms": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "width",
+          "height",
+          "spawn",
+          "objective",
+          "obstacles",
+          "trap_points"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "width": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "height": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "spawn": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 40
+            }
+          },
+          "objective": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 20
+            }
+          },
+          "obstacles": {
+            "type": "array",
+            "maxItems": 12,
+            "items": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 18
+              }
+            }
+          },
+          "trap_points": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 18
+              }
+            }
+          }
+        }
+      }
+    },
+    "doors": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "side"
+        ],
+        "properties": {
+          "from": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "to": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 7
+          },
+          "side": {
+            "enum": [
+              "east",
+              "west",
+              "north",
+              "south"
+            ]
+          },
+          "branch": {
+            "enum": [
+              "rune_cache",
+              "healing_shrine"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

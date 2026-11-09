@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "protocol_version",
+    "operation",
+    "run_id",
+    "versions",
+    "seed",
+    "endpoint_key",
+    "content_artifacts",
+    "selected_variants",
+    "branch_exists"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "const": "planned_not_registered"
+    },
+    "protocol_version": {
+      "const": 6
+    },
+    "operation": {
+      "const": "dc_ruins.v6"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+    },
+    "versions": {
+      "const": {
+        "operation": "dc_ruins.v6",
+        "content": "dc_content.v6.draft1",
+        "world": "dc_rooms.v6.draft1",
+        "tasks": "dc_tasks.v5.p4.1",
+        "trial": "trial.v6.draft1",
+        "battle_protocol": 6,
+        "control_schema": 2
+      }
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "endpoint_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+    },
+    "content_artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "parameters",
+        "world"
+      ],
+      "properties": {
+        "parameters": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "definition_id",
+            "sha256",
+            "bytes"
+          ],
+          "properties": {
+            "definition_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1048576
+            }
+          }
+        },
+        "world": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "definition_id",
+            "sha256",
+            "bytes"
+          ],
+          "properties": {
+            "definition_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1048576
+            }
+          }
+        }
+      }
+    },
+    "selected_variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "room_id",
+          "variant_id"
+        ],
+        "properties": {
+          "room_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "variant_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          }
+        }
+      },
+      "maxItems": 15,
+      "minItems": 0
+    },
+    "branch_exists": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rune_branch",
+        "supply_branch"
+      ],
+      "properties": {
+        "rune_branch": {
+          "type": "boolean"
+        },
+        "supply_branch": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

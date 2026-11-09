@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "definition_id": "dc_ruins.v4",
+  "protocol_version": 4,
+  "lifecycle_stage": "sync_foundation",
+  "control_rule_version": "dc_ruins.v4.s1",
+  "versions": {
+    "operation": "dc_ruins.v4",
+    "content": "dc_content.v4.draft1",
+    "world": "dc_rooms.v4.draft1",
+    "trial": "trial.v4.draft1",
+    "battle_protocol": 4,
+    "control_schema": 2
+  },
+  "parameters_path": "../contracts/planned-v4/parameters.json",
+  "parameters_sha256": "b6df1bbaea5e0c951960d19b0dcfe8d8baa7312343fd7b025d40e4dd7aca9473",
+  "operation": {
+    "id": "dc_ruins",
+    "version": "dc_ruins.v4",
+    "difficulty": "standard",
+    "hard_deadline_ms": 1800000,
+    "wall_limit_ms": 3600000,
+    "terminal_grace_ms": 15000,
+    "fill_wait_ms": 30000,
+    "confirmation_ms": 15000,
+    "loading_ms": 30000,
+    "reconnect_ms": 30000,
+    "reinforcements": 0,
+    "success_reward": 0,
+    "failure_reward": 0,
+    "abort_reward": 0
+  },
+  "authority": {
+    "tick_hz": 30,
+    "max_catchup_ticks": 4,
+    "input_timeout_ms": 250,
+    "internal_request_timeout_ms": 2000,
+    "heartbeat_ms": 2000,
+    "lease_ms": 6000,
+    "technical_wait_ms": 10000,
+    "control_poll_ms": 100,
+    "approval_timeout_ms": 5000,
+    "admission_ttl_ms": 60000,
+    "spawn_delay_ms": 3000,
+    "spawn_ack_deadline_ms": 10000,
+    "spawn_protection_ms": 1000,
+    "max_frame_facts": 128,
+    "max_frame_bytes": 65536,
+    "max_key_frames": 4096,
+    "max_facts": 10000,
+    "reorder_window": 128,
+    "event_gap_ms": 5000,
+    "max_pending_frames": 256,
+    "max_pending_bytes": 8388608,
+    "max_alive_enemies": 24,
+    "max_projectiles": 128,
+    "max_turrets": 8,
+    "max_markers_per_player": 3,
+    "marker_interval_ms": 2000
+  },
+  "trial": {
+    "id": "dc_ruins_trial",
+    "version": "trial.v4.draft1",
+    "seed": 20261012
+  },
+  "world": {
+    "definition_id": "dc_rooms.v4.draft1",
+    "content_version": "dc_content.v4.draft1",
+    "p0_geometry_not_loaded": false,
+    "geometry_path": "world-v3-p1.json",
+    "single_player_only": true,
+    "geometry_sha256": "59a6cba8ce8a2f306a14f14375e3e4922536929c536e733ca8bd9fc18478e1e6"
+  },
+  "objectives": [
+    {
+      "id": "hub_a",
+      "kind": "interact",
+      "required": 1,
+      "target_id": "hub_a"
+    },
+    {
+      "id": "hub_b",
+      "kind": "interact",
+      "required": 1,
+      "target_id": "hub_b"
+    },
+    {
+      "id": "boss",
+      "kind": "kill",
+      "required": 1,
+      "target_id": "boss",
+      "depends_on": [
+        "hub_a",
+        "hub_b"
+      ]
+    }
+  ],
+  "tasks": [],
+  "upgrades": [],
+  "combat_parameters_path": "../contracts/planned-v3/parameters.json",
+  "combat_parameters_sha256": "6a0afbb8ef6c27283a2ec8189bb11c5e0bf35d6f228d9f2f82d96ade0d81bc09"
+}

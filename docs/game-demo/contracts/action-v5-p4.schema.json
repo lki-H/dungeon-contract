@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protocol 5 runtime flat UDP action; ../p2-2-runtime-contract.md",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "message",
+    "run_id",
+    "source_generation",
+    "connection_generation",
+    "operation_id",
+    "action_id",
+    "input_sequence",
+    "action_sequence",
+    "weapon_id",
+    "weapon_revision",
+    "requested_weapon_id",
+    "action",
+    "press_action_id",
+    "aim_u16",
+    "move_x",
+    "move_y",
+    "choice_node",
+    "choice_revision",
+    "choice_hash",
+    "choice_option"
+  ],
+  "properties": {
+    "protocol_version": {
+      "const": 5
+    },
+    "message": {
+      "const": "dc.action.v5"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "source_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "connection_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "operation_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "action_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "input_sequence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "action_sequence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "weapon_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "weapon_revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "requested_weapon_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "action": {
+      "enum": [
+        "switch_weapon",
+        "attack_press",
+        "attack_release",
+        "attack_cancel",
+        "cancel_input",
+        "dodge",
+        "reload",
+        "ability_primary",
+        "ability_secondary",
+        "interact_begin",
+        "interact_cancel",
+        "growth_choice",
+        "charge_begin",
+        "charge_release",
+        "charge_cancel"
+      ]
+    },
+    "press_action_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "aim_u16": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "move_x": {
+      "type": "integer",
+      "minimum": -1000,
+      "maximum": 1000
+    },
+    "move_y": {
+      "type": "integer",
+      "minimum": -1000,
+      "maximum": 1000
+    },
+    "choice_node": {
+      "type": "integer",
+      "minimum": -1,
+      "maximum": 2
+    },
+    "choice_revision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "choice_hash": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "choice_option": {
+      "anyOf": [
+        {
+          "enum": [
+            "swift",
+            "frost",
+            "ward",
+            "vitality",
+            "ranger_pierce",
+            "ranger_fan",
+            "ranger_tension",
+            "runesmith_chain",
+            "runesmith_twin",
+            "runesmith_heavy"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "$id": "urn:dc:action:5:p4",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "enum": [
+              "attack_release",
+              "charge_release",
+              "charge_cancel"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "press_action_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "press_action_id": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

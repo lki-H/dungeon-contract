@@ -1,0 +1,176 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.baseline.v4",
+  "assignment_id": "assign_example",
+  "baseline_id": "baseline_example",
+  "config_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "parameters_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "layout_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "versions": {
+    "operation": "dc_ruins.v4",
+    "content": "dc_content.v4.draft1",
+    "world": "dc_rooms.v4.draft1",
+    "trial": "trial.v4.draft1",
+    "battle_protocol": 4,
+    "control_schema": 2
+  },
+  "state_revision": 3,
+  "world_frame_id": 300,
+  "own": {
+    "player_id": "101",
+    "slot": 0,
+    "room_id": "foyer",
+    "x_milli": 5000,
+    "y_milli": 7000,
+    "life_state": "alive",
+    "life_generation": 1,
+    "downed_generation": 0,
+    "health": 100,
+    "shield": 0,
+    "active_weapon_id": "ruin_blade",
+    "weapon_revision": 2,
+    "weapon_states": [
+      {
+        "weapon_id": "repeating_crossbow",
+        "magazine": 6,
+        "magazine_max": 8,
+        "attack_ready_game_ms": 9000,
+        "reload_end_game_ms": null,
+        "charge_started_game_ms": null,
+        "charge_action_id": null
+      },
+      {
+        "weapon_id": "ruin_blade",
+        "magazine": 0,
+        "magazine_max": 0,
+        "attack_ready_game_ms": 9500,
+        "reload_end_game_ms": null,
+        "charge_started_game_ms": null,
+        "charge_action_id": null
+      }
+    ],
+    "release_required": true,
+    "last_input_sequence": 44,
+    "last_action_sequence": 44,
+    "dodge_ready_game_ms": 11000,
+    "invulnerable_until_game_ms": 0,
+    "hurt_protected_until_game_ms": 0,
+    "dash_kind": "none",
+    "dash_end_game_ms": 0,
+    "dash_direction_x_milli": 0,
+    "dash_direction_y_milli": 0,
+    "primary_ready_game_ms": 12000,
+    "secondary_ready_game_ms": 16000,
+    "choices": [],
+    "downed_deadline_game_ms": null,
+    "reinforcement_action_id": null,
+    "aim_u16": 0,
+    "last_move_x_milli": 1000,
+    "last_move_y_milli": 0,
+    "switch_ready_game_ms": 10150,
+    "shield_expires_game_ms": null,
+    "shield_source_action_id": null,
+    "rescue_action_id": null,
+    "rescue_target_id": null,
+    "rescue_end_game_ms": null,
+    "loadout_id": "ranger",
+    "max_health": 100,
+    "dash_start_game_ms": 0,
+    "dash_start_x_milli": 5000,
+    "dash_start_y_milli": 7000,
+    "dash_distance_milli": 0,
+    "consumed_supply_ids": [],
+    "pending_branch_shield": null
+  },
+  "clock": {
+    "clock_state": "paused",
+    "clock_revision": 2,
+    "pause_id": "pause_001",
+    "pause_requested_by": "menu",
+    "effective_frame": 300,
+    "game_elapsed_ms": 10000,
+    "wall_elapsed_ms": 12000,
+    "manual_pause_ms": 2000,
+    "explicit_resume_required": true
+  },
+  "explored_rooms": [
+    "entry",
+    "foyer"
+  ],
+  "rooms": [
+    {
+      "room_id": "foyer",
+      "status": "active",
+      "wave_index": 1,
+      "pending_spawn_count": 1,
+      "mechanism_complete": false
+    }
+  ],
+  "doors": [
+    {
+      "door_id": "entry_foyer",
+      "from_room_id": "entry",
+      "to_room_id": "foyer",
+      "state": "entry_only",
+      "reason": "pending_spawn",
+      "state_revision": 1
+    }
+  ],
+  "terrain": [
+    {
+      "room_id": "foyer",
+      "terrain_revision": 1,
+      "cover_states": [
+        {
+          "cover_id": "cover_foyer_1",
+          "health": 30,
+          "cover_revision": 1
+        }
+      ]
+    }
+  ],
+  "spawn_reservations": [
+    {
+      "reservation_id": "spawn_001",
+      "reservation_revision": 1,
+      "entity_id": "guard_001",
+      "entity_generation": 1,
+      "room_id": "foyer",
+      "wave_id": "foyer_wave_1",
+      "enemy_kind": "guard",
+      "origin": "wave",
+      "state": "warning",
+      "x_milli": 16000,
+      "y_milli": 5000,
+      "warning_begin_game_ms": 9800,
+      "warning_end_game_ms": 10600,
+      "materialized_game_ms": null,
+      "terrain_revision": 1,
+      "entry_grace_end_game_ms": null,
+      "cancel_reason": null
+    }
+  ],
+  "enemies": [],
+  "projectiles": [],
+  "fields": [],
+  "turrets": [],
+  "pending_choices": [],
+  "trap_states": [],
+  "baseline_event_watermark": 95,
+  "interest_revision": 1,
+  "peers": [],
+  "interactions": [],
+  "team": {
+    "mode": "normal",
+    "initial_player_count": 1,
+    "reinforcements_total": 3,
+    "reinforcements_reserved": 0,
+    "reinforcements_consumed": 0,
+    "reinforcements_available": 3,
+    "trial_eligible": false,
+    "trial_ineligible_reason": "not_trial"
+  }
+}

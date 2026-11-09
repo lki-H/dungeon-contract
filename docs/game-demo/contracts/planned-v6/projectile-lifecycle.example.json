@@ -1,0 +1,114 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "state_revision": 8,
+  "interest_revision": 3,
+  "message": "dc.projectile-lifecycle.v6",
+  "first_sequence": 1001,
+  "last_sequence": 1003,
+  "events": [
+    {
+      "event_id": "life_1001",
+      "sequence": 1001,
+      "entity_id": "rune_probe_1",
+      "entity_handle": 1002,
+      "generation": 1,
+      "room_id": "boss_room",
+      "frame": 751,
+      "game_ms": 25034,
+      "subtick_u16": 0,
+      "trajectory_revision": 1,
+      "kind": "spawn",
+      "projectile": {
+        "entity_id": "rune_probe_1",
+        "generation": 1,
+        "root_attack_id": "root_rune_1",
+        "damage_instance_id": "rune_instance_1",
+        "parent_damage_instance_id": null,
+        "owner_player_id": "101",
+        "source_life_generation": 1,
+        "target_spawn_origin": null,
+        "room_id": "boss_room",
+        "position_milli": {
+          "x": 6900,
+          "y": 10000
+        },
+        "aim_u16": 0,
+        "hostile": false,
+        "bounces_remaining": 1,
+        "extra_targets_remaining": 0,
+        "stat_snapshot": {
+          "stat_snapshot_id": "stat_rune_1",
+          "damage": 16,
+          "speed_milli_tiles_per_second": 10000,
+          "radius_milli_tiles": 720,
+          "extra_targets": 0,
+          "bounce_count": 1,
+          "chain": false,
+          "slow_milli_factor": 1000
+        },
+        "entity_handle": 1002,
+        "spawn_frame": 751,
+        "trajectory_revision": 1,
+        "born_lifecycle_sequence": 1001
+      },
+      "muzzle_segment": {
+        "from_milli": {
+          "x": 6000,
+          "y": 10000
+        },
+        "to_milli": {
+          "x": 6900,
+          "y": 10000
+        }
+      }
+    },
+    {
+      "event_id": "life_1002",
+      "sequence": 1002,
+      "entity_id": "rune_probe_1",
+      "entity_handle": 1002,
+      "generation": 1,
+      "room_id": "boss_room",
+      "frame": 752,
+      "game_ms": 25067,
+      "subtick_u16": 20000,
+      "trajectory_revision": 2,
+      "kind": "bounce",
+      "contact_milli": {
+        "x": 7200,
+        "y": 10000
+      },
+      "normal_milli": {
+        "x": -1000,
+        "y": 0
+      },
+      "outgoing_aim_u16": 32768,
+      "bounces_remaining": 0
+    },
+    {
+      "event_id": "life_1003",
+      "sequence": 1003,
+      "entity_id": "rune_probe_1",
+      "entity_handle": 1002,
+      "generation": 1,
+      "room_id": "boss_room",
+      "frame": 753,
+      "game_ms": 25100,
+      "subtick_u16": 32000,
+      "trajectory_revision": 2,
+      "kind": "terminate",
+      "contact_milli": {
+        "x": 7000,
+        "y": 10000
+      },
+      "reason": "cover",
+      "clearer_player_id": null,
+      "clear_root_attack_id": null,
+      "target_entity_id": "cover_probe"
+    }
+  ]
+}

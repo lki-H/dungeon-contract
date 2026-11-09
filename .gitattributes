@@ -1,0 +1,26 @@
+# Preserve unspecified source bytes regardless of the user's core.autocrlf.
+* -text
+backend/internal/database/migrations/*.sql text eol=lf
+*.cs text eol=lf
+*.go text eol=lf
+*.py text eol=lf
+*.ps1 text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+*.cmd text eol=crlf
+*.png binary
+*.wav binary
+*.ttf binary
+*.otf binary
+experiments/r5-m6/proto/reporting.proto text eol=lf
+experiments/r5-m6/proto/source.sha256 text eol=lf
+experiments/r5-m6/proto/reporting.pb binary
+experiments/r5-m6/deploy/*.sh text eol=lf
+
+# SQL and content fingerprints bind original bytes, including inherited CRLF.
+*.sql -text
+docs/game-demo/config/** -text
+docs/game-demo/contracts/** -text
+*.cmd -text

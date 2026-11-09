@@ -1,0 +1,505 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "const": "./projectiles.schema.json"
+    },
+    "specification_version": {
+      "const": "2.1-projectiles.1"
+    },
+    "status": {
+      "const": "planned_not_loaded"
+    },
+    "published": {
+      "const": false
+    },
+    "balance_status": {
+      "const": "unverified_initial"
+    },
+    "bases": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "enum": [
+              "../planned-v4/parameters.json",
+              "../planned-v4-room-camera/room-camera.json"
+            ]
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ]
+      }
+    },
+    "application": {
+      "const": "explicit_design_override_not_runtime_merge"
+    },
+    "planned_versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "operation": {
+          "const": "dc_ruins.v4"
+        },
+        "content": {
+          "const": "dc_content.v4.draft3"
+        },
+        "world": {
+          "const": "dc_rooms.v4.draft2"
+        },
+        "trial": {
+          "const": "trial.v4.draft3"
+        },
+        "battle_protocol": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8
+        },
+        "control_schema": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        }
+      },
+      "required": [
+        "operation",
+        "content",
+        "world",
+        "trial",
+        "battle_protocol",
+        "control_schema"
+      ]
+    },
+    "answers": {
+      "type": "array",
+      "minItems": 19,
+      "maxItems": 19,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "QPR-01",
+              "QPR-02",
+              "QPR-03",
+              "QPR-04",
+              "QPR-05",
+              "QPR-06",
+              "QPR-07",
+              "QPR-08",
+              "QPR-09",
+              "QPR-10",
+              "QPR-11",
+              "QPR-12",
+              "QPR-13",
+              "QPR-14",
+              "QPR-15",
+              "QPR-16",
+              "QPR-17",
+              "QPR-18",
+              "QPR-19"
+            ]
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "confirmed_answer": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "confirmed": {
+            "const": true
+          }
+        },
+        "required": [
+          "id",
+          "decision",
+          "confirmed_answer",
+          "confirmed"
+        ]
+      }
+    },
+    "flight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "range_mode": {
+          "const": "unbounded_in_source_room"
+        },
+        "max_travel_distance_milli_tiles": {
+          "type": "null"
+        },
+        "fixed_flight_lifetime_game_ms": {
+          "type": "null"
+        },
+        "cross_room": {
+          "const": false
+        },
+        "wall_collision": {
+          "const": true
+        },
+        "distance_damage_falloff": {
+          "const": false
+        },
+        "offscreen_simulation": {
+          "const": true
+        },
+        "door_boundary_mode": {
+          "const": "closed_collision_plane_even_when_open"
+        },
+        "rune_reflection_surfaces": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "wall",
+              "pillar",
+              "destructible_cover",
+              "door_boundary"
+            ]
+          }
+        },
+        "rune_total_bounces": {
+          "const": 1
+        },
+        "crossbow_initial_extra_targets": {
+          "const": 1
+        },
+        "crossbow_module_extra_targets": {
+          "const": 1
+        },
+        "chain_extra_targets": {
+          "const": 1
+        },
+        "chain_range_milli_tiles": {
+          "const": 3000
+        }
+      },
+      "required": [
+        "range_mode",
+        "max_travel_distance_milli_tiles",
+        "fixed_flight_lifetime_game_ms",
+        "cross_room",
+        "wall_collision",
+        "distance_damage_falloff",
+        "offscreen_simulation",
+        "door_boundary_mode",
+        "rune_reflection_surfaces",
+        "rune_total_bounces",
+        "crossbow_initial_extra_targets",
+        "crossbow_module_extra_targets",
+        "chain_extra_targets",
+        "chain_range_milli_tiles"
+      ]
+    },
+    "profiles": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "crossbow",
+              "rune_bolt",
+              "gust_arrow",
+              "turret_standard_bolt",
+              "turret_twin_bolt",
+              "archer_bolt",
+              "boss_fan_bolt"
+            ]
+          },
+          "base_damage": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "speed_milli_tiles_per_second": {
+            "type": "integer",
+            "minimum": 1000,
+            "maximum": 30000
+          },
+          "collision_radius_milli_tiles": {
+            "type": "integer",
+            "minimum": 50,
+            "maximum": 300
+          }
+        },
+        "required": [
+          "id",
+          "base_damage",
+          "speed_milli_tiles_per_second",
+          "collision_radius_milli_tiles"
+        ]
+      }
+    },
+    "turret": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "acquisition_range_milli_tiles": {
+          "const": 12000
+        },
+        "lifetime_game_ms": {
+          "const": 8000
+        },
+        "attack_interval_ms": {
+          "const": 600
+        },
+        "skill_cooldown_ms": {
+          "const": 12000
+        },
+        "requires_line_of_sight": {
+          "const": true
+        },
+        "continues_after_owner_downed": {
+          "const": true
+        },
+        "continues_after_owner_dead": {
+          "const": true
+        },
+        "stays_in_source_room_after_owner_transition": {
+          "const": true
+        },
+        "expiry_or_replacement_removes_fired_projectiles": {
+          "const": false
+        },
+        "technical_wait": {
+          "const": "stop_fire_lifetime_advances_no_catchup"
+        },
+        "room_complete_or_permanent_exit_or_terminal": {
+          "const": "remove"
+        }
+      },
+      "required": [
+        "acquisition_range_milli_tiles",
+        "lifetime_game_ms",
+        "attack_interval_ms",
+        "skill_cooldown_ms",
+        "requires_line_of_sight",
+        "continues_after_owner_downed",
+        "continues_after_owner_dead",
+        "stays_in_source_room_after_owner_transition",
+        "expiry_or_replacement_removes_fired_projectiles",
+        "technical_wait",
+        "room_complete_or_permanent_exit_or_terminal"
+      ]
+    },
+    "enemy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "archer_attack_start_range_milli_tiles": {
+          "const": 8000
+        },
+        "archer_preferred_distance_milli_tiles": {
+          "const": 5000
+        },
+        "boss_fan_attack_start_range_milli_tiles": {
+          "const": 12000
+        },
+        "line_of_sight_required": {
+          "const": true
+        },
+        "committed_attack_tracks_target": {
+          "const": false
+        },
+        "melee_charge_stomp_ranges_changed": {
+          "const": false
+        }
+      },
+      "required": [
+        "archer_attack_start_range_milli_tiles",
+        "archer_preferred_distance_milli_tiles",
+        "boss_fan_attack_start_range_milli_tiles",
+        "line_of_sight_required",
+        "committed_attack_tracks_target",
+        "melee_charge_stomp_ranges_changed"
+      ]
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "owner_downed": {
+          "const": "retain"
+        },
+        "owner_dead": {
+          "const": "retain"
+        },
+        "owner_room_changed": {
+          "const": "retain_in_source_room"
+        },
+        "source_enemy_dead": {
+          "const": "retain_until_other_removal"
+        },
+        "wave_changed": {
+          "const": "retain"
+        },
+        "room_completed": {
+          "const": "clear_room_projectiles_and_turrets_after_frame"
+        },
+        "technical_wait_enter": {
+          "const": "clear_run_projectiles_and_reservations_no_refund"
+        },
+        "manual_pause": {
+          "const": "freeze_entire_world_and_game_clocks"
+        },
+        "short_disconnect": {
+          "const": "keep_authoritative_world"
+        },
+        "permanent_exit": {
+          "const": "clear_owned_projectiles_and_turrets_at_cutoff"
+        },
+        "terminal": {
+          "const": "clear_all_after_complete_frame"
+        },
+        "wipe_without_recovery": {
+          "const": "fail_without_waiting_for_remaining_attacks"
+        },
+        "same_frame_objectives_and_wipe": {
+          "const": "success_preserve_real_life_facts"
+        }
+      },
+      "required": [
+        "owner_downed",
+        "owner_dead",
+        "owner_room_changed",
+        "source_enemy_dead",
+        "wave_changed",
+        "room_completed",
+        "technical_wait_enter",
+        "manual_pause",
+        "short_disconnect",
+        "permanent_exit",
+        "terminal",
+        "wipe_without_recovery",
+        "same_frame_objectives_and_wipe"
+      ]
+    },
+    "contribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "freeze_actual_shot_parameters": {
+          "const": true
+        },
+        "ordinary_self_contracts_after_owner_incapacitation": {
+          "const": true
+        },
+        "ordinary_self_contracts_after_owner_room_change": {
+          "const": true
+        },
+        "eligible_requires_original_spatial_and_five_second_evidence": {
+          "const": true
+        },
+        "no_knockdown_failure_persists": {
+          "const": true
+        },
+        "post_permanent_exit_progress": {
+          "const": false
+        },
+        "offscreen_feedback": {
+          "const": "generic_no_target_position_or_damage_number_no_exploration"
+        }
+      },
+      "required": [
+        "freeze_actual_shot_parameters",
+        "ordinary_self_contracts_after_owner_incapacitation",
+        "ordinary_self_contracts_after_owner_room_change",
+        "eligible_requires_original_spatial_and_five_second_evidence",
+        "no_knockdown_failure_persists",
+        "post_permanent_exit_progress",
+        "offscreen_feedback"
+      ]
+    },
+    "capacity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "live_plus_reserved_initial": {
+          "type": "integer",
+          "minimum": 16,
+          "maximum": 1024
+        },
+        "reserve_enemy_before_prepare": {
+          "const": true
+        },
+        "atomic_multi_projectile_shots": {
+          "const": true
+        },
+        "committed_attack_reservations_preserved": {
+          "const": true
+        },
+        "new_player_action_over_capacity": {
+          "const": "reject_without_magazine_or_cooldown_cost"
+        },
+        "enemy_over_capacity": {
+          "const": "defer_before_prepare"
+        },
+        "turret_over_capacity": {
+          "const": "defer_without_catchup"
+        },
+        "evict_live_projectiles": {
+          "const": false
+        },
+        "stress_measurement_status": {
+          "const": "NOT_RUN"
+        }
+      },
+      "required": [
+        "live_plus_reserved_initial",
+        "reserve_enemy_before_prepare",
+        "atomic_multi_projectile_shots",
+        "committed_attack_reservations_preserved",
+        "new_player_action_over_capacity",
+        "enemy_over_capacity",
+        "turret_over_capacity",
+        "evict_live_projectiles",
+        "stress_measurement_status"
+      ]
+    },
+    "runtime_acceptance": {
+      "const": "NOT_RUN"
+    }
+  },
+  "required": [
+    "$schema",
+    "specification_version",
+    "status",
+    "published",
+    "balance_status",
+    "bases",
+    "application",
+    "planned_versions",
+    "answers",
+    "flight",
+    "profiles",
+    "turret",
+    "enemy",
+    "lifecycle",
+    "contribution",
+    "capacity",
+    "runtime_acceptance"
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.baseline.v6",
+  "state_revision": 8,
+  "interest_revision": 3,
+  "frame": 750,
+  "processed_input_sequence": 800,
+  "action_watermark": 43,
+  "presentation_watermark": 400,
+  "clock": {
+    "game_ms": 25000,
+    "wall_ms": 30000,
+    "manual_pause_ms": 5000,
+    "paused": false,
+    "clock_revision": 4
+  },
+  "own": {
+    "player_id": "101",
+    "slot": 0,
+    "loadout": "runesmith",
+    "life_state": "alive",
+    "life_generation": 2,
+    "downed_generation": 1,
+    "room_id": "boss_room",
+    "position_milli": {
+      "x": 6000,
+      "y": 10000
+    },
+    "health": 80,
+    "max_health": 100,
+    "shield": 0,
+    "shield_until_game_ms": 0,
+    "shield_source_cast": null,
+    "weapon_id": "rune_hammer",
+    "weapon_revision": 3,
+    "weapons": [
+      {
+        "weapon_id": "rune_bolt",
+        "ammo": 0,
+        "capacity": 0,
+        "ready_game_ms": 24200,
+        "reload_until_game_ms": 0,
+        "reload_started_game_ms": 0,
+        "reload_duration_ms": 0
+      },
+      {
+        "weapon_id": "rune_hammer",
+        "ammo": 0,
+        "capacity": 0,
+        "ready_game_ms": 24400,
+        "reload_until_game_ms": 0,
+        "reload_started_game_ms": 0,
+        "reload_duration_ms": 0
+      }
+    ],
+    "attack_state": {
+      "phase": "charging",
+      "root_attack_id": null,
+      "damage_instance_id": null,
+      "phase_end_game_ms": 0,
+      "ready_game_ms": 24400,
+      "aim_u16": 0,
+      "sweep_radius_milli_tiles": 0,
+      "total_arc_deg": 270,
+      "sweep_start_milli_deg": 0,
+      "sweep_end_milli_deg": 0,
+      "impact_valid": false,
+      "preview_impact_milli": null,
+      "committed_impact_milli": null,
+      "projectile_clear_shape": "current_swept_weapon_contact",
+      "attack_kind": "charge",
+      "attack_started_game_ms": 24500,
+      "phase_started_game_ms": 24500,
+      "preview_impact_valid": false
+    },
+    "charge": {
+      "episode_id": "right_2",
+      "started_game_ms": 24500,
+      "minimum_ms": 250,
+      "full_ms": 900
+    },
+    "release_required": false,
+    "dodge_ready_game_ms": 23000,
+    "primary_ready_game_ms": 30000,
+    "secondary_ready_game_ms": 32000,
+    "dodge_until_game_ms": 0,
+    "invulnerable_until_game_ms": 0,
+    "hurt_protection_until_game_ms": 0,
+    "downed_until_game_ms": 0,
+    "rescue_target": null,
+    "rescue_until_game_ms": 0,
+    "reinforcement_status": "none",
+    "reinforcement_id": null,
+    "growth": [
+      "runesmith_heavy"
+    ],
+    "pending_choices": [],
+    "pending_branch_shield": false,
+    "supply_used": false,
+    "last_move_milli": {
+      "x": 1000,
+      "y": 0
+    },
+    "dodge_origin_milli": {
+      "x": 6000,
+      "y": 10000
+    },
+    "dodge_direction_u16": 0,
+    "dodge_started_game_ms": 0,
+    "rescue_target_life_generation": null,
+    "rescue_target_downed_generation": null,
+    "reinforcement_spawn_game_ms": 0,
+    "movement_profile_id": "player.v6.draft1",
+    "protection_sources": {
+      "space_until_game_ms": 0,
+      "gust_until_game_ms": 0,
+      "hurt_until_game_ms": 0,
+      "rescue_until_game_ms": 0,
+      "reinforcement_until_game_ms": 0
+    },
+    "active_dash": null
+  },
+  "team": {
+    "remaining_reinforcements": 2,
+    "hub_a": true,
+    "hub_b": true,
+    "result": "running"
+  },
+  "peers": [],
+  "observed_room": {
+    "room_id": "boss_room",
+    "state_revision": 8,
+    "terrain_revision": 1,
+    "status": "active",
+    "mechanism": {
+      "object_id": null,
+      "completed": false,
+      "operator_player_id": null,
+      "progress_game_ms": 0
+    },
+    "doors": [
+      {
+        "door_id": "boss_west",
+        "open": false,
+        "forward_allowed": false,
+        "lock_reason": "battle"
+      }
+    ],
+    "covers": [],
+    "traps": [
+      {
+        "trap_id": "boss_room_a_trap_01",
+        "state": "warning",
+        "phase_end_game_ms": 25600,
+        "position_milli": {
+          "x": 7500,
+          "y": 3500
+        },
+        "group": "A",
+        "activated_at_game_ms": 25000,
+        "activation_generation": 1,
+        "cycle_index": 0,
+        "radius_milli_tiles": 700
+      }
+    ],
+    "enemies": [
+      {
+        "entity_id": "boss",
+        "generation": 1,
+        "life_generation": 1,
+        "kind": "boss",
+        "spawn_origin": "boss_body",
+        "position_milli": {
+          "x": 20000,
+          "y": 10000
+        },
+        "health": 700,
+        "max_health": 1400,
+        "attack": {
+          "kind": "barrage",
+          "phase": "execute",
+          "root_attack_id": "root_barrage_2",
+          "origin_milli": {
+            "x": 20000,
+            "y": 10000
+          },
+          "aim_u16": 0,
+          "phase_end_game_ms": 30000
+        }
+      }
+    ],
+    "projectiles": [
+      {
+        "entity_id": "rune_1",
+        "generation": 1,
+        "root_attack_id": "root_rune_1",
+        "damage_instance_id": "rune_instance_1",
+        "parent_damage_instance_id": null,
+        "owner_player_id": "101",
+        "source_life_generation": 1,
+        "target_spawn_origin": null,
+        "room_id": "boss_room",
+        "position_milli": {
+          "x": 9000,
+          "y": 10000
+        },
+        "aim_u16": 0,
+        "hostile": false,
+        "bounces_remaining": 1,
+        "extra_targets_remaining": 0,
+        "stat_snapshot": {
+          "stat_snapshot_id": "stat_rune_1",
+          "damage": 16,
+          "speed_milli_tiles_per_second": 10000,
+          "radius_milli_tiles": 720,
+          "extra_targets": 0,
+          "bounce_count": 1,
+          "chain": false,
+          "slow_milli_factor": 1000
+        },
+        "entity_handle": 1001,
+        "spawn_frame": 740,
+        "trajectory_revision": 1,
+        "born_lifecycle_sequence": 910
+      }
+    ],
+    "turrets": [],
+    "fields": [],
+    "emitters": [
+      {
+        "emitter_id": "emitter_2",
+        "root_attack_id": "root_barrage_2",
+        "source_generation": 1,
+        "boss_id": "boss",
+        "phase": 2,
+        "started_game_ms": 24000,
+        "ends_game_ms": 30000,
+        "next_pulse_game_ms": 25200,
+        "next_pulse_index": 3,
+        "total_pulses": 15,
+        "shots_per_pulse": 16,
+        "reserved_remaining": 192,
+        "initial_angle_u16": 0,
+        "rotation_deg_per_pulse": 15,
+        "stat_snapshot": {
+          "stat_snapshot_id": "stat_boss_2",
+          "damage": 18,
+          "speed_milli_tiles_per_second": 5000,
+          "radius_milli_tiles": 100,
+          "extra_targets": 0,
+          "bounce_count": 0,
+          "chain": false,
+          "slow_milli_factor": 1000
+        }
+      }
+    ],
+    "summon_batch": null,
+    "summon_live_count": 0,
+    "spawn_reservations": [],
+    "remaining_waves": null,
+    "finite_enemy_budget_remaining": null
+  },
+  "stat_catalog": [
+    {
+      "handle": 0,
+      "stat_snapshot": {
+        "stat_snapshot_id": "stat_rune_1",
+        "damage": 16,
+        "speed_milli_tiles_per_second": 10000,
+        "radius_milli_tiles": 180,
+        "extra_targets": 0,
+        "bounce_count": 1,
+        "chain": false,
+        "slow_milli_factor": 1000
+      }
+    },
+    {
+      "handle": 1,
+      "stat_snapshot": {
+        "stat_snapshot_id": "stat_boss_2",
+        "damage": 18,
+        "speed_milli_tiles_per_second": 5000,
+        "radius_milli_tiles": 100,
+        "extra_targets": 0,
+        "bounce_count": 0,
+        "chain": false,
+        "slow_milli_factor": 1000
+      }
+    }
+  ],
+  "known_map": [
+    {
+      "room_id": "boss_room",
+      "visited": true,
+      "completed": false,
+      "width_tiles": 34,
+      "height_tiles": 20,
+      "known_door_ids": [
+        "boss_west"
+      ],
+      "known_trap_ids": []
+    }
+  ],
+  "lifecycle_watermark": 1000,
+  "closed_entities_floor_frame": 750
+}

@@ -1,0 +1,33 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.dynamic.v5",
+  "frame": 751,
+  "state_revision": 8,
+  "interest_revision": 3,
+  "group_id": 1,
+  "entities": [
+    {
+      "entity_handle": 1001,
+      "generation": 1,
+      "prototype_handle": 2,
+      "stat_snapshot_handle": 0,
+      "root_attack_handle": 501,
+      "owner_slot": 0,
+      "position_milli": {
+        "x": 9000,
+        "y": 10000
+      },
+      "aim_u16": 0,
+      "speed_milli_tiles_per_second": 10000,
+      "bounces_remaining": 1,
+      "extra_targets_remaining": 0,
+      "hostile": false
+    }
+  ],
+  "group_kind": "projectiles",
+  "processed_input_sequence": null
+}

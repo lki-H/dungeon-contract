@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "type": "v2.run.pause",
+  "request_id": "request_pause",
+  "operation_id": "operation_pause",
+  "data": {
+    "run_id": "run_v6_fixture",
+    "reason": "menu",
+    "expected_clock_revision": 4,
+    "pause_id": null
+  }
+}

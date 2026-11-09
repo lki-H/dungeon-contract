@@ -1,0 +1,756 @@
+{
+  "specification_version": "2.3",
+  "operation": "dc_ruins.v6",
+  "battle_protocol": 6,
+  "status": "NOT_RUN",
+  "cases": [
+    {
+      "id": "D23-001",
+      "name": "版本准入",
+      "expected": "v6/protocol6及内容/世界/参数/试炼hash匹配；旧v5不默认补新字段",
+      "question_ids": [
+        "Q23-01",
+        "Q23-03",
+        "Q23-07"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-002",
+      "name": "移速与预测",
+      "expected": "基础7格/秒，权威与预测/重放读取同一配置；不改敌人速度",
+      "question_ids": [
+        "Q23-01"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-003",
+      "name": "移动兼容",
+      "expected": "斜向归一化；锤80%/蓄力70%倍率保持，闪避速度不受其减速",
+      "question_ids": [
+        "Q23-01",
+        "Q23-02"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-004",
+      "name": "角色体积",
+      "expected": "轮廓约80%，碰撞/受击半径均0.24；保持像素密度和其他范围",
+      "question_ids": [
+        "Q23-04"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-005",
+      "name": "握持与身体缩小",
+      "expected": "脚点和手部锚点同步；武器有效范围不跟身体缩小",
+      "question_ids": [
+        "Q23-04"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-006",
+      "name": "Space长闪",
+      "expected": "8格/600ms/600ms无敌，方向锁定，CD3000ms，swift后2400ms",
+      "question_ids": [
+        "Q23-02"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-007",
+      "name": "撞墙结束",
+      "expected": "墙/箱/锁门接触结束位移及本次无敌，不滑墙、不退CD",
+      "question_ids": [
+        "Q23-14"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-008",
+      "name": "实体阻挡",
+      "expected": "普通敌不挡，精英/Boss仍阻挡长闪与齐射短闪",
+      "question_ids": [
+        "Q23-02",
+        "Q23-14"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-009",
+      "name": "开放门切换",
+      "expected": "到开放门结束本段闪避后可靠切房，不带剩余距离/本次无敌",
+      "question_ids": [
+        "Q23-15"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-010",
+      "name": "多来源保护",
+      "expected": "撞停只清space或gust；hurt/rescue/reinforcement保护保持",
+      "question_ids": [
+        "Q23-14"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-011",
+      "name": "齐射短闪",
+      "expected": "4格/300ms/300ms无敌，CD4000ms，不扣Space",
+      "question_ids": [
+        "Q23-13"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-012",
+      "name": "位移竞争",
+      "expected": "已有闪避期间齐射照常出矢但不追加位移/无敌，能力期间Space按原单次缓冲和阶段规则",
+      "question_ids": [
+        "Q23-02",
+        "Q23-13"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-013",
+      "name": "短刃范围",
+      "expected": "2格/240度，2/3/4tick周期，12伤害，短点击和held均合法",
+      "question_ids": [
+        "Q23-05"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-014",
+      "name": "锤范围",
+      "expected": "2.6格/270度，6/3/12tick周期，24伤害",
+      "question_ids": [
+        "Q23-05"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-015",
+      "name": "成长组合",
+      "expected": "短刃模块后2.35格/270度，伤害/攻速/继承按原白名单；任意合法历史仍三候选",
+      "question_ids": [
+        "Q23-05",
+        "Q23-06"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-016",
+      "name": "原武器恢复",
+      "expected": "闪避/切换取消未生效或剩余挥击但不刷新原武器期限；另一武器就绪仍可攻击",
+      "question_ids": [
+        "Q23-05"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-017",
+      "name": "伤区扫掠",
+      "expected": "只当前有效子区连续扫过造成伤害，同攻击同生命一次，无遮挡处不凭空多12度",
+      "question_ids": [
+        "Q23-05",
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-018",
+      "name": "扫掠清弹最终选择",
+      "expected": "只有当前有效刀刃/锤头扫掠区清敌弹，非整个240/270度扇区",
+      "question_ids": [
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-019",
+      "name": "旧轨迹不防护",
+      "expected": "已扫过区、前摇、回正和装饰刃风无独立持续清弹",
+      "question_ids": [
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-020",
+      "name": "相交轨迹",
+      "expected": "敌弹与武器在两帧之间相交仍按连续接触判清，不能只测最终位置",
+      "question_ids": [
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-021",
+      "name": "重砸不变",
+      "expected": "1.5格落点/2.3格波/0.5格头区、32—64及2D保持；地波不清弹，头有效接触可清",
+      "question_ids": [
+        "Q23-06",
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-022",
+      "name": "同帧先后",
+      "expected": "最早TOI裁决；同刻地形/清弹/受伤稳定排序，已生效受伤不得倒销",
+      "question_ids": [
+        "Q23-11",
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-023",
+      "name": "大符弹与塔",
+      "expected": "符弹/普通塔/双塔半径720milli格，弩/风矢100不改",
+      "question_ids": [
+        "Q23-03",
+        "Q23-12"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-024",
+      "name": "枪口首段",
+      "expected": "贴墙/近箱/目标贴身均检查首段，不侧移或越墙生成；合法发射照常消耗间隔",
+      "question_ids": [
+        "Q23-22"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-025",
+      "name": "反弹与墙角",
+      "expected": "符弹/塔弹一次反弹含门/墙柱箱，角落同manifold只耗一次、不留旧方向弹",
+      "question_ids": [
+        "Q23-11",
+        "Q23-22"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-026",
+      "name": "穿透与连锁",
+      "expected": "弩最多2/模块3敌；符弹命中敌人结束，3格单跳70%不递归",
+      "question_ids": [
+        "Q23-11",
+        "Q23-12"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-027",
+      "name": "生灭完整性",
+      "expected": "同tick生灭及小于动态间隔的弹体都有可信记录，画面缺失不推定伤害丢失",
+      "question_ids": [
+        "Q23-10",
+        "Q23-16"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-028",
+      "name": "生命周期序列",
+      "expected": "批次幂等、重试、乱序、旧连接和旧兴趣区不改变最终实体状态",
+      "question_ids": [
+        "Q23-10",
+        "Q23-11"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-029",
+      "name": "动态独立分组",
+      "expected": "一组新帧不使其他组合法帧丢失，丢一组不清全帧弹体",
+      "question_ids": [
+        "Q23-10"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-030",
+      "name": "立即终止表现",
+      "expected": "服务结束后不再伤害；客户端收到terminate后下一渲染帧隐藏并清轨迹，迟动态不复活",
+      "question_ids": [
+        "Q23-11"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-031",
+      "name": "短命弹反馈",
+      "expected": "已确认路径/接触闪只为表现，不延长活弹/增加命中/假伤害",
+      "question_ids": [
+        "Q23-10"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-032",
+      "name": "事件去重",
+      "expected": "重复spawn/bounce/terminate不重播声音，不复活已结束身份",
+      "question_ids": [
+        "Q23-10",
+        "Q23-11"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-033",
+      "name": "生命周期缺失",
+      "expected": "动态不凭空生弹；缺前置记录超32条/100ms请求基线，慢连接有界恢复",
+      "question_ids": [
+        "Q23-10"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-034",
+      "name": "本人护圈",
+      "expected": "移动/长闪/校正/房边镜头中圈心与本人同显示根，无单独回正",
+      "question_ids": [
+        "Q23-23"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-035",
+      "name": "远端护圈",
+      "expected": "远端角色和圈用相同插值根，半径与结束期限按确认状态",
+      "question_ids": [
+        "Q23-23"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-036",
+      "name": "风缚机制",
+      "expected": "推普通敌不穿墙、精英Boss免推；清敌弹不免地面/本体，生命周期清圈",
+      "question_ids": [
+        "Q23-23"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-037",
+      "name": "锤前摇落点",
+      "expected": "预览显式有效或null，未生效时不得读默认世界原点",
+      "question_ids": [
+        "Q23-06"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-038",
+      "name": "锤回正",
+      "expected": "抬锤/砸地/移动回正中手柄连手，地波留权威落地处",
+      "question_ids": [
+        "Q23-06"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-039",
+      "name": "装填动作",
+      "expected": "手动/空匣自动均900ms/成长700ms动作；中断不补弹，不锁移动/瞄准",
+      "question_ids": [],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-040",
+      "name": "独立命中格挡反馈",
+      "expected": "两武器各自命中/格挡声与效；同帧两种事件可区分，限表现不限制真实清弹",
+      "question_ids": [
+        "Q23-24"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-041",
+      "name": "布局密度",
+      "expected": "全部19变体的真实矩形/圆并集达相应目标，排除墙与装饰",
+      "question_ids": [
+        "Q23-07",
+        "Q23-08",
+        "Q23-09"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-042",
+      "name": "安全通路",
+      "expected": "每变体主路净宽至少2格且无陷阱；机关目标只允许明确必拆例外，Boss核心开放",
+      "question_ids": [
+        "Q23-17",
+        "Q23-25"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-043",
+      "name": "两处必拆",
+      "expected": "仅两个机关房各一组30生命掩体；未拆不能到目标，拆后可达；无新增清房任务",
+      "question_ids": [
+        "Q23-17",
+        "Q23-19"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-044",
+      "name": "受阻拆障AI",
+      "expected": "正常绕路优先，1000ms受阻/无短绕路后合法起手拆障，射手侧移/射障碍，不新增Boss招",
+      "question_ids": [
+        "Q23-26"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-045",
+      "name": "地形代次",
+      "expected": "同帧几何与箱碎不穿后方，后续帧碰撞/视线/路径共同失效刷新",
+      "question_ids": [
+        "Q23-17",
+        "Q23-26"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-046",
+      "name": "ABC周期",
+      "expected": "600ms警/200ms伤/2200ms冷，A/B/C偏移0/1000/2000，边界半开区间一致",
+      "question_ids": [
+        "Q23-18",
+        "Q23-20"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-047",
+      "name": "首次激活",
+      "expected": "首次可靠进入激活，预偏移阶段安全；未探索房不提前运行",
+      "question_ids": [
+        "Q23-21"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-048",
+      "name": "暂停与技术恢复",
+      "expected": "单人合法暂停冻相位；技术等待无伤但计时继续，恢复三组重新完整错峰预警、不补伤",
+      "question_ids": [
+        "Q23-20",
+        "Q23-21"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-049",
+      "name": "清房与返回",
+      "expected": "清房后持续同相位，离房返回不重置；陷阱不重开波次、不产合同",
+      "question_ids": [
+        "Q23-21"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-050",
+      "name": "出生候选",
+      "expected": "全变体给出候选，2格玩家距离/800ms预警/落地缓冲/陷阱与封闭区过滤",
+      "question_ids": [
+        "Q23-07",
+        "Q23-08",
+        "Q23-19"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-051",
+      "name": "预算与卡住",
+      "expected": "多房队列/无合法点/拆障与卡住恢复有界且公平，不贴脸传送或错判清房",
+      "question_ids": [
+        "Q23-07",
+        "Q23-26"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-052",
+      "name": "完整主支路",
+      "expected": "两机关/三成长/有限普通波/独立支路/成功不等召唤与个人合同保持",
+      "question_ids": [
+        "Q23-08",
+        "Q23-19"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-053",
+      "name": "贡献与合同",
+      "expected": "空挥/打箱/非保护清弹/陷阱不刷合同，root计数/召唤过滤/任务语义保持",
+      "question_ids": [
+        "Q23-11",
+        "Q23-24",
+        "Q23-26"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-054",
+      "name": "权限与诊断",
+      "expected": "其他房敌位/全合同/凭据不公开，诊断白名单限量，客户端无伤害/保护结论",
+      "question_ids": [
+        "Q23-10",
+        "Q23-16"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-055",
+      "name": "单双四性能",
+      "expected": "新地形/大弹/8塔/1024live+reserved下30Hz/60FPS、30秒预热120秒三次采样，GC/网络另记",
+      "question_ids": [
+        "Q23-01",
+        "Q23-03",
+        "Q23-07",
+        "Q23-12"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-056",
+      "name": "真实弱网",
+      "expected": "UDP丢包/乱序/抖动与物理跨机分别记录，不将本机/夹具当Radmin或真人通过",
+      "question_ids": [
+        "Q23-10",
+        "Q23-16"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-057",
+      "name": "历史保护",
+      "expected": "旧配置/SQL/代码/资源/旧JSON证据全不改，归档原字节与新版本附件可验",
+      "question_ids": [
+        "Q23-01",
+        "Q23-02",
+        "Q23-03",
+        "Q23-04",
+        "Q23-05",
+        "Q23-06",
+        "Q23-07",
+        "Q23-08",
+        "Q23-09",
+        "Q23-10",
+        "Q23-11",
+        "Q23-12",
+        "Q23-13",
+        "Q23-14",
+        "Q23-15",
+        "Q23-16",
+        "Q23-17",
+        "Q23-18",
+        "Q23-19",
+        "Q23-20",
+        "Q23-21",
+        "Q23-22",
+        "Q23-23",
+        "Q23-24",
+        "Q23-25",
+        "Q23-26"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-058",
+      "name": "真人理解与平衡",
+      "expected": "3名首次玩家每方案2次至少12尝试/6有效成功后评价15—20分钟及危险理解，失败保留",
+      "question_ids": [
+        "Q23-01",
+        "Q23-05",
+        "Q23-07",
+        "Q23-18"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-059",
+      "name": "恢复基线",
+      "expected": "倒地/复活/切房/断线/控制fence恢复原资源、保护来源、动作、圈/阵列与生命周期水位，不补旧攻击",
+      "question_ids": [
+        "Q23-14",
+        "Q23-15",
+        "Q23-21",
+        "Q23-23"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    },
+    {
+      "id": "D23-060",
+      "name": "版本成绩与时钟",
+      "expected": "新试炼冻结新布局/hash；旧成绩不比较，game/wall/pause/技术等待沿原职责、不靠等待凑时长",
+      "question_ids": [
+        "Q23-07",
+        "Q23-18",
+        "Q23-20",
+        "Q23-21"
+      ],
+      "status": "NOT_RUN",
+      "evidence": [],
+      "scope": "future_model_player_udp_or_human_as_applicable"
+    }
+  ],
+  "human": {
+    "status": "NOT_RUN",
+    "first_time_players_min": 3,
+    "attempts_per_loadout_per_player_min": 2,
+    "attempts_min": 12,
+    "valid_successes_min": 6,
+    "success_median_target_minutes": [
+      15,
+      20
+    ],
+    "all_failures_retained": true
+  },
+  "performance": {
+    "status": "NOT_RUN",
+    "warmup_ms": 30000,
+    "steady_ms": 120000,
+    "repeats": 3,
+    "authority_hz": 30,
+    "client_fps": 60,
+    "median_ms": 16.7,
+    "p95_ms": 20,
+    "p99_ms": 33.3
+  }
+}

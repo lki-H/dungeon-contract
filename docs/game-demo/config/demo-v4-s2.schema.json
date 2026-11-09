@@ -1,0 +1,445 @@
+{
+  "type": "object",
+  "properties": {
+    "lifecycle_stage": {
+      "const": "weapon_stage"
+    },
+    "authority": {
+      "type": "object",
+      "properties": {
+        "max_alive_enemies": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_pending_bytes": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "spawn_delay_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "control_poll_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_facts": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_catchup_ticks": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "internal_request_timeout_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_key_frames": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "admission_ttl_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_projectiles": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "spawn_protection_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_markers_per_player": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "marker_interval_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_turrets": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_pending_frames": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_frame_facts": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "tick_hz": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "lease_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "input_timeout_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "event_gap_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "technical_wait_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "spawn_ack_deadline_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "heartbeat_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "max_frame_bytes": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "reorder_window": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "approval_timeout_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        }
+      },
+      "required": [
+        "tick_hz",
+        "max_catchup_ticks",
+        "input_timeout_ms",
+        "internal_request_timeout_ms",
+        "heartbeat_ms",
+        "lease_ms",
+        "technical_wait_ms",
+        "control_poll_ms",
+        "approval_timeout_ms",
+        "admission_ttl_ms",
+        "spawn_delay_ms",
+        "spawn_ack_deadline_ms",
+        "spawn_protection_ms",
+        "max_frame_facts",
+        "max_frame_bytes",
+        "max_key_frames",
+        "max_facts",
+        "reorder_window",
+        "event_gap_ms",
+        "max_pending_frames",
+        "max_pending_bytes",
+        "max_alive_enemies",
+        "max_projectiles",
+        "max_turrets",
+        "max_markers_per_player",
+        "marker_interval_ms"
+      ],
+      "additionalProperties": false
+    },
+    "protocol_version": {
+      "const": 4
+    },
+    "parameters_path": {
+      "const": "../contracts/planned-v4/parameters.json"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "definition_id": {
+      "const": "dc_ruins.v4"
+    },
+    "tasks": {
+      "type": "array",
+      "maxItems": 0,
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "upgrades": {
+      "type": "array",
+      "maxItems": 0,
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "world": {
+      "type": "object",
+      "properties": {
+        "definition_id": {
+          "const": "dc_rooms.v4.draft1"
+        },
+        "content_version": {
+          "const": "dc_content.v4.draft1"
+        },
+        "p0_geometry_not_loaded": {
+          "const": false
+        },
+        "geometry_path": {
+          "const": "world-v3-p1.json"
+        },
+        "geometry_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "single_player_only": {
+          "const": true
+        }
+      },
+      "required": [
+        "definition_id",
+        "content_version",
+        "p0_geometry_not_loaded",
+        "geometry_path",
+        "geometry_sha256",
+        "single_player_only"
+      ],
+      "additionalProperties": false
+    },
+    "operation": {
+      "type": "object",
+      "properties": {
+        "terminal_grace_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "difficulty": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "reconnect_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "success_reward": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "reinforcements": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "failure_reward": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "hard_deadline_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "wall_limit_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "loading_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "confirmation_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "abort_reward": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "fill_wait_ms": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "difficulty",
+        "hard_deadline_ms",
+        "wall_limit_ms",
+        "terminal_grace_ms",
+        "fill_wait_ms",
+        "confirmation_ms",
+        "loading_ms",
+        "reconnect_ms",
+        "reinforcements",
+        "success_reward",
+        "failure_reward",
+        "abort_reward"
+      ],
+      "additionalProperties": false
+    },
+    "objectives": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "kill",
+              "interact"
+            ]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "required": {
+            "type": "integer",
+            "maximum": 10000,
+            "minimum": 1
+          },
+          "target_id": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "required",
+          "target_id"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 3
+    },
+    "parameters_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "trial": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "seed": {
+          "type": "integer",
+          "maximum": 9007199254740991,
+          "minimum": 0
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "seed"
+      ],
+      "additionalProperties": false
+    },
+    "versions": {
+      "const": {
+        "operation": "dc_ruins.v4",
+        "content": "dc_content.v4.draft1",
+        "world": "dc_rooms.v4.draft1",
+        "trial": "trial.v4.draft1",
+        "battle_protocol": 4,
+        "control_schema": 2
+      }
+    },
+    "control_rule_version": {
+      "const": "dc_ruins.v4.s2"
+    },
+    "combat_parameters_path": {
+      "const": "../contracts/planned-v4/parameters.json"
+    },
+    "combat_parameters_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "definition_id",
+    "protocol_version",
+    "lifecycle_stage",
+    "versions",
+    "parameters_path",
+    "parameters_sha256",
+    "operation",
+    "authority",
+    "trial",
+    "world",
+    "objectives",
+    "tasks",
+    "upgrades",
+    "control_rule_version",
+    "combat_parameters_path",
+    "combat_parameters_sha256"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false
+}

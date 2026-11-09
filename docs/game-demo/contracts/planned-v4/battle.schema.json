@@ -1,0 +1,3918 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Dungeon Contract 2.1 planned protocol4 logical contract; dynamic entities are encoded as bounded binary groups in implementation, not this JSON envelope.",
+  "$defs": {
+    "Input": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.input.v4"
+        },
+        "input_sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "weapon_id": {
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "move_x": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "move_y": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "attack_held": {
+          "type": "boolean"
+        },
+        "interact_held": {
+          "type": "boolean"
+        },
+        "rescue_held": {
+          "type": "boolean"
+        },
+        "action_watermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "input_sequence",
+        "weapon_id",
+        "weapon_revision",
+        "move_x",
+        "move_y",
+        "aim_u16",
+        "attack_held",
+        "interact_held",
+        "rescue_held",
+        "action_watermark"
+      ],
+      "additionalProperties": false
+    },
+    "Action": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.action.v4"
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "input_sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "weapon_id": {
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "action": {
+          "enum": [
+            "switch_weapon",
+            "attack_press",
+            "attack_release",
+            "attack_cancel",
+            "cancel_input",
+            "reload",
+            "dodge",
+            "ability_primary",
+            "ability_secondary",
+            "interact_begin",
+            "interact_cancel",
+            "rescue_begin",
+            "rescue_cancel",
+            "choose_growth",
+            "marker"
+          ]
+        },
+        "requested_weapon_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "switch_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "depends_on_switch_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "move_x": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "move_y": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "target_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_life_generation": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_downed_generation": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "choice_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "choice_revision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4294967295
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "option_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action_sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "press_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "operation_id",
+        "action_id",
+        "input_sequence",
+        "weapon_id",
+        "weapon_revision",
+        "action",
+        "requested_weapon_id",
+        "switch_id",
+        "depends_on_switch_id",
+        "aim_u16",
+        "move_x",
+        "move_y",
+        "target_id",
+        "target_life_generation",
+        "target_downed_generation",
+        "choice_id",
+        "choice_revision",
+        "option_id",
+        "action_sequence",
+        "press_action_id"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "switch_weapon"
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "requested_weapon_id": {
+                "enum": [
+                  "repeating_crossbow",
+                  "ruin_blade",
+                  "rune_bolt",
+                  "rune_hammer"
+                ]
+              },
+              "switch_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "depends_on_switch_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "not": {
+                  "const": "switch_weapon"
+                }
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "requested_weapon_id": {
+                "type": "null"
+              },
+              "switch_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "rescue_begin"
+                ]
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "target_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "target_life_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "target_downed_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "enum": [
+                  "interact_begin"
+                ]
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "target_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "choose_growth"
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "choice_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "choice_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "option_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "not": {
+                  "const": "choose_growth"
+                }
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "choice_id": {
+                "type": "null"
+              },
+              "choice_revision": {
+                "type": "null"
+              },
+              "option_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "not": {
+                  "enum": [
+                    "interact_begin",
+                    "rescue_begin"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "target_id": {
+                "type": "null"
+              },
+              "target_life_generation": {
+                "type": "null"
+              },
+              "target_downed_generation": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "const": "attack_release"
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "press_action_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "action": {
+                "not": {
+                  "const": "attack_release"
+                }
+              }
+            },
+            "required": [
+              "action"
+            ]
+          },
+          "then": {
+            "properties": {
+              "press_action_id": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "ActionReceipt": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.action.receipt.v4"
+        },
+        "operation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "status": {
+          "enum": [
+            "accepted",
+            "duplicate",
+            "buffered",
+            "rejected"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "accepted",
+            "cooldown",
+            "empty_magazine",
+            "not_reloadable",
+            "invalid_target",
+            "blocked",
+            "invalid_phase",
+            "life_state",
+            "stale_generation",
+            "stale_weapon_revision",
+            "stale_revision",
+            "expired",
+            "not_owner",
+            "budget",
+            "duplicate_conflict",
+            "paused",
+            "switch_dependency",
+            "buffered",
+            "forbidden"
+          ]
+        },
+        "effective_frame": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "weapon_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "release_required": {
+          "type": "boolean"
+        },
+        "action_sequence": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "operation_id",
+        "action_id",
+        "status",
+        "reason",
+        "effective_frame",
+        "weapon_id",
+        "weapon_revision",
+        "release_required",
+        "action_sequence"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "buffered"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "const": "buffered"
+              },
+              "effective_frame": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "rejected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "not": {
+                  "enum": [
+                    "accepted",
+                    "buffered"
+                  ]
+                }
+              },
+              "effective_frame": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "accepted",
+                  "duplicate"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "const": "accepted"
+              },
+              "effective_frame": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            }
+          }
+        }
+      ]
+    },
+    "WeaponState": {
+      "type": "object",
+      "properties": {
+        "weapon_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "magazine": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "magazine_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "attack_ready_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reload_end_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "charge_started_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "charge_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "weapon_id",
+        "magazine",
+        "magazine_max",
+        "attack_ready_game_ms",
+        "reload_end_game_ms",
+        "charge_started_game_ms",
+        "charge_action_id"
+      ],
+      "additionalProperties": false
+    },
+    "OwnState": {
+      "type": "object",
+      "properties": {
+        "player_id": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{0,18}$"
+        },
+        "slot": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "life_state": {
+          "enum": [
+            "alive",
+            "downed",
+            "dead",
+            "protected",
+            "left"
+          ]
+        },
+        "life_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "downed_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "shield": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "active_weapon_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "weapon_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "weapon_states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/WeaponState"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "release_required": {
+          "type": "boolean"
+        },
+        "last_input_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "last_action_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dodge_ready_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "invulnerable_until_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "hurt_protected_until_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dash_kind": {
+          "enum": [
+            "none",
+            "space",
+            "gust"
+          ]
+        },
+        "dash_end_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dash_direction_x_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "dash_direction_y_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "primary_ready_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "secondary_ready_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "choices": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "downed_deadline_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reinforcement_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "last_move_x_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "last_move_y_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "switch_ready_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "shield_expires_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shield_source_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rescue_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rescue_target_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rescue_end_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "loadout_id": {
+          "enum": [
+            "ranger",
+            "runesmith"
+          ]
+        },
+        "max_health": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "dash_start_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dash_start_x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "dash_start_y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "dash_distance_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2000
+        },
+        "consumed_supply_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "pending_branch_shield": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "reward_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "shield": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "duration_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "required": [
+                "reward_id",
+                "shield",
+                "duration_game_ms"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "player_id",
+        "slot",
+        "room_id",
+        "x_milli",
+        "y_milli",
+        "life_state",
+        "life_generation",
+        "downed_generation",
+        "health",
+        "shield",
+        "active_weapon_id",
+        "weapon_revision",
+        "weapon_states",
+        "release_required",
+        "last_input_sequence",
+        "last_action_sequence",
+        "dodge_ready_game_ms",
+        "invulnerable_until_game_ms",
+        "hurt_protected_until_game_ms",
+        "dash_kind",
+        "dash_end_game_ms",
+        "dash_direction_x_milli",
+        "dash_direction_y_milli",
+        "primary_ready_game_ms",
+        "secondary_ready_game_ms",
+        "choices",
+        "downed_deadline_game_ms",
+        "reinforcement_action_id",
+        "aim_u16",
+        "last_move_x_milli",
+        "last_move_y_milli",
+        "switch_ready_game_ms",
+        "shield_expires_game_ms",
+        "shield_source_action_id",
+        "rescue_action_id",
+        "rescue_target_id",
+        "rescue_end_game_ms",
+        "loadout_id",
+        "max_health",
+        "dash_start_game_ms",
+        "dash_start_x_milli",
+        "dash_start_y_milli",
+        "dash_distance_milli",
+        "consumed_supply_ids",
+        "pending_branch_shield"
+      ],
+      "additionalProperties": false
+    },
+    "SpawnReservation": {
+      "type": "object",
+      "properties": {
+        "reservation_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "reservation_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "wave_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "enemy_kind": {
+          "enum": [
+            "guard",
+            "archer",
+            "charger",
+            "elite",
+            "boss"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "wave",
+            "boss_summon",
+            "stuck_recovery"
+          ]
+        },
+        "state": {
+          "enum": [
+            "warning",
+            "canceled",
+            "materialized"
+          ]
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "warning_begin_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "warning_end_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "materialized_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "terrain_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "entry_grace_end_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "cancel_reason": {
+          "anyOf": [
+            {
+              "enum": [
+                "player_proximity",
+                "terrain_changed",
+                "occupied",
+                "run_ended"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "reservation_id",
+        "reservation_revision",
+        "entity_id",
+        "entity_generation",
+        "room_id",
+        "wave_id",
+        "enemy_kind",
+        "origin",
+        "state",
+        "x_milli",
+        "y_milli",
+        "warning_begin_game_ms",
+        "warning_end_game_ms",
+        "materialized_game_ms",
+        "terrain_revision",
+        "entry_grace_end_game_ms",
+        "cancel_reason"
+      ],
+      "additionalProperties": false
+    },
+    "SpawnState": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.spawn.state.v4"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "world_frame_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "game_elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpawnReservation"
+          },
+          "minItems": 0,
+          "maxItems": 24
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "state_revision",
+        "world_frame_id",
+        "game_elapsed_ms",
+        "reservations",
+        "interest_revision"
+      ],
+      "additionalProperties": false
+    },
+    "EnemyState": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "enemy_kind": {
+          "enum": [
+            "guard",
+            "archer",
+            "charger",
+            "elite",
+            "boss"
+          ]
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "attack_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attack_phase": {
+          "enum": [
+            "entering",
+            "seek",
+            "prepare",
+            "committed",
+            "execute",
+            "recover",
+            "suppressed"
+          ]
+        },
+        "attack_kind": {
+          "anyOf": [
+            {
+              "enum": [
+                "melee",
+                "shot",
+                "charge",
+                "fan",
+                "stomp",
+                "summon"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "prepare_end_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "commit_begin_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attack_origin_x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "attack_origin_y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "group_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entry_grace_end_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "boss_phase": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "suppressed_until_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "entity_id",
+        "entity_generation",
+        "room_id",
+        "enemy_kind",
+        "x_milli",
+        "y_milli",
+        "health",
+        "attack_id",
+        "attack_phase",
+        "attack_kind",
+        "prepare_end_game_ms",
+        "commit_begin_game_ms",
+        "attack_origin_x_milli",
+        "attack_origin_y_milli",
+        "aim_u16",
+        "group_id",
+        "entry_grace_end_game_ms",
+        "boss_phase",
+        "suppressed_until_game_ms"
+      ],
+      "additionalProperties": false
+    },
+    "ProjectileState": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "owner_entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "hostile": {
+          "type": "boolean"
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "direction_x_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "direction_y_milli": {
+          "type": "integer",
+          "minimum": -1000,
+          "maximum": 1000
+        },
+        "radius_milli": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "speed_milli_per_second": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "remaining_range_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "bounces_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "penetrations_remaining": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "expires_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "parent_cast_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "entity_id",
+        "entity_generation",
+        "room_id",
+        "owner_entity_id",
+        "action_id",
+        "hostile",
+        "x_milli",
+        "y_milli",
+        "direction_x_milli",
+        "direction_y_milli",
+        "radius_milli",
+        "speed_milli_per_second",
+        "remaining_range_milli",
+        "bounces_remaining",
+        "penetrations_remaining",
+        "expires_game_ms",
+        "parent_cast_id"
+      ],
+      "additionalProperties": false
+    },
+    "FieldState": {
+      "type": "object",
+      "properties": {
+        "field_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "owner_player_id": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{0,18}$"
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "kind": {
+          "enum": [
+            "wind_bind",
+            "shield_field"
+          ]
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "radius_milli": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10000
+        },
+        "expires_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "anchor": {
+          "const": "owner_follow"
+        },
+        "granted_players": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,18}$"
+          },
+          "minItems": 0,
+          "maxItems": 4
+        }
+      },
+      "required": [
+        "field_id",
+        "source_action_id",
+        "owner_player_id",
+        "room_id",
+        "kind",
+        "x_milli",
+        "y_milli",
+        "radius_milli",
+        "expires_game_ms",
+        "anchor",
+        "granted_players"
+      ],
+      "additionalProperties": false
+    },
+    "DoorState": {
+      "type": "object",
+      "properties": {
+        "door_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "from_room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "to_room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "state": {
+          "enum": [
+            "locked",
+            "entry_only",
+            "open"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "dependency",
+            "enemies",
+            "pending_spawn",
+            "mechanism",
+            "clear"
+          ]
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "door_id",
+        "from_room_id",
+        "to_room_id",
+        "state",
+        "reason",
+        "state_revision"
+      ],
+      "additionalProperties": false
+    },
+    "TerrainState": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "terrain_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "cover_states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cover_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10000
+              },
+              "cover_revision": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "cover_id",
+              "health",
+              "cover_revision"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "room_id",
+        "terrain_revision",
+        "cover_states"
+      ],
+      "additionalProperties": false
+    },
+    "TurretState": {
+      "type": "object",
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "owner_player_id": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{0,18}$"
+        },
+        "source_action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "expires_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "next_attack_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "entity_id",
+        "owner_player_id",
+        "source_action_id",
+        "room_id",
+        "x_milli",
+        "y_milli",
+        "expires_game_ms",
+        "next_attack_game_ms"
+      ],
+      "additionalProperties": false
+    },
+    "PendingChoice": {
+      "type": "object",
+      "properties": {
+        "choice_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "node_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "choice_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "deadline_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "selected",
+            "defaulted"
+          ]
+        },
+        "selected_option": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "choice_id",
+        "node_index",
+        "choice_revision",
+        "options",
+        "deadline_game_ms",
+        "status",
+        "selected_option"
+      ],
+      "additionalProperties": false
+    },
+    "PauseState": {
+      "type": "object",
+      "properties": {
+        "clock_state": {
+          "enum": [
+            "running",
+            "paused",
+            "technical_wait"
+          ]
+        },
+        "clock_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "pause_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pause_requested_by": {
+          "anyOf": [
+            {
+              "enum": [
+                "menu",
+                "focus_loss"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effective_frame": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "game_elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1800000
+        },
+        "wall_elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3600000
+        },
+        "manual_pause_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3600000
+        },
+        "explicit_resume_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "clock_state",
+        "clock_revision",
+        "pause_id",
+        "pause_requested_by",
+        "effective_frame",
+        "game_elapsed_ms",
+        "wall_elapsed_ms",
+        "manual_pause_ms",
+        "explicit_resume_required"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "clock_state": {
+                "const": "paused"
+              }
+            },
+            "required": [
+              "clock_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "pause_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "pause_requested_by": {
+                "enum": [
+                  "menu",
+                  "focus_loss"
+                ]
+              },
+              "explicit_resume_required": {
+                "const": true
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "clock_state": {
+                "not": {
+                  "const": "paused"
+                }
+              }
+            },
+            "required": [
+              "clock_state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "pause_id": {
+                "type": "null"
+              },
+              "pause_requested_by": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Baseline": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.baseline.v4"
+        },
+        "assignment_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "baseline_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "config_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "parameters_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "layout_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "versions": {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "dc_ruins.v4"
+            },
+            "content": {
+              "const": "dc_content.v4.draft1"
+            },
+            "world": {
+              "const": "dc_rooms.v4.draft1"
+            },
+            "trial": {
+              "const": "trial.v4.draft1"
+            },
+            "battle_protocol": {
+              "const": 4
+            },
+            "control_schema": {
+              "const": 2
+            }
+          },
+          "required": [
+            "operation",
+            "content",
+            "world",
+            "trial",
+            "battle_protocol",
+            "control_schema"
+          ],
+          "additionalProperties": false
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "world_frame_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "own": {
+          "$ref": "#/$defs/OwnState"
+        },
+        "clock": {
+          "$ref": "#/$defs/PauseState"
+        },
+        "explored_rooms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/RoomState"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "doors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DoorState"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "terrain": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TerrainState"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "spawn_reservations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SpawnReservation"
+          },
+          "minItems": 0,
+          "maxItems": 24
+        },
+        "enemies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnemyState"
+          },
+          "minItems": 0,
+          "maxItems": 24
+        },
+        "projectiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ProjectileState"
+          },
+          "minItems": 0,
+          "maxItems": 128
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FieldState"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "turrets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TurretState"
+          },
+          "minItems": 0,
+          "maxItems": 8
+        },
+        "pending_choices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PendingChoice"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "trap_states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TrapState"
+          },
+          "maxItems": 4
+        },
+        "baseline_event_watermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "peers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PeerState"
+          },
+          "minItems": 0,
+          "maxItems": 3
+        },
+        "interactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/InteractionState"
+          },
+          "minItems": 0,
+          "maxItems": 6
+        },
+        "team": {
+          "$ref": "#/$defs/TeamState"
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "assignment_id",
+        "baseline_id",
+        "config_hash",
+        "parameters_hash",
+        "layout_hash",
+        "versions",
+        "state_revision",
+        "world_frame_id",
+        "own",
+        "clock",
+        "explored_rooms",
+        "rooms",
+        "doors",
+        "terrain",
+        "spawn_reservations",
+        "enemies",
+        "projectiles",
+        "fields",
+        "turrets",
+        "pending_choices",
+        "trap_states",
+        "baseline_event_watermark",
+        "interest_revision",
+        "peers",
+        "interactions",
+        "team"
+      ],
+      "additionalProperties": false
+    },
+    "Dynamic": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.dynamic.v4"
+        },
+        "world_frame_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "game_elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1800000
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "group_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "group_kind": {
+          "enum": [
+            "own",
+            "enemies",
+            "projectiles",
+            "devices",
+            "players"
+          ]
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/OwnState"
+              },
+              {
+                "$ref": "#/$defs/PeerState"
+              },
+              {
+                "$ref": "#/$defs/EnemyState"
+              },
+              {
+                "$ref": "#/$defs/ProjectileState"
+              },
+              {
+                "$ref": "#/$defs/FieldState"
+              },
+              {
+                "$ref": "#/$defs/TurretState"
+              }
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 24
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "required_state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "world_frame_id",
+        "game_elapsed_ms",
+        "state_revision",
+        "group_id",
+        "group_kind",
+        "entities",
+        "interest_revision",
+        "required_state_revision"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "group_kind": {
+                "const": "own"
+              }
+            },
+            "required": [
+              "group_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/OwnState"
+                },
+                "minItems": 1,
+                "maxItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "group_kind": {
+                "const": "players"
+              }
+            },
+            "required": [
+              "group_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/PeerState"
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "group_kind": {
+                "const": "enemies"
+              }
+            },
+            "required": [
+              "group_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/EnemyState"
+                },
+                "minItems": 0,
+                "maxItems": 24
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "group_kind": {
+                "const": "projectiles"
+              }
+            },
+            "required": [
+              "group_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/ProjectileState"
+                },
+                "minItems": 0,
+                "maxItems": 24
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "group_kind": {
+                "const": "devices"
+              }
+            },
+            "required": [
+              "group_kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "entities": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/FieldState"
+                    },
+                    {
+                      "$ref": "#/$defs/TurretState"
+                    }
+                  ]
+                },
+                "maxItems": 16
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Presentation": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.presentation.v4"
+        },
+        "event_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entity_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "world_frame_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "game_elapsed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "expires_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "kind": {
+          "enum": [
+            "attack_start",
+            "shot",
+            "hit",
+            "hurt",
+            "dodge_start",
+            "dodge_end",
+            "gust_dash",
+            "reload_start",
+            "reload_cancel",
+            "reload_complete",
+            "weapon_switched",
+            "spawn_warning",
+            "spawn_canceled",
+            "spawn_materialized",
+            "attack_warning",
+            "ricochet",
+            "wind_push",
+            "projectile_erased",
+            "shield_granted",
+            "cover_break",
+            "downed",
+            "death",
+            "rescued",
+            "boss_phase",
+            "run_result"
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "event_sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "event_id",
+        "source_action_id",
+        "entity_id",
+        "entity_generation",
+        "world_frame_id",
+        "game_elapsed_ms",
+        "expires_game_ms",
+        "kind",
+        "amount",
+        "x_milli",
+        "y_milli",
+        "interest_revision",
+        "event_sequence"
+      ],
+      "additionalProperties": false
+    },
+    "TrapState": {
+      "type": "object",
+      "properties": {
+        "trap_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "phase": {
+          "enum": [
+            "idle",
+            "warning",
+            "active",
+            "cooldown"
+          ]
+        },
+        "trigger_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "phase_end_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "trap_id",
+        "room_id",
+        "state_revision",
+        "phase",
+        "trigger_id",
+        "phase_end_game_ms"
+      ],
+      "additionalProperties": false
+    },
+    "PeerState": {
+      "type": "object",
+      "properties": {
+        "player_id": {
+          "type": "string",
+          "pattern": "^[1-9][0-9]{0,18}$"
+        },
+        "slot": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "loadout_id": {
+          "enum": [
+            "ranger",
+            "runesmith"
+          ]
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "observed": {
+          "type": "boolean"
+        },
+        "x_milli": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "y_milli": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": -100000,
+              "maximum": 100000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "aim_u16": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "life_state": {
+          "enum": [
+            "alive",
+            "downed",
+            "dead",
+            "protected",
+            "left"
+          ]
+        },
+        "life_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "shield": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "active_weapon_id": {
+          "enum": [
+            "repeating_crossbow",
+            "ruin_blade",
+            "rune_bolt",
+            "rune_hammer"
+          ]
+        },
+        "contract_category": {
+          "anyOf": [
+            {
+              "enum": [
+                "kill",
+                "damage",
+                "reach",
+                "interact",
+                "survival"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "player_id",
+        "slot",
+        "loadout_id",
+        "room_id",
+        "observed",
+        "x_milli",
+        "y_milli",
+        "aim_u16",
+        "life_state",
+        "life_generation",
+        "health",
+        "shield",
+        "active_weapon_id",
+        "contract_category"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "observed": {
+                "const": false
+              }
+            },
+            "required": [
+              "observed"
+            ]
+          },
+          "then": {
+            "properties": {
+              "x_milli": {
+                "type": "null"
+              },
+              "y_milli": {
+                "type": "null"
+              },
+              "aim_u16": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "observed": {
+                "const": true
+              }
+            },
+            "required": [
+              "observed"
+            ]
+          },
+          "then": {
+            "properties": {
+              "x_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "y_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "aim_u16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              }
+            }
+          }
+        }
+      ]
+    },
+    "InteractionState": {
+      "type": "object",
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "kind": {
+          "enum": [
+            "mechanism",
+            "rescue",
+            "supply"
+          ]
+        },
+        "x_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y_milli": {
+          "type": "integer",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "completed": {
+          "type": "boolean"
+        },
+        "actor_player_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,18}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "started_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "complete_game_ms": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "target_life_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "target_downed_generation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "target_id",
+        "room_id",
+        "kind",
+        "x_milli",
+        "y_milli",
+        "completed",
+        "actor_player_id",
+        "action_id",
+        "started_game_ms",
+        "complete_game_ms",
+        "target_life_generation",
+        "target_downed_generation"
+      ],
+      "additionalProperties": false
+    },
+    "TeamState": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "normal",
+            "trial"
+          ]
+        },
+        "initial_player_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "reinforcements_total": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "reinforcements_reserved": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "reinforcements_consumed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "reinforcements_available": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "trial_eligible": {
+          "type": "boolean"
+        },
+        "trial_ineligible_reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        }
+      },
+      "required": [
+        "mode",
+        "initial_player_count",
+        "reinforcements_total",
+        "reinforcements_reserved",
+        "reinforcements_consumed",
+        "reinforcements_available",
+        "trial_eligible",
+        "trial_ineligible_reason"
+      ],
+      "additionalProperties": false
+    },
+    "RoomState": {
+      "type": "object",
+      "properties": {
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "status": {
+          "enum": [
+            "unvisited",
+            "warning",
+            "active",
+            "cleared"
+          ]
+        },
+        "wave_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 64
+        },
+        "pending_spawn_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "mechanism_complete": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "room_id",
+        "status",
+        "wave_index",
+        "pending_spawn_count",
+        "mechanism_complete"
+      ],
+      "additionalProperties": false
+    },
+    "StateUpdate": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.state.v4"
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "state_revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "world_frame_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "updates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "enum": [
+                  "upsert",
+                  "remove"
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "own",
+                  "peer",
+                  "room",
+                  "door",
+                  "terrain",
+                  "trap",
+                  "interaction",
+                  "team",
+                  "enemy",
+                  "projectile",
+                  "field",
+                  "turret",
+                  "choice",
+                  "clock"
+                ]
+              },
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "entity_generation": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "value": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/OwnState"
+                  },
+                  {
+                    "$ref": "#/$defs/PeerState"
+                  },
+                  {
+                    "$ref": "#/$defs/RoomState"
+                  },
+                  {
+                    "$ref": "#/$defs/DoorState"
+                  },
+                  {
+                    "$ref": "#/$defs/TerrainState"
+                  },
+                  {
+                    "$ref": "#/$defs/TrapState"
+                  },
+                  {
+                    "$ref": "#/$defs/InteractionState"
+                  },
+                  {
+                    "$ref": "#/$defs/TeamState"
+                  },
+                  {
+                    "$ref": "#/$defs/EnemyState"
+                  },
+                  {
+                    "$ref": "#/$defs/ProjectileState"
+                  },
+                  {
+                    "$ref": "#/$defs/FieldState"
+                  },
+                  {
+                    "$ref": "#/$defs/TurretState"
+                  },
+                  {
+                    "$ref": "#/$defs/PendingChoice"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/PauseState"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "operation",
+              "kind",
+              "entity_id",
+              "entity_generation",
+              "value"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "remove"
+                    }
+                  },
+                  "required": [
+                    "operation"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "type": "null"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "own"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/OwnState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "peer"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/PeerState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "room"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/RoomState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "door"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/DoorState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "terrain"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/TerrainState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "trap"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/TrapState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "interaction"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/InteractionState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "team"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/TeamState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "enemy"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/EnemyState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "projectile"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/ProjectileState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "field"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/FieldState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "turret"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/TurretState"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "choice"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/PendingChoice"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "operation": {
+                      "const": "upsert"
+                    },
+                    "kind": {
+                      "const": "clock"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "kind"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "value": {
+                      "$ref": "#/$defs/PauseState"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "minItems": 0,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "interest_revision",
+        "state_revision",
+        "world_frame_id",
+        "updates"
+      ],
+      "additionalProperties": false
+    },
+    "BaselineChunk": {
+      "type": "object",
+      "properties": {
+        "protocol_version": {
+          "const": 4
+        },
+        "run_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "source_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "connection_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "message": {
+          "const": "dc.baseline.chunk.v4"
+        },
+        "transfer_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "interest_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "baseline_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_-]+$"
+        },
+        "chunk_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 511
+        },
+        "chunk_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 512
+        },
+        "total_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 262144
+        },
+        "payload_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "chunk_data_base64": {
+          "type": "string",
+          "minLength": 4,
+          "maxLength": 1024,
+          "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+        }
+      },
+      "required": [
+        "protocol_version",
+        "run_id",
+        "source_generation",
+        "connection_generation",
+        "message",
+        "transfer_id",
+        "interest_revision",
+        "baseline_id",
+        "chunk_index",
+        "chunk_count",
+        "total_bytes",
+        "payload_sha256",
+        "chunk_data_base64"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/Input"
+    },
+    {
+      "$ref": "#/$defs/Action"
+    },
+    {
+      "$ref": "#/$defs/ActionReceipt"
+    },
+    {
+      "$ref": "#/$defs/SpawnState"
+    },
+    {
+      "$ref": "#/$defs/Baseline"
+    },
+    {
+      "$ref": "#/$defs/Dynamic"
+    },
+    {
+      "$ref": "#/$defs/Presentation"
+    },
+    {
+      "$ref": "#/$defs/StateUpdate"
+    },
+    {
+      "$ref": "#/$defs/BaselineChunk"
+    }
+  ]
+}

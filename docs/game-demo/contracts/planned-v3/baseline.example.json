@@ -1,0 +1,65 @@
+{
+  "protocol_version": 3,
+  "message": "dc.baseline.v3",
+  "run_id": "run_example",
+  "assignment_id": "assignment_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "state_revision": 7,
+  "terrain_revision": 2,
+  "world_frame_id": 1200,
+  "clock_state": "running",
+  "game_elapsed_ms": 40000,
+  "wall_elapsed_ms": 40000,
+  "manual_pause_ms": 0,
+  "content_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "own": {
+    "player_id": "101",
+    "slot": 0,
+    "room_id": "mechanism",
+    "life_generation": 1,
+    "downed_generation": 0,
+    "life_state": "alive",
+    "connected": true,
+    "health": 100,
+    "shield": 0,
+    "ammo": 8,
+    "reload_remaining_ms": 0,
+    "charge_started_game_ms": null,
+    "ability_primary_ready_game_ms": 0,
+    "ability_secondary_ready_game_ms": 0,
+    "dodge_ready_game_ms": 0,
+    "choices": [
+      "ranger_pierce"
+    ],
+    "processed_input_sequence": 42
+  },
+  "pending_choices": [
+    {
+      "choice_id": "choice_growth_2",
+      "node_id": "growth_2",
+      "revision": 1,
+      "options": [
+        "swift",
+        "ward",
+        "ranger_fan"
+      ],
+      "deadline_game_ms": 100000,
+      "selected": null,
+      "selection_origin": "pending",
+      "operation_id": null
+    }
+  ],
+  "explored_rooms": [
+    "entry",
+    "foyer",
+    "mechanism"
+  ],
+  "open_doors": [
+    "entry_foyer",
+    "foyer_mechanism"
+  ],
+  "destroyed_cover_ids": [
+    "cover_mechanism_1"
+  ]
+}

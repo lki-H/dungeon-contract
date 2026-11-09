@@ -1,0 +1,19 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.state.v4",
+  "interest_revision": 1,
+  "state_revision": 4,
+  "world_frame_id": 301,
+  "updates": [
+    {
+      "operation": "remove",
+      "kind": "projectile",
+      "entity_id": "projectile_001",
+      "entity_generation": 1,
+      "value": null
+    }
+  ]
+}

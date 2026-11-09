@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "presentation_version": "p5.1",
+  "method": "original_deterministic_pixel_drawing_and_audio_synthesis",
+  "ai_generated": false,
+  "license": "CC0-1.0",
+  "license_file": "LICENSE.txt",
+  "source": "deploy/dc-p5-assets.py",
+  "seed": "2400/1400",
+  "review_status": "adopted_for_demo_engineering",
+  "review_record": "docs/game-demo/p5-resource-review.json",
+  "generator_sha256": "a5a89038c663d1e35e31eae4d5757fbf6adad71e66a715310776bc469eefbdd7",
+  "frame_count": 926,
+  "audio_peak_limit": 1,
+  "assets": [
+    {
+      "asset_id": "audio.shot",
+      "path": "shot.wav",
+      "sha256": "780f6c33dcb72530e05a8718c1964e1f00e6516770b840ee3bcd0cb7746bd353",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.hit",
+      "path": "hit.wav",
+      "sha256": "fa6cdc47acb41049de4d0e6b3d5397b990f1786a725b104cfde015179a3b4489",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.hurt",
+      "path": "hurt.wav",
+      "sha256": "1a9bb0da7b4fb97f57be9bfc450e492bd9d6e9a180692a6b25472a144f243c51",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.dodge",
+      "path": "dodge.wav",
+      "sha256": "093b261b74573c0cd18d3d7be60d5a2fc1907e069a3cb0530553c08391de6e38",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.skill",
+      "path": "skill.wav",
+      "sha256": "87bbe1ad4858bc07294f87e3a44fe7f67f7e26b5fefd6ced1f910e5447f97800",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.light",
+      "path": "light.wav",
+      "sha256": "ed84aaff107b340779578339bf0f245b82b0e35a3b09c3577231dcc0bfc80348",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.heavy",
+      "path": "heavy.wav",
+      "sha256": "cf139015c0082610dc6eb92d22b703df573613e3e3cd6a27656545d0f08852f9",
+      "duration_seconds": 0.65
+    },
+    {
+      "asset_id": "audio.charge",
+      "path": "charge.wav",
+      "sha256": "459d95a5ae0c4dd0bcff56b6944e3699e28a825048d351e8a4fe3e341c94ad7d",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.clear",
+      "path": "clear.wav",
+      "sha256": "f137a3549e2fecdb3a390f1d8d2d3e150b10dd18327bfcceb42ac2214b7e06c9",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.reload",
+      "path": "reload.wav",
+      "sha256": "44f58f8f70785b57355f41b541d1722524053fab3f42f5ba452cb870db7b59ea",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.interact",
+      "path": "interact.wav",
+      "sha256": "bd489d40260137bc376c01653761a1dbfcbd4185216b63d0537e730131215326",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.warning",
+      "path": "warning.wav",
+      "sha256": "91aa2ae6233e03c14d46bbbde46fab853f0851a97352ed6e5417443e33efdb26",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.downed",
+      "path": "downed.wav",
+      "sha256": "1854d8bf56ee37d76451f7e47e053fee79f04c926b58fd22ceb3b0777d480bd0",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.rescue",
+      "path": "rescue.wav",
+      "sha256": "080916c45ac4f2c41173a93deaf5243f64270e795a8360b628f3103738bb91a1",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.death",
+      "path": "death.wav",
+      "sha256": "8cb2dc1b3999e4159c5d2543df37f9c2e740323e27537c9205aa6976e645f7be",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.boss",
+      "path": "boss.wav",
+      "sha256": "32db819c4bc3a6cec6dffd282f564a233df01c725b3c578c1c63f058af0f731c",
+      "duration_seconds": 0.65
+    },
+    {
+      "asset_id": "audio.success",
+      "path": "success.wav",
+      "sha256": "084fdb7862bab5b23bddc8df5b8a69b36d990b368e15388f488b58c188499cec",
+      "duration_seconds": 0.65
+    },
+    {
+      "asset_id": "audio.failure",
+      "path": "failure.wav",
+      "sha256": "78788172b742ea450e9351ec6985c2906fd6ab341f5cf8e6c20eca543af262a8",
+      "duration_seconds": 0.65
+    },
+    {
+      "asset_id": "audio.music",
+      "path": "music.wav",
+      "sha256": "40f2a7ef3e22efa74efa74903f0489a3f2762286edb99101db6f4f09643c5187",
+      "duration_seconds": 32
+    },
+    {
+      "asset_id": "audio.shot_crossbow",
+      "path": "shot_crossbow.wav",
+      "sha256": "57401312eb747e93833c489ebc311fc15713266525473ff150f9eedf54820515",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.shot_rune",
+      "path": "shot_rune.wav",
+      "sha256": "4e897e18a24e02e50896625746a233863945f1b4f602f07d451030eb0e4afa4c",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "audio.turret_shot",
+      "path": "turret_shot.wav",
+      "sha256": "4129b0b7ef1b51aeb45eeadb6c4ab1b6a484cd46e13e71e4c65233d05f722cc7",
+      "duration_seconds": 0.16
+    },
+    {
+      "asset_id": "ruins-p5.png",
+      "path": "ruins-p5.png",
+      "sha256": "f2bb49ef33451012d33498765ca7ca23232d97212b9c1164183ed429beee3b55"
+    },
+    {
+      "asset_id": "ruins-p5.json",
+      "path": "ruins-p5.json",
+      "sha256": "8a1c1805abe24079b5890f1ddf95be6cc2beb4c9839bf35659e998076ccf6228"
+    }
+  ]
+}

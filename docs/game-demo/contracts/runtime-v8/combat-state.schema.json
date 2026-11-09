@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:dc:combat-state:8:p5.1",
+  "title": "v8 additional actor state; combined with inherited authoritative actor fields",
+  "type": "object",
+  "required": [
+    "player_id",
+    "turret_charges",
+    "turret_group",
+    "battle_until_ms",
+    "death_hammer",
+    "last_slam"
+  ],
+  "properties": {
+    "player_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "turret_charges": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2
+    },
+    "turret_group": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        }
+      ]
+    },
+    "battle_until_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "death_hammer": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "root",
+            "active",
+            "room_id",
+            "started_ms",
+            "ends_ms",
+            "next_pulse",
+            "damage",
+            "frost",
+            "chain",
+            "end_reason"
+          ],
+          "properties": {
+            "root": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "room_id": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 14
+            },
+            "started_ms": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "ends_ms": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "next_pulse": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 8
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            "frost": {
+              "type": "boolean"
+            },
+            "chain": {
+              "type": "boolean"
+            },
+            "end_reason": {
+              "enum": [
+                null,
+                "expired",
+                "room_change",
+                "life_exhausted",
+                "permanent_exit",
+                "terminal"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "last_slam": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "root",
+            "room_id",
+            "at_ms",
+            "x",
+            "y",
+            "radius",
+            "aim_x",
+            "aim_y",
+            "head_profile_id"
+          ],
+          "properties": {
+            "root": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "room_id": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 14
+            },
+            "at_ms": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "radius": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 4
+            },
+            "aim_x": {
+              "type": "number"
+            },
+            "aim_y": {
+              "type": "number"
+            },
+            "head_profile_id": {
+              "const": "rune_hammer_head.v8"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "additionalProperties": true
+}

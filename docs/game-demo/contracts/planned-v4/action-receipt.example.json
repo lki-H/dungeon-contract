@@ -1,0 +1,16 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.action.receipt.v4",
+  "operation_id": "op_switch_001",
+  "action_id": "action_switch_001",
+  "action_sequence": 44,
+  "status": "accepted",
+  "reason": "accepted",
+  "effective_frame": 300,
+  "weapon_id": "ruin_blade",
+  "weapon_revision": 2,
+  "release_required": true
+}

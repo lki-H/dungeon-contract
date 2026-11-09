@@ -1,0 +1,56 @@
+name: dc-demo
+
+services:
+  mysql:
+    image: mysql:8.4.11@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/dc_root_password
+      MYSQL_DATABASE: game_realtime_dc_demo
+      MYSQL_USER: dc_demo
+      MYSQL_PASSWORD_FILE: /run/secrets/dc_db_password
+    secrets:
+      - dc_root_password
+      - dc_db_password
+    ports:
+      - "127.0.0.1:23316:3306"
+    command: ["--default-time-zone=+00:00"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../backend/internal/database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$(cat /run/secrets/dc_db_password) mysql -h127.0.0.1 -udc_demo -Dgame_realtime_dc_demo -e 'SELECT 1' >/dev/null"]
+      interval: 3s
+      timeout: 3s
+      retries: 60
+      start_period: 20s
+    restart: "no"
+  redis:
+    image: redis:7@sha256:33d7c9a245edd95e6703a0addbeaa48fe40c3b3b4783627a72085155462ebfdb
+    command: ["redis-server", "/run/secrets/dc_redis_config"]
+    secrets:
+      - dc_redis_config
+      - dc_redis_password
+    ports:
+      - "127.0.0.1:26389:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=$$(cat /run/secrets/dc_redis_password) redis-cli ping | grep -qx PONG"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+    restart: "no"
+
+volumes:
+  mysql-data:
+  redis-data:
+
+secrets:
+  dc_root_password:
+    file: ${DC_PRIVATE_DIR:?Use dc-run.ps1}/root-password.txt
+  dc_db_password:
+    file: ${DC_PRIVATE_DIR:?Use dc-run.ps1}/db-password.txt
+  dc_redis_password:
+    file: ${DC_PRIVATE_DIR:?Use dc-run.ps1}/redis-password.txt
+  dc_redis_config:
+    file: ${DC_PRIVATE_DIR:?Use dc-run.ps1}/redis.conf

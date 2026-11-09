@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "definition_id",
+    "lifecycle_stage",
+    "rooms",
+    "doors",
+    "physics",
+    "encounter",
+    "trap",
+    "corridors",
+    "camera",
+    "spawn_policy"
+  ],
+  "properties": {
+    "definition_id": {
+      "const": "dc_rooms.v4.p2.1"
+    },
+    "lifecycle_stage": {
+      "const": "p2_room_camera_projectile"
+    },
+    "rooms": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "id",
+          "kind",
+          "width",
+          "height",
+          "spawn",
+          "objective",
+          "cover_points",
+          "trap_points",
+          "obstacles_milli"
+        ]
+      }
+    },
+    "doors": {
+      "type": "array",
+      "minItems": 14,
+      "maxItems": 14,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "side"
+        ],
+        "properties": {
+          "from": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 14
+          },
+          "to": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 14
+          },
+          "side": {
+            "enum": [
+              "east",
+              "west",
+              "north",
+              "south"
+            ]
+          }
+        }
+      }
+    },
+    "physics": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "encounter": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "trap": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "corridors": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "spawn_policy": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

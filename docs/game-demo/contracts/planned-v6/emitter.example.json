@@ -1,0 +1,36 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.emitter.v6",
+  "state_revision": 8,
+  "interest_revision": 3,
+  "data": {
+    "emitter_id": "emitter_2",
+    "root_attack_id": "root_barrage_2",
+    "source_generation": 1,
+    "boss_id": "boss",
+    "phase": 2,
+    "started_game_ms": 24000,
+    "ends_game_ms": 30000,
+    "next_pulse_game_ms": 25200,
+    "next_pulse_index": 3,
+    "total_pulses": 15,
+    "shots_per_pulse": 16,
+    "reserved_remaining": 192,
+    "initial_angle_u16": 0,
+    "rotation_deg_per_pulse": 15,
+    "stat_snapshot": {
+      "stat_snapshot_id": "stat_boss_2",
+      "damage": 18,
+      "speed_milli_tiles_per_second": 5000,
+      "radius_milli_tiles": 100,
+      "extra_targets": 0,
+      "bounce_count": 0,
+      "chain": false,
+      "slow_milli_factor": 1000
+    }
+  }
+}

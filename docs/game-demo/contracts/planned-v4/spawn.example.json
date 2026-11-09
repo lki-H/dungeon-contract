@@ -1,0 +1,32 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.spawn.state.v4",
+  "state_revision": 2,
+  "world_frame_id": 100,
+  "game_elapsed_ms": 3300,
+  "reservations": [
+    {
+      "reservation_id": "spawn_001",
+      "reservation_revision": 1,
+      "entity_id": "guard_001",
+      "entity_generation": 1,
+      "room_id": "foyer",
+      "wave_id": "foyer_wave_1",
+      "enemy_kind": "guard",
+      "origin": "wave",
+      "state": "warning",
+      "x_milli": 16000,
+      "y_milli": 5000,
+      "warning_begin_game_ms": 3300,
+      "warning_end_game_ms": 4100,
+      "materialized_game_ms": null,
+      "terrain_revision": 1,
+      "entry_grace_end_game_ms": null,
+      "cancel_reason": null
+    }
+  ],
+  "interest_revision": 1
+}

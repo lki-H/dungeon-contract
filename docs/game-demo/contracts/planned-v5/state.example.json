@@ -1,0 +1,36 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.state.v5",
+  "state_revision": 10,
+  "interest_revision": 3,
+  "effective_frame": 930,
+  "own": null,
+  "enemy_upserts": [],
+  "emitter_upserts": [],
+  "summon_batch": null,
+  "terrain_revision": 1,
+  "cover_upserts": [],
+  "tombstones": [
+    {
+      "entity_id": "emitter_2",
+      "generation": 1,
+      "reason": "terminal"
+    }
+  ],
+  "turret_upserts": [],
+  "field_upserts": [],
+  "door_upserts": [],
+  "mechanism": null,
+  "team": {
+    "remaining_reinforcements": 2,
+    "hub_a": true,
+    "hub_b": true,
+    "result": "success"
+  },
+  "spawn_reservations": [],
+  "stat_catalog_upserts": []
+}

@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "definition_id": "dc_ruins.v5.p4.1",
+  "protocol_version": 5,
+  "lifecycle_stage": "personal_growth_content_stage",
+  "control_rule_version": "dc_ruins.v5.p4.1",
+  "versions": {
+    "operation": "dc_ruins.v5",
+    "content": "dc_content.v5.p4.1",
+    "world": "dc_rooms.v5.p4.1",
+    "trial": "trial.v5.draft1",
+    "battle_protocol": 5,
+    "control_schema": 2
+  },
+  "parameters_path": "../config/parameters-v5-p4.json",
+  "parameters_sha256": "408afda4539f6f45a81f9bab609fdf627916c76537d1461a11abe91a516b5eef",
+  "operation": {
+    "id": "dc_ruins",
+    "version": "dc_ruins.v5",
+    "difficulty": "standard",
+    "hard_deadline_ms": 1800000,
+    "wall_limit_ms": 3600000,
+    "terminal_grace_ms": 15000,
+    "fill_wait_ms": 30000,
+    "confirmation_ms": 15000,
+    "loading_ms": 30000,
+    "reconnect_ms": 30000,
+    "reinforcements": 3,
+    "success_reward": 100,
+    "failure_reward": 20,
+    "abort_reward": 0
+  },
+  "authority": {
+    "tick_hz": 30,
+    "max_catchup_ticks": 4,
+    "input_timeout_ms": 250,
+    "internal_request_timeout_ms": 2000,
+    "heartbeat_ms": 2000,
+    "lease_ms": 6000,
+    "technical_wait_ms": 10000,
+    "control_poll_ms": 100,
+    "approval_timeout_ms": 5000,
+    "admission_ttl_ms": 60000,
+    "spawn_delay_ms": 3000,
+    "spawn_ack_deadline_ms": 10000,
+    "spawn_protection_ms": 1000,
+    "max_frame_facts": 128,
+    "max_frame_bytes": 65536,
+    "max_key_frames": 4096,
+    "max_facts": 10000,
+    "reorder_window": 128,
+    "event_gap_ms": 5000,
+    "max_pending_frames": 256,
+    "max_pending_bytes": 8388608,
+    "max_alive_enemies": 24,
+    "max_projectiles": 1024,
+    "max_turrets": 8,
+    "max_markers_per_player": 3,
+    "marker_interval_ms": 2000
+  },
+  "trial": {
+    "id": "dc_ruins_trial",
+    "version": "trial.v5.draft1",
+    "seed": 20261012
+  },
+  "world": {
+    "definition_id": "dc_rooms.v5.p4.1",
+    "content_version": "dc_content.v5.p4.1",
+    "p0_geometry_not_loaded": false,
+    "geometry_path": "world-v5-p4.json",
+    "single_player_only": false,
+    "geometry_sha256": "29ed9184f3256fcae6f35b3069621038b82da7f804cd15312fbe10c14cc5a007"
+  },
+  "objectives": [
+    {
+      "id": "hub_a",
+      "kind": "interact",
+      "required": 1,
+      "target_id": "hub_a"
+    },
+    {
+      "id": "hub_b",
+      "kind": "interact",
+      "required": 1,
+      "target_id": "hub_b"
+    },
+    {
+      "id": "boss",
+      "kind": "kill",
+      "required": 1,
+      "target_id": "boss",
+      "depends_on": [
+        "hub_a",
+        "hub_b"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "dc_hunter",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 30,
+      "next": "dc_precision",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "kills",
+          "kind": "kill",
+          "scope": "team",
+          "required": 64,
+          "persistent": true,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "协作猎手"
+    },
+    {
+      "id": "dc_precision",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 50,
+      "next": "",
+      "locked": true,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 100,
+          "persistent": true,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "有效出手"
+    },
+    {
+      "id": "dc_scout",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 25,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "self",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone"
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "遗迹勘察"
+    },
+    {
+      "id": "dc_technician",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "eligible",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "机关维护"
+    },
+    {
+      "id": "dc_inspector",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        },
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone",
+          "depends_on": [
+            "install"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "枢纽巡检"
+    },
+    {
+      "id": "dc_survivor",
+      "version": "dc_tasks.v5.p4.1",
+      "reward": 45,
+      "next": "",
+      "locked": false,
+      "requires_success": true,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 12,
+          "persistent": false,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": true,
+      "display_name": "稳健作战"
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "swift",
+      "scope": "common",
+      "name": "迅捷闪避",
+      "max_stacks": 1,
+      "dodge_cooldown_delta_ms": -600
+    },
+    {
+      "id": "frost",
+      "scope": "common",
+      "name": "冰霜附着",
+      "max_stacks": 1,
+      "slow_milli_factor": 800,
+      "duration_ms": 2000,
+      "boss_slow_milli_factor": 950
+    },
+    {
+      "id": "ward",
+      "scope": "common",
+      "name": "符文护盾",
+      "max_stacks": 1,
+      "shield": 15,
+      "duration_ms": 3000
+    },
+    {
+      "id": "vitality",
+      "scope": "common",
+      "name": "坚韧符印",
+      "max_stacks": 1,
+      "max_health_delta": 20,
+      "heal_on_install": 20
+    },
+    {
+      "id": "ranger_pierce",
+      "scope": "ranger",
+      "name": "穿透模块",
+      "max_stacks": 1,
+      "ranged_extra_targets": 1,
+      "melee_range_delta_milli_tiles": 350
+    },
+    {
+      "id": "ranger_fan",
+      "scope": "ranger",
+      "name": "扇形模块",
+      "max_stacks": 1,
+      "ranged_angles_deg": [
+        -12,
+        0,
+        12
+      ],
+      "ranged_damage_milli_factor": 650,
+      "melee_arc_delta_deg": 30,
+      "melee_damage_milli_factor": 800
+    },
+    {
+      "id": "ranger_tension",
+      "scope": "ranger",
+      "name": "疾速机括",
+      "max_stacks": 1,
+      "magazine_delta": 2,
+      "reload_delta_ms": -200,
+      "melee_cycle_milli_factor": 850
+    },
+    {
+      "id": "runesmith_chain",
+      "scope": "runesmith",
+      "name": "连锁模块",
+      "max_stacks": 1,
+      "extra_targets": 1,
+      "chain_damage_milli_factor": 700,
+      "chain_range_milli_tiles": 3000
+    },
+    {
+      "id": "runesmith_twin",
+      "scope": "runesmith",
+      "name": "双重线圈",
+      "max_stacks": 1,
+      "turret_count": 2,
+      "turret_damage": 9,
+      "melee_interval_milli_factor": 900
+    },
+    {
+      "id": "runesmith_heavy",
+      "scope": "runesmith",
+      "name": "重型模块",
+      "max_stacks": 1,
+      "turret_damage_milli_factor": 1500,
+      "slam_wave_radius_delta_milli_tiles": 350
+    }
+  ],
+  "combat_parameters_path": "../config/parameters-v5-p4.json",
+  "combat_parameters_sha256": "408afda4539f6f45a81f9bab609fdf627916c76537d1461a11abe91a516b5eef",
+  "p4": {
+    "choice_timeout_game_ms": 60000,
+    "node_rooms": [
+      1,
+      3,
+      4
+    ],
+    "branch_indices": [
+      6,
+      7
+    ],
+    "branch_probability_milli": 500,
+    "branch_enemy_count": 6,
+    "branch_shield": 15,
+    "branch_shield_duration_ms": 30000,
+    "supply_health": 30,
+    "variant_enemy_weights": [
+      [
+        6,
+        3,
+        1
+      ],
+      [
+        5,
+        3,
+        2
+      ]
+    ],
+    "growth_policy": "oldest_pending_revision_and_hash",
+    "trial_published": false
+  }
+}

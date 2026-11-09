@@ -1,0 +1,28 @@
+{
+  "definition_id": "dc_graybox.v1",
+  "status": "unverified_initial",
+  "physics": {
+    "enemy_radius_milli": 420,
+    "elite_radius_milli": 600,
+    "boss_radius_milli": 900,
+    "projectile_radius_milli": 100,
+    "sweep_step_milli": 100,
+    "contact_protection_ms": 250
+  },
+  "encounter": {
+    "room_width": 16,
+    "room_height": 12,
+    "door_rows": [5, 6],
+    "boss_spawn": [8, 6],
+    "supply_position": [3, 3],
+    "projectile_lifetime_ms": 2000,
+    "wave_start_warning_ms": 1000
+  },
+  "view": {
+    "snapshot_hz": 15,
+    "interpolation_ms": 100,
+    "camera_size_milli": 5625,
+    "width": 1280,
+    "height": 720
+  }
+}

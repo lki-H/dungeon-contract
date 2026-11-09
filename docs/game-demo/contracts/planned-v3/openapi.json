@@ -1,0 +1,403 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Dungeon Contract 2.0 planned-v3 addendum",
+    "version": "2.0-planned",
+    "description": "Design only. Current v2 routers and runtime OpenAPI are unchanged. Pause/resume actions are WS schema_version 2."
+  },
+  "paths": {
+    "/api/v2/runs/{run_id}/snapshot": {
+      "get": {
+        "operationId": "plannedV3RunSnapshot",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "security": [
+          {
+            "PlayerJWT": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Own/member white-list projection",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RunSnapshot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated/banned/expired"
+          },
+          "403": {
+            "description": "Not an original Run member"
+          }
+        }
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/control-acks": {
+      "post": {
+        "operationId": "plannedV3ControlAck",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "security": [
+          {
+            "ServiceBearer": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClockAck"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Stable control receipt"
+          },
+          "409": {
+            "description": "Fence/generation/duplicate content conflict"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "PlayerJWT": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "ServiceBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Independent service identity; service ID and allocation binding required"
+      }
+    },
+    "schemas": {
+      "RunSnapshot": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "operation_version": {
+            "const": "dc_ruins.v3"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "trial"
+            ]
+          },
+          "initial_player_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "loading",
+              "running",
+              "ending",
+              "success",
+              "failed",
+              "aborted"
+            ]
+          },
+          "clock_state": {
+            "type": "string",
+            "enum": [
+              "running",
+              "paused",
+              "technical_wait"
+            ]
+          },
+          "game_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1800000
+          },
+          "wall_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3600000
+          },
+          "manual_pause_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3600000
+          },
+          "own_player_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 20,
+            "pattern": "^[0-9]+$"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "player_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 20,
+                  "pattern": "^[0-9]+$"
+                },
+                "nickname": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 32
+                },
+                "slot": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "loadout_id": {
+                  "type": "string",
+                  "enum": [
+                    "ranger",
+                    "runesmith"
+                  ]
+                },
+                "contract_category": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "combat",
+                        "exploration",
+                        "mechanism",
+                        "survival"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "life_state": {
+                  "type": "string",
+                  "enum": [
+                    "alive",
+                    "downed",
+                    "dead",
+                    "left"
+                  ]
+                },
+                "room_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "knockdowns": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "deaths": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                },
+                "rescues": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                }
+              },
+              "required": [
+                "player_id",
+                "nickname",
+                "slot",
+                "loadout_id",
+                "contract_category",
+                "life_state",
+                "room_id",
+                "knockdowns",
+                "deaths",
+                "rescues"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          }
+        },
+        "required": [
+          "run_id",
+          "operation_version",
+          "mode",
+          "initial_player_count",
+          "status",
+          "clock_state",
+          "game_elapsed_ms",
+          "wall_elapsed_ms",
+          "manual_pause_ms",
+          "own_player_id",
+          "members"
+        ],
+        "additionalProperties": false
+      },
+      "ClockAck": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "control_version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "clock_state": {
+            "type": "string",
+            "enum": [
+              "paused",
+              "running"
+            ]
+          },
+          "effective_frame": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "effective_game_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1800000
+          },
+          "effective_wall_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3600000
+          },
+          "pause_id": {
+            "oneOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "run_id",
+          "operation_id",
+          "control_version",
+          "clock_state",
+          "effective_frame",
+          "effective_game_ms",
+          "effective_wall_ms",
+          "pause_id"
+        ],
+        "additionalProperties": false
+      },
+      "PauseOrResumeControl": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": 2
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "v2.run.pause",
+              "v2.run.resume"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "run_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              }
+            },
+            "required": [
+              "run_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "type",
+          "request_id",
+          "operation_id",
+          "payload"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "x-design-status": "planned_not_registered",
+  "x-ws-actions": [
+    "v2.run.pause",
+    "v2.run.resume"
+  ]
+}

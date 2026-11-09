@@ -1,0 +1,41 @@
+{
+  "profile": "dc_ruins.v8.p5.1",
+  "optional_ai_lobby_included": false,
+  "media": [
+    {
+      "file": "backend-control-demo.webm",
+      "sha256": "ebf5c8b03577a5104aead072493370a977ac0f97908c1da924b37fc2a2ec87ac",
+      "bytes": 888264,
+      "source": "2026-11-10 real browser, synthetic accounts and disposable storage",
+      "claim": "presentation only; not a multiplayer victory/performance result"
+    },
+    {
+      "file": "gameplay-ranger.png",
+      "sha256": "04bf8f2ef16da05f396c8959dcf3fdb29d8ff49a9913bb89eb99c225a2b67e7b",
+      "bytes": 87279,
+      "source": "2026-11-09 source-bound Unity UI probe",
+      "claim": "presentation only; not a multiplayer victory/performance result"
+    },
+    {
+      "file": "gameplay-runesmith.png",
+      "sha256": "d971f050dc582100e49ba54105a3accf71932b4501f3e3892e40ea7b438aa37c",
+      "bytes": 123989,
+      "source": "2026-11-09 source-bound Unity UI probe",
+      "claim": "presentation only; not a multiplayer victory/performance result"
+    },
+    {
+      "file": "web-admin.png",
+      "sha256": "f401daa7bea5fe9d6e280f7198245895228bbaad7eb702f39e7021d3587c9727",
+      "bytes": 45045,
+      "source": "2026-11-10 real browser, synthetic accounts and disposable storage",
+      "claim": "presentation only; not a multiplayer victory/performance result"
+    },
+    {
+      "file": "web-control.png",
+      "sha256": "f4ed01466eb174ffbb257e99fbc74319f068018f2093b4e60352ccc8681943f3",
+      "bytes": 91449,
+      "source": "2026-11-10 real browser, synthetic accounts and disposable storage",
+      "claim": "presentation only; not a multiplayer victory/performance result"
+    }
+  ]
+}

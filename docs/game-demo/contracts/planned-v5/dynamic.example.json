@@ -1,0 +1,27 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.dynamic.v5",
+  "frame": 751,
+  "state_revision": 8,
+  "interest_revision": 3,
+  "group_id": 0,
+  "entities": [
+    {
+      "entity_id": "boss",
+      "generation": 1,
+      "position_milli": {
+        "x": 20100,
+        "y": 10000
+      },
+      "aim_u16": 0,
+      "health": 680,
+      "max_health": 1400
+    }
+  ],
+  "group_kind": "actors",
+  "processed_input_sequence": null
+}

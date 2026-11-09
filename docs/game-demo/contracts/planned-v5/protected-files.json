@@ -1,0 +1,2537 @@
+{
+  "schema_version": 1,
+  "scope": "all_preexisting_manifest_files_except_explicit_formal_document_navigation_allowlist",
+  "captured_on": "2026-10-15",
+  "allowed_formal_updates": [
+    "docs/game-demo/index.md",
+    "docs/game-demo/gdd.md",
+    "docs/game-demo/architecture.md",
+    "docs/game-demo/protocols.md",
+    "docs/game-demo/data-design.md",
+    "docs/game-demo/content-config.md",
+    "docs/game-demo/client-assets.md",
+    "docs/game-demo/security-design.md",
+    "docs/game-demo/test-and-runbook.md",
+    "docs/game-demo/p1-human-playtest-and-pacing-guide.md",
+    "docs/game-demo/image-generation-spec.md",
+    "docs/game-demo/decisions.md",
+    "docs/game-demo/redesign-coverage.md",
+    "docs/game-demo/implementation-status.md",
+    "docs/game-demo/environment-setup.md",
+    "docs/game-demo/baseline-and-validation.md",
+    "docs/game-demo/synchronization-v4.md",
+    "docs/game-demo/room-camera-amendment.md",
+    "docs/game-demo/projectile-amendment.md",
+    "README.md",
+    "AGENTS.md"
+  ],
+  "protected": [
+    {
+      "path": "backend/cmd/server/main.go",
+      "bytes": 9221,
+      "sha256": "a50266a54951565ecdbc8bb35715e6b42965eec2c3b170a06ca926323815d256"
+    },
+    {
+      "path": "backend/cmd/tools/dc_lan_gateway/main.go",
+      "bytes": 1462,
+      "sha256": "80da0aee45db97ac084214873001fcffcbee4da1446caeb8e4239199158fddbd"
+    },
+    {
+      "path": "backend/cmd/tools/dc_lan_player/main.go",
+      "bytes": 15027,
+      "sha256": "65fb826c5f5d60f8397f86732dd7bc78953b924082ac8c4ba7d036a330f5f60d"
+    },
+    {
+      "path": "backend/cmd/tools/dc_lan_player/main_test.go",
+      "bytes": 1201,
+      "sha256": "f1b0c646c9b93ab194fe383d021d2bc7e1e3d3cb3594bae14795fd6296165adb"
+    },
+    {
+      "path": "backend/cmd/tools/dc_p0check/main.go",
+      "bytes": 6264,
+      "sha256": "f1f29a407bb80f266520d097d7ca6342ee5d698d6217836bae04d1b0d6c32088"
+    },
+    {
+      "path": "backend/cmd/tools/dc_p3_progress/main.go",
+      "bytes": 1001,
+      "sha256": "a1641d6112c5c787090853a1b60a6443ccefe337e819a3ab607985c5dfae5f61"
+    },
+    {
+      "path": "backend/cmd/tools/dc_preflight/main.go",
+      "bytes": 3825,
+      "sha256": "ba44bc4bcc21377bcab496cf3187530f26f0aab3e34df5c6e4a14424fc316e11"
+    },
+    {
+      "path": "backend/cmd/tools/dc_preflight/main_test.go",
+      "bytes": 2017,
+      "sha256": "711e1c92ed96214740e9441b66d59730b6f12740eedc25a614294cf3f65446a8"
+    },
+    {
+      "path": "backend/cmd/tools/dc_stop/main.go",
+      "bytes": 1647,
+      "sha256": "291d07518816ee1798a6c99d36c9da668e50b0eea4f6b92c368450bad5c1b3fe"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/main.go",
+      "bytes": 41151,
+      "sha256": "ef94bfb479a3c190801b9b0cd6507b64ee3221ba52c06f56a4d3e619196de35a"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p2.go",
+      "bytes": 5973,
+      "sha256": "1d52d9119bbb43fe82043c5708960115d8c139af6e89a1a388c104951ba4dd28"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p2_test.go",
+      "bytes": 484,
+      "sha256": "c2428c99b9f2ad2c7d68b6b85b1f3b743049d7448a29318b955fb4c227ffffde"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p3.go",
+      "bytes": 6659,
+      "sha256": "f9d8bbd604da8b5ded2c699a121b78322b1e69b5b38c1e927aa3375a927bc753"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p3_account.go",
+      "bytes": 1656,
+      "sha256": "aafefe1317f4ac1adb3c08b5d37a308b3a38e40e33ef7c9a7621a0b6f9704052"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p3_account_test.go",
+      "bytes": 950,
+      "sha256": "575f6cc3d83fd71d7fda52f02060cb2d1f583a653c9395999c6b0d98971443e4"
+    },
+    {
+      "path": "backend/cmd/tools/dc_verify/p4.go",
+      "bytes": 4043,
+      "sha256": "bbc6f961bac075e9e524ce51c32524edd39083e3e8a02e9a66a76769a43268e5"
+    },
+    {
+      "path": "backend/cmd/tools/pve_retire/main.go",
+      "bytes": 3006,
+      "sha256": "f8ee17ee497f8f84271319cecaeed7180a6faecf2b0ba1a0efa4b0638682a06d"
+    },
+    {
+      "path": "backend/cmd/tools/v2_migrate/main.go",
+      "bytes": 3523,
+      "sha256": "4f4ca0b3058ac0d5c5d551a7042851268196742053159bbf4b4db9c979332031"
+    },
+    {
+      "path": "backend/internal/auth/bearer.go",
+      "bytes": 490,
+      "sha256": "8c9cd21b8211f527bfbe8e24b1cb25bb907000b6b070ef221123c6e7facca0a6"
+    },
+    {
+      "path": "backend/internal/auth/bearer_test.go",
+      "bytes": 661,
+      "sha256": "e218f0b622c090f899c6f9ac3ef7395c9e79da74735331f7a012148f1422509a"
+    },
+    {
+      "path": "backend/internal/config/demo.go",
+      "bytes": 1941,
+      "sha256": "285e16b3653025f381a4aef2fe5571a68e8fcaf3a8b455144d0e4e76986c74d1"
+    },
+    {
+      "path": "backend/internal/config/demo_test.go",
+      "bytes": 2478,
+      "sha256": "ac96ecd63d0794e393965b54fe8c688a31b2fa70ff417bca69f8930c79e9e4fe"
+    },
+    {
+      "path": "backend/internal/database/check_clause_test.go",
+      "bytes": 698,
+      "sha256": "5efbacf6147a5f9f06febbadbb5d48061b2791965c6e76035fb8d2c4372de43b"
+    },
+    {
+      "path": "backend/internal/database/dc_migration.go",
+      "bytes": 3396,
+      "sha256": "0b30d23b484fd776076b974d32572bfba6eb14ae23948ec8f4b84de3d88310d2"
+    },
+    {
+      "path": "backend/internal/database/dc_migration_test.go",
+      "bytes": 5249,
+      "sha256": "b6c92daaa373238503a7c00f7d1cb381f452046c399311768315bb46bfdfa6ad"
+    },
+    {
+      "path": "backend/internal/database/migrations/day41_dc_gameplay_control.sql",
+      "bytes": 3865,
+      "sha256": "106c99e4058ec06ddd51d2986de571eaaba5a5f2b665855d385c3f8f63186c5a"
+    },
+    {
+      "path": "backend/internal/database/migrations/day42_dc_results_trials.sql",
+      "bytes": 1939,
+      "sha256": "944defa96f208ed6474850bca88a0795d7b7c343de8bb007e315e9690fdc383c"
+    },
+    {
+      "path": "backend/internal/database/migrations/day43_dc_quality_progress.sql",
+      "bytes": 486,
+      "sha256": "bc87c345f31275497d3454742330acd45e1efab3b68da49b3781ec8d28257b26"
+    },
+    {
+      "path": "backend/internal/database/migrations/day44_dc_v3_p0_clock.sql",
+      "bytes": 1957,
+      "sha256": "45176f5a3551ca057162c51562c00a6243d3a21f10113fb2de83bc1147189ec4"
+    },
+    {
+      "path": "backend/internal/database/migrations/day45_dc_v4_sync_clock.sql",
+      "bytes": 1300,
+      "sha256": "1f963621ec26a132f91d5b263f3c53df608c58be616ac69d027625acd5577246"
+    },
+    {
+      "path": "backend/internal/database/migrations/day46_dc_v4_cooperation.sql",
+      "bytes": 561,
+      "sha256": "5cc1f34fa772424e2a824f27653bd9b18716ec59074f59f4e94bf0559c90b8dd"
+    },
+    {
+      "path": "backend/internal/database/v2_migration.go",
+      "bytes": 15567,
+      "sha256": "549a3956ccf415ab927f057462fc67473c0ae9b3fec96c11531a9db7d23751de"
+    },
+    {
+      "path": "backend/internal/dclan/gateway.go",
+      "bytes": 5753,
+      "sha256": "45eb625d60da710e38818b3110328ac7d71607743b4daa72aed30feb3d149a84"
+    },
+    {
+      "path": "backend/internal/dclan/gateway_test.go",
+      "bytes": 4362,
+      "sha256": "e6fab755c18af3812a4bcb3193c154004b1a8154a984b50edde3ac8e905fbc80"
+    },
+    {
+      "path": "backend/internal/dclan/websocket_test.go",
+      "bytes": 1668,
+      "sha256": "33cfd6254b8ab50879a2f4f8a9af889d0d240064bceb50e0df3fb772a8dc9265"
+    },
+    {
+      "path": "backend/internal/handler/bearer_test.go",
+      "bytes": 1225,
+      "sha256": "cb219270a3be47a68387f1f708f961da7ea985c6eda1758fa501a078a9593429"
+    },
+    {
+      "path": "backend/internal/handler/dc.go",
+      "bytes": 1607,
+      "sha256": "ddc69613d1fd001b6bdd9854667f84695bd4100273d658db385ac1c27a2623ee"
+    },
+    {
+      "path": "backend/internal/handler/v2_transport.go",
+      "bytes": 24422,
+      "sha256": "5cbf6ded98210d7fdf3b9225eddf7ab6a1ee085bf2fc415175a41d6fa9130f03"
+    },
+    {
+      "path": "backend/internal/middleware/auth.go",
+      "bytes": 3236,
+      "sha256": "5e72042ab24a515f3d72b05f28329607486b9d8d7a123881ee26f2323fc8c4fc"
+    },
+    {
+      "path": "backend/internal/pve/app.go",
+      "bytes": 11915,
+      "sha256": "7c324fd81cb8c593980f34e6bceaeb2d36d03735f39f940f4fb2517baf5c27a1"
+    },
+    {
+      "path": "backend/internal/pve/dc.go",
+      "bytes": 2236,
+      "sha256": "302f68ee98fea353ff743ac64a773142608c511e6292f729f7f2955cec195da1"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/content.go",
+      "bytes": 15113,
+      "sha256": "3ba74e82a6a05578c4f5faa608d5dd918e124c61ad9263b57350552556d37ac8"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/content_test.go",
+      "bytes": 4648,
+      "sha256": "3d279f424fe2efedf87b8fed984ecf0cb07a512d0e0c042f322e90e25509556f"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/frame.go",
+      "bytes": 24768,
+      "sha256": "99d1b67088d867a060ab6021cad4d38246d16cc68eaa0e999b3a41c3ab282578"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/http.go",
+      "bytes": 8049,
+      "sha256": "aeabad957e2c80b3f9b29721fd1758f702d11044c34131e8730ca53a5753ce76"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/http_test.go",
+      "bytes": 2000,
+      "sha256": "6396f30c7c495da65e5c1a9d101dac197c3c7eb4d4b2bfe9f665d0ebf810fff3"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/integration_test.go",
+      "bytes": 25592,
+      "sha256": "1de57c3208ddd285c4f9872bb2b404eca9cfa28ba4ef597b8ccdcf2993a89ba2"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/json.go",
+      "bytes": 8142,
+      "sha256": "1b862c9b1b8915b7bec8a9bae4ebe50571c2c922ec08a6a3c11d47476b4cddfd"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p1_stage.go",
+      "bytes": 9231,
+      "sha256": "e1a5a1ca8a0c5c0490c484ec9a28cdeda0f22d6cd6d5873820975eb70eef9ff6"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p1_stage_test.go",
+      "bytes": 2648,
+      "sha256": "3c02cc6586e8495e995566db46a8bc8fc88070b70a9aeb6a6a074e667954c888"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p21_test.go",
+      "bytes": 2331,
+      "sha256": "5b8a0f5c7a92e11c3d5bd18e5506c09b071c1b4b445ee4f0ad3941141693a823"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p2_mp_integration_test.go",
+      "bytes": 1848,
+      "sha256": "ca51f028dcfb54f8cf9fbccdc2fe92a5dbf6aee1b631f99eec9873a4e081dc09"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p2_mp_test.go",
+      "bytes": 932,
+      "sha256": "9197eaf8230ace3fc2555f6326996681979cf00c17b1b50c24d7b3874ae8110e"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_content.go",
+      "bytes": 2906,
+      "sha256": "eadc0cdf1136b796ab0735a02b2ad3a13a2368c88f42b2c8f7529bb98dfa8353"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_frame.go",
+      "bytes": 2584,
+      "sha256": "40aee6a810d1ff2b45c3a72e6994873f6608d39d570477983f0bd12af2dc687a"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_integration_test.go",
+      "bytes": 18787,
+      "sha256": "e272937c7235ffd10b5ff8f659fa840a3a29f220ed3fda21d072301527da35f9"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_recovery.go",
+      "bytes": 3062,
+      "sha256": "f4be77ae8f42d9d15b367c0edce2eec31400557a6527ba84d11be3e90cccd31f"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_test.go",
+      "bytes": 2243,
+      "sha256": "9c7b0dfc93ed6b551571d15ce48e3d2238a6da8847dd02baffebc12808f65f4f"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_transfer.go",
+      "bytes": 4958,
+      "sha256": "2e42d03745702218c4d1c4e94c5ac5dc748b7cd620d1ba7bb7430920356a25bf"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p3_transfer_preview.go",
+      "bytes": 1765,
+      "sha256": "ac48a0303333ae45a5f9bf5054ac8db863300953f443a4a7a33eb0c24f91c83c"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p4_content.go",
+      "bytes": 4060,
+      "sha256": "0dab97f85a043b12c6c7aa095fbbe79850ed379955ff40b95bdb0702acf8d527"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p4_growth.go",
+      "bytes": 2178,
+      "sha256": "28c9b2ccbfdc14eaebec7d4493ce7e8816e240976341e2f00ba79dbec89b3fb6"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p4_integration_test.go",
+      "bytes": 4634,
+      "sha256": "91fbab9893336d6f6e102fdff6b54b189f9ce8506168d609cbf8853b304b79f3"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/p4_test.go",
+      "bytes": 7504,
+      "sha256": "a4045d22ec763c328b43a8eb2364436a22996a087e1d9983ed9820a32e821d7c"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/publish.go",
+      "bytes": 1308,
+      "sha256": "6ded0c8476aeb61d12966828af93c382790adfb566e133d52b0cad70dd07935b"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/quality_test.go",
+      "bytes": 1228,
+      "sha256": "5d34ec669dc8cdf87da7a7390bd93e1a04fb4a4f47dac2714eec0a71e89ff22e"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/queries.go",
+      "bytes": 7216,
+      "sha256": "7c0e113e1e3f8b284cf6034f45fc8a49b6a2ac1737829b4d4d9a74d1fb872656"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/rooms.go",
+      "bytes": 3777,
+      "sha256": "8e410219d237bc1adeda802fd68987cad2baf5c41c4b0ec2c3e8b8d54002addb"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/s1_clock.go",
+      "bytes": 13816,
+      "sha256": "af26e6bc5109ec83071ad72223633ba0069d3a3ae0b2be8f01dcc39447e13fc6"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/s1_test.go",
+      "bytes": 4109,
+      "sha256": "899da13f235f4c80f9f09314ef406373cc1c215746a923ffb6a3ff7695051c3d"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/s2_integration_test.go",
+      "bytes": 3230,
+      "sha256": "a4676b138466e0fe59430b4d6cbd15a6fbfbf9eba8320871b8914c146ef22cec"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/s2_test.go",
+      "bytes": 688,
+      "sha256": "2928819ac93f848d5d46f501ea508014abaa08ef0e1404b56e4e51a17545edbe"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/service.go",
+      "bytes": 39743,
+      "sha256": "662a766c9f1a156f39d8c87130cedfae7c8423bec1947cf3e6b869b0ecc880b7"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/transfer.go",
+      "bytes": 3972,
+      "sha256": "744f4031944db26d351cc725c46bd7a0a940e68c872079468b7ef4f7d440a7d4"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/transfer_integration_test.go",
+      "bytes": 4112,
+      "sha256": "89777193afd7e31cd61159830b37bbd27808ed2bf6abecf9533e00f3b7532035"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/v3_content.go",
+      "bytes": 12211,
+      "sha256": "08a23ab14d79f8be7f81edfe4e3db4e3ae4c84652d7aaca403866cd1e44f74f7"
+    },
+    {
+      "path": "backend/internal/pve/gameplay/v3_integration_test.go",
+      "bytes": 11895,
+      "sha256": "c46cdc52ffa292762cb277dfb25c0185e64b1e779bcabee7c7cadf7a0628ba68"
+    },
+    {
+      "path": "backend/internal/pve/matchmaking/service.go",
+      "bytes": 27805,
+      "sha256": "64cb210f5540953d4ab40c7a54139b8164fa97689af08af77aac4f82fa795d95"
+    },
+    {
+      "path": "backend/internal/pve/party/service.go",
+      "bytes": 14951,
+      "sha256": "74dd04ed790477f01a7ac3e83007ea15d34899c2d48a79490f1b403772a5b03f"
+    },
+    {
+      "path": "backend/internal/pve/run/audit_test.go",
+      "bytes": 2654,
+      "sha256": "a0327b4d83e5c7cafcde5633e0c744c9c7a7bb63b14c3a73a68322e54089285e"
+    },
+    {
+      "path": "backend/internal/pve/run/dependencies_test.go",
+      "bytes": 1747,
+      "sha256": "7e63fcd74abdbc8eb48bce9b275d3e7a1464e01ae8d386b738bfb918f1fb4d32"
+    },
+    {
+      "path": "backend/internal/pve/run/frame.go",
+      "bytes": 3475,
+      "sha256": "f4fa36290517e773dd15cde165e261a3aef65f5859eb4c55668fcfd1ac1830c8"
+    },
+    {
+      "path": "backend/internal/pve/run/frame_test.go",
+      "bytes": 2131,
+      "sha256": "a8a54443fc490c58a670bde04eb39d30c774144683a4d93883ead99dbca56c45"
+    },
+    {
+      "path": "backend/internal/pve/run/p3.go",
+      "bytes": 7555,
+      "sha256": "1a4dae14382996741971670cd7af70b38dbacd1a4cbb3f404420018306bf7b7c"
+    },
+    {
+      "path": "backend/internal/pve/run/p3_test.go",
+      "bytes": 5581,
+      "sha256": "e7d4b9c14c7cbacc51b9a9f66273e55648fa68f961f9e06ab503e78174460e15"
+    },
+    {
+      "path": "backend/internal/pve/run/service.go",
+      "bytes": 37888,
+      "sha256": "ebaff7fc2e82cea9ee2ff9f941738a9f7a7836d1cdc9770a0d51f773c2f8bf9c"
+    },
+    {
+      "path": "backend/internal/pve/run/state_test.go",
+      "bytes": 4708,
+      "sha256": "bdd11a1fb053df319258a446e3af92ab01b731015209e495211de51e618c2e86"
+    },
+    {
+      "path": "backend/internal/pve/task/preview.go",
+      "bytes": 4491,
+      "sha256": "bcf949a8317107e9aacb833d59f147232b01d6ed4ddf43c47b61cacd0ec8cff4"
+    },
+    {
+      "path": "backend/internal/pve/task/service.go",
+      "bytes": 4331,
+      "sha256": "4aec7b59eaf411dbf5e0d8e9c18601c1e5bc0ebe48cdea20090bea224ea6f72f"
+    },
+    {
+      "path": "backend/internal/pve/v3/clock.go",
+      "bytes": 4666,
+      "sha256": "7ae4f8de9116159eca655afcbbc8521e537a8a21cb4d381560b639943da16190"
+    },
+    {
+      "path": "backend/internal/pve/v3/clock_test.go",
+      "bytes": 5336,
+      "sha256": "46ca3c0d97c05579895c3ce7a3c0f4a204ecd083d7a571f0cedd8c925486a7b2"
+    },
+    {
+      "path": "backend/internal/pve/v3/version.go",
+      "bytes": 2967,
+      "sha256": "0a4fdf2d78cb1b0631643b4ad6b58c74f5cc96702d6cc66e2e176f4cf38b657f"
+    },
+    {
+      "path": "backend/internal/pve/v3/version_test.go",
+      "bytes": 2921,
+      "sha256": "b8068b924e8153017c70f29dc1b277029cbd2bc2806b1cabbd485fd2c90431ee"
+    },
+    {
+      "path": "backend/internal/router/router.go",
+      "bytes": 6113,
+      "sha256": "38a7169eb36ee6e342a72a6981c3ef5234fca8f5cf853971ed4ec57641bf2b46"
+    },
+    {
+      "path": "client/unity-demo/Assets/DefaultNetworkPrefabs.asset",
+      "bytes": 491,
+      "sha256": "a37fe3fe19e609f5006fbf971b12a0dcc306aad1298cff10ae61afde9047e8ec"
+    },
+    {
+      "path": "client/unity-demo/Assets/DefaultNetworkPrefabs.asset.meta",
+      "bytes": 189,
+      "sha256": "ede58a154119ea968e7aed51f0b50a744d991be520001eed8897c7adc5d84425"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract.meta",
+      "bytes": 172,
+      "sha256": "cf317215fb1b2c17daa5f05ab7130b5e94b22b1e7f5d91dff63121b12c897b97"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor.meta",
+      "bytes": 172,
+      "sha256": "6c481efa2390e1c709673baddb14d9da1773f166ebb7d6fd8cafdaa3fab296bd"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcBuild.cs",
+      "bytes": 6373,
+      "sha256": "022a99dd2b26c3fda82f6da84a2511040812084bbcf0caf900fb878653a9cfc4"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcBuild.cs.meta",
+      "bytes": 59,
+      "sha256": "dbe397126b816d1ae98b2b3b2490318778ee5cacda1ef646565e9034a2b8a76d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcGrayboxChecks.cs",
+      "bytes": 10770,
+      "sha256": "3136dede61d95f808c0e39691bcee39f03c99affcb79a7889f60087f4884409a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcGrayboxChecks.cs.meta",
+      "bytes": 59,
+      "sha256": "943608be8c28a099378fb40755ee7e45060087fb9d387bc68938726f240e9593"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP1Checks.cs",
+      "bytes": 15449,
+      "sha256": "7b7af99eb132e4ab22da6b9d6627bd4214b41b16afb5461353e9a1a72523fba6"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP1Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "57d242a3c6d93ff5532cdfdd3fda656ad04261fd817ae4984ee9d3f1eadc6f17"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP21Checks.cs",
+      "bytes": 17914,
+      "sha256": "e144a151b59f9c55ea6737ab848fd2ecf54da56c02d7f112bd9ac9d33e9bdf98"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP21Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "79b8f4f6c210ca4af9a48674b6d998e87178fd7894f24d7006f5112c643f2da7"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2FlowChecks.cs",
+      "bytes": 3576,
+      "sha256": "3b686433637d695e42d597f92894c302b25be9ca8913940698afeb8f64ca00bf"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2FlowChecks.cs.meta",
+      "bytes": 59,
+      "sha256": "5a93474b4c8b55186dc3e1d29411368f267286bf2df88d9b38e17fb8fec4c806"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2MultiplayerChecks.cs",
+      "bytes": 10172,
+      "sha256": "0872ff37721998411990dc83d37396bb750bb09a688c36b055c4577262d12dd0"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2MultiplayerChecks.cs.meta",
+      "bytes": 59,
+      "sha256": "97d309f5f90c1653c21a05cd66b41832d8f3c1070069b2992212db480eb6e447"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2PressureChecks.cs",
+      "bytes": 4196,
+      "sha256": "610c44531bd801604c25a90e077694375e5f67ba2d70224891a2a4c97ff2b3ce"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP2PressureChecks.cs.meta",
+      "bytes": 59,
+      "sha256": "4758e7a1b73d888b05b72f0d30013c8945ee4130ccc157f976eab572d3a93a7a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP3Checks.cs",
+      "bytes": 10177,
+      "sha256": "74f676e80d67d507a6d3c91dce38fbc7d8d2b5e6ce68587982719709148f0128"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP3Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "8f1365fe75b6808292a207528b5423e16001c17505b8c2428084398c22bde3d8"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP4Checks.cs",
+      "bytes": 18511,
+      "sha256": "be9f67cc697cdaf8c5eddbd60c57afc700a0ed4b16fadc794881670c7c212540"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcP4Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "400b68ba5ed1d13b25335d377cbefadffb2a6af5acc00dbf11c2478bb5ae98ad"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcQualityChecks.cs",
+      "bytes": 9923,
+      "sha256": "96f02141cd6892c7ff72ccb965a5a6a497a5388ebddc722192872b4c88cb6695"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcQualityChecks.cs.meta",
+      "bytes": 59,
+      "sha256": "d5af97e3ba87e910291c4b67979528068a7d792157c5f0553bd48dcd21e4f3c5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcS1Checks.cs",
+      "bytes": 3358,
+      "sha256": "768296059794ad9cbf90f073a77254003f48fc2c80b083b55e8995d2d0c189ef"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcS1Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "4dd02db0c376d40fa9a0f55135fface5122dcd9ab7d2757202dde768f678083c"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcS2Checks.cs",
+      "bytes": 16851,
+      "sha256": "1a25cf33341f04821dfbb6f3ac53a6d1dd924cf72fe1eef7abc54085285692ea"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Editor/DcS2Checks.cs.meta",
+      "bytes": 59,
+      "sha256": "6119b68ca29665d5ec887ac27a5842b447644df465f0ac5f2171a9856b8714f5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime.meta",
+      "bytes": 172,
+      "sha256": "6f37f0c4b233c11becf0111fc6020e1f1beded74a8149c74c85ee5882156ef41"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcBootstrap.cs",
+      "bytes": 63903,
+      "sha256": "df6b895547ac97974af9a6c04ecc59d2527b0e62b411a955960ad0f71b21f6b0"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcBootstrap.cs.meta",
+      "bytes": 59,
+      "sha256": "c27da58b5fd227c225122e795e5d265fd41f6c02930904ca6a77f0a35ea78bc4"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcGrayboxView.cs",
+      "bytes": 14293,
+      "sha256": "3573730e72642828961e58d920e58ff55852027c133b89e9c66ba7f885d16191"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcGrayboxView.cs.meta",
+      "bytes": 59,
+      "sha256": "6f144dd9961702ebdcff76baddc0b92a9a3f6d7ab77e26042c74ccfc45b69fbc"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcLanAddress.cs",
+      "bytes": 1141,
+      "sha256": "02d4271aa115d6daacc1087f83c256d8eecb40e4fb4dbcdb192aabf85b1b2e67"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcLanAddress.cs.meta",
+      "bytes": 59,
+      "sha256": "8ff536f8b3d2ae3005219784c1ab260555639edf08b46b51aab1b2d4d631d070"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP0V3.cs",
+      "bytes": 37471,
+      "sha256": "fd8f88b676e6c0c1a6bdb55c08b979b8c3efe9cd403195fa3af9cabcb0cd26e9"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP0V3.cs.meta",
+      "bytes": 59,
+      "sha256": "a7e347840ae0d78d435e035cc8e33974dc1c2cc3b6bc7cea9ceacb9c1161ad35"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Actions.cs",
+      "bytes": 17953,
+      "sha256": "59c34491b7a7cf0fb247f61212571f2c666cb4757a79ee140c7cfc067b11a51d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Actions.cs.meta",
+      "bytes": 59,
+      "sha256": "7baa411fe8d99b563c21badd57e07dfaeebbcff375a95cb9b53d9c4bc4f7936b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Combat.cs",
+      "bytes": 31826,
+      "sha256": "b91d48b6b77b220384648b0c374c8d83f17630208d1d772504ea160d00337c4b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Combat.cs.meta",
+      "bytes": 59,
+      "sha256": "1a3c88e0ffce999eabbd9a08640f648ceb1103c823abd6385d5d0dad059c4b0f"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1ControlProbe.cs",
+      "bytes": 2162,
+      "sha256": "e773abe332d348ca32a7735c9125bd190b418209b3af23b6305cfb146e0aba9d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1ControlProbe.cs.meta",
+      "bytes": 59,
+      "sha256": "ff69a47caefecf47f30270ed668006e8362df0851a0e8a42ada8a1a0cbd6037b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Controls.cs",
+      "bytes": 7102,
+      "sha256": "8f4cc3a577a58ad2233fa3b445ce09c4ea0e27b7096990ec351c41938fed1b5c"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Controls.cs.meta",
+      "bytes": 59,
+      "sha256": "4cc8e998ca6a7563ed89a4304f42a0dd39819769828c518dfed768542dc5ece5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Definition.cs",
+      "bytes": 2321,
+      "sha256": "2ee0f3ebeb4dcbdec92f89e845deb1e4b388043c96474ed45187009839306c78"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Definition.cs.meta",
+      "bytes": 59,
+      "sha256": "3ae68963be645501960b6b1f49de40373b7336ce8c433fd796498c49b1547526"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Practice.cs",
+      "bytes": 8840,
+      "sha256": "3508c158354016159d42a3c4fdc17c181a72430dc85310adb6a76d29333d700f"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Practice.cs.meta",
+      "bytes": 59,
+      "sha256": "ec726d77ee0d786b1fc1c0742d5997922545138f262e670efe26da82badde965"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Runtime.cs",
+      "bytes": 14087,
+      "sha256": "c52ec98fd572e3cfbc77c0c080f742916972027ad1621319af572a1389e4c418"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Runtime.cs.meta",
+      "bytes": 59,
+      "sha256": "334a90f4db5dade677ac00e4e363c7b312ddb5a9725683da1af9bdfb1cfb4d09"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1State.cs",
+      "bytes": 14081,
+      "sha256": "6b6c009dad2bd046447709258385e7c07858215d84640f7410c0c5627816b5f4"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1State.cs.meta",
+      "bytes": 59,
+      "sha256": "e73fe253ebb5a648efa0f2daf17c2792132f334454f8e94aca54d588f6ae80df"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Terrain.cs",
+      "bytes": 3852,
+      "sha256": "0862dfbc5461c124e005217e343534c2712f6429d9c0d10917739abce096fb90"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1Terrain.cs.meta",
+      "bytes": 59,
+      "sha256": "6217378ac224bdb3d817e35a5fbff6269dc23db9d60d6e620ec8d79c222e1b66"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1View.cs",
+      "bytes": 30625,
+      "sha256": "6865dfc48c483732bcb05a00aefac0d97cda1ed19b30615c9d8c3ee647434b27"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1View.cs.meta",
+      "bytes": 59,
+      "sha256": "11bb64c9fd6401d069656968a7a262578f4870b7ec95fa16cd8567bf62cda3fa"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1World.cs",
+      "bytes": 25404,
+      "sha256": "a625360388ca61761b7ab0a5539576aa280fc8736949526a3447d362abe868ee"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP1World.cs.meta",
+      "bytes": 59,
+      "sha256": "c6b6eb20bfb07eebb9836b12b74daf667949840f6656137c05a7d4a0668f6a5a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Camera.cs",
+      "bytes": 444,
+      "sha256": "d0ec113d8d034666a4dee7a930168ef63bb56e6f25c4c2f0f5870117087fbe75"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Camera.cs.meta",
+      "bytes": 59,
+      "sha256": "558654e4e1c4448c836b08605bbf75a4cc9493b030b16bb489169e1f053fbd18"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Interest.cs",
+      "bytes": 2435,
+      "sha256": "ac6f9cf2f899edc996f883334f676caf2cddbd1c954962bf3549c0a20780b9b0"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Interest.cs.meta",
+      "bytes": 59,
+      "sha256": "b1c2ac9cfb3e35ed32830a947f98c3f1987c45ad3eadf03d49e9208ce86a3c7c"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Pilot.cs",
+      "bytes": 6692,
+      "sha256": "b556f013fcd63a1bc6371d6341cca94a821697cd48d954fbaa7982bb00b1f8bd"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21Pilot.cs.meta",
+      "bytes": 59,
+      "sha256": "075da23009733f1c9ba2d7dd882dc46a95f43f41fed64d3b856ad876a7baba48"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21View.cs",
+      "bytes": 10626,
+      "sha256": "bdfb11d2de4ee89b0d3fb4ea525ee581e0d03ad4664d18fb5fefe84f8952f41d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21View.cs.meta",
+      "bytes": 59,
+      "sha256": "df284a0b98dc8511c28ba436e6dee990d1e8abfd4599a316e26445984f1b96d3"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21World.cs",
+      "bytes": 10747,
+      "sha256": "53c2e09e27f13594a80d0c62f7b5798bc1037464697f670e19ce2fd1d1400f72"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP21World.cs.meta",
+      "bytes": 59,
+      "sha256": "a27c4f324396a9e0e8818c7b3b3bc6f476f5e0f1faad127f2fcefbda63c1614d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2Baseline.cs",
+      "bytes": 3830,
+      "sha256": "b7a26c964947afe67ac9b179012d13be29491ffbc5d5dd727634827014e34142"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2Baseline.cs.meta",
+      "bytes": 59,
+      "sha256": "bb460e471d34601c2c8c6af679bf56260d03e2a1ce7d9fdb0dc21fee27139449"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2BaselinePump.cs",
+      "bytes": 1973,
+      "sha256": "027c4f6c355f9f2054a144c56dc953329bc96333c99adae368f5cc5817d87d65"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2BaselinePump.cs.meta",
+      "bytes": 59,
+      "sha256": "b019986c9257820efd556ef1f25f79a927b894cfb2898a2ba7183088b15c024d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2NetworkProbe.cs",
+      "bytes": 3806,
+      "sha256": "4f1347b4a6586f80d0879563c650e5ae8981a43b2b2e6d85090350a0b7fc9f46"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2NetworkProbe.cs.meta",
+      "bytes": 59,
+      "sha256": "e01ec77dc597f8b18ad66d735951bd27397da25e4d8d23b5bb07e2e339303e85"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2RuntimeState.cs",
+      "bytes": 8922,
+      "sha256": "f33b58bdd17002d74e82681362d66876f2a34d8257805b193cd93489ec52d352"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP2RuntimeState.cs.meta",
+      "bytes": 59,
+      "sha256": "e02fe076a20535f9c6f8eadbe4c7294cceb1eb47ceae602020c07046e7e99221"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3Pilot.cs",
+      "bytes": 1798,
+      "sha256": "c1e6d10a00be93fddaf5601a7076ca57ae9f67cd87fa779216eb0bd865c4daf4"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3Pilot.cs.meta",
+      "bytes": 59,
+      "sha256": "0045de42b17dc8ff026538a07e30120b48390bd06f62cec8e98cc796fafa3f92"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3Runtime.cs",
+      "bytes": 9725,
+      "sha256": "9c21cb93c4632612e72f0cdc499c6f97752bb24174a305b44e278639c705bf1b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3Runtime.cs.meta",
+      "bytes": 59,
+      "sha256": "879c53bb8d64b04e1f6621d82e10ba9889d11daa98c2f31dc87bcbd1fb78db32"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3World.cs",
+      "bytes": 13554,
+      "sha256": "e58366a682836f7795d21ddc5693ac5ebeebb40565dc45a785387ce79bf9f520"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP3World.cs.meta",
+      "bytes": 59,
+      "sha256": "45c92f65d1493d8ce03668ba857141c255d45ea7d9b2d82541892da85cfd89f6"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4Pilot.cs",
+      "bytes": 1767,
+      "sha256": "cdfea321cc3a05724a4e9e2f819f377c4b919b3443f20e9baee9d8bcec794fa5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4Pilot.cs.meta",
+      "bytes": 59,
+      "sha256": "4f3c50f5db71c6fe9f7e00216eee8bf0fc5b9d4727a074712eefba5cbc4533b1"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4Runtime.cs",
+      "bytes": 8176,
+      "sha256": "775ab7465301e0e9cf36048f06806d3dde05a95d5f2e068c2ff958920b9e01e2"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4Runtime.cs.meta",
+      "bytes": 59,
+      "sha256": "a88941905bb50973798c7fc055c3b0fab8ab8eabc421c98a4b8554f81b9fe875"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4View.cs",
+      "bytes": 4264,
+      "sha256": "6b88151971315f79b87ac7d868150797f255ab3aee99c03fe34cedc400e60783"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4View.cs.meta",
+      "bytes": 59,
+      "sha256": "22d314bb567628c78ca475c6c1ce25c5455776b8c26ccc8d21a6a272c3cfdfcb"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4World.cs",
+      "bytes": 7915,
+      "sha256": "ce7d1c882b81e9a88888aa8b104c07bc4e92ebdedb61a3d5852b2f6ec1a56e04"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcP4World.cs.meta",
+      "bytes": 59,
+      "sha256": "a00a2148d56c8b8c8e28924074899a4c7908a15225e2f2fff5555c25c8b8ed46"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Metrics.cs",
+      "bytes": 8248,
+      "sha256": "4820832e4b5408d19efcefc5e795d89500757fb439edf6ea3a26288689fe2ae2"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Metrics.cs.meta",
+      "bytes": 59,
+      "sha256": "6cc3f3837674a08111d57415dbb0c886cd94d1e55e62d9c0243cca79dfcff0dd"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Runtime.cs",
+      "bytes": 33143,
+      "sha256": "903e3ca60918ea04f0c7451fe995e7c3f75dc79ead4a5d3a73ea6b77eae0d8af"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Runtime.cs.meta",
+      "bytes": 59,
+      "sha256": "9d0478e354f1d18c65c210f604a95dbe897b927238cce8341072f6b3025585d9"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Sync.cs",
+      "bytes": 11441,
+      "sha256": "9bbecec6cd58431c59b276f7f30fd90734bd7fb93e12ee085403e726f8b609b8"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1Sync.cs.meta",
+      "bytes": 59,
+      "sha256": "c4d751832cd27b2b962a99075cc8b98cc8c4afbeaca25fd173db3eeb76d453b5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1World.cs",
+      "bytes": 1425,
+      "sha256": "98b1fcc9d80c6c63272658045dc6263829a92391d0d5de32650248b69d65a3b3"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS1World.cs.meta",
+      "bytes": 59,
+      "sha256": "a64390effbe07352679eaf2d0fe353f1359d12c2f5804b62650600d61b26f38b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2ControlProbe.cs",
+      "bytes": 3914,
+      "sha256": "6fda97f8711a1ee767021f665397077ab11d493e508bbfc2f8c1f21cd9259357"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2ControlProbe.cs.meta",
+      "bytes": 59,
+      "sha256": "069b4ffe8b1557890f6136687471302d3d5ec78000c906eb69c9e76a8363aafb"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Probe.cs",
+      "bytes": 3947,
+      "sha256": "3b71e446aa2d9e708e7bb258a65703429e44a6753bc9800f225bf63166e281c6"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Probe.cs.meta",
+      "bytes": 59,
+      "sha256": "dc49bafb1f97eee62ea6e7a8ad0efa8f30672074596605ad0427fbc78615eafa"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Projectiles.cs",
+      "bytes": 5889,
+      "sha256": "c9c45ac43ddf252401473a29965516f522d7698842b1230ab598f687c30c0677"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Projectiles.cs.meta",
+      "bytes": 59,
+      "sha256": "b57d3701f802c2b3bd6d3544223eae2508fb874f9d05ccc6971b24b76be69531"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Runtime.cs",
+      "bytes": 11662,
+      "sha256": "6406ba38ef722e235c2c353c82d484d7df292e9c4e7d6b83ff01728a27edb978"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2Runtime.cs.meta",
+      "bytes": 59,
+      "sha256": "00669073a6631b94b67c1d8c63c5ef74144ebea243119a2c6d678391a606ea43"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2World.cs",
+      "bytes": 13977,
+      "sha256": "be55384a10bc853b35837a28776d9110bacea6dd41a08847031b9a7546180923"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/DcS2World.cs.meta",
+      "bytes": 59,
+      "sha256": "3621f56eeba6eb36f5fcdc16b991c8c176b026194f0cc39c248de968f4758197"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/GrayboxPilot.cs",
+      "bytes": 4856,
+      "sha256": "bfffcaba03e462f8d381102b3963910f4b27a8e67a693d9e0502828172313d90"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/GrayboxPilot.cs.meta",
+      "bytes": 59,
+      "sha256": "b2005cf1b04e0759ae355f1697ef08c34c5efddd037d41b9d143e73aaf59ad35"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/GrayboxWorld.cs",
+      "bytes": 39598,
+      "sha256": "5fb9d09615c309a39c3508266db93aa389d38d547c0fd792e9193bffd3f7a831"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/GrayboxWorld.cs.meta",
+      "bytes": 59,
+      "sha256": "0b66a6eb28cc61c14dc985b08bd32964aef7e3c8544e2c7cc230638e86ff2cae"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityCombat.cs",
+      "bytes": 30366,
+      "sha256": "707019bbe8a0351dfd7c39cf84727f68f721a87f8374208d75b215f4334e3241"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityCombat.cs.meta",
+      "bytes": 59,
+      "sha256": "149a88c9ddf8ea672dfd75258da82011eb31a97678b98647c0110c27c237df28"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityFramePipeline.cs",
+      "bytes": 8963,
+      "sha256": "fc5141954abfd064cda5b22be9eb820b8381a683667b9ea7ba184a2863817243"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityFramePipeline.cs.meta",
+      "bytes": 59,
+      "sha256": "dadf826cecfc64f2ece800bc2e1a31f4893cc08a7f70f575860779fad3018f5d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityPilot.cs",
+      "bytes": 4881,
+      "sha256": "42727a57f71d63a180419c207c32245e263e3e94d58173fe15543387594aa0ce"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityPilot.cs.meta",
+      "bytes": 59,
+      "sha256": "3512d5924c6c89287dcf598c83eb27ef3805cd73877ba60d0dd27145fe520326"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualitySnapshotTransport.cs",
+      "bytes": 4236,
+      "sha256": "ae8ab2172b21335bcb23647a09286eb8ff2a92f3e5ebf332f9e6df775793fb30"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualitySnapshotTransport.cs.meta",
+      "bytes": 59,
+      "sha256": "20f75e2603b8072caec71ae08ccd91d94de15cbee93875cd06c624bb05143869"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityState.cs",
+      "bytes": 8865,
+      "sha256": "5bded37e624c42cca958cb08dd81d7943fbd44bd0d0d5f982369ad105aebf39d"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityState.cs.meta",
+      "bytes": 59,
+      "sha256": "a33005d793535cbd1124d353901b41c6227badb4c0fb5144ce1af987d134d7b6"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityView.cs",
+      "bytes": 30452,
+      "sha256": "c12e413dea3e07aa945f674ce701f30c99fee39a50b4643e037e9bba4830e889"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityView.cs.meta",
+      "bytes": 59,
+      "sha256": "ff771f69e3b88c7f79ac4b6f8aae602c29bdd1d4fd084ff4ba64356802926dca"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityWorld.cs",
+      "bytes": 24575,
+      "sha256": "b5db036bc732efa6ae874426c0c5cdfe56d7c98770945a4308a3abf1a0c6ffa5"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/QualityWorld.cs.meta",
+      "bytes": 59,
+      "sha256": "a7df827ab9353dde19a75bc0a819d214e571a8378b8e2cac6f37973397cea568"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/RoomGeometry.cs",
+      "bytes": 4705,
+      "sha256": "10891cceb01dc29eb702ff4f14eb9d5c23ee6663f18985429ca5ffde99902109"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Runtime/RoomGeometry.cs.meta",
+      "bytes": 59,
+      "sha256": "9df8a422dc75e7600280c1dc0c7bc3df776e392bb7f37aed87e9a79a53cf3a0b"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes.meta",
+      "bytes": 172,
+      "sha256": "918fcf5f3ef340981f01223e0a3131eb21edbb4363a326b9b6e38cbce2abf7ef"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Bootstrap.unity",
+      "bytes": 3539,
+      "sha256": "2dab5017419a2ee28505c5594da8f22a492895f3ae30dd8afc70a6a0c52ddc1a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Bootstrap.unity.meta",
+      "bytes": 155,
+      "sha256": "029d685e1b8cdcd968dba35bc665268842aae8650c75f98810e86533e675046f"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Dungeon.unity",
+      "bytes": 3539,
+      "sha256": "2dab5017419a2ee28505c5594da8f22a492895f3ae30dd8afc70a6a0c52ddc1a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Dungeon.unity.meta",
+      "bytes": 155,
+      "sha256": "3cd70fdf97b025647a5a868a9860f5d8f76749101e0c29048cbca5875e2c7cda"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Lobby.unity",
+      "bytes": 3539,
+      "sha256": "2dab5017419a2ee28505c5594da8f22a492895f3ae30dd8afc70a6a0c52ddc1a"
+    },
+    {
+      "path": "client/unity-demo/Assets/DungeonContract/Scenes/Lobby.unity.meta",
+      "bytes": 155,
+      "sha256": "1b75960068a310c7d69834bfa824b4609ee060a8f6b02ab933db2034afc3b3f2"
+    },
+    {
+      "path": "client/unity-demo/Assets/Editor.meta",
+      "bytes": 172,
+      "sha256": "8ee4e916b5da5c060d7055cf3c84455a21d8637a120d2327e3b9fcb16e877526"
+    },
+    {
+      "path": "client/unity-demo/Assets/Editor/PveDemoBuild.cs.meta",
+      "bytes": 59,
+      "sha256": "f8b2e5e6341f7daeab6b5dc31d19854013b290a617d809176447ca158ebae973"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources.meta",
+      "bytes": 172,
+      "sha256": "f91566ab960a5e1d570d544565e001d5e1abcfebc012c0889a0f5c5acc58eaa2"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract.meta",
+      "bytes": 172,
+      "sha256": "28d9d5012362aa7bbfb2e9b1a03dd3e58d3d0663b22a8cc398f4caa8d79f4218"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Art.meta",
+      "bytes": 172,
+      "sha256": "6ba03e1545cffcc7cced0adc67dc81f4d27f8fd7074b5412e535515a54562e46"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Art/Kenney-CC0.txt",
+      "bytes": 570,
+      "sha256": "9f574a2f1f636a3db8a0665ba90212f34e2b5e61ecb533d77c05237766374111"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Art/Kenney-CC0.txt.meta",
+      "bytes": 158,
+      "sha256": "35b896c9d39af48252aae98b0e861ca9580cdb061ac63aaca1bf7e2ffc3b4f88"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Art/tileset.png",
+      "bytes": 5294,
+      "sha256": "d24e60a41e4ac7a745c0304dfde121143688557f40215f23221c29cfe683825f"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Art/tileset.png.meta",
+      "bytes": 2652,
+      "sha256": "678a113f446bebfddd7ff2a8031d6107ad05b41f271221989c550387a6b27eab"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Fonts.meta",
+      "bytes": 172,
+      "sha256": "2f1a3d401bf61201299d1f9cffe1543eb9d8eb14c3f15193d72d1d9fa98ff7a0"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Fonts/NotoSansSC.ttf",
+      "bytes": 17772300,
+      "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Fonts/NotoSansSC.ttf.meta",
+      "bytes": 477,
+      "sha256": "a8bde081e77c01462167a7a5a5eff1e26400d51867c34d247a0025b70978c6e1"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Fonts/OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "client/unity-demo/Assets/Resources/DungeonContract/Fonts/OFL.txt.meta",
+      "bytes": 158,
+      "sha256": "5649dc06f9b1e32460f04ddbd2b7f7007788dd649a718bafa9ede8477e3f209c"
+    },
+    {
+      "path": "client/unity-demo/Assets/Scenes.meta",
+      "bytes": 172,
+      "sha256": "7ea9261530a7dc75944a38ebadd67caa4cd3280b3f2b074219e94622778d7502"
+    },
+    {
+      "path": "client/unity-demo/Assets/Scripts/PveControlClient.cs",
+      "bytes": 12884,
+      "sha256": "927b878b8eebbb8cb161dc5913e49c622148102cb10eca57239fcc02fa4a67e5"
+    },
+    {
+      "path": "client/unity-demo/Assets/Scripts/PveDemoPanel.cs",
+      "bytes": 11414,
+      "sha256": "af3d8539a73e5672684b2d7aa5b75cc5cb59e27a7535812f6755eee6a7cf6ce4"
+    },
+    {
+      "path": "client/unity-demo/Assets/Scripts/PveLocalVerification.cs.meta",
+      "bytes": 59,
+      "sha256": "8cc075c92a68d10324ced86b5867c695b9066657df1c8e4803adf016d65667df"
+    },
+    {
+      "path": "client/unity-demo/Packages/manifest.json",
+      "bytes": 509,
+      "sha256": "a860c4e84200778699bcff1a772bafb1353f2e75bdd5e7bac519b20f33e6d029"
+    },
+    {
+      "path": "client/unity-demo/Packages/packages-lock.json",
+      "bytes": 4902,
+      "sha256": "98d366e62479a06c3b31749cdaad2d2f3b6f553b34c5b9cd0455da91dbc37cef"
+    },
+    {
+      "path": "client/unity-demo/ProjectSettings/GraphicsSettings.asset",
+      "bytes": 2092,
+      "sha256": "e7fa2be87751d7cd410d6e362353087ce1ceceedc831f884919b9a465f7bd5a7"
+    },
+    {
+      "path": "client/unity-demo/ProjectSettings/ProjectSettings.asset",
+      "bytes": 20553,
+      "sha256": "773394575d84229ed0b0760dd1d53852cc3d46ffe6350543884c4a37f273cfea"
+    },
+    {
+      "path": "client/unity-demo/ProjectSettings/SceneTemplateSettings.json",
+      "bytes": 3535,
+      "sha256": "bb9098b3bfcde78d93e264b96f7b77b5430e64e8c57a7aad7f5a5d9c3945e16a"
+    },
+    {
+      "path": "client/unity-demo/README.md",
+      "bytes": 2069,
+      "sha256": "dd166853fef50b3b3175dcfd2e94d9dd8797d3d44ff6bfe244ca8e4def9b5d13"
+    },
+    {
+      "path": "deploy/dc-common.ps1",
+      "bytes": 9380,
+      "sha256": "4a7c0e47c508479ded55eeb7499b57014f5817442e9ec725183b4ce02ae1fd3c"
+    },
+    {
+      "path": "deploy/dc-docs-check.mjs",
+      "bytes": 15211,
+      "sha256": "346af3435079145940259267f22af69cb24fa1dc28995f1c0d973705416d6346"
+    },
+    {
+      "path": "deploy/dc-empty.env",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "deploy/dc-lan-host-launch.ps1",
+      "bytes": 515,
+      "sha256": "313eedfd0d7f950f2ab812c64d71de7e2aebba501a5d200492d4751a8f665d8c"
+    },
+    {
+      "path": "deploy/dc-lan-local-player-launch.ps1",
+      "bytes": 556,
+      "sha256": "fde6c491af5e0abe407236a061a197564ff3db32ffb8c2e855c52c58b8bf8cd4"
+    },
+    {
+      "path": "deploy/dc-lan-player.ps1",
+      "bytes": 4552,
+      "sha256": "b2c2b06f3b46ef7c9d9edb4fd3d775c84bc58f38505c9d6ce4ffe6e1e8b49d76"
+    },
+    {
+      "path": "deploy/dc-lan.ps1",
+      "bytes": 10332,
+      "sha256": "cf96a4a2d065158f4a5158e44b1949744a009fb51f7c6b02b5251aff4c657294"
+    },
+    {
+      "path": "deploy/dc-launch.ps1",
+      "bytes": 1659,
+      "sha256": "15a95a500b61e4857d85bdc5c6e902767f539150216d1409b002857ef24a9094"
+    },
+    {
+      "path": "deploy/dc-p1-launch.ps1",
+      "bytes": 1184,
+      "sha256": "d332141a62d1f13e4ef8c3d49d10d9435e4096a88906489da580bb6f6907760c"
+    },
+    {
+      "path": "deploy/dc-p1-v3-play.ps1",
+      "bytes": 2625,
+      "sha256": "c26f86c46306e90cc78019b575f44d4ef3c9e69f2b0aeb8a00c90c9735b6ba2b"
+    },
+    {
+      "path": "deploy/dc-p2-1-check.mjs",
+      "bytes": 5046,
+      "sha256": "f6931779f2641d03a878b576324f646ec0dab65bdba6e8a79b9c57232265923f"
+    },
+    {
+      "path": "deploy/dc-p2-1-launch.ps1",
+      "bytes": 1383,
+      "sha256": "7588d66a2155e68f49f4bd34971d1220d8af9b6a3b715a5686644d9286a28838"
+    },
+    {
+      "path": "deploy/dc-p2-1.ps1",
+      "bytes": 5664,
+      "sha256": "4c27add73cf9c9b4254dd4fae070bb573a536ebf6157482221b96cd3a10c187b"
+    },
+    {
+      "path": "deploy/dc-p3-check.mjs",
+      "bytes": 2784,
+      "sha256": "71ec4574a868771801fddfff8f14c02c2814bd0dd8bc0c1fefe4af4886026f49"
+    },
+    {
+      "path": "deploy/dc-p3-launch.ps1",
+      "bytes": 735,
+      "sha256": "7fe5d311ae3b116046c84d18503939efc473e117a3419ac8d561a87cf57ebb56"
+    },
+    {
+      "path": "deploy/dc-p3.ps1",
+      "bytes": 4838,
+      "sha256": "9f997e716203f5882de73f5ad09832e55a2136e40cbd6099675db381f4b23b03"
+    },
+    {
+      "path": "deploy/dc-p4-check.mjs",
+      "bytes": 3233,
+      "sha256": "94600f5cf58eedd9cd3db3bf66aeecc230ec87db4ac1bf768ff63afa0da71e4a"
+    },
+    {
+      "path": "deploy/dc-p4-launch.ps1",
+      "bytes": 735,
+      "sha256": "caf805fb3f9632fc2230c1f227e26b3523feba5bdcd2b7dd34f9d554b4690f14"
+    },
+    {
+      "path": "deploy/dc-p4.ps1",
+      "bytes": 4853,
+      "sha256": "a87520b86b63c777a4cddb5a6e3480126708ff727ab5e739cfcec8e1656215b0"
+    },
+    {
+      "path": "deploy/dc-play.ps1",
+      "bytes": 8620,
+      "sha256": "66e7b16d4516079817941fccecd82acea8845e43b923a8a704aa22a68693c151"
+    },
+    {
+      "path": "deploy/dc-prepare.ps1",
+      "bytes": 3846,
+      "sha256": "ab4ca0f8cf5adfa100f5da10cf686585332b53385fdbb70d5df568286ac68fee"
+    },
+    {
+      "path": "deploy/dc-quickstart.ps1",
+      "bytes": 14860,
+      "sha256": "105aa9f949247ce5b2e99b2347f5cfc456787198d9f217fec11a2bc884c6747e"
+    },
+    {
+      "path": "deploy/dc-run.ps1",
+      "bytes": 13004,
+      "sha256": "d2e185a71ff2796b355bf7435c8e57d044130553699fc808b72276b6e528d711"
+    },
+    {
+      "path": "deploy/dc-s1-launch.ps1",
+      "bytes": 973,
+      "sha256": "032f09873d602eaf79d76353429d97275f45afcdf4440c5856c44eefa5438c60"
+    },
+    {
+      "path": "deploy/dc-s1.ps1",
+      "bytes": 4983,
+      "sha256": "519314ad861a4941c00391647bcc58938c35578a4cc42d546afc6343851df335"
+    },
+    {
+      "path": "deploy/dc-s2-launch.ps1",
+      "bytes": 975,
+      "sha256": "22608b0aaae0e3fbe7215df36575efa51a410f6b41ad299e5cb590d1c44ef0fb"
+    },
+    {
+      "path": "deploy/dc-s2.ps1",
+      "bytes": 6031,
+      "sha256": "5de037f478a5680f19600bb1d808d73854bbbaad35125c991ea6ff6a0086fc58"
+    },
+    {
+      "path": "deploy/docker-compose.dc-demo.yml",
+      "bytes": 1761,
+      "sha256": "5a4eb30f070c7f5362302b05f0b10d1a17e7d4922fc4b6cc52f97956f389db3a"
+    },
+    {
+      "path": "docs/design/dungeon-contract-comprehensive-redesign-research.md",
+      "bytes": 12036,
+      "sha256": "ce08961ca77104a989dc0ef7456d0aeb8b1e841ed9801ec43a276e28a43469b5"
+    },
+    {
+      "path": "docs/design/dungeon-contract-demo-acceptance.md",
+      "bytes": 12737,
+      "sha256": "c28665e1db67dc157279bf61615114e4faea0895d244fbf8b24f0967587483cb"
+    },
+    {
+      "path": "docs/design/dungeon-contract-demo-gdd-review.md",
+      "bytes": 16912,
+      "sha256": "a3c6f74023f66b66b8d8aea5cac8c5f0397ee8610650e993ed4da6a4b796f9ad"
+    },
+    {
+      "path": "docs/design/dungeon-contract-game-reference-research.md",
+      "bytes": 17230,
+      "sha256": "c852e41e0829c2a64aaf20bd60e62e8370933cfe2f5ddf6b60a5aaedf3e8eca2"
+    },
+    {
+      "path": "docs/design/dungeon-contract-gdd-v0.3.md",
+      "bytes": 22124,
+      "sha256": "045491566a9fd5e985966e7668e1a4d4b7e2d07957bf3cc5feab11170888eb3a"
+    },
+    {
+      "path": "docs/design/soul-knight-advanced-gameplay-networking-reference.md",
+      "bytes": 36412,
+      "sha256": "ab37092d50e9737c655aa8aa6821f4e69506cc6e5692a6fd922fb99e715d68a4"
+    },
+    {
+      "path": "docs/design/soul-knight-dungeon-reference-research.md",
+      "bytes": 31556,
+      "sha256": "04f02e6a9f78db91537b7f1643738a3ed231c04b6d7ed5a3a39cfd5ce3ca5beb"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/README.md",
+      "bytes": 815,
+      "sha256": "07f986df5a4b3b5f677ff939dbf84fefeceef6b1d6930515864a03267823e055"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/architecture.md",
+      "bytes": 7987,
+      "sha256": "fca55e61b62068e3df698a45cd165ff4483728e4f3b2ed55fd987c3af46dccfa"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/client-assets.md",
+      "bytes": 6596,
+      "sha256": "bdb3ff920a1fbb7df06513c40137ec93756002e6c1299a9d9b5fc521dcc873b0"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/content-config.md",
+      "bytes": 8051,
+      "sha256": "d8beac49945b9ba982ad00a1f5a0aa1cf87312386a685cd2e632bddf81a0ddb7"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/data-design.md",
+      "bytes": 10393,
+      "sha256": "0a270cbe29172bd01c3b69d63567503102db0b94b3407fe259f66c6f0bc408fc"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/decisions.md",
+      "bytes": 7055,
+      "sha256": "eb58a4d888b708d36f7165850aa45f4e8a2da5e2e2b4c0c324d3e798c49209f5"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/gdd.md",
+      "bytes": 27815,
+      "sha256": "63471067010c61a7e3eda7e80af83dbb81e215e39f34370191b4a1d68b2bc4a6"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/image-generation-spec.md",
+      "bytes": 13395,
+      "sha256": "c545f0d7b7318b9c45537341fbd0e77eb5b131137d641167b9178859f3428ad7"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/index.md",
+      "bytes": 6048,
+      "sha256": "a934d4db7e2601345fc841a08d42d25ddca5f21e28607cd8cdde40b0823eb72d"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/manifest.json",
+      "bytes": 5861,
+      "sha256": "fcc3ff99178f32b72222ce574d87d44b8f85e354793f1333679d7dad417fe9cf"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/p1-human-playtest-and-pacing-guide.md",
+      "bytes": 32467,
+      "sha256": "6492c750828bead51ba60bc0fe0f8c3bfdc7e3b9e93bf0db142eefcc3001f083"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/protocols.md",
+      "bytes": 19392,
+      "sha256": "db3fb42e98ef2dbbb0c6f5da7210f46e9df3fde19716a1064f9ab2716c3306c6"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/security-design.md",
+      "bytes": 10359,
+      "sha256": "f2b8082e019b3f61c711eda572597240cb9fa4e366fe509323406ce9f2e149dc"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/templates/p1-human-playtest-record.md",
+      "bytes": 5330,
+      "sha256": "57fad7d89f6334024b2da80df506a01574eff31db8d5ec27a771b6b28df4391e"
+    },
+    {
+      "path": "docs/game-demo/archive/1.1/test-and-runbook.md",
+      "bytes": 17321,
+      "sha256": "3b5ce2fb9536d7f515fb5e567e337d7abbba319b627fe9e6e3a219fa4bf217e7"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/README.md",
+      "bytes": 858,
+      "sha256": "70875beecfe037c1217e227841ea66eac2603b0f52dca96490f615b0ad3108b9"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/architecture.md",
+      "bytes": 7269,
+      "sha256": "c385caf1f98cbb031c858a10c437a29e0fa8176d569ce30f878b731ac907a9e8"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/baseline-and-validation.md",
+      "bytes": 21556,
+      "sha256": "57aee3312fec6be6ad4a370e8bd3eedf147aec934750f1f292a2c40944fbf14d"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/client-assets.md",
+      "bytes": 7378,
+      "sha256": "1b4a10da45283bc3e896596929ea3bab0735daf0fc64b0f3472f1684234233ed"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/content-config.md",
+      "bytes": 8842,
+      "sha256": "a2a4b53c92904d0c71939b35cdf12e5858e75450bbdd49474de38ed3bf48f54b"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/data-design.md",
+      "bytes": 7175,
+      "sha256": "06a9ee3800a93afc378ae5f51b47c6388263128f457992d16cb04c328a2fc62c"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/decisions.md",
+      "bytes": 11376,
+      "sha256": "03f9f23ec8a7f235637ff2480c5bf688c5d64763e3d78bd65fd7cae7759d753b"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/environment-setup.md",
+      "bytes": 12269,
+      "sha256": "1fb6a27895b0fb71e17d9583669fb4c4dc563f2e7ae63a14a4e1546c892ca271"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/gdd.md",
+      "bytes": 15437,
+      "sha256": "a848f8c251152d753c71a936fee43eb0013ce493d710f1081e260c696f0f643f"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/image-generation-spec.md",
+      "bytes": 6440,
+      "sha256": "7561747c0d7d9c2a416ab781668400f5343b97c558ea1a44dd1f3a1c8f0c439e"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/implementation-status.md",
+      "bytes": 4845,
+      "sha256": "a773b98e8c68b6c6c1ae8c8f1ad6d9941a5cc86dc7599dcf98d4d828bdb8d827"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/index.md",
+      "bytes": 3988,
+      "sha256": "481daa2748dc3d010c280490ddbe1e90af66c40e6cdc1ee0d35b6df5320c5cf4"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/manifest.json",
+      "bytes": 7383,
+      "sha256": "49401bf1ae3113fdef5d9db7bd8af2a39ff7dc91820ef24225d7e52ad0f38e68"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/p1-human-playtest-and-pacing-guide.md",
+      "bytes": 5262,
+      "sha256": "061db4731deef2900f0b1f0239c93be941a28618a0fe54e6a2573fdde38e3c5a"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/protocols.md",
+      "bytes": 11157,
+      "sha256": "b73bfc7cca5ef3aa6c23079bf72e7f46a1e90c716cc2867ec2590f9a1e9c70b6"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/redesign-coverage.md",
+      "bytes": 15999,
+      "sha256": "3fca060cd13b6b131302807bbe9dd901507658fed564dc9416ecc782530b5d0e"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/security-design.md",
+      "bytes": 7199,
+      "sha256": "bc32fe7494f31c2bc87a6763226dc6df27e901081b5e0f374fcf268624f6deaf"
+    },
+    {
+      "path": "docs/game-demo/archive/2.0/test-and-runbook.md",
+      "bytes": 14573,
+      "sha256": "3a1841eb5997cbd3cd1160e03d6c4556666e59a4d02103e0a2bc6acf1735b90b"
+    },
+    {
+      "path": "docs/game-demo/config/asset-sources.json",
+      "bytes": 1330,
+      "sha256": "77e00b99b28a40b053e188130798d565c6554110d4b52f7c09c8475ade19c651"
+    },
+    {
+      "path": "docs/game-demo/config/demo-config.schema.json",
+      "bytes": 71570,
+      "sha256": "00f6188f4a10bca4d57025374f96faf2449f19639d6ffc4be215798d0604b21f"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v1.json",
+      "bytes": 15052,
+      "sha256": "3d6ac01e63358335eef7b4f243b4851fd86489969c2e92d2efae5fb656ce7f36"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v2.json",
+      "bytes": 15598,
+      "sha256": "11299fa7a7225a5040875878a13de3030f1b7e9c44a79035b8529c7a879ba51b"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v2.schema.json",
+      "bytes": 71570,
+      "sha256": "00f6188f4a10bca4d57025374f96faf2449f19639d6ffc4be215798d0604b21f"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v3-p0.json",
+      "bytes": 2400,
+      "sha256": "45fcaa351718edad64abcfd716af986f55b4a04046785e32876024aef6f67c72"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v3-p0.schema.json",
+      "bytes": 10141,
+      "sha256": "51b6d9adc0af9167c1f71ad82f756de286d867c80c66975a6c6fcc58d21e443a"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v3-p1.json",
+      "bytes": 2563,
+      "sha256": "4e00082b99ca5d56dfce6be148c5705e5f5484f379dcca045796c3b6d5ba1a62"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v3-p1.schema.json",
+      "bytes": 10390,
+      "sha256": "34ab393828ea5c2a5bddb76837f0221e53ab5d168bae3db45efff6ee42673001"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p2-1.json",
+      "bytes": 2742,
+      "sha256": "efc1ddc50d12c820cfac52d0ab37ce9caa6c352fb7d634c5961d923d70abd399"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p2-1.schema.json",
+      "bytes": 10656,
+      "sha256": "1ab13c97e1ee202c52f2b00fdefac5af44d5c39c4c2e8f0084d781b7ede7e832"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p2-mp.json",
+      "bytes": 2757,
+      "sha256": "30541a13a61ccf5a1212adb54d98b58051901d35efa9c72ddcd7be88048383a9"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p2-mp.schema.json",
+      "bytes": 10671,
+      "sha256": "b72b163be95db673d023574cd61d1a1dac8397f2a3d78fd0f5133405a36efeae"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p3.json",
+      "bytes": 5919,
+      "sha256": "b7a3efca4bdc3900148cfa6a183d54e43f279c3808d6b9b8b672ce4e3b137343"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p3.schema.json",
+      "bytes": 6555,
+      "sha256": "11584ac4900a883418859ea228fb3b1d98c103e013840378510bd21d9b93bc93"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p4.json",
+      "bytes": 8499,
+      "sha256": "06661e760b7e8ddcefbccd7516e677bef7d8ea069322f7f8afaadeb88d44957f"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-p4.schema.json",
+      "bytes": 9354,
+      "sha256": "e94bca29fd99978df74281111c70427fdc7dcfdf2c7dfe63f0430a60fa3e2e79"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-s1.json",
+      "bytes": 2732,
+      "sha256": "e5f8c0593ed272de610b48446a0c3fbb45e08b52501559ec533b5b2c9a624579"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-s1.schema.json",
+      "bytes": 10646,
+      "sha256": "914aac8fa6554019edace8686b15b80624628abb4a08bbf8e3c73fbe09c25ab2"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-s2.json",
+      "bytes": 2729,
+      "sha256": "e0f37368f158183d9431cc2685c4a8d7a8a42dac89a41cc5339e164dfcb35199"
+    },
+    {
+      "path": "docs/game-demo/config/demo-v4-s2.schema.json",
+      "bytes": 10643,
+      "sha256": "fe90e88bb511faf94393d24b8a711840576bf94e716984f347ff46df3b882807"
+    },
+    {
+      "path": "docs/game-demo/config/p1-world.schema.json",
+      "bytes": 2464,
+      "sha256": "f016e8f31c600eef6bf6b241b4027386e2d7fb6cc1d74d946ce31e36a493fdac"
+    },
+    {
+      "path": "docs/game-demo/config/p1-world.v1.json",
+      "bytes": 639,
+      "sha256": "41af981d183ad0214c2bcbce0bb3e203d8d189a7da4a1c5b82fd451a2699f117"
+    },
+    {
+      "path": "docs/game-demo/config/parameters-v4-p2-1.json",
+      "bytes": 20548,
+      "sha256": "11f5b2689c70f19229f64d7131af0e92f77e0eb1c4d3dc92b673d11a9989f958"
+    },
+    {
+      "path": "docs/game-demo/config/parameters-v4-p2-1.schema.json",
+      "bytes": 109873,
+      "sha256": "a1641b3f7f6bd4f1f6fd5c8c560366d504d561d6fc8244dbabbe677c0d1716b3"
+    },
+    {
+      "path": "docs/game-demo/config/world-v2.json",
+      "bytes": 4180,
+      "sha256": "4132c3763e11f477efdaec14d117b827ee89b21bdb5e4b2ff0329a1445e87360"
+    },
+    {
+      "path": "docs/game-demo/config/world-v2.schema.json",
+      "bytes": 9117,
+      "sha256": "2807320ce21dcadafae407a5d3214236e5694a6d31eea83810b2c1acb0efab5a"
+    },
+    {
+      "path": "docs/game-demo/config/world-v3-p1.json",
+      "bytes": 4342,
+      "sha256": "59a6cba8ce8a2f306a14f14375e3e4922536929c536e733ca8bd9fc18478e1e6"
+    },
+    {
+      "path": "docs/game-demo/config/world-v4-p2-1.json",
+      "bytes": 8299,
+      "sha256": "035214cd6e99a706741772bc8074f14b034614049cbb4ec1fce6d9cf00e6b3e0"
+    },
+    {
+      "path": "docs/game-demo/config/world-v4-p2-1.schema.json",
+      "bytes": 2054,
+      "sha256": "c21935800d79a7bc730e836be8d9ea3e518ec69c1a9beb40d87c6a20affdc803"
+    },
+    {
+      "path": "docs/game-demo/config/world-v4-p4.json",
+      "bytes": 11033,
+      "sha256": "80f6d609f8cee229313b777a58330fe79f999bdff7bbdfe2bc76ba5e7ec5cd18"
+    },
+    {
+      "path": "docs/game-demo/config/world-v4-p4.schema.json",
+      "bytes": 12480,
+      "sha256": "bfad7a63cbf71e9bebb173bb6ac0dedddb5a195d543e2f0623c1610606a9e44a"
+    },
+    {
+      "path": "docs/game-demo/contracts/action-v4-p4.schema.json",
+      "bytes": 3445,
+      "sha256": "2ff68df5e19c16ea033bc7e90cdd675191a87da246998c470f032834827c9bf8"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame-v2.schema.json",
+      "bytes": 13998,
+      "sha256": "86d1f399d2426d228756b207fb2297e5d5273dfb31135193d143329a5ce96951"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame-v3-p0.schema.json",
+      "bytes": 12153,
+      "sha256": "5488da7ddec7deb50c9a1d31c8a3562c0d4604ab0201d65677e2dcd50ea1bb8b"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame-v4-p3.schema.json",
+      "bytes": 19995,
+      "sha256": "19b88dd6c20f0d1e074f9550330d9071b01f1ee21cf626d4099495c2b032741a"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame-v4-p4.schema.json",
+      "bytes": 20539,
+      "sha256": "b94b8669cbd9d00beccffeba84a13f5751da447e433e2ba82187c1cd05802040"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame-v4-s1.schema.json",
+      "bytes": 12206,
+      "sha256": "b685317cfc88e07afa7e539c28533f4683747ca39edc283dc892e52255158b94"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame.example.json",
+      "bytes": 764,
+      "sha256": "a0bab944a905b26976d6fa32ac20e03cb2361cd69b16fcedf5174acc8e0854d2"
+    },
+    {
+      "path": "docs/game-demo/contracts/frame.schema.json",
+      "bytes": 13998,
+      "sha256": "f1bbd8a8099304777ccfe08cb73b81b6f2583010e7653a4640dbaf044ba394f8"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-planned.json",
+      "bytes": 70959,
+      "sha256": "7427136c2c37471b4de52ac4f3b80c6a2c458cb37e9d06e875287f6dc3aec30a"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-runtime.json",
+      "bytes": 61807,
+      "sha256": "dfe0784ee5c05115f71ee8c42b1e0d170025e854f618be4522624e2343a81a68"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v2-runtime.json",
+      "bytes": 61807,
+      "sha256": "64afc70ef4f0d2ca76bd0a4fbb7fbeb35fde26703c18021f2613a6ce51b0f3d2"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v3-p0-runtime.json",
+      "bytes": 52649,
+      "sha256": "cc7221266b45817e746f95ed9dd1f09576d0787c6b266034d7a3648dc1a35764"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v3-p1-runtime.json",
+      "bytes": 55152,
+      "sha256": "24ef6ad3e1c614533e88e26f08c37a11d93cea80a1d57a5a7d23fe95d56c24c7"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-p2-1-runtime.json",
+      "bytes": 59755,
+      "sha256": "8786c25448a07d206a588e1e863ec093646b96f6333bbcacd325d3bc0403147a"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-p2-mp-runtime.json",
+      "bytes": 59868,
+      "sha256": "d930cb2283fecb050161e94e206d634aa7d11ee7af09595ad7855938b52ea25e"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-p3-runtime.json",
+      "bytes": 57186,
+      "sha256": "4a379a4a331492d4da0b02f46589b67eaa0c7acaa149488f618dfacc52786495"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-p4-runtime.json",
+      "bytes": 57982,
+      "sha256": "2fb8a121394c23a4938974dd0806ce3c1d12dbaf9b34d1deadc93421587dec69"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-s1-runtime.json",
+      "bytes": 59216,
+      "sha256": "5ae06308e49fc76a5b7db87addbde4e5f09a8a0917c674bd185967ab005d8886"
+    },
+    {
+      "path": "docs/game-demo/contracts/openapi-v4-s2-runtime.json",
+      "bytes": 59461,
+      "sha256": "b0c1efa71f9627982fb858c31c358ee0839e647e40eef03534c40062fcf10803"
+    },
+    {
+      "path": "docs/game-demo/contracts/p2-1-projectile.example.json",
+      "bytes": 197,
+      "sha256": "e4a1d97993237e80ea18327210643573dc758a337b6186ccfbc3a3b485e783de"
+    },
+    {
+      "path": "docs/game-demo/contracts/p2-1-projectile.schema.json",
+      "bytes": 1051,
+      "sha256": "828ff04e1f2dcdc48cc4571276df7396758ca730761648c222f203b7af62555d"
+    },
+    {
+      "path": "docs/game-demo/contracts/p4-example.json",
+      "bytes": 1385,
+      "sha256": "dbdb8facd08b40a18b4c74cfff2f20c9a217f34c874d03ea23b7f4245eb9915a"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/README.md",
+      "bytes": 1596,
+      "sha256": "2e5420f8c6e5cff62b67a26b710d0f7bf99f2ed192b1804d5663bc04302a1d6c"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/action.example.json",
+      "bytes": 496,
+      "sha256": "e1dccac354aa4b6952005d90eb7d0fc0ed0b34fd76e6a63f126f605696068c6d"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/baseline.example.json",
+      "bytes": 1469,
+      "sha256": "babc3cb28c751c1981cdcad21e1cc43e5bff08f164d6a16b161a05a5a9a3272e"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/battle.schema.json",
+      "bytes": 27800,
+      "sha256": "2338ee2ab76de043b4b04296289ef74fe8753bc919a1671493ad2bf9709c10f8"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/frame.schema.json",
+      "bytes": 20764,
+      "sha256": "5fca2848a768d5e2c8f998cdca38bcd1416c1a40a41c365032cbb184abd11fc9"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/openapi.json",
+      "bytes": 10414,
+      "sha256": "6dcf148bf4f30364d304cfca8199f7105962a5fcde5275d32a5a028df165676d"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/parameters.json",
+      "bytes": 15880,
+      "sha256": "6a0afbb8ef6c27283a2ec8189bb11c5e0bf35d6f228d9f2f82d96ade0d81bc09"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/parameters.schema.json",
+      "bytes": 93296,
+      "sha256": "cdbddc277975fcab3abd80b9246219650ed4634599ea825dcf94e4c741193cb6"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/pause.example.json",
+      "bytes": 167,
+      "sha256": "2dfb852626dbbfa9d195880ba3d6a3fc6c6fa16b13e145438e66e86adff56da1"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v3/terminal-frame.example.json",
+      "bytes": 1905,
+      "sha256": "25eadb354430ed0893573c725a3161a47c24f098df2a8ecf8499d4d196e14c2b"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/README.md",
+      "bytes": 1704,
+      "sha256": "18ef4b77437fca45e203f3f5da65b170f760faf4d173d75abf272db60f7fb98a"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/projectile-record.example.json",
+      "bytes": 982,
+      "sha256": "bfdfbac0da22db2b435a732ad7d3b87afb4853fedf03106f5b27da30efb68a2f"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/projectile-record.schema.json",
+      "bytes": 10171,
+      "sha256": "6ffcce2ddb8ff9748156ec806e8e19049d9c291d5637d43a401976e94242286f"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/projectile-remove.example.json",
+      "bytes": 261,
+      "sha256": "86736878a9232905e66b5437adebd666d8a25a2c7526538ec67997c76cd6573b"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/projectiles.json",
+      "bytes": 9138,
+      "sha256": "b051276e3a2be49309f18407e2804ede3daf57ee3d583c2526d0f48033c97571"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-projectiles/projectiles.schema.json",
+      "bytes": 12925,
+      "sha256": "2f88c96090d260bd1731d1a8ecac072a77cbf04835e34550d735269aea6cf133"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-room-camera/README.md",
+      "bytes": 1600,
+      "sha256": "a5ea4ada4601c8f3ad4043b472b0acce653e0db15db02f50cc551fd9e0e047db"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-room-camera/danger-record.example.json",
+      "bytes": 563,
+      "sha256": "473c5af29344b4d57f06a366364df930bb3f23725d074e4c642903249fc19c9e"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-room-camera/danger-record.schema.json",
+      "bytes": 2658,
+      "sha256": "7c928dede481ac5c90ed216b72d3555bfd18c53f672092fc5171a4c2bc7e8a75"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-room-camera/room-camera.json",
+      "bytes": 13627,
+      "sha256": "201c3f51ce1975b84aa002d19686070630de4fc809ee22ceb8f2b1c6fe302c31"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4-room-camera/room-camera.schema.json",
+      "bytes": 20918,
+      "sha256": "3b21cb0a774125b71c070268ee98cd37fa9aad69c004bc7065fccad8a4a93d8c"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/README.md",
+      "bytes": 3494,
+      "sha256": "97aea7bc1928625e81838baed5648b775399fc34541d0d079edf91cc3c5ce27d"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/action-receipt.example.json",
+      "bytes": 399,
+      "sha256": "0b39b70d5457b7b971755590b7544b7535a1b34123e9cfdcfe718cf719ea634d"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/action-rejected.example.json",
+      "bytes": 423,
+      "sha256": "3e57da341be23d5c07c672bf94d0c8024aef07eb1c0818cff6ace90a963fffb8"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/baseline-chunks.example.json",
+      "bytes": 6940,
+      "sha256": "97d8fc2a1643209b7e25301027468a9458514f8b8f1bd12e8d7691da6bb0d7df"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/baseline.example.json",
+      "bytes": 4582,
+      "sha256": "f9cbb55f9e252cc71846f90d65f54014de97c7f09628d07a0c9b93af40a159c0"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/battle.schema.json",
+      "bytes": 93748,
+      "sha256": "b221851f96449f6f9e0637c2b8903a6f3f4431fc1da5a71df5fac3e66c3c6c23"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/check-documents.ps1",
+      "bytes": 7381,
+      "sha256": "fae06c54032e66d834750f5ee75903ca110f6a6b0105ba5f2ed9ebb4bb412fa9"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/check-semantics.mjs",
+      "bytes": 11978,
+      "sha256": "054e769c83aa71a841e4e17cf325d59f16193d787079fdd77b2154381214a4dc"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/control-ack.example.json",
+      "bytes": 521,
+      "sha256": "e7e54ced515319904c67d050241feccc8a4d5d7f5fbec0505d1212afa018478a"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/control-receipt.example.json",
+      "bytes": 247,
+      "sha256": "27ba0edb9a2493e33f98ac0db345204d558d82158bfcb04f07d85acb906c0a8f"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/dynamic.example.json",
+      "bytes": 2301,
+      "sha256": "a641c79a3bdc024c5e4694a1de346982ab11ce793e88720924ac007757aa9b7e"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/frame.schema.json",
+      "bytes": 14967,
+      "sha256": "770f6ca91585c5161a197a794290881fb99200d6ae6a0a53dd06c2d8f31899ee"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/input.example.json",
+      "bytes": 373,
+      "sha256": "8cf25600e954815fa8235b023b1441302cabbc508880cb9a137c65ad4917c8c3"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/openapi.json",
+      "bytes": 36491,
+      "sha256": "05cd3a314b4c6dff6088397bc3322bc9030317e98a92092bfbbd0aad18b07b3b"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/parameters.json",
+      "bytes": 20532,
+      "sha256": "b6df1bbaea5e0c951960d19b0dcfe8d8baa7312343fd7b025d40e4dd7aca9473"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/parameters.schema.json",
+      "bytes": 109866,
+      "sha256": "b532fcc5b3e22126fa9ee7becde1c6eac4134f4e9a2c4b0389fa1e00bc593d61"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/pause.example.json",
+      "bytes": 245,
+      "sha256": "46f74803eef2678594101cb3ed7ab68f742355da3a597a5641e381db12dc2233"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/presentation.example.json",
+      "bytes": 488,
+      "sha256": "f3893b314ccb5f55f622a75f64c30dac153fb134673b05c3a413694c951d4675"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/resume.example.json",
+      "bytes": 266,
+      "sha256": "9184ea6d760fd7620a1e50c0b0ab847c01ec831cec1f2306af8287d4e3572f53"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/snapshot.example.json",
+      "bytes": 2427,
+      "sha256": "893f66b5db60666f6618abe3702ee8db93f2adf039fadb4705d49ca33bb9eb3c"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/spawn.example.json",
+      "bytes": 804,
+      "sha256": "3df12fb0d63b12f043378d5b33d820d52f7af39aff8d2f043a58e25e4f526d81"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/state-update.example.json",
+      "bytes": 389,
+      "sha256": "95da110b1007168fb56e47dc7c3ce004a7564eab306ddffbdffc011f4f9a02c8"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/switch.example.json",
+      "bytes": 683,
+      "sha256": "1cbf1be91f19887b46191a518f35b36e6780b29898194aff5b21a6494bf3a520"
+    },
+    {
+      "path": "docs/game-demo/contracts/planned-v4/terminal-frame.example.json",
+      "bytes": 1977,
+      "sha256": "7008da3e42294a2467fc8f62b6816a72843f2b9b37bbd3980fe3782090caccad"
+    },
+    {
+      "path": "docs/game-demo/contracts/terminal-frame.example.json",
+      "bytes": 1850,
+      "sha256": "b45fa2bd56552ed31c51e3df734a26058a32c0c2c30d6816e80bed8450d185c4"
+    },
+    {
+      "path": "docs/game-demo/documentation-review-2-1.json",
+      "bytes": 4263,
+      "sha256": "8df2e273abc46bfee55a0f6568c57d8fad2c6b9d10a69da51b27423b2b5eed47"
+    },
+    {
+      "path": "docs/game-demo/lan-human-implementation.md",
+      "bytes": 5832,
+      "sha256": "690d5ad7a8f70ea77ef824c23a3204831fc4560bb2eb7d410f480759a51610f0"
+    },
+    {
+      "path": "docs/game-demo/lan-human-validation.json",
+      "bytes": 6291,
+      "sha256": "9b270b3746ec09446cf6ce9984a654f0d202aa6159eb8c8eb3fedc9e9247f2d7"
+    },
+    {
+      "path": "docs/game-demo/lan-security-review.md",
+      "bytes": 5053,
+      "sha256": "9cf4845af35b24133563b8d6f94154ade72f25e9ac5b83e6e9319173e0605c0b"
+    },
+    {
+      "path": "docs/game-demo/one-click-playtest-launcher.md",
+      "bytes": 7290,
+      "sha256": "3090d57f2cbf0779d55adf8fe46d49295d44189ec391fa8565f5cdd0905ddf8b"
+    },
+    {
+      "path": "docs/game-demo/p0-v3-implementation.md",
+      "bytes": 5655,
+      "sha256": "274fd8e951fcb76f78a7c5ff287f2c6672b0ec4cec8ab97d427cb9b950a71600"
+    },
+    {
+      "path": "docs/game-demo/p0-v3-validation.json",
+      "bytes": 7246,
+      "sha256": "8d98f1ba449ef45fc526b1ad570e645cb526ebc5f08672c13fad233c29ecaf04"
+    },
+    {
+      "path": "docs/game-demo/p1-graybox-implementation.md",
+      "bytes": 11303,
+      "sha256": "7616832653436f225dd39c0eab04a903cd702571625a4d054f2ae5efb4274206"
+    },
+    {
+      "path": "docs/game-demo/p1-v3-implementation.md",
+      "bytes": 6643,
+      "sha256": "59267f5cf98c8a33d509221deec221b1fb72c6e3c6be052f63ec73543db3d43e"
+    },
+    {
+      "path": "docs/game-demo/p1-v3-validation.json",
+      "bytes": 11214,
+      "sha256": "a87d1fa9ef495c040ae7b272a3fb429a445d8c15e80cafea323cbf7745373584"
+    },
+    {
+      "path": "docs/game-demo/p2-1-implementation.md",
+      "bytes": 8807,
+      "sha256": "c662f5738021e45d1f8dac4c7d96280298e9603314cfe5e09a5ad44aa58388fb"
+    },
+    {
+      "path": "docs/game-demo/p2-1-validation.json",
+      "bytes": 10609,
+      "sha256": "0710a2fe025cd6d96cece09b02eebe368b2f908dac3f4abe72b6f154180b26a0"
+    },
+    {
+      "path": "docs/game-demo/p2-completion-validation.json",
+      "bytes": 9353,
+      "sha256": "b64e3b10fb0f26fd4839130eac43f55fafda681f930f2cbbcc588e3d39c9be13"
+    },
+    {
+      "path": "docs/game-demo/p2-completion.md",
+      "bytes": 7122,
+      "sha256": "b751e56a16de13147567dad9376e3b80161a68db287369258ef2ef9e3bd0b94c"
+    },
+    {
+      "path": "docs/game-demo/p2-runtime-validation.json",
+      "bytes": 26580,
+      "sha256": "a1441f46d534baac099c3d37c933ee01571b68e056e433d1a2826618be17b51d"
+    },
+    {
+      "path": "docs/game-demo/p2-security-review.md",
+      "bytes": 3988,
+      "sha256": "7de504bca3fa68f87aeb6f86b3c79d5d3117c429818b248679c1a136a895edbf"
+    },
+    {
+      "path": "docs/game-demo/p3-implementation.md",
+      "bytes": 5460,
+      "sha256": "1f5d98ab037126eab97c8870b465401b89154fd0f04c3bd2c3ef079a97791300"
+    },
+    {
+      "path": "docs/game-demo/p3-project-audit.md",
+      "bytes": 3178,
+      "sha256": "fbba50dbe3053dd92fb68f1f02cd70a6a164551be9b069f0faaa40083563040a"
+    },
+    {
+      "path": "docs/game-demo/p3-security-review.md",
+      "bytes": 4272,
+      "sha256": "cb8788c26c4f7032ffd955fbc02256bd6ed044e8756bc2de7bf179ae40cd76cb"
+    },
+    {
+      "path": "docs/game-demo/p3-validation.json",
+      "bytes": 8694,
+      "sha256": "63a72943df3407ad5aaf4717aa14e9b4045772909e95970656c3081a0cc9119b"
+    },
+    {
+      "path": "docs/game-demo/p4-acceptance-checklist.md",
+      "bytes": 2416,
+      "sha256": "c421fbb754fc3f76ec36ef1464cb6a4a2e2236d917ba5e9eccb815d39aad14bb"
+    },
+    {
+      "path": "docs/game-demo/p4-contract.md",
+      "bytes": 5720,
+      "sha256": "17bc6175ae9393c14fe43b83550eb35eb41b7b404eda03ad4a12053f445a401f"
+    },
+    {
+      "path": "docs/game-demo/p4-implementation.md",
+      "bytes": 4883,
+      "sha256": "3411e19fca9899e0ac04ba286edd68faaba3cf30837f88ed39230720af98cc7f"
+    },
+    {
+      "path": "docs/game-demo/p4-project-audit.md",
+      "bytes": 4689,
+      "sha256": "c7da985ee729b9d19b264e671c50c22e1edadd1bc8e0d1429bf98f8168d26d9b"
+    },
+    {
+      "path": "docs/game-demo/p4-security-review.md",
+      "bytes": 6701,
+      "sha256": "6dff154f464cd2759f020462e800547de1960cfff8cab506895e417d1961629a"
+    },
+    {
+      "path": "docs/game-demo/p4-validation.json",
+      "bytes": 10210,
+      "sha256": "2805e84a8b4fa2235b484f84f7958a4fd8843abc7c62c67acfa71d76674757f2"
+    },
+    {
+      "path": "docs/game-demo/playtest-feedback-traceability.json",
+      "bytes": 32684,
+      "sha256": "e3cc35f65d00c4d47eb749c15e5b271d4bae31c963b586f20c4d3df6ec35bfe9"
+    },
+    {
+      "path": "docs/game-demo/project-audit-2026-10-11.md",
+      "bytes": 9785,
+      "sha256": "5207332847d6817aa055edd734466960cef6e60d97a36b59ce6131da4e4f75ca"
+    },
+    {
+      "path": "docs/game-demo/project-audit-2026-10-13.md",
+      "bytes": 8649,
+      "sha256": "5837b8bdaccee4053f084d3ec8d038d8b7e61722ddc409b51e2b890abb978df0"
+    },
+    {
+      "path": "docs/game-demo/projectile-validation.json",
+      "bytes": 4506,
+      "sha256": "6dc195d2f41d7e673ea2ec23828a819387788d6207cd0150f5dbb0f65285be4c"
+    },
+    {
+      "path": "docs/game-demo/prompts/rune-turret-v1.txt",
+      "bytes": 1354,
+      "sha256": "6dfa4af5d11ba42244bf91ca3372445630ca6cb740b7439b4775b99629931edc"
+    },
+    {
+      "path": "docs/game-demo/radmin-human-multiplayer-guide.md",
+      "bytes": 31371,
+      "sha256": "b91f39458def89bdfae03d38f8cdb5ac707223ecb0793ae875603e9a35b34358"
+    },
+    {
+      "path": "docs/game-demo/redesign-traceability.json",
+      "bytes": 761311,
+      "sha256": "87d8b1d7f141fa44118a9fee21bc46f87dab73b2d334b39bf8d86b0b9c286d0c"
+    },
+    {
+      "path": "docs/game-demo/room-camera-validation.json",
+      "bytes": 4998,
+      "sha256": "2246da6ef5fcc8bc4a3103aa11d0a2ba22a4abef87fb70292dfdca3f69044584"
+    },
+    {
+      "path": "docs/game-demo/s1-v4-implementation.md",
+      "bytes": 6362,
+      "sha256": "9d79f7ac3a458bcfc710c86c5242b28e6b72370a72446b2b452e31794bba13ad"
+    },
+    {
+      "path": "docs/game-demo/s1-v4-validation.json",
+      "bytes": 13308,
+      "sha256": "38557bacc70d054509f6c4c1790ef1a8663f20a2afde544a0270d57bb337bab3"
+    },
+    {
+      "path": "docs/game-demo/s2-v4-implementation.md",
+      "bytes": 5840,
+      "sha256": "50b0fb4e2d35bcc9212914488fe1f19bd0e6b2360c30f053a4486553eef96f18"
+    },
+    {
+      "path": "docs/game-demo/s2-v4-validation.json",
+      "bytes": 6928,
+      "sha256": "5229bebce7379b0a0aaeb5be6b2ffa22061093990c6579af29566ce22d24567c"
+    },
+    {
+      "path": "docs/game-demo/source-baseline.json",
+      "bytes": 128728,
+      "sha256": "a4380a14fe995c5b20c686c68ca2f2d8b6800974b6c292840b118a3af7505546"
+    },
+    {
+      "path": "docs/game-demo/technical-audit-2-1.json",
+      "bytes": 14060,
+      "sha256": "1d02a4c2160d2661d16d6a4222b78148228c011dc2b3c27bbaf8a2455aa3d680"
+    },
+    {
+      "path": "docs/game-demo/templates/lan-human-playtest-record.md",
+      "bytes": 1663,
+      "sha256": "bdb85c7bd28711c7a2ff5dfa9bff175a1570c5ca412f99c2dbeb4408ad150992"
+    },
+    {
+      "path": "docs/game-demo/templates/p1-human-playtest-record.md",
+      "bytes": 5064,
+      "sha256": "2447f5e0e2c2279a38db11d54318a8a27737e266cefbbac00544947e0ea51659"
+    },
+    {
+      "path": "docs/game-demo/templates/v3-human-playtest-record.md",
+      "bytes": 1108,
+      "sha256": "c5e11fbdc9ee6aa9080bdacb055d81a29760fd4699a80b0dc9666550b9853e9a"
+    },
+    {
+      "path": "docs/game-demo/templates/v4-human-playtest-record.md",
+      "bytes": 2592,
+      "sha256": "50a9c995ad778eb3343a346d3da8d258a08ac3b09ff64b90ae99556f89c04206"
+    },
+    {
+      "path": "docs/game-demo/validation.json",
+      "bytes": 36292,
+      "sha256": "ea40864ca7bf4866e680cf724ae659724ce89e0c783cd65b92b863df84a01cbf"
+    },
+    {
+      "path": "frontend/gm-admin/vite.config.ts",
+      "bytes": 678,
+      "sha256": "c44c55e2d47745f57b4a1a0b1d38c56091afc16be6dc03048ca6a9494d026ea7"
+    },
+    {
+      "path": "frontend/pve-demo/README.md",
+      "bytes": 1981,
+      "sha256": "744727a811f3afe8038a9fac13fa10a2aab12d66670c56e8539ceef83a0d1aa4"
+    },
+    {
+      "path": "frontend/pve-demo/vite.config.ts",
+      "bytes": 1153,
+      "sha256": "1885da3ca4a38db3f2e023a537b584ca989686e1efa1cc95e8e35d139e289c25"
+    },
+    {
+      "path": "start-demo.cmd",
+      "bytes": 266,
+      "sha256": "3656bd85a0ced5f0489d0c0a01319910d73c308a8477df243ceec1a641971dc2"
+    },
+    {
+      "path": "start-p1.cmd",
+      "bytes": 142,
+      "sha256": "6af8d06f3e69d41f73e1b76022e4dd950888e722a71f9de9d48dbb5971964e94"
+    },
+    {
+      "path": "start-p2-1.cmd",
+      "bytes": 150,
+      "sha256": "7f6ba9b26bcbdb9554ce6da500975e069c5d7e86562b199bef87642f956283c4"
+    },
+    {
+      "path": "start-p3.cmd",
+      "bytes": 132,
+      "sha256": "251d324bd872e4a16f60204a018bb2ea5e0092e5bf698c8585c144d4e46c6c9a"
+    },
+    {
+      "path": "start-p4-lan-host.cmd",
+      "bytes": 147,
+      "sha256": "15de20923a1907c2cab64f9c1d5212cdf52beb56bf63a81567c9191be7f2db7b"
+    },
+    {
+      "path": "start-p4-lan-player.cmd",
+      "bytes": 297,
+      "sha256": "37d3b26198f7d15b79fbe2368fe480074fde5187f1a69a0f938125c7b8d6754e"
+    },
+    {
+      "path": "start-p4.cmd",
+      "bytes": 132,
+      "sha256": "839f86b95672ca69428037cad5d1fa920658800fd6e6e32173e261c5d51b8a0e"
+    },
+    {
+      "path": "start-s1.cmd",
+      "bytes": 142,
+      "sha256": "46b1969aee7944b5066171b0f120c6d5b88e0f6b9ffb4182980953a0663c2867"
+    },
+    {
+      "path": "start-s2.cmd",
+      "bytes": 142,
+      "sha256": "6087e5ec7a013953cb1604b274b9ecf35de9424ffe07bf9e775cd0483c31b957"
+    },
+    {
+      "path": "stop-demo.cmd",
+      "bytes": 340,
+      "sha256": "3d33703a6f0c93f435d6405a3a93b4fd1272cc9e0cc437b5378108eb6262ae46"
+    }
+  ],
+  "formal_update_preimages": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 7892,
+      "sha256": "c5639f1a3f0563765ad42050c033e9095e1e6e7167900036c97ec21dd00725e4"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5427,
+      "sha256": "69b1fe4ce7592e267a6433b261bb9e3a5ed7d25827db801b4633369a59ee9086"
+    },
+    {
+      "path": "docs/game-demo/architecture.md",
+      "bytes": 12987,
+      "sha256": "154d68891a04829445c220ea110be1de31f523cde0bef7cb6940f0968bae3036"
+    },
+    {
+      "path": "docs/game-demo/baseline-and-validation.md",
+      "bytes": 25473,
+      "sha256": "18b213f574224dff311fdec10920d3b7fd0a9cfcd45e79470d727d3a9611b0ee"
+    },
+    {
+      "path": "docs/game-demo/client-assets.md",
+      "bytes": 13386,
+      "sha256": "73edae072f5c47e545aa0de8cb7ad123436b4cdd0670128fada0f721e0feca11"
+    },
+    {
+      "path": "docs/game-demo/content-config.md",
+      "bytes": 21241,
+      "sha256": "77ac1f599d2cf5cba0167efd69a9bf17ea246be228626630de3a66f273e37135"
+    },
+    {
+      "path": "docs/game-demo/data-design.md",
+      "bytes": 13928,
+      "sha256": "05fad5a87fa29a5049705d8d9fc709837e4c1088fe09ce2c948c5f297d9dc796"
+    },
+    {
+      "path": "docs/game-demo/decisions.md",
+      "bytes": 19897,
+      "sha256": "f167d4c2705f99b7b6e8f4dda5799f6015e887750d486327c21b48c3b0ca5283"
+    },
+    {
+      "path": "docs/game-demo/environment-setup.md",
+      "bytes": 13751,
+      "sha256": "85ff5824caa4746aa03c991aa49f544a5eb8dd6ad421e71be6b43d0949ef41fc"
+    },
+    {
+      "path": "docs/game-demo/gdd.md",
+      "bytes": 15939,
+      "sha256": "d1ad1c1f3e29d134933e4b6c05beef53fe395b825231ec2205558d1aef7c508a"
+    },
+    {
+      "path": "docs/game-demo/image-generation-spec.md",
+      "bytes": 9011,
+      "sha256": "6b7dd73cba1e19b3cd31c94636f7c08fe498200af5440cf4bd76e2c33121bd29"
+    },
+    {
+      "path": "docs/game-demo/implementation-status.md",
+      "bytes": 7088,
+      "sha256": "fc92d1ed76a335e32cbbeae7b5b47d6347139b9c57e0917802816900643b9dc9"
+    },
+    {
+      "path": "docs/game-demo/index.md",
+      "bytes": 7467,
+      "sha256": "7e4de8c030c9d992e9b046a54fc7c12c9caa2646f6b81daa54c489f7f1e69860"
+    },
+    {
+      "path": "docs/game-demo/p1-human-playtest-and-pacing-guide.md",
+      "bytes": 8337,
+      "sha256": "0ea2b5756415e5b2b4bb4a35b52523f492ff66ed1ad5cf6ec5ee1c9d6671c939"
+    },
+    {
+      "path": "docs/game-demo/projectile-amendment.md",
+      "bytes": 15644,
+      "sha256": "7a65dd901ffc7858bb1f5a6335d2f5e8c2dcd0602632b1c5c99ff1c6a0996459"
+    },
+    {
+      "path": "docs/game-demo/protocols.md",
+      "bytes": 25263,
+      "sha256": "c8f6b18c424c2ecfda2a98407ee9acc8f9e2b64f08a59b778a0483c00223724b"
+    },
+    {
+      "path": "docs/game-demo/redesign-coverage.md",
+      "bytes": 20679,
+      "sha256": "ed89378bfdab907fab7f0150d56a15cbded07968df71bd094e8e7799b9e623ad"
+    },
+    {
+      "path": "docs/game-demo/room-camera-amendment.md",
+      "bytes": 15336,
+      "sha256": "08ab7ec419c9c16f3731379395ae85b5a26f08e14fc5be441168752299bc298f"
+    },
+    {
+      "path": "docs/game-demo/security-design.md",
+      "bytes": 12656,
+      "sha256": "337c0b226502d3645e0e71aa4a6239c324769d10ffac3fa22ebb06f5880a1a83"
+    },
+    {
+      "path": "docs/game-demo/synchronization-v4.md",
+      "bytes": 9503,
+      "sha256": "5058c1eac277832959b50d8205bebd118b3aecfe718682dbf28645d600ea8506"
+    },
+    {
+      "path": "docs/game-demo/test-and-runbook.md",
+      "bytes": 30903,
+      "sha256": "4ffbf454254d5ba219c65ebe337b16cf7054dab2dbacf4b56ee8b12caf1489e7"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "scope": "documentation_fixture_not_live_run",
+  "seed": 20261012,
+  "candidates": [
+    "swift",
+    "ward",
+    "ranger_fan"
+  ],
+  "action": {
+    "protocol_version": 4,
+    "message": "dc.s2.action.v4",
+    "run_id": "run_p4_documentation",
+    "source_generation": 1,
+    "connection_generation": 1,
+    "operation_id": "11111111-1111-4111-8111-111111111111",
+    "action_id": "11111111-1111-4111-8111-111111111111",
+    "input_sequence": 60,
+    "action_sequence": 3,
+    "weapon_id": "repeating_crossbow",
+    "weapon_revision": 1,
+    "requested_weapon_id": null,
+    "action": "growth_choice",
+    "press_action_id": null,
+    "aim_u16": 0,
+    "move_x": 0,
+    "move_y": 0,
+    "choice_node": 0,
+    "choice_revision": 1,
+    "choice_hash": "2dc7223035962a95c8cb8e88c08ad10624bdf29a836db674261fc9a99b793634",
+    "choice_option": "swift"
+  },
+  "recovery": {
+    "choice_node": 0,
+    "choice_revision": 1,
+    "choice_hash": "2dc7223035962a95c8cb8e88c08ad10624bdf29a836db674261fc9a99b793634",
+    "opened_game_ms": 30000,
+    "deadline_game_ms": 90000,
+    "current_game_ms": 45000,
+    "remaining_ms": 45000,
+    "upgrades": [],
+    "current_weapon": "repeating_crossbow",
+    "magazine": 3
+  },
+  "pause": {
+    "state": "paused",
+    "game_elapsed_ms": 45000,
+    "wall_elapsed_ms": 50000,
+    "choice_deadline_game_ms": 90000,
+    "choice_remaining_ms": 45000
+  }
+}

@@ -1,0 +1,1078 @@
+{
+  "$schema": "./parameters.schema.json",
+  "specification_version": "2.2",
+  "status": "planned_not_loaded",
+  "balance_status": "unverified_initial",
+  "published": false,
+  "versions": {
+    "operation": "dc_ruins.v5",
+    "content": "dc_content.v5.draft1",
+    "world": "dc_rooms.v5.draft1",
+    "tasks": "dc_tasks.v5.draft1",
+    "trial": "trial.v5.draft1",
+    "battle_protocol": 5,
+    "control_schema": 2
+  },
+  "clocks": {
+    "simulation_hz": 30,
+    "network_hz": 30,
+    "render_target_fps": 60,
+    "target_duration_min_ms": 900000,
+    "target_duration_max_ms": 1200000,
+    "active_limit_ms": 1800000,
+    "wall_limit_ms": 3600000,
+    "choice_timeout_game_ms": 60000,
+    "normal_warning_ms": 2000,
+    "boss_warning_ms": 3000,
+    "reconnect_grace_wall_ms": 30000,
+    "technical_wait_after_wall_ms": 250,
+    "technical_abort_after_wall_ms": 10000
+  },
+  "player": {
+    "max_health": 100,
+    "move_milli_tiles_per_second": 5000,
+    "collision_radius_milli_tiles": 300,
+    "dodge_distance_milli_tiles": 2000,
+    "dodge_duration_ms": 250,
+    "dodge_invulnerable_ms": 150,
+    "dodge_cooldown_ms": 3000,
+    "dodge_min_cooldown_ms": 1800,
+    "interaction_ms": 4000,
+    "interaction_range_milli_tiles": 1500,
+    "defense_window_ms": 5000,
+    "defense_range_milli_tiles": 5000,
+    "input_buffer_ms": 100,
+    "downed_duration_ms": 20000,
+    "rescue_ms": 3000,
+    "rescue_range_milli_tiles": 1500,
+    "rescue_health": 30,
+    "rescue_protection_ms": 1000,
+    "reinforcement_budget": 3,
+    "reinforcement_delay_ms": 3000,
+    "reinforcement_health": 100,
+    "reinforcement_protection_ms": 1000,
+    "supply_health": 30,
+    "branch_shield": 15,
+    "branch_shield_duration_game_ms": 30000,
+    "hurt_invulnerable_ms": 200,
+    "hit_stun_ms": 0,
+    "hurt_knockback_milli_tiles": 0,
+    "normal_enemy_body_blocks": false
+  },
+  "loadouts": [
+    {
+      "id": "ranger",
+      "ranged": {
+        "weapon": "repeating_crossbow",
+        "damage": 12,
+        "interval_ms": 180,
+        "projectile_speed_milli_tiles_per_second": 20000,
+        "magazine_size": 8,
+        "reload_ms": 900,
+        "projectile_radius_milli_tiles": 100,
+        "initial_extra_targets": 1,
+        "travel_mode": "unbounded_in_source_room"
+      },
+      "melee": {
+        "weapon": "ruin_blade",
+        "damage": 12,
+        "range_milli_tiles": 1200,
+        "arc_deg": 180,
+        "windup_ticks": 2,
+        "active_ticks": 3,
+        "recovery_ticks": 4,
+        "charge_supported": false,
+        "move_milli_factor": 1000
+      },
+      "primary": {
+        "id": "gust_volley",
+        "cooldown_ms": 4000,
+        "angles_deg": [
+          -15,
+          0,
+          15
+        ],
+        "consumes_magazine": false,
+        "dash_distance_milli_tiles": 1000,
+        "dash_duration_ms": 150,
+        "dash_invulnerable_ms": 80,
+        "dash_direction_priority": [
+          "movement",
+          "last_movement",
+          "aim"
+        ],
+        "during_existing_dash": "fire_without_added_dash",
+        "uses_space_cooldown": false,
+        "source_weapon": "repeating_crossbow",
+        "base_damage_milli_factor": 2000,
+        "projectile_radius_milli_tiles": 100,
+        "projectile_speed_milli_tiles_per_second": 20000,
+        "fan_composition": "cartesian_3_by_3",
+        "maximum_projectiles_per_cast": 9,
+        "target_hit_policy": "per_projectile_target_life",
+        "snapshot_scope": "whole_cast",
+        "copies_magazine": false,
+        "copies_reload": false,
+        "copies_base_fire_interval": false,
+        "travel_mode": "unbounded_in_source_room"
+      },
+      "secondary": {
+        "id": "wind_bind",
+        "cooldown_ms": 10000,
+        "anchor": "owner_follow",
+        "radius_milli_tiles": 2500,
+        "duration_ms": 2000,
+        "push_speed_milli_tiles_per_second": 18000,
+        "edge_margin_milli_tiles": 50,
+        "interrupt_normal_attacks": true,
+        "interrupt_normal_charge": true,
+        "block_normal_attack_inside": true,
+        "elite_boss_push_immune": true,
+        "remove_hostile_projectiles": true,
+        "remove_friendly_projectiles": false,
+        "remove_ground_damage": false,
+        "push_crosses_terrain": false
+      }
+    },
+    {
+      "id": "runesmith",
+      "ranged": {
+        "weapon": "rune_bolt",
+        "damage": 16,
+        "interval_ms": 360,
+        "projectile_speed_milli_tiles_per_second": 10000,
+        "magazine_size": 0,
+        "reload_ms": 0,
+        "projectile_radius_milli_tiles": 180,
+        "bounce_count": 1,
+        "bounce_damage_milli_factor": 1000,
+        "bounce_surfaces": [
+          "wall",
+          "pillar",
+          "destructible_cover",
+          "open_door_boundary",
+          "locked_door_boundary"
+        ],
+        "enemy_hit_ends": true,
+        "travel_mode": "unbounded_in_source_room"
+      },
+      "melee": {
+        "weapon": "rune_hammer",
+        "damage": 24,
+        "range_milli_tiles": 1800,
+        "arc_deg": 180,
+        "windup_ticks": 6,
+        "active_ticks": 3,
+        "recovery_ticks": 12,
+        "charge_supported": true,
+        "move_milli_factor": 800,
+        "charge": {
+          "minimum_ms": 250,
+          "full_ms": 900,
+          "move_milli_factor": 700,
+          "below_minimum": "cancel_without_attack",
+          "minimum_wave_damage": 32,
+          "full_wave_damage": 64,
+          "direct_total_damage_milli_factor": 2000,
+          "landing_distance_milli_tiles": 1500,
+          "direct_contact_radius_milli_tiles": 500,
+          "wave_radius_milli_tiles": 2300,
+          "release_windup_ticks": 6,
+          "recovery_ticks": 21,
+          "damage_timing": "single_authority_impact_frame",
+          "occlusion": "frame_start_wall_pillar_intact_cover",
+          "shape": "circle_at_forward_landing",
+          "maximum_hold": "until_release_or_lifecycle_cancel",
+          "damage_resolution": "floor_wave_with_all_modifiers_then_exact_double_direct"
+        }
+      },
+      "primary": {
+        "id": "rune_turret",
+        "cooldown_ms": 12000,
+        "lifetime_ms": 8000,
+        "damage": 14,
+        "interval_ms": 600,
+        "max_count": 1,
+        "twin_damage": 9,
+        "twin_offset_milli_tiles": 400,
+        "anchor": "cast_owner_position",
+        "placement_search_step_milli_tiles": 100,
+        "placement_search_max_milli_tiles": 600,
+        "placement_search_max_candidates": 32,
+        "blocks_players": false,
+        "blocks_enemies": false,
+        "target_range_milli_tiles": 12000,
+        "source_weapon": "rune_bolt",
+        "damage_source": "independent_turret_base_then_allowed_owner_modifiers",
+        "projectile_speed_milli_tiles_per_second": 10000,
+        "projectile_radius_milli_tiles": 180,
+        "bounce_count": 1,
+        "copy_weapon_chain": true,
+        "snapshot_scope": "each_actual_shot",
+        "owner_downed_dead_room_change": "continue_remaining_lifetime",
+        "travel_mode": "unbounded_in_source_room"
+      },
+      "secondary": {
+        "id": "shield_field",
+        "cooldown_ms": 16000,
+        "radius_milli_tiles": 2500,
+        "field_duration_ms": 4000,
+        "shield": 20,
+        "shield_duration_ms": 3000,
+        "grants_per_member_per_cast": 1,
+        "anchor": "owner_follow"
+      }
+    }
+  ],
+  "enemies": [
+    {
+      "id": "guard",
+      "max_health": 80,
+      "move_milli_tiles_per_second": 2500,
+      "damage": 14,
+      "attack_interval_ms": 1200,
+      "telegraph_ms": 500,
+      "attack_range_milli_tiles": 1200,
+      "recovery_ms": 500
+    },
+    {
+      "id": "archer",
+      "max_health": 60,
+      "move_milli_tiles_per_second": 2000,
+      "damage": 12,
+      "attack_interval_ms": 1800,
+      "telegraph_ms": 700,
+      "projectile_speed_milli_tiles_per_second": 6000,
+      "recovery_ms": 500,
+      "attack_start_range_milli_tiles": 8000,
+      "ideal_range_milli_tiles": 5000,
+      "patterns": [
+        "fan_three",
+        "burst_three"
+      ],
+      "fan_angles_deg": [
+        -12,
+        0,
+        12
+      ],
+      "burst_shots": 3,
+      "burst_interval_ms": 180,
+      "burst_tracks_after_commit": false
+    },
+    {
+      "id": "charger",
+      "max_health": 110,
+      "move_milli_tiles_per_second": 2000,
+      "damage": 22,
+      "attack_interval_ms": 3500,
+      "telegraph_ms": 800,
+      "charge_speed_milli_tiles_per_second": 6000,
+      "charge_duration_ms": 600,
+      "recovery_ms": 1000
+    },
+    {
+      "id": "elite",
+      "max_health": 280,
+      "move_milli_tiles_per_second": 2400,
+      "damage": 26,
+      "attack_interval_ms": 1600,
+      "telegraph_ms": 750,
+      "attack_range_milli_tiles": 1500,
+      "phase_pattern": [
+        "melee",
+        "charge"
+      ],
+      "contract_kill_eligible": true,
+      "recovery_ms": 500,
+      "charge": {
+        "telegraph_ms": 900,
+        "speed_milli_tiles_per_second": 6000,
+        "duration_ms": 600,
+        "recovery_ms": 1000
+      }
+    },
+    {
+      "id": "boss",
+      "max_health": 1400,
+      "phase_2_threshold_percent": 50,
+      "recovery_ms": 500,
+      "attack_start_range_milli_tiles": 12000,
+      "barrage_telegraph_ms": 800,
+      "phases": [
+        {
+          "id": 1,
+          "move_milli_tiles_per_second": 4000,
+          "dash_speed_milli_tiles_per_second": 10000,
+          "barrage_duration_ms": 4000,
+          "barrage_interval_ms": 500,
+          "barrage_projectiles_per_pulse": 12,
+          "projectile_speed_milli_tiles_per_second": 4500,
+          "projectile_damage": 18,
+          "dashes_per_barrage": 1
+        },
+        {
+          "id": 2,
+          "move_milli_tiles_per_second": 4500,
+          "dash_speed_milli_tiles_per_second": 12000,
+          "barrage_duration_ms": 6000,
+          "barrage_interval_ms": 400,
+          "barrage_projectiles_per_pulse": 16,
+          "projectile_speed_milli_tiles_per_second": 5000,
+          "projectile_damage": 18,
+          "dashes_per_barrage": 2
+        }
+      ],
+      "barrage": {
+        "gap_deg": 60,
+        "rotation_deg_per_pulse": 15,
+        "first_pulse_at_ms": 0,
+        "end_exclusive": true,
+        "gap_retargets_player": false,
+        "origin": "current_authority_boss_position",
+        "overlap": "one_mobility_action_plus_one_emitter",
+        "reserve": "whole_committed_barrage_before_start"
+      },
+      "dash": {
+        "telegraph_ms": 800,
+        "duration_ms": 600,
+        "recovery_ms": 1000,
+        "lock_final_ms": 200,
+        "stops_at_wall": true,
+        "damage": 26
+      },
+      "melee": {
+        "damage": 30,
+        "range_milli_tiles": 3000,
+        "arc_deg": 180,
+        "telegraph_ms": 1000,
+        "active_ticks": 3,
+        "recovery_ms": 500
+      },
+      "summon": {
+        "batch_size": 6,
+        "composition": {
+          "archer": 2,
+          "guard": 2,
+          "charger": 1,
+          "elite": 1
+        },
+        "total_limit": null,
+        "max_alive_and_reserved": 12,
+        "room_cap_including_boss": 13,
+        "first_request_game_ms": 10000,
+        "minimum_actual_spawn_interval_game_ms": 20000,
+        "max_pending_batches": 1,
+        "cast_window_ms": 1000,
+        "spawn_warning_ms": 800,
+        "atomic_batch": true,
+        "contract_positive_progress": false,
+        "extra_rewards": false,
+        "keep_true_run_contribution": true
+      }
+    }
+  ],
+  "scaling": [
+    {
+      "players": 1,
+      "count_milli": 1000,
+      "health_milli": 1000,
+      "room_alive_cap": 8
+    },
+    {
+      "players": 2,
+      "count_milli": 1400,
+      "health_milli": 1250,
+      "room_alive_cap": 12
+    },
+    {
+      "players": 3,
+      "count_milli": 1800,
+      "health_milli": 1500,
+      "room_alive_cap": 16
+    },
+    {
+      "players": 4,
+      "count_milli": 2200,
+      "health_milli": 1750,
+      "room_alive_cap": 20
+    }
+  ],
+  "rooms": [
+    {
+      "id": "entry",
+      "variants": [
+        "entry_a"
+      ],
+      "waves": [],
+      "covers": 0,
+      "traps": 0,
+      "node": null
+    },
+    {
+      "id": "foyer",
+      "variants": [
+        "foyer_a",
+        "foyer_b"
+      ],
+      "waves": [
+        10,
+        10,
+        10
+      ],
+      "covers": 2,
+      "traps": 0,
+      "node": "growth_1"
+    },
+    {
+      "id": "mechanism",
+      "variants": [
+        "mechanism_a",
+        "mechanism_b"
+      ],
+      "waves": [
+        12,
+        12,
+        12
+      ],
+      "covers": 2,
+      "traps": 2,
+      "node": null,
+      "objective": "hub_a"
+    },
+    {
+      "id": "defense",
+      "variants": [
+        "defense_a",
+        "defense_b"
+      ],
+      "waves": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "covers": 3,
+      "traps": 2,
+      "node": "growth_2",
+      "objective": "hub_b"
+    },
+    {
+      "id": "sanctum",
+      "variants": [
+        "sanctum_a",
+        "sanctum_b"
+      ],
+      "waves": [
+        10,
+        10
+      ],
+      "elite_count": 1,
+      "covers": 2,
+      "traps": 0,
+      "node": "growth_3"
+    },
+    {
+      "id": "boss_room",
+      "variants": [
+        "boss_a"
+      ],
+      "waves": [],
+      "boss_count": 1,
+      "covers": 0,
+      "traps": 0,
+      "node": null
+    },
+    {
+      "id": "rune_branch",
+      "variants": [
+        "rune_branch_a"
+      ],
+      "waves": [
+        6
+      ],
+      "covers": 1,
+      "traps": 0,
+      "node": null,
+      "existence_milli_probability": 500,
+      "reward": "pending_shield"
+    },
+    {
+      "id": "supply_branch",
+      "variants": [
+        "supply_branch_a"
+      ],
+      "waves": [
+        6
+      ],
+      "covers": 1,
+      "traps": 0,
+      "node": null,
+      "existence_milli_probability": 500,
+      "reward": "individual_supply"
+    }
+  ],
+  "terrain": {
+    "tile_pixels": 16,
+    "pixels_per_unit": 16,
+    "reference_width": 384,
+    "reference_height": 216,
+    "max_room_width_tiles": 34,
+    "max_room_height_tiles": 20,
+    "camera_transition_ms": 200,
+    "cover_health": 30,
+    "cover_radius_milli_tiles": 450,
+    "trap_warning_ms": 600,
+    "trap_active_ms": 200,
+    "trap_cooldown_ms": 2000,
+    "trap_player_damage": 12,
+    "trap_normal_enemy_damage": 25,
+    "spawn_player_distance_milli_tiles": 2000,
+    "spawn_retry_ms": 250,
+    "stuck_ms": 5000,
+    "recovery_attempts": 2,
+    "knockback_milli_tiles": 250,
+    "knockback_repeat_ms": 500,
+    "hit_presentation_hold_ms": 35,
+    "spawn_warning_ms": 800,
+    "spawn_normal_entry_ms": 500,
+    "spawn_elite_boss_entry_ms": 800
+  },
+  "growth": [
+    {
+      "id": "swift",
+      "scope": "common",
+      "name": "迅捷闪避",
+      "max_stacks": 1,
+      "dodge_cooldown_delta_ms": -600
+    },
+    {
+      "id": "frost",
+      "scope": "common",
+      "name": "冰霜附着",
+      "max_stacks": 1,
+      "slow_milli_factor": 800,
+      "duration_ms": 2000,
+      "boss_slow_milli_factor": 950
+    },
+    {
+      "id": "ward",
+      "scope": "common",
+      "name": "符文护盾",
+      "max_stacks": 1,
+      "shield": 15,
+      "duration_ms": 3000
+    },
+    {
+      "id": "vitality",
+      "scope": "common",
+      "name": "坚韧符印",
+      "max_stacks": 1,
+      "max_health_delta": 20,
+      "heal_on_install": 20
+    },
+    {
+      "id": "ranger_pierce",
+      "scope": "ranger",
+      "name": "穿透模块",
+      "max_stacks": 1,
+      "ranged_extra_targets": 1,
+      "melee_range_delta_milli_tiles": 350
+    },
+    {
+      "id": "ranger_fan",
+      "scope": "ranger",
+      "name": "扇形模块",
+      "max_stacks": 1,
+      "ranged_angles_deg": [
+        -12,
+        0,
+        12
+      ],
+      "ranged_damage_milli_factor": 650,
+      "melee_arc_delta_deg": 30,
+      "melee_damage_milli_factor": 800
+    },
+    {
+      "id": "ranger_tension",
+      "scope": "ranger",
+      "name": "疾速机括",
+      "max_stacks": 1,
+      "magazine_delta": 2,
+      "reload_delta_ms": -200,
+      "melee_cycle_milli_factor": 850
+    },
+    {
+      "id": "runesmith_chain",
+      "scope": "runesmith",
+      "name": "连锁模块",
+      "max_stacks": 1,
+      "extra_targets": 1,
+      "chain_damage_milli_factor": 700,
+      "chain_range_milli_tiles": 3000
+    },
+    {
+      "id": "runesmith_twin",
+      "scope": "runesmith",
+      "name": "双重线圈",
+      "max_stacks": 1,
+      "turret_count": 2,
+      "turret_damage": 9,
+      "melee_interval_milli_factor": 900
+    },
+    {
+      "id": "runesmith_heavy",
+      "scope": "runesmith",
+      "name": "重型模块",
+      "max_stacks": 1,
+      "turret_damage_milli_factor": 1500,
+      "slam_wave_radius_delta_milli_tiles": 350
+    }
+  ],
+  "tasks": [
+    {
+      "id": "dc_hunter",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 30,
+      "next": "dc_precision",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "kills",
+          "kind": "kill",
+          "scope": "team",
+          "required": 64,
+          "persistent": true,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "协作猎手"
+    },
+    {
+      "id": "dc_precision",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 50,
+      "next": "",
+      "locked": true,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 100,
+          "persistent": true,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "有效出手"
+    },
+    {
+      "id": "dc_scout",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 25,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "self",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone"
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "遗迹勘察"
+    },
+    {
+      "id": "dc_technician",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "eligible",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "机关维护"
+    },
+    {
+      "id": "dc_inspector",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        },
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone",
+          "depends_on": [
+            "install"
+          ]
+        }
+      ],
+      "no_knockdowns": false,
+      "display_name": "枢纽巡检"
+    },
+    {
+      "id": "dc_survivor",
+      "version": "dc_tasks.v5.draft1",
+      "reward": 45,
+      "next": "",
+      "locked": false,
+      "requires_success": true,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 12,
+          "persistent": false,
+          "target": "eligible_enemy",
+          "excluded_spawn_origins": [
+            "boss_summon",
+            "practice"
+          ]
+        }
+      ],
+      "no_knockdowns": true,
+      "display_name": "稳健作战"
+    }
+  ],
+  "rewards": {
+    "success_base": 100,
+    "failed_base": 20,
+    "aborted_base": 0,
+    "practice_base": 0
+  },
+  "network": {
+    "dynamic_packet_max_bytes": 900,
+    "baseline_max_bytes": 262144,
+    "max_dynamic_groups": 64,
+    "input_timeout_wall_ms": 250,
+    "input_history_samples": 512,
+    "max_actions_per_second": 20,
+    "max_input_packets_per_second": 60,
+    "max_pending_frames": 256,
+    "max_pending_bytes": 8388608,
+    "max_key_frames": 4096,
+    "max_facts": 10000,
+    "max_frame_facts": 128,
+    "max_frame_bytes": 65536,
+    "event_retention_game_ms": 250,
+    "presentation_event_cache": 512,
+    "heartbeat_wall_ms": 2000,
+    "lease_wall_ms": 6000,
+    "internal_request_timeout_wall_ms": 2000,
+    "reorder_window": 128,
+    "max_pending_dependent_actions": 32,
+    "switch_dependency_wall_ms": 1000,
+    "dynamic_delivery": "unreliable_application_group_order",
+    "baseline_chunk_payload_max_bytes": 768,
+    "baseline_max_chunks": 512,
+    "baseline_transfer_timeout_wall_ms": 5000,
+    "max_pending_baselines_per_connection": 1,
+    "max_pending_dynamic_messages": 32,
+    "pending_dynamic_max_wall_ms": 100,
+    "terminal_confirm_grace_wall_ms": 15000,
+    "dynamic_projectiles_per_group": 24,
+    "dynamic_binary_record_max_bytes": 32,
+    "dynamic_full_sweep_application_bytes_per_second_candidate": 1800000,
+    "dynamic_dictionary_miss_messages": 32
+  },
+  "budgets": {
+    "global_alive_enemies": 24,
+    "projectiles": 1024,
+    "turrets": 8,
+    "shield_fields": 4,
+    "wind_fields": 4,
+    "damage_numbers": 16,
+    "presentation_effects": 64,
+    "combat_audio_voices": 16,
+    "markers_per_player": 3,
+    "marker_interval_ms": 2000,
+    "simulation_catchup_steps": 4,
+    "projection_page_max": 50,
+    "projectile_capacity_status": "unmeasured_candidate_including_live_and_reserved",
+    "committed_enemy_emitters": 24,
+    "summon_pending_batches": 1,
+    "stat_snapshots": 256
+  },
+  "input": {
+    "default_weapon": "ranged",
+    "weapon_slots": 2,
+    "attack": "mouse_left",
+    "switch_keyboard": "q",
+    "switch_scroll": true,
+    "dodge": "space",
+    "primary": "e",
+    "secondary": "f",
+    "reload": "r",
+    "interact_rescue": "j",
+    "menu": "escape",
+    "right_mouse_combat": true,
+    "switch_requires_release": true,
+    "switch_cooldown_ms": 150,
+    "switch_cancels": [
+      "charge",
+      "reload",
+      "interact",
+      "rescue",
+      "buffered_weapon_attack"
+    ],
+    "skills_independent_of_weapon": true,
+    "ability_buffer_ms": 100,
+    "charge_binding": "MouseRight",
+    "charge_supported_weapons": [
+      "rune_hammer"
+    ],
+    "right_button_priority": "finish_active_and_recovery_then_charge_cancel_uncommitted_windup",
+    "resume_left_after_charge": true,
+    "switched_weapon_requires_new_left_press": true,
+    "recovery_scope": "origin_weapon_only",
+    "dodge_cancels_pending_released_melee": true,
+    "dodge_during_held_charge": "continue_charge",
+    "active_skills_during_weapon_actions": true,
+    "charge_transition_from_uncommitted_windup": "replace_uncommitted_cycle_reservation_only"
+  },
+  "ai": {
+    "attack_warning": "exclamation_and_pose_only",
+    "attack_ground_geometry": false,
+    "attack_commit_ms": 200,
+    "probe_move_milli_factor": 450,
+    "probe_lateral_distance_milli_tiles": 600,
+    "probe_direction_hold_ms": 400,
+    "sense_interval_ms": 100,
+    "path_replan_interval_ms": 200,
+    "target_hysteresis_milli_tiles": 1500,
+    "target_min_hold_ms": 500,
+    "normal_spacing_milli_tiles": 1200,
+    "group_min_spacing_milli_tiles": 900,
+    "group_probability_milli": 100,
+    "group_min_members": 2,
+    "group_max_members": 3,
+    "group_duration_ms": 3000,
+    "group_decision": "seeded_once_per_wave",
+    "contact_damage": false,
+    "avoid_entity_overlap": true,
+    "maintain_player_passage": true
+  },
+  "pause": {
+    "normal_initial_single_only": true,
+    "practice_local": true,
+    "trial_allowed": false,
+    "multiplayer_allowed": false,
+    "focus_loss_requests_pause": true,
+    "focus_gain_resumes": false,
+    "resume_requires_explicit_action": true,
+    "resume_clears_held_input": true,
+    "freeze_scene_audio": true,
+    "freeze_presentation": true,
+    "keep_wall_clock": true,
+    "keep_heartbeat_auth_and_exit": true
+  },
+  "performance": {
+    "frame_median_max_microseconds": 16700,
+    "frame_p95_max_microseconds": 20000,
+    "frame_p99_max_microseconds": 33300,
+    "client_render_hz": 60,
+    "authority_tick_hz": 30,
+    "network_update_hz": 30,
+    "interpolation_delay_ms": 67,
+    "max_extrapolation_ms": 100,
+    "input_hard_correction_milli_tiles": 1500,
+    "soft_correction_ms": 80,
+    "warmup_ms": 30000,
+    "sample_window_ms": 120000,
+    "sample_repeats": 3,
+    "profile_cpu_gpu_gc_and_network": true,
+    "measurement_status": "not_run",
+    "normal_runtime_snapshot_file_writes": false
+  },
+  "projectile_rules": {
+    "range_and_lifetime_reset_on_bounce": false,
+    "corner_bounce_policy": "one_manifold_one_bounce_then_stop_if_blocked",
+    "reflection_surface_offset_milli_tiles": 10,
+    "max_collision_steps_per_tick": 8,
+    "chain_retriggers_bounce": false,
+    "bounce_retargets_enemies": false,
+    "melee_and_cover_use_frame_start_geometry": true,
+    "hit_deduplication": "damage_instance_target_life",
+    "contract_action_deduplication": "root_attack_player",
+    "normal_distance_limit_milli_tiles": null,
+    "normal_lifetime_game_ms": null,
+    "melee_clear_scope": "weapon_active_swept_geometry_only",
+    "slam_wave_clears": false,
+    "tie_policy": "earliest_time_of_contact_then_equal_time_melee_clear_before_player_hit",
+    "projectile_cleared_counts_as_protection_only_with_actual_threat_proof": true
+  },
+  "provenance": {
+    "sources": [
+      {
+        "path": "docs/game-demo/config/parameters-v4-p2-1.json",
+        "sha256": "11f5b2689c70f19229f64d7131af0e92f77e0eb1c4d3dc92b673d11a9989f958"
+      },
+      {
+        "path": "docs/game-demo/config/demo-v4-p4.json",
+        "sha256": "06661e760b7e8ddcefbccd7516e677bef7d8ea069322f7f8afaadeb88d44957f"
+      },
+      {
+        "path": "docs/game-demo/config/world-v4-p4.json",
+        "sha256": "80f6d609f8cee229313b777a58330fe79f999bdff7bbdfe2bc76ba5e7ec5cd18"
+      }
+    ],
+    "materialization": "independent_planned_document_not_runtime_merge",
+    "answers": "Q22-01..Q22-37"
+  },
+  "camera": {
+    "kind": "orthographic_character_follow",
+    "visible_width_milli_tiles": 24000,
+    "visible_height_milli_tiles": 13500,
+    "dead_zone_half_width_milli_tiles": 400,
+    "dead_zone_half_height_milli_tiles": 250,
+    "smoothing_ms": 80,
+    "max_lag_milli_tiles": 1500,
+    "room_transition_ms": 200,
+    "mouse_pan": false,
+    "small_room_policy": "center_axis_without_zoom",
+    "room_boundary": "clamp"
+  },
+  "window": {
+    "default_width": 1536,
+    "default_height": 864,
+    "minimum_width": 1280,
+    "minimum_height": 720,
+    "integer_world_scaling": true,
+    "allow_letterbox": true,
+    "work_area_fallback": true,
+    "ui_reference_width": 512,
+    "ui_reference_height": 288,
+    "hud_outside_battle_view_required": false
+  },
+  "encounters": {
+    "main_ordinary_base_total": 142,
+    "main_fixed_elites": 1,
+    "main_bosses": 1,
+    "ordinary_wave_rule": "archer=ceil(N/3); melee=N-archer; charger=ceil(melee*seeded_fraction); guard=melee-charger",
+    "seeded_charger_fractions": [
+      {
+        "numerator": 1,
+        "denominator": 6
+      },
+      {
+        "numerator": 1,
+        "denominator": 3
+      }
+    ],
+    "sanctum_charger_fraction": {
+      "numerator": 1,
+      "denominator": 3
+    },
+    "branch_charger_fraction": {
+      "numerator": 0,
+      "denominator": 1
+    },
+    "elite_counts_in_ratio": false,
+    "boss_summons_use_fixed_composition": true,
+    "boss_room_overrides_ordinary_room_cap": true
+  },
+  "inheritance": {
+    "volley": [
+      "ranger_pierce",
+      "ranger_fan",
+      "frost",
+      "applicable_owner_damage"
+    ],
+    "turret": [
+      "rune_bolt_ballistics",
+      "runesmith_chain",
+      "runesmith_heavy",
+      "frost",
+      "applicable_owner_damage",
+      "applicable_owner_attack_speed"
+    ],
+    "exclusions": [
+      "copy_weapon_magazine",
+      "copy_weapon_reload",
+      "copy_weapon_base_interval",
+      "proc_recursion",
+      "damage_multiplier_twice"
+    ],
+    "rounding": "multiply_all_milli_factors_then_floor_once_minimum_one",
+    "chain_factor_of_actual_parent_damage_milli": 700,
+    "chain_range_milli_tiles": 3000,
+    "chain_count": 1,
+    "chain_retriggers_chain_or_bounce": false,
+    "chain_root_selection": "first_positive_direct_contact_order"
+  },
+  "ui": {
+    "theme": "dark_stone_teal_runes_warm_gold",
+    "skill_icons_clickable": false,
+    "full_key_help": "Esc",
+    "player_panel": "top_left",
+    "cooldowns": "row_below_player",
+    "growth": "row_below_cooldowns",
+    "current_weapon": "bottom_right",
+    "boss_bar": "top_center_current_observed_boss_room_only",
+    "boss_head_bar": false,
+    "enemy_head_bars": "all_visible_normal_and_elite",
+    "enemy_numbers_default": false,
+    "boss_health_percent": true,
+    "charge_bar": "above_local_player_hammer_only",
+    "warning_height_body_milli_factor": 250,
+    "warning_min_reference_pixels": 4,
+    "warning_max_reference_pixels": 6,
+    "warning_scale_options_milli": [
+      1000,
+      1500,
+      2000
+    ],
+    "font_scales_milli": [
+      1000,
+      1250,
+      1500
+    ],
+    "danger_over_friendly_effects": true,
+    "text_generated_as_images": false
+  }
+}

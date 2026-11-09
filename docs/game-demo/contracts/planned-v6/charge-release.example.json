@@ -1,0 +1,21 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.action.v6",
+  "action_id": "request_release",
+  "action_sequence": 44,
+  "input_sequence": 801,
+  "weapon_id": "rune_hammer",
+  "weapon_revision": 3,
+  "depends_on_switch_id": null,
+  "move_x": 0,
+  "move_y": 0,
+  "aim_u16": 0,
+  "data": {
+    "kind": "charge_release",
+    "episode_id": "right_2"
+  }
+}

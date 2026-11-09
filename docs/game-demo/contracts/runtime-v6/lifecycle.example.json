@@ -1,0 +1,46 @@
+{
+  "interest_revision": 2,
+  "events": [
+    {
+      "event_id": "v6_model:life:1",
+      "kind": "spawn",
+      "entity_id": "projectile_000003",
+      "room_id": 1,
+      "frame": 0,
+      "game_ms": 0,
+      "subtick": 0,
+      "trajectory_revision": 0,
+      "state": {
+        "id": "projectile_000003",
+        "room_id": 1,
+        "x": 5.0,
+        "y": 9.0,
+        "direction_x": 1.0,
+        "direction_y": 0.0,
+        "radius": 0.72,
+        "speed": 10.0,
+        "enemy": false,
+        "rune_bolt": true,
+        "wind_volley": false,
+        "bounces": 1,
+        "penetrations": 0,
+        "root": "shot_000002",
+        "owner": "1",
+        "source_life": 1,
+        "damage": 16,
+        "frost": false,
+        "chain": false,
+        "trajectory_revision": 0,
+        "network_group": 0,
+        "unbounded": true,
+        "remaining_range": null
+      },
+      "reason": null,
+      "delivery_sequence": 1
+    }
+  ],
+  "protocol_version": 6,
+  "run_id": "v6_model",
+  "source_generation": 7,
+  "connection_generation": 9
+}

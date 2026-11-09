@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "const": "planned_record_not_registered"
+    },
+    "attack_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "source_entity_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "source_entity_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967295
+    },
+    "room_id": {
+      "enum": [
+        "entry",
+        "foyer",
+        "mechanism",
+        "defense",
+        "sanctum",
+        "boss_room",
+        "rune_branch",
+        "supply_branch"
+      ]
+    },
+    "attack_definition_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "attack_kind": {
+      "enum": [
+        "melee",
+        "projectile",
+        "charge",
+        "area"
+      ]
+    },
+    "phase": {
+      "enum": [
+        "prepare",
+        "committed",
+        "execute",
+        "recover",
+        "canceled"
+      ]
+    },
+    "origin_milli": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 34000
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "aim_u16": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "target_point_milli": {
+      "anyOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 34000
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "prepare_begin_game_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1800000
+    },
+    "commit_begin_game_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1800000
+    },
+    "execute_game_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1800000
+    },
+    "expires_game_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1800000
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "attack_id",
+    "revision",
+    "source_entity_id",
+    "source_entity_generation",
+    "room_id",
+    "attack_definition_id",
+    "attack_kind",
+    "phase",
+    "origin_milli",
+    "aim_u16",
+    "target_point_milli",
+    "prepare_begin_game_ms",
+    "commit_begin_game_ms",
+    "execute_game_ms",
+    "expires_game_ms"
+  ]
+}

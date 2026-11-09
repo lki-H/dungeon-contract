@@ -1,0 +1,18 @@
+{
+  "player_id": "1",
+  "turret_charges": 2,
+  "turret_group": null,
+  "battle_until_ms": 0,
+  "death_hammer": null,
+  "last_slam": {
+    "root": "slam_300",
+    "room_id": 1,
+    "at_ms": 1100,
+    "x": 6.2,
+    "y": 9.55,
+    "radius": 2.875,
+    "aim_x": 1,
+    "aim_y": 0,
+    "head_profile_id": "rune_hammer_head.v8"
+  }
+}

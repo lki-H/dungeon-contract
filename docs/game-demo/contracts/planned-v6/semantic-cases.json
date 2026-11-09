@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "status": "synthetic_document_fixtures_not_runtime_evidence",
+  "trap_phase_cases": [
+    {
+      "group": "A",
+      "elapsed_game_ms": 0,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 599,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 600,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 799,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1000,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1599,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1600,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1799,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 1999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2000,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2599,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2600,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2799,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 2999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 3000,
+      "expected": "warning",
+      "cycle_index": 1
+    },
+    {
+      "group": "A",
+      "elapsed_game_ms": 3600,
+      "expected": "active",
+      "cycle_index": 1
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 0,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 599,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 600,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 799,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 800,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 999,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1000,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1599,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1600,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1799,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 1999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2000,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2599,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2600,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2799,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 2999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 3000,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "B",
+      "elapsed_game_ms": 3600,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 0,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 599,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 600,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 799,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 800,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 999,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1000,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1599,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1600,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1799,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1800,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 1999,
+      "expected": "idle",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2000,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2599,
+      "expected": "warning",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2600,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2799,
+      "expected": "active",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2800,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 2999,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 3000,
+      "expected": "cooldown",
+      "cycle_index": 0
+    },
+    {
+      "group": "C",
+      "elapsed_game_ms": 3600,
+      "expected": "cooldown",
+      "cycle_index": 0
+    }
+  ],
+  "contact_order_cases": [
+    {
+      "id": "clear_before_hurt",
+      "terrain_toi": null,
+      "clear_toi_u16": 20000,
+      "hurt_toi_u16": 40000,
+      "expected": "clear_no_hurt"
+    },
+    {
+      "id": "hurt_before_clear",
+      "terrain_toi": null,
+      "clear_toi_u16": 40000,
+      "hurt_toi_u16": 20000,
+      "expected": "hurt_not_reversed"
+    },
+    {
+      "id": "clear_hurt_tie",
+      "terrain_toi": null,
+      "clear_toi_u16": 30000,
+      "hurt_toi_u16": 30000,
+      "expected": "clear_no_hurt"
+    },
+    {
+      "id": "wall_tie",
+      "terrain_toi": 30000,
+      "clear_toi_u16": 30000,
+      "hurt_toi_u16": 30000,
+      "expected": "terrain_first"
+    }
+  ],
+  "motion_cases": [
+    {
+      "kind": "space",
+      "distance_milli": 8000,
+      "duration_ms": 600,
+      "invulnerable_ms": 600
+    },
+    {
+      "kind": "gust",
+      "distance_milli": 4000,
+      "duration_ms": 300,
+      "invulnerable_ms": 300
+    }
+  ],
+  "melee_cases": [
+    {
+      "weapon": "ruin_blade",
+      "radius_milli": 2000,
+      "arc_deg": 240,
+      "active_ticks": 3,
+      "per_tick_arc_deg": 80,
+      "full_sector_clear": false
+    },
+    {
+      "weapon": "rune_hammer",
+      "radius_milli": 2600,
+      "arc_deg": 270,
+      "active_ticks": 3,
+      "per_tick_arc_deg": 90,
+      "full_sector_clear": false
+    }
+  ],
+  "damage_cases": [
+    {
+      "name": "unchanged_partial_slam",
+      "held_ms": 510,
+      "wave_damage": 44,
+      "direct_total": 88
+    },
+    {
+      "name": "unchanged_full_slam",
+      "held_ms": 900,
+      "wave_damage": 64,
+      "direct_total": 128
+    }
+  ],
+  "lifecycle_replay_cases": [
+    {
+      "name": "late_dynamic_after_terminate",
+      "registered": false,
+      "terminated": true,
+      "incoming": "dynamic",
+      "expected": "ignore_no_spawn"
+    },
+    {
+      "name": "duplicate_spawn_after_ack",
+      "registered": false,
+      "terminated": true,
+      "incoming": "old_spawn",
+      "expected": "ignore_sequence"
+    },
+    {
+      "name": "new_interest_without_lifecycle",
+      "registered": false,
+      "terminated": false,
+      "incoming": "dynamic",
+      "expected": "bounded_wait_then_baseline"
+    }
+  ]
+}

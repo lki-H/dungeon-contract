@@ -1,0 +1,19 @@
+{
+  "player_id": "1",
+  "turret_charges": 2,
+  "turret_group": null,
+  "battle_until_ms": 0,
+  "death_hammer": {
+    "root": "death_hammer_200",
+    "active": true,
+    "room_id": 1,
+    "started_ms": 0,
+    "ends_ms": 2000,
+    "next_pulse": 3,
+    "damage": 16,
+    "frost": false,
+    "chain": true,
+    "end_reason": null
+  },
+  "last_slam": null
+}

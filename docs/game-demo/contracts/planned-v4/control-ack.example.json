@@ -1,0 +1,19 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "assignment_id": "assign_example",
+  "boot_id": "boot_example",
+  "source_generation": 1,
+  "operation_id": "operation_pause",
+  "control_version": 5,
+  "status": "applied",
+  "action": "pause",
+  "pause_id": "pause_001",
+  "effective_frame": 300,
+  "game_elapsed_ms": 10000,
+  "wall_elapsed_ms": 10000,
+  "manual_pause_ms": 0,
+  "clock_revision": 2,
+  "checkpoint_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "reason": "accepted"
+}

@@ -1,0 +1,12 @@
+Dungeon Contract original P5 pixel drawings and synthesized audio
+
+The original asset generator is deploy/dc-p5-assets.py. No third-party artwork,
+recordings, AI API outputs, fonts, voices, game logos or music samples are inputs.
+These generated drawings and synthesized waveforms are dedicated to the public
+domain under CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+
+This dedication applies only to the files listed in provenance.json. It excludes
+ruins-lobby-ai.png, whose separate terms and source are in AI-NOTICE.txt and
+ai-provenance.json. It does not
+change the licenses of Unity, packages, Noto Sans SC, historical assets or code.
+See provenance.json for method and per-file SHA256. AI-generated is false.

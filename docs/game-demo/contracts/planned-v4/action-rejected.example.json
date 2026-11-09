@@ -1,0 +1,16 @@
+{
+  "protocol_version": 4,
+  "run_id": "run_example",
+  "source_generation": 1,
+  "connection_generation": 1,
+  "message": "dc.action.receipt.v4",
+  "operation_id": "op_switch_rejected",
+  "action_id": "action_switch_rejected",
+  "action_sequence": 45,
+  "status": "rejected",
+  "reason": "stale_weapon_revision",
+  "effective_frame": null,
+  "weapon_id": "ruin_blade",
+  "weapon_revision": 2,
+  "release_required": true
+}

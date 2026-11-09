@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "partially_imported",
+  "sources": [
+    {
+      "id": "kenney_tiny_dungeon",
+      "url": "https://kenney.nl/assets/tiny-dungeon",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "tile_size": "16x16",
+      "status": "downloaded_and_imported",
+      "planned_usage": [
+        "ground",
+        "walls",
+        "basic_characters",
+        "props"
+      ],
+      "package_sha256": "recorded_in_D_drive_art_cache",
+      "imported_files": ["client/unity-demo/Assets/Resources/DungeonContract/Art/tileset.png", "client/unity-demo/Assets/Resources/DungeonContract/Art/Kenney-CC0.txt"],
+      "tilemap_sha256": "d24e60a41e4ac7a745c0304dfde121143688557f40215f23221c29cfe683825f"
+    },
+    {
+      "id": "dc_gpt_image_2",
+      "model": "gpt-image-2",
+      "license": "subject_to_configured_provider_terms; not_Kenney_CC0",
+      "status": "specification_and_dry_run_only",
+      "specification": "docs/game-demo/image-generation-spec.md",
+      "planned_usage": ["distinct_character_variants", "rune_turret", "boss", "upgrade_icons", "presentation_art"],
+      "generated_files": []
+    }
+  ],
+  "self_created": [
+    "crossbow_bolt",
+    "rune_projectile",
+    "rune_turret",
+    "boss_silhouette",
+    "combat_telegraphs",
+    "simple_audio"
+  ],
+  "paid_assets_required": false
+}

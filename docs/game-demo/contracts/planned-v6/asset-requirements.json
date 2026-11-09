@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "planned_no_assets_generated",
+  "requested_model_default": "gpt-image-2.5-flare",
+  "command": "imagegen via user global launcher",
+  "existing_p5_resources_unchanged": true,
+  "families": [
+    {
+      "id": "players_body_v6",
+      "scope": "two existing loadouts/four directions",
+      "canvas_pixels": [
+        24,
+        32
+      ],
+      "tile_pixels": 16,
+      "ppu": 16,
+      "visible_body_scale_milli": 800,
+      "collision_radius_milli": 240,
+      "hurt_radius_milli": 240,
+      "grip_and_foot_pivots_required": true
+    },
+    {
+      "id": "melee_sweeps",
+      "weapons": [
+        "ruin_blade",
+        "rune_hammer"
+      ],
+      "active_contact_only": true,
+      "separate_old_trail": true
+    },
+    {
+      "id": "hammer_grip_slam",
+      "preview_impact_validity_required": true,
+      "head_and_ground_wave_separate": true
+    },
+    {
+      "id": "crossbow_reload",
+      "normalized_phase_milli": [
+        200,
+        550,
+        250
+      ],
+      "durations_ms": [
+        900,
+        700
+      ],
+      "no_input_lock": true
+    },
+    {
+      "id": "melee_contact_feedback",
+      "variants": [
+        "blade_enemy_hit",
+        "blade_projectile_block",
+        "hammer_enemy_hit",
+        "hammer_projectile_block"
+      ],
+      "each_requires_visual_and_audio": true
+    },
+    {
+      "id": "large_rune_turret_projectile",
+      "radius_milli": 720,
+      "termination_not_live_projectile": true
+    },
+    {
+      "id": "owner_centered_fields",
+      "independent_position_smoothing": false
+    },
+    {
+      "id": "terrain_periodic",
+      "fixed_cover_breakable_mandatory_gate_distinct": true,
+      "trap_groups": [
+        "A",
+        "B",
+        "C"
+      ],
+      "new_enemy_types": 0
+    }
+  ],
+  "license": "Original/AI/font/package terms remain separate; no new clearance claim."
+}

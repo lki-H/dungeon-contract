@@ -1,0 +1,2551 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "definition_id",
+    "balance_status",
+    "protocol_version",
+    "operation",
+    "authority",
+    "world",
+    "player",
+    "loadouts",
+    "enemies",
+    "scaling",
+    "rooms",
+    "branches",
+    "objectives",
+    "upgrades",
+    "tasks",
+    "trial",
+    "network"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "definition_id": {
+      "type": "string",
+      "maxLength": 128
+    },
+    "balance_status": {
+      "const": "unverified_initial"
+    },
+    "protocol_version": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "operation": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "difficulty",
+        "target_duration_min_ms",
+        "target_duration_max_ms",
+        "hard_deadline_ms",
+        "terminal_grace_ms",
+        "fill_wait_ms",
+        "confirmation_ms",
+        "loading_ms",
+        "reconnect_ms",
+        "reinforcements",
+        "success_reward",
+        "failure_reward",
+        "abort_reward",
+        "allow_late_join",
+        "friendly_fire",
+        "player_blocking"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "difficulty": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "target_duration_min_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "target_duration_max_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "hard_deadline_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "terminal_grace_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "fill_wait_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "confirmation_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "loading_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reconnect_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reinforcements": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "success_reward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "failure_reward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "abort_reward": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "allow_late_join": {
+          "type": "boolean"
+        },
+        "friendly_fire": {
+          "type": "boolean"
+        },
+        "player_blocking": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "tick_hz",
+        "max_catchup_ticks",
+        "input_timeout_ms",
+        "internal_request_timeout_ms",
+        "heartbeat_ms",
+        "lease_ms",
+        "technical_wait_ms",
+        "control_poll_ms",
+        "approval_timeout_ms",
+        "admission_ttl_ms",
+        "spawn_delay_ms",
+        "spawn_ack_deadline_ms",
+        "spawn_protection_ms",
+        "max_frame_facts",
+        "max_frame_bytes",
+        "max_key_frames",
+        "max_facts",
+        "reorder_window",
+        "event_gap_ms",
+        "max_pending_frames",
+        "max_pending_bytes",
+        "max_alive_enemies",
+        "max_projectiles",
+        "max_turrets",
+        "max_markers_per_player",
+        "marker_interval_ms"
+      ],
+      "properties": {
+        "tick_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_catchup_ticks": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "input_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "internal_request_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "heartbeat_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "lease_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "technical_wait_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "control_poll_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "approval_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "admission_ttl_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "spawn_delay_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "spawn_ack_deadline_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "spawn_protection_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_frame_facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_frame_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_key_frames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reorder_window": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "event_gap_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_pending_frames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_pending_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_alive_enemies": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_projectiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_turrets": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_markers_per_player": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "marker_interval_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "additionalProperties": false
+    },
+    "world": {
+      "type": "object",
+      "required": [
+        "generator_version",
+        "content_version",
+        "unit_scale",
+        "health_scale",
+        "width_tiles",
+        "height_tiles",
+        "tile_pixels",
+        "pixels_per_unit",
+        "reference_width",
+        "reference_height",
+        "door_tile_y",
+        "collision_policy",
+        "damage_rounding",
+        "count_rounding",
+        "enemy_stuck_ms",
+        "enemy_recovery_attempts",
+        "layout_fallback"
+      ],
+      "properties": {
+        "generator_version": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "content_version": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "unit_scale": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "health_scale": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "width_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "height_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "tile_pixels": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "pixels_per_unit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reference_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "reference_height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "door_tile_y": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "collision_policy": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "damage_rounding": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "count_rounding": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "enemy_stuck_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "enemy_recovery_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "layout_fallback": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
+    },
+    "player": {
+      "type": "object",
+      "required": [
+        "max_health",
+        "move_milli_tiles_per_second",
+        "collision_radius_milli_tiles",
+        "dodge_distance_milli_tiles",
+        "dodge_duration_ms",
+        "dodge_invulnerable_ms",
+        "dodge_cooldown_ms",
+        "minimum_dodge_cooldown_ms",
+        "interaction_ms",
+        "interaction_radius_milli_tiles",
+        "defense_window_ms",
+        "defense_radius_milli_tiles",
+        "supply_health",
+        "supply_claims_per_player",
+        "safe_choice_timeout_ms"
+      ],
+      "properties": {
+        "max_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "move_milli_tiles_per_second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "collision_radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dodge_distance_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dodge_duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dodge_invulnerable_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "dodge_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "minimum_dodge_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "interaction_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "interaction_radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "defense_window_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "defense_radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "supply_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "supply_claims_per_player": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "safe_choice_timeout_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "additionalProperties": false
+    },
+    "loadouts": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "base_damage",
+              "attack_interval_ms",
+              "projectile_speed_milli_tiles_per_second",
+              "range_milli_tiles",
+              "ability_id",
+              "ability_cooldown_ms",
+              "ability_projectiles",
+              "ability_damage",
+              "ability_angles_deg"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "base_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_speed_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "ability_cooldown_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_projectiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_angles_deg": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": -1000000000,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "base_damage",
+              "attack_interval_ms",
+              "projectile_speed_milli_tiles_per_second",
+              "range_milli_tiles",
+              "ability_id",
+              "ability_cooldown_ms",
+              "turret_max",
+              "turret_duration_ms",
+              "turret_range_milli_tiles",
+              "turret_attack_interval_ms",
+              "turret_damage",
+              "turret_placement_range_milli_tiles",
+              "turret_overflow"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "base_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_speed_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "ability_cooldown_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_max": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_duration_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_placement_range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_overflow": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 2
+    },
+    "enemies": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "max_health",
+              "move_milli_tiles_per_second",
+              "damage",
+              "attack_interval_ms",
+              "telegraph_ms",
+              "attack_range_milli_tiles"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "move_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "max_health",
+              "move_milli_tiles_per_second",
+              "damage",
+              "attack_interval_ms",
+              "telegraph_ms",
+              "range_milli_tiles",
+              "projectile_speed_milli_tiles_per_second"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "move_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_speed_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "max_health",
+              "move_milli_tiles_per_second",
+              "damage",
+              "attack_interval_ms",
+              "telegraph_ms",
+              "charge_speed_milli_tiles_per_second",
+              "charge_duration_ms",
+              "recovery_ms"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "move_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "charge_speed_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "charge_duration_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "recovery_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "max_health",
+              "move_milli_tiles_per_second",
+              "damage",
+              "attack_interval_ms",
+              "telegraph_ms",
+              "attack_range_milli_tiles",
+              "phase_pattern",
+              "contract_kill_eligible"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "move_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "attack_range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "phase_pattern": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "string",
+                  "maxLength": 128
+                }
+              },
+              "contract_kill_eligible": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "max_health",
+              "move_milli_tiles_per_second",
+              "phase_2_threshold_percent",
+              "stomp_damage",
+              "stomp_radius_milli_tiles",
+              "stomp_telegraph_ms",
+              "stomp_interval_ms",
+              "fan_damage",
+              "fan_angles_deg",
+              "fan_telegraph_ms",
+              "fan_interval_ms",
+              "projectile_speed_milli_tiles_per_second",
+              "summon_interval_ms",
+              "summon_per_wave",
+              "summon_total_limit",
+              "summon_alive_limit",
+              "summon_id",
+              "summon_contract_kill_eligible",
+              "phase_1",
+              "phase_2"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "move_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "phase_2_threshold_percent": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "stomp_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "stomp_radius_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "stomp_telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "stomp_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "fan_damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "fan_angles_deg": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": -1000000000,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  ]
+                }
+              },
+              "fan_telegraph_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "fan_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_speed_milli_tiles_per_second": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "summon_interval_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "summon_per_wave": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "summon_total_limit": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "summon_alive_limit": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "summon_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "summon_contract_kill_eligible": {
+                "type": "boolean"
+              },
+              "phase_1": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "string",
+                  "maxLength": 128
+                }
+              },
+              "phase_2": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "string",
+                  "maxLength": 128
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 5
+    },
+    "scaling": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "players",
+          "count_milli",
+          "health_milli"
+        ],
+        "properties": {
+          "players": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "count_milli": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "health_milli": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 4
+    },
+    "rooms": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "spawn",
+              "checkpoint_id",
+              "waves"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "spawn": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "checkpoint_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "waves",
+              "safe_node_id",
+              "branch_socket"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "mix",
+                    "weights"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "mix": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "weights": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "safe_node_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "branch_socket": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "waves",
+              "interact_target",
+              "objective_id",
+              "reach_target"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "mix",
+                    "weights"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "mix": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "weights": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "interact_target": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "objective_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "reach_target": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "waves",
+              "wave_gap_ms",
+              "interact_target",
+              "objective_id",
+              "requires_objective",
+              "safe_node_id",
+              "checkpoint_id",
+              "supply_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "mix",
+                    "weights"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "mix": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "weights": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "wave_gap_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "interact_target": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "objective_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "requires_objective": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "safe_node_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "checkpoint_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "supply_id": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "waves",
+              "elite_count",
+              "requires_objective",
+              "safe_node_id",
+              "branch_socket",
+              "checkpoint_id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "count",
+                    "mix",
+                    "weights"
+                  ],
+                  "properties": {
+                    "count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "mix": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "string",
+                        "maxLength": 128
+                      }
+                    },
+                    "weights": {
+                      "type": "array",
+                      "maxItems": 128,
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "elite_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "requires_objective": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "safe_node_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "branch_socket": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "checkpoint_id": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "origin",
+              "archetype",
+              "boss_count",
+              "boss_warning_ms",
+              "objective_id",
+              "requires_objective",
+              "waves"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "origin": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                }
+              },
+              "archetype": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "boss_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "boss_warning_ms": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 10000
+              },
+              "objective_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "requires_objective": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "waves": {
+                "type": "array",
+                "maxItems": 128
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 6
+    },
+    "branches": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "reward",
+              "amount",
+              "duration_ms",
+              "location",
+              "width_tiles",
+              "height_tiles"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "reward": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "duration_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "location": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "width_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "height_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "reward",
+              "amount",
+              "location",
+              "width_tiles",
+              "height_tiles"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "reward": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "amount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "location": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "width_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "height_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "objectives": {
+      "type": "array",
+      "maxItems": 128,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "target_id",
+              "required",
+              "depends_on"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "kind": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "target_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "required": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "depends_on": {
+                "type": "array",
+                "maxItems": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "kind",
+              "target_id",
+              "required",
+              "depends_on"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "kind": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "target_id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "required": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "depends_on": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "string",
+                  "maxLength": 128
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "upgrades": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "cooldown_delta_ms"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "cooldown_delta_ms": {
+                "type": "integer",
+                "minimum": -1000000000,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "damage",
+              "radius_milli_tiles"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "radius_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "slow_percent",
+              "duration_ms",
+              "boss_slow_percent",
+              "stack_policy"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "slow_percent": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "duration_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "boss_slow_percent": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "stack_policy": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "shield",
+              "duration_ms",
+              "trigger",
+              "stack_policy"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "shield": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "duration_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "trigger": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "stack_policy": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "additional_targets"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "additional_targets": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "projectile_angles_deg",
+              "damage_multiplier_milli"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_angles_deg": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": -1000000000,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  ]
+                }
+              },
+              "damage_multiplier_milli": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "ability_projectiles",
+              "projectile_angles_deg"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "ability_projectiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "projectile_angles_deg": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": -1000000000,
+                      "maximum": 9007199254740991
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "additional_targets",
+              "chain_range_milli_tiles",
+              "secondary_damage_multiplier_milli"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "additional_targets": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "chain_range_milli_tiles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "secondary_damage_multiplier_milli": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "turret_max"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "turret_max": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "scope",
+              "max_stacks",
+              "damage_multiplier_milli"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "scope": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "max_stacks": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "damage_multiplier_milli": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 10
+    },
+    "tasks": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "anyOf": [
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "version",
+              "reward",
+              "next",
+              "locked",
+              "requires_success",
+              "no_deaths",
+              "objectives"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "version": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "reward": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "next": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "locked": {
+                "type": "boolean"
+              },
+              "requires_success": {
+                "type": "boolean"
+              },
+              "no_deaths": {
+                "type": "boolean"
+              },
+              "objectives": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "maxLength": 128
+                    },
+                    "kind": {
+                      "type": "string",
+                      "maxLength": 128
+                    },
+                    "scope": {
+                      "type": "string",
+                      "maxLength": 128
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "persistent": {
+                      "type": "boolean"
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 128
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "required": [
+              "id",
+              "version",
+              "reward",
+              "next",
+              "locked",
+              "requires_success",
+              "no_deaths",
+              "objectives"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "version": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "reward": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "next": {
+                "type": "string",
+                "maxLength": 128
+              },
+              "locked": {
+                "type": "boolean"
+              },
+              "requires_success": {
+                "type": "boolean"
+              },
+              "no_deaths": {
+                "type": "boolean"
+              },
+              "objectives": {
+                "type": "array",
+                "maxItems": 128,
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "kind",
+                        "scope",
+                        "required",
+                        "persistent",
+                        "target"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "kind": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "scope": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "required": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "persistent": {
+                          "type": "boolean"
+                        },
+                        "target": {
+                          "type": "string",
+                          "maxLength": 128
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "kind",
+                        "scope",
+                        "required",
+                        "persistent",
+                        "target",
+                        "depends_on"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "kind": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "scope": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "required": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "persistent": {
+                          "type": "boolean"
+                        },
+                        "target": {
+                          "type": "string",
+                          "maxLength": 128
+                        },
+                        "depends_on": {
+                          "type": "array",
+                          "maxItems": 128,
+                          "items": {
+                            "type": "string",
+                            "maxLength": 128
+                          }
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
+      "minItems": 6
+    },
+    "trial": {
+      "type": "object",
+      "required": [
+        "id",
+        "version",
+        "seed",
+        "layout_id",
+        "branch_a",
+        "branch_b",
+        "candidate_priority",
+        "candidate_node_rotation",
+        "initial_player_counts",
+        "same_loadout_same_candidates",
+        "choice_default",
+        "technical_wait_invalidates_record"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "version": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "layout_id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "branch_a": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "branch_b": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "candidate_priority": {
+          "type": "object",
+          "required": [
+            "ranger",
+            "runesmith"
+          ],
+          "properties": {
+            "ranger": {
+              "type": "array",
+              "maxItems": 128,
+              "items": {
+                "type": "string",
+                "maxLength": 128
+              }
+            },
+            "runesmith": {
+              "type": "array",
+              "maxItems": 128,
+              "items": {
+                "type": "string",
+                "maxLength": 128
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "candidate_node_rotation": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "initial_player_counts": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "same_loadout_same_candidates": {
+          "type": "boolean"
+        },
+        "choice_default": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "technical_wait_invalidates_record": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "network": {
+      "type": "object",
+      "required": [
+        "server_host",
+        "control_port",
+        "internal_port",
+        "metrics_port",
+        "game_port_udp",
+        "mysql_host",
+        "mysql_port",
+        "mysql_database",
+        "redis_host",
+        "redis_port",
+        "redis_database",
+        "redis_namespace",
+        "compose_project"
+      ],
+      "properties": {
+        "server_host": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "control_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "internal_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "metrics_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "game_port_udp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "mysql_host": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "mysql_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "mysql_database": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "redis_host": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "redis_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "redis_database": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "redis_namespace": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "compose_project": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:dc:demo-config:1",
+  "title": "Dungeon Contract config v1",
+  "description": "Structural schema; semantic referential and budget validation is also required by content-config.md"
+}

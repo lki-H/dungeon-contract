@@ -1,0 +1,339 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Dungeon Contract 2.3 planned control view; no new route registration",
+    "version": "2.3-planned"
+  },
+  "x-design-status": "planned_not_registered",
+  "x-control-schema": 2,
+  "x-battle-protocol": 6,
+  "x-websocket-actions": [
+    "v2.run.pause",
+    "v2.run.resume"
+  ],
+  "paths": {
+    "/api/v2/runs/{run_id}/snapshot": {
+      "get": {
+        "operationId": "plannedV5OwnSnapshot",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "run_id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_:.\\-]+$"
+            }
+          }
+        ],
+        "security": [
+          {
+            "playerBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Original member own view only",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OwnRunSnapshot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Not an authorized member"
+          },
+          "409": {
+            "description": "Version or revision mismatch"
+          }
+        }
+      }
+    },
+    "/ws": {
+      "get": {
+        "operationId": "existingWsV2Upgrade",
+        "description": "Existing authenticated WS V2; planned PauseOrResumeControl applies after authenticated upgrade, not an HTTP pause route.",
+        "security": [
+          {
+            "playerBearer": []
+          }
+        ],
+        "responses": {
+          "101": {
+            "description": "Existing authenticated upgrade"
+          },
+          "401": {
+            "description": "Unauthenticated"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "playerBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "PauseOrResumeControl": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema_version",
+          "type",
+          "request_id",
+          "operation_id",
+          "data"
+        ],
+        "properties": {
+          "schema_version": {
+            "const": 2,
+            "type": "number"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "v2.run.pause",
+              "v2.run.resume"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "run_id",
+              "reason",
+              "expected_clock_revision",
+              "pause_id"
+            ],
+            "properties": {
+              "run_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "menu",
+                  "focus_loss",
+                  "explicit_resume"
+                ]
+              },
+              "expected_clock_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              },
+              "pause_id": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "OwnRunSnapshot": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operation",
+          "protocol_version",
+          "run_id",
+          "clock",
+          "weapon_id",
+          "weapon_revision",
+          "life_state",
+          "contract",
+          "reward_status"
+        ],
+        "properties": {
+          "operation": {
+            "const": "dc_ruins.v6",
+            "type": "string"
+          },
+          "protocol_version": {
+            "type": "integer",
+            "const": 6
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "clock": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "game_ms",
+              "wall_ms",
+              "manual_pause_ms",
+              "paused",
+              "clock_revision"
+            ],
+            "properties": {
+              "game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "wall_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "manual_pause_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2147483647
+              },
+              "paused": {
+                "type": "boolean"
+              },
+              "clock_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 2147483647
+              }
+            }
+          },
+          "weapon_id": {
+            "type": "string",
+            "enum": [
+              "repeating_crossbow",
+              "ruin_blade",
+              "rune_bolt",
+              "rune_hammer"
+            ]
+          },
+          "weapon_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "life_state": {
+            "type": "string",
+            "enum": [
+              "alive",
+              "downed",
+              "dead",
+              "left"
+            ]
+          },
+          "contract": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "task_id",
+                  "version",
+                  "progress",
+                  "required",
+                  "completed"
+                ],
+                "properties": {
+                  "task_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "version": {
+                    "const": "dc_tasks.v5.p4.1",
+                    "type": "string"
+                  },
+                  "progress": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "required": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "completed": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            ]
+          },
+          "reward_status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "confirmed",
+              "repair"
+            ]
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        }
+      }
+    }
+  }
+}

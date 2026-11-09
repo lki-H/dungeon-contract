@@ -1,0 +1,21 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.action.v5",
+  "action_id": "request_attack",
+  "action_sequence": 43,
+  "input_sequence": 43,
+  "weapon_id": "rune_hammer",
+  "weapon_revision": 3,
+  "depends_on_switch_id": null,
+  "move_x": 0,
+  "move_y": 0,
+  "aim_u16": 0,
+  "data": {
+    "kind": "attack_press",
+    "episode_id": "left_1"
+  }
+}

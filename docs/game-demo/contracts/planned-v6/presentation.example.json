@@ -1,0 +1,22 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.presentation.v6",
+  "state_revision": 8,
+  "event_id": "event_401",
+  "event_game_ms": 25033,
+  "kind": "melee_projectile_block",
+  "root_attack_id": "root_swing_4",
+  "damage_instance_id": "swing_4",
+  "entity_id": "hostile_9",
+  "position_milli": {
+    "x": 7000,
+    "y": 10000
+  },
+  "value": 1,
+  "expires_game_ms": 25283,
+  "weapon_id": "rune_hammer"
+}

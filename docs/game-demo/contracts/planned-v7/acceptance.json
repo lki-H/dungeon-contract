@@ -1,0 +1,146 @@
+{
+  "profile": "dc_ruins.v7.p5.1",
+  "initial_statuses_preserved": true,
+  "cases": [
+    {
+      "id": "D24-001",
+      "question": "D24-Q01",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-002",
+      "question": "D24-Q02",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-003",
+      "question": "D24-Q03",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-004",
+      "question": "D24-Q04",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-005",
+      "question": "D24-Q05",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-006",
+      "question": "D24-Q06",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-007",
+      "question": "D24-Q07",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-008",
+      "question": "D24-Q08",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-009",
+      "question": "D24-Q09",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-010",
+      "question": "D24-Q10",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-011",
+      "question": "D24-Q11",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-012",
+      "question": "D24-Q12",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-013",
+      "question": "D24-Q13",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-014",
+      "question": "D24-Q14",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-015",
+      "question": "D24-Q15",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-016",
+      "question": "D24-Q16",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-017",
+      "question": "D24-Q17",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-018",
+      "question": "D24-Q18",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-019",
+      "question": "D24-Q19",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-020",
+      "question": "D24-Q20",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-021",
+      "question": "D24-Q21",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-022",
+      "question": "D24-Q22",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-023",
+      "question": "D24-Q23",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-024",
+      "question": "D24-Q24",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-025",
+      "question": "D24-Q25",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-026",
+      "question": "D24-Q26",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-027",
+      "question": "D24-Q27",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    },
+    {
+      "id": "D24-028",
+      "question": "D24-Q28",
+      "status": "NOT_RUN_AT_DESIGN_FREEZE"
+    }
+  ]
+}

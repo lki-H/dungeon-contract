@@ -1,0 +1,11 @@
+{
+  "protocol_version": 6,
+  "operation": "dc_ruins.v6",
+  "run_id": "run_v6_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "state_revision": 8,
+  "interest_revision": 3,
+  "message": "dc.lifecycle-ack.v6",
+  "applied_lifecycle_sequence": 1003
+}

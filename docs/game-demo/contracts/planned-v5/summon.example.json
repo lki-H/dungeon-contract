@@ -1,0 +1,106 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.summon.v5",
+  "state_revision": 9,
+  "interest_revision": 3,
+  "data": {
+    "batch_id": "batch_2",
+    "source_boss_id": "boss",
+    "spawn_origin": "boss_summon",
+    "requested_game_ms": 30000,
+    "last_actual_spawn_game_ms": 10000,
+    "state": "warning",
+    "reserved_enemy_slots": 6,
+    "points": [
+      {
+        "reservation_id": "reservation_0",
+        "slot": 0,
+        "kind": "archer",
+        "position_milli": {
+          "x": 6000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      },
+      {
+        "reservation_id": "reservation_1",
+        "slot": 1,
+        "kind": "archer",
+        "position_milli": {
+          "x": 9000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      },
+      {
+        "reservation_id": "reservation_2",
+        "slot": 2,
+        "kind": "guard",
+        "position_milli": {
+          "x": 12000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      },
+      {
+        "reservation_id": "reservation_3",
+        "slot": 3,
+        "kind": "guard",
+        "position_milli": {
+          "x": 15000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      },
+      {
+        "reservation_id": "reservation_4",
+        "slot": 4,
+        "kind": "charger",
+        "position_milli": {
+          "x": 18000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      },
+      {
+        "reservation_id": "reservation_5",
+        "slot": 5,
+        "kind": "elite",
+        "position_milli": {
+          "x": 21000,
+          "y": 15000
+        },
+        "revision": 1,
+        "terrain_revision": 1,
+        "warning_begin_game_ms": 30200,
+        "warning_end_game_ms": 31000,
+        "warning_complete": false
+      }
+    ],
+    "contract_progress_eligible": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "protocol_version": 5,
+  "operation": "dc_ruins.v5",
+  "run_id": "run_v5_fixture",
+  "source_generation": 1,
+  "connection_generation": 2,
+  "message": "dc.receipt.v5",
+  "action_id": "request_release",
+  "status": "accepted",
+  "reason": "accepted",
+  "effective_frame": 751,
+  "weapon_id": "rune_hammer",
+  "weapon_revision": 3,
+  "release_required": false
+}

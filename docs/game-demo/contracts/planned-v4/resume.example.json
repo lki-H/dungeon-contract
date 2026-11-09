@@ -1,0 +1,12 @@
+{
+  "schema_version": 2,
+  "type": "v2.run.resume",
+  "request_id": "request_resume",
+  "operation_id": "operation_resume",
+  "data": {
+    "run_id": "run_example",
+    "reason": "explicit_resume",
+    "expected_clock_revision": 2,
+    "pause_id": "pause_001"
+  }
+}

@@ -1,0 +1,1303 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Dungeon Contract 2.1 planned protocol4 addendum",
+    "version": "2.1-planned",
+    "description": "Design only. Current protocol3 runtime contracts remain unchanged."
+  },
+  "x-design-status": "planned_not_registered",
+  "paths": {
+    "/api/v2/runs/{run_id}/snapshot": {
+      "get": {
+        "operationId": "plannedV4Snapshot",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "security": [
+          {
+            "playerBearer": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authenticated original-member own clock/weapon/pause state; teammate details clipped",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OwnRunSnapshot"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Wrong original member or service binding",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version, revision or same-ID content conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid strict payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate or queue budget exhausted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Bounded technical wait",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/dc/v1/runs/{run_id}/control-acks": {
+      "post": {
+        "operationId": "plannedV4ControlAck",
+        "parameters": [
+          {
+            "name": "run_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_-]+$"
+            }
+          }
+        ],
+        "security": [
+          {
+            "serviceBearer": [],
+            "serviceID": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControlAck"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Durable pending/applied/rejected control result, idempotent by stable operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControlReceipt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or expired authentication",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Wrong original member or service binding",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version, revision or same-ID content conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid strict payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate or queue budget exhausted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Bounded technical wait",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "playerBearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "serviceBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "serviceID": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-DC-Service-ID"
+      }
+    },
+    "schemas": {
+      "PauseOrResumeControl": {
+        "type": "object",
+        "properties": {
+          "schema_version": {
+            "const": 2
+          },
+          "type": {
+            "enum": [
+              "v2.run.pause",
+              "v2.run.resume"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "run_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "reason": {
+                "enum": [
+                  "menu",
+                  "focus_loss",
+                  "explicit_resume"
+                ]
+              },
+              "expected_clock_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "pause_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "run_id",
+              "reason",
+              "expected_clock_revision",
+              "pause_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "schema_version",
+          "type",
+          "request_id",
+          "operation_id",
+          "data"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "v2.run.pause"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "reason": {
+                      "enum": [
+                        "menu",
+                        "focus_loss"
+                      ]
+                    },
+                    "pause_id": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "v2.run.resume"
+                }
+              },
+              "required": [
+                "type"
+              ]
+            },
+            "then": {
+              "properties": {
+                "data": {
+                  "properties": {
+                    "reason": {
+                      "const": "explicit_resume"
+                    },
+                    "pause_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_-]+$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ControlAck": {
+        "type": "object",
+        "properties": {
+          "protocol_version": {
+            "const": 4
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "assignment_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "boot_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "source_generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4294967295
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "control_version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "status": {
+            "enum": [
+              "applied",
+              "rejected"
+            ]
+          },
+          "action": {
+            "enum": [
+              "pause",
+              "resume",
+              "leave",
+              "ban",
+              "disconnect",
+              "wall_timeout"
+            ]
+          },
+          "pause_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "effective_frame": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "game_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1800000
+          },
+          "wall_elapsed_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3600000
+          },
+          "manual_pause_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 3600000
+          },
+          "clock_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "checkpoint_hash": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "enum": [
+              "accepted",
+              "pause_not_allowed",
+              "stale_revision",
+              "stale_generation",
+              "expired",
+              "duplicate_conflict",
+              "technical_wait",
+              "invalid_state"
+            ]
+          }
+        },
+        "required": [
+          "protocol_version",
+          "run_id",
+          "assignment_id",
+          "boot_id",
+          "source_generation",
+          "operation_id",
+          "control_version",
+          "status",
+          "action",
+          "pause_id",
+          "effective_frame",
+          "game_elapsed_ms",
+          "wall_elapsed_ms",
+          "manual_pause_ms",
+          "clock_revision",
+          "checkpoint_hash",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "rejected"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "reason": {
+                  "not": {
+                    "const": "accepted"
+                  }
+                },
+                "effective_frame": {
+                  "type": "null"
+                },
+                "checkpoint_hash": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "applied"
+                }
+              },
+              "required": [
+                "status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "reason": {
+                  "const": "accepted"
+                },
+                "effective_frame": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "checkpoint_hash": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "OwnRunSnapshot": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "protocol_version": {
+            "const": 4
+          },
+          "versions": {
+            "type": "object",
+            "properties": {
+              "operation": {
+                "const": "dc_ruins.v4"
+              },
+              "content": {
+                "const": "dc_content.v4.draft1"
+              },
+              "world": {
+                "const": "dc_rooms.v4.draft1"
+              },
+              "trial": {
+                "const": "trial.v4.draft1"
+              },
+              "battle_protocol": {
+                "const": 4
+              },
+              "control_schema": {
+                "const": 2
+              }
+            },
+            "required": [
+              "operation",
+              "content",
+              "world",
+              "trial",
+              "battle_protocol",
+              "control_schema"
+            ],
+            "additionalProperties": false
+          },
+          "clock": {
+            "type": "object",
+            "properties": {
+              "clock_state": {
+                "enum": [
+                  "running",
+                  "paused",
+                  "technical_wait"
+                ]
+              },
+              "clock_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "pause_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "pause_requested_by": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "menu",
+                      "focus_loss"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "effective_frame": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "game_elapsed_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1800000
+              },
+              "wall_elapsed_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3600000
+              },
+              "manual_pause_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3600000
+              },
+              "explicit_resume_required": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "clock_state",
+              "clock_revision",
+              "pause_id",
+              "pause_requested_by",
+              "effective_frame",
+              "game_elapsed_ms",
+              "wall_elapsed_ms",
+              "manual_pause_ms",
+              "explicit_resume_required"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "clock_state": {
+                      "const": "paused"
+                    }
+                  },
+                  "required": [
+                    "clock_state"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "pause_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_-]+$"
+                    },
+                    "pause_requested_by": {
+                      "enum": [
+                        "menu",
+                        "focus_loss"
+                      ]
+                    },
+                    "explicit_resume_required": {
+                      "const": true
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "clock_state": {
+                      "not": {
+                        "const": "paused"
+                      }
+                    }
+                  },
+                  "required": [
+                    "clock_state"
+                  ]
+                },
+                "then": {
+                  "properties": {
+                    "pause_id": {
+                      "type": "null"
+                    },
+                    "pause_requested_by": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "own": {
+            "type": "object",
+            "properties": {
+              "player_id": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$"
+              },
+              "slot": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 3
+              },
+              "room_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "x_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "y_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "life_state": {
+                "enum": [
+                  "alive",
+                  "downed",
+                  "dead",
+                  "protected",
+                  "left"
+                ]
+              },
+              "life_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "downed_generation": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "health": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000
+              },
+              "shield": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1000
+              },
+              "active_weapon_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_-]+$"
+              },
+              "weapon_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "weapon_states": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "weapon_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_-]+$"
+                    },
+                    "magazine": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 32
+                    },
+                    "magazine_max": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 32
+                    },
+                    "attack_ready_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "reload_end_game_ms": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "charge_started_game_ms": {
+                      "anyOf": [
+                        {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "charge_action_id": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_-]+$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "weapon_id",
+                    "magazine",
+                    "magazine_max",
+                    "attack_ready_game_ms",
+                    "reload_end_game_ms",
+                    "charge_started_game_ms",
+                    "charge_action_id"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "release_required": {
+                "type": "boolean"
+              },
+              "last_input_sequence": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 4294967295
+              },
+              "last_action_sequence": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "dodge_ready_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "invulnerable_until_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "hurt_protected_until_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "dash_kind": {
+                "enum": [
+                  "none",
+                  "space",
+                  "gust"
+                ]
+              },
+              "dash_end_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "dash_direction_x_milli": {
+                "type": "integer",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "dash_direction_y_milli": {
+                "type": "integer",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "primary_ready_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "secondary_ready_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "choices": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "minItems": 0,
+                "maxItems": 3
+              },
+              "downed_deadline_game_ms": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "reinforcement_action_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "aim_u16": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 65535
+              },
+              "last_move_x_milli": {
+                "type": "integer",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "last_move_y_milli": {
+                "type": "integer",
+                "minimum": -1000,
+                "maximum": 1000
+              },
+              "switch_ready_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "shield_expires_game_ms": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "shield_source_action_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "rescue_action_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "rescue_target_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_-]+$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "rescue_end_game_ms": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "loadout_id": {
+                "enum": [
+                  "ranger",
+                  "runesmith"
+                ]
+              },
+              "max_health": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 1000
+              },
+              "dash_start_game_ms": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "dash_start_x_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "dash_start_y_milli": {
+                "type": "integer",
+                "minimum": -100000,
+                "maximum": 100000
+              },
+              "dash_distance_milli": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              "consumed_supply_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 64,
+                  "pattern": "^[A-Za-z0-9_-]+$"
+                },
+                "minItems": 0,
+                "maxItems": 3
+              },
+              "pending_branch_shield": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "reward_id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_-]+$"
+                      },
+                      "shield": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 1000
+                      },
+                      "duration_game_ms": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "reward_id",
+                      "shield",
+                      "duration_game_ms"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "player_id",
+              "slot",
+              "room_id",
+              "x_milli",
+              "y_milli",
+              "life_state",
+              "life_generation",
+              "downed_generation",
+              "health",
+              "shield",
+              "active_weapon_id",
+              "weapon_revision",
+              "weapon_states",
+              "release_required",
+              "last_input_sequence",
+              "last_action_sequence",
+              "dodge_ready_game_ms",
+              "invulnerable_until_game_ms",
+              "hurt_protected_until_game_ms",
+              "dash_kind",
+              "dash_end_game_ms",
+              "dash_direction_x_milli",
+              "dash_direction_y_milli",
+              "primary_ready_game_ms",
+              "secondary_ready_game_ms",
+              "choices",
+              "downed_deadline_game_ms",
+              "reinforcement_action_id",
+              "aim_u16",
+              "last_move_x_milli",
+              "last_move_y_milli",
+              "switch_ready_game_ms",
+              "shield_expires_game_ms",
+              "shield_source_action_id",
+              "rescue_action_id",
+              "rescue_target_id",
+              "rescue_end_game_ms",
+              "loadout_id",
+              "max_health",
+              "dash_start_game_ms",
+              "dash_start_x_milli",
+              "dash_start_y_milli",
+              "dash_distance_milli",
+              "consumed_supply_ids",
+              "pending_branch_shield"
+            ],
+            "additionalProperties": false
+          },
+          "operation_status": {
+            "enum": [
+              "none",
+              "pending",
+              "applied",
+              "rejected"
+            ]
+          }
+        },
+        "required": [
+          "run_id",
+          "protocol_version",
+          "versions",
+          "clock",
+          "own",
+          "operation_status"
+        ],
+        "additionalProperties": false
+      },
+      "ControlReceipt": {
+        "type": "object",
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "operation_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          },
+          "control_version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "applied",
+              "rejected"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "clock_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "request_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "run_id",
+          "operation_id",
+          "control_version",
+          "status",
+          "reason",
+          "clock_revision",
+          "request_hash"
+        ],
+        "additionalProperties": false
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "enum": [
+              "unauthenticated",
+              "forbidden",
+              "not_found",
+              "stale_generation",
+              "stale_revision",
+              "duplicate_conflict",
+              "invalid_payload",
+              "budget",
+              "technical_wait"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_-]+$"
+          }
+        },
+        "required": [
+          "code",
+          "request_id"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

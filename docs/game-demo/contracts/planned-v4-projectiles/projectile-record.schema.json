@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "status": {
+          "const": "planned_record_not_registered"
+        },
+        "record_kind": {
+          "const": "projectile"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "source_room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "owner_kind": {
+          "enum": [
+            "player",
+            "enemy"
+          ]
+        },
+        "owner_player_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,18}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "owner_entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "owner_life_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "origin_action_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "combat_attack_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "deployment_cast_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64,
+              "pattern": "^[A-Za-z0-9_.:-]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profile_id": {
+          "enum": [
+            "crossbow",
+            "rune_bolt",
+            "gust_arrow",
+            "turret_standard_bolt",
+            "turret_twin_bolt",
+            "archer_bolt",
+            "boss_fan_bolt"
+          ]
+        },
+        "spawn_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1800000
+        },
+        "position_milli": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 34000
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "aim_u16": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "speed_milli_tiles_per_second": {
+          "type": "integer",
+          "minimum": 1000,
+          "maximum": 30000
+        },
+        "damage": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 50,
+          "maximum": 300
+        },
+        "range_mode": {
+          "const": "unbounded_in_source_room"
+        },
+        "max_travel_distance_milli_tiles": {
+          "type": "null"
+        },
+        "fixed_flight_lifetime_game_ms": {
+          "type": "null"
+        },
+        "remaining_bounces": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "remaining_extra_targets": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "chain_triggered": {
+          "type": "boolean"
+        },
+        "hit_lives": {
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "entity_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              },
+              "life_generation": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              }
+            },
+            "required": [
+              "entity_id",
+              "life_generation"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "emitter_entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "emitter_entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "schema_version",
+        "status",
+        "record_kind",
+        "entity_id",
+        "entity_generation",
+        "room_id",
+        "source_room_id",
+        "owner_kind",
+        "owner_player_id",
+        "owner_entity_id",
+        "owner_life_generation",
+        "origin_action_id",
+        "combat_attack_id",
+        "deployment_cast_id",
+        "profile_id",
+        "spawn_game_ms",
+        "position_milli",
+        "aim_u16",
+        "speed_milli_tiles_per_second",
+        "damage",
+        "radius_milli_tiles",
+        "range_mode",
+        "max_travel_distance_milli_tiles",
+        "fixed_flight_lifetime_game_ms",
+        "remaining_bounces",
+        "remaining_extra_targets",
+        "chain_triggered",
+        "hit_lives",
+        "emitter_entity_id",
+        "emitter_entity_generation"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "owner_kind": {
+                "const": "enemy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "owner_player_id": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "owner_player_id": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile_id": {
+                "const": "rune_bolt"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "remaining_extra_targets": {
+                "const": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "remaining_bounces": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile_id": {
+                "enum": [
+                  "archer_bolt",
+                  "boss_fan_bolt"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "owner_kind": {
+                "const": "enemy"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "owner_kind": {
+                "const": "player"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile_id": {
+                "enum": [
+                  "turret_standard_bolt",
+                  "turret_twin_bolt"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "deployment_cast_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_.:-]+$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "deployment_cast_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile_id": {
+                "const": "crossbow"
+              }
+            }
+          },
+          "then": {},
+          "else": {
+            "properties": {
+              "remaining_extra_targets": {
+                "const": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "profile_id": {
+                "const": "rune_bolt"
+              }
+            }
+          },
+          "then": {},
+          "else": {
+            "properties": {
+              "chain_triggered": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "status": {
+          "const": "planned_record_not_registered"
+        },
+        "record_kind": {
+          "const": "projectile_remove"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "entity_generation": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4294967295
+        },
+        "room_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9_.:-]+$"
+        },
+        "effective_frame": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "remove_reason": {
+          "enum": [
+            "terrain_hit",
+            "target_limit",
+            "wind_erased",
+            "room_completed",
+            "technical_wait",
+            "permanent_exit",
+            "terminal"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "status",
+        "record_kind",
+        "entity_id",
+        "entity_generation",
+        "room_id",
+        "effective_frame",
+        "remove_reason"
+      ]
+    }
+  ]
+}

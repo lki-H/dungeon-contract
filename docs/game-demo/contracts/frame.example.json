@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "source": "unity_game_server",
+  "run_id": "run_example",
+  "instance_id": "dc_local_01",
+  "boot_id": "00000000-0000-4000-8000-000000000001",
+  "assignment_id": "assign_example",
+  "source_generation": 1,
+  "sequence": 1,
+  "frame_id": "00000000-0000-4000-8000-000000000002",
+  "world_frame_id": 30,
+  "elapsed_ms": 1000,
+  "control_version": 0,
+  "facts": [
+    {
+      "event_id": "00000000-0000-4000-8000-000000000003",
+      "kind": "damage",
+      "actor_player_id": "1001",
+      "target_id": "guard_01",
+      "contributors": [],
+      "action_id": "attack_0001",
+      "effective_amount": 18
+    }
+  ],
+  "terminal": null,
+  "summary": null,
+  "fingerprint": "acebfe6f16bed6b8e497ff0a2a8ba79e825c6f6472f0c9381a2987b31003fca3"
+}

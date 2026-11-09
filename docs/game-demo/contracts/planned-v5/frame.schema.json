@@ -1,0 +1,765 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Planned v5 finite authoritative Go fact frame; no public ingestion",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "operation",
+    "task_version",
+    "run_id",
+    "source_generation",
+    "sequence",
+    "world_frame_id",
+    "control_watermark",
+    "clock",
+    "facts",
+    "terminal",
+    "summary",
+    "fingerprint"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 5,
+      "type": "number"
+    },
+    "operation": {
+      "const": "dc_ruins.v5",
+      "type": "string"
+    },
+    "task_version": {
+      "const": "dc_tasks.v5.draft1",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+    },
+    "source_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096
+    },
+    "world_frame_id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "control_watermark": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2147483647
+    },
+    "clock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "game_ms",
+        "wall_ms",
+        "manual_pause_ms",
+        "paused",
+        "clock_revision"
+      ],
+      "properties": {
+        "game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "manual_pause_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "paused": {
+          "type": "boolean"
+        },
+        "clock_revision": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "kind",
+          "event_game_ms",
+          "actor_player_id",
+          "source_life_generation",
+          "root_attack_id",
+          "target_id",
+          "target_life_generation",
+          "target_spawn_origin",
+          "contract_progress_eligible",
+          "amount",
+          "proof",
+          "actor_downed_generation",
+          "target_downed_generation",
+          "life_state",
+          "reinforcement_id",
+          "contributors",
+          "contribution_proofs",
+          "growth_choice"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "pattern": "^[A-Za-z0-9_:.\\-]+$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "damage_action",
+              "kill",
+              "reach",
+              "interact",
+              "downed",
+              "death",
+              "rescued",
+              "reinforcement_spawned",
+              "protection",
+              "control_effect",
+              "growth_choice"
+            ]
+          },
+          "event_game_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "actor_player_id": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,18}$",
+                "maxLength": 19
+              }
+            ]
+          },
+          "source_life_generation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "root_attack_id": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              }
+            ]
+          },
+          "target_id": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              }
+            ]
+          },
+          "target_life_generation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "target_spawn_origin": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "main_wave",
+                  "branch_wave",
+                  "boss_body",
+                  "boss_summon",
+                  "practice"
+                ]
+              }
+            ]
+          },
+          "contract_progress_eligible": {
+            "type": "boolean"
+          },
+          "amount": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "proof": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "kind",
+                  "target_player_id",
+                  "target_life_generation",
+                  "room_id",
+                  "window_begin_game_ms",
+                  "window_end_game_ms",
+                  "effective_amount",
+                  "effective_time_ms",
+                  "threat_projectile_id"
+                ],
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "damage",
+                      "protection",
+                      "control_effect",
+                      "rescue",
+                      "mechanism",
+                      "reach"
+                    ]
+                  },
+                  "target_player_id": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "pattern": "^[1-9][0-9]{0,18}$",
+                        "maxLength": 19
+                      }
+                    ]
+                  },
+                  "target_life_generation": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "room_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "window_begin_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "window_end_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "effective_amount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "effective_time_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "threat_projectile_id": {
+                    "anyOf": [
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "actor_downed_generation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "target_downed_generation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "life_state": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "enum": [
+                  "alive",
+                  "downed",
+                  "dead",
+                  "left"
+                ]
+              }
+            ]
+          },
+          "reinforcement_id": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "pattern": "^[A-Za-z0-9_:.\\-]+$"
+              }
+            ]
+          },
+          "contributors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[1-9][0-9]{0,18}$",
+              "maxLength": 19
+            },
+            "maxItems": 4,
+            "minItems": 0
+          },
+          "contribution_proofs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "player_id",
+                "proof"
+              ],
+              "properties": {
+                "player_id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,18}$",
+                  "maxLength": 19
+                },
+                "proof": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "target_player_id",
+                    "target_life_generation",
+                    "room_id",
+                    "window_begin_game_ms",
+                    "window_end_game_ms",
+                    "effective_amount",
+                    "effective_time_ms",
+                    "threat_projectile_id"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "damage",
+                        "protection",
+                        "control_effect",
+                        "rescue",
+                        "mechanism",
+                        "reach"
+                      ]
+                    },
+                    "target_player_id": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^[1-9][0-9]{0,18}$",
+                          "maxLength": 19
+                        }
+                      ]
+                    },
+                    "target_life_generation": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "room_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "window_begin_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "window_end_game_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "effective_amount": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "effective_time_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "threat_projectile_id": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "maxItems": 4,
+            "minItems": 0
+          },
+          "growth_choice": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "node_id",
+                  "option_id",
+                  "candidate_revision",
+                  "candidate_hash",
+                  "opened_game_ms",
+                  "deadline_game_ms",
+                  "selected_game_ms",
+                  "automatic"
+                ],
+                "properties": {
+                  "node_id": {
+                    "type": "string",
+                    "enum": [
+                      "growth_1",
+                      "growth_2",
+                      "growth_3"
+                    ]
+                  },
+                  "option_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                  },
+                  "candidate_revision": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2147483647
+                  },
+                  "candidate_hash": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  },
+                  "opened_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "deadline_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "selected_game_ms": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "automatic": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      "maxItems": 128,
+      "minItems": 0
+    },
+    "terminal": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "result",
+            "reason",
+            "cutoff_frame",
+            "cutoff_sequence"
+          ],
+          "properties": {
+            "result": {
+              "type": "string",
+              "enum": [
+                "success",
+                "failed",
+                "aborted"
+              ]
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "boss_defeated",
+                "no_recovery",
+                "active_limit",
+                "wall_limit",
+                "technical_failure",
+                "all_members_left",
+                "service_lost",
+                "authorization_revoked"
+              ]
+            },
+            "cutoff_frame": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "cutoff_sequence": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        }
+      ]
+    },
+    "summary": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "totals_complete",
+            "players"
+          ],
+          "properties": {
+            "totals_complete": {
+              "type": "boolean"
+            },
+            "players": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "player_id",
+                  "slot",
+                  "damage",
+                  "kills",
+                  "assists",
+                  "knockdowns",
+                  "deaths",
+                  "rescues",
+                  "protected_damage",
+                  "cleared_projectiles",
+                  "eligible_damage_actions",
+                  "growth",
+                  "choices"
+                ],
+                "properties": {
+                  "player_id": {
+                    "type": "string",
+                    "pattern": "^[1-9][0-9]{0,18}$",
+                    "maxLength": 19
+                  },
+                  "slot": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 3
+                  },
+                  "damage": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "kills": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "assists": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "knockdowns": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "deaths": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "rescues": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "protected_damage": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "cleared_projectiles": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "eligible_damage_actions": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                  },
+                  "growth": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 64,
+                      "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                    },
+                    "maxItems": 3,
+                    "minItems": 0
+                  },
+                  "choices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "node_id",
+                        "option_id",
+                        "candidate_revision",
+                        "candidate_hash",
+                        "opened_game_ms",
+                        "deadline_game_ms",
+                        "selected_game_ms",
+                        "automatic"
+                      ],
+                      "properties": {
+                        "node_id": {
+                          "type": "string",
+                          "enum": [
+                            "growth_1",
+                            "growth_2",
+                            "growth_3"
+                          ]
+                        },
+                        "option_id": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 64,
+                          "pattern": "^[A-Za-z0-9_:.\\-]+$"
+                        },
+                        "candidate_revision": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 2147483647
+                        },
+                        "candidate_hash": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{64}$"
+                        },
+                        "opened_game_ms": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 2147483647
+                        },
+                        "deadline_game_ms": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 2147483647
+                        },
+                        "selected_game_ms": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 2147483647
+                        },
+                        "automatic": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "maxItems": 3,
+                    "minItems": 0
+                  }
+                }
+              },
+              "maxItems": 4,
+              "minItems": 1
+            }
+          }
+        }
+      ]
+    },
+    "fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

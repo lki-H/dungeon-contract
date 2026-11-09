@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "type": "v2.run.pause",
+  "request_id": "req_pause_001",
+  "operation_id": "op_pause_001",
+  "payload": {
+    "run_id": "run_example"
+  }
+}

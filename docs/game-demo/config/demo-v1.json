@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "definition_id": "dc_ruins.v1",
+  "balance_status": "unverified_initial",
+  "protocol_version": 1,
+  "operation": {
+    "id": "dc_ruins",
+    "version": "dc_ruins.v1",
+    "difficulty": "standard",
+    "target_duration_min_ms": 600000,
+    "target_duration_max_ms": 900000,
+    "hard_deadline_ms": 1200000,
+    "terminal_grace_ms": 5000,
+    "fill_wait_ms": 30000,
+    "confirmation_ms": 15000,
+    "loading_ms": 30000,
+    "reconnect_ms": 60000,
+    "reinforcements": 3,
+    "success_reward": 100,
+    "failure_reward": 20,
+    "abort_reward": 0,
+    "allow_late_join": false,
+    "friendly_fire": false,
+    "player_blocking": false
+  },
+  "authority": {
+    "tick_hz": 30,
+    "max_catchup_ticks": 4,
+    "input_timeout_ms": 250,
+    "internal_request_timeout_ms": 2000,
+    "heartbeat_ms": 2000,
+    "lease_ms": 6000,
+    "technical_wait_ms": 10000,
+    "control_poll_ms": 100,
+    "approval_timeout_ms": 5000,
+    "admission_ttl_ms": 60000,
+    "spawn_delay_ms": 3000,
+    "spawn_ack_deadline_ms": 10000,
+    "spawn_protection_ms": 1000,
+    "max_frame_facts": 128,
+    "max_frame_bytes": 65536,
+    "max_key_frames": 4096,
+    "max_facts": 10000,
+    "reorder_window": 128,
+    "event_gap_ms": 5000,
+    "max_pending_frames": 256,
+    "max_pending_bytes": 8388608,
+    "max_alive_enemies": 24,
+    "max_projectiles": 128,
+    "max_turrets": 8,
+    "max_markers_per_player": 3,
+    "marker_interval_ms": 2000
+  },
+  "world": {
+    "generator_version": "dc_rooms.v1",
+    "content_version": "dc_content.v1",
+    "unit_scale": 1000,
+    "health_scale": 1,
+    "width_tiles": 96,
+    "height_tiles": 12,
+    "tile_pixels": 16,
+    "pixels_per_unit": 16,
+    "reference_width": 320,
+    "reference_height": 180,
+    "door_tile_y": 6,
+    "collision_policy": "walls_and_enemies_only",
+    "damage_rounding": "floor_after_integer_effect_sum",
+    "count_rounding": "ceil",
+    "enemy_stuck_ms": 5000,
+    "enemy_recovery_attempts": 2,
+    "layout_fallback": "dc_layout_fixed.v1"
+  },
+  "player": {
+    "max_health": 100,
+    "move_milli_tiles_per_second": 5000,
+    "collision_radius_milli_tiles": 300,
+    "dodge_distance_milli_tiles": 2000,
+    "dodge_duration_ms": 250,
+    "dodge_invulnerable_ms": 150,
+    "dodge_cooldown_ms": 3000,
+    "minimum_dodge_cooldown_ms": 1800,
+    "interaction_ms": 4000,
+    "interaction_radius_milli_tiles": 1500,
+    "defense_window_ms": 5000,
+    "defense_radius_milli_tiles": 5000,
+    "supply_health": 30,
+    "supply_claims_per_player": 1,
+    "safe_choice_timeout_ms": 20000
+  },
+  "loadouts": [
+    {
+      "id": "ranger",
+      "base_damage": 18,
+      "attack_interval_ms": 400,
+      "projectile_speed_milli_tiles_per_second": 12000,
+      "range_milli_tiles": 8000,
+      "ability_id": "gust_volley",
+      "ability_cooldown_ms": 8000,
+      "ability_projectiles": 3,
+      "ability_damage": 18,
+      "ability_angles_deg": [
+        -15,
+        0,
+        15
+      ]
+    },
+    {
+      "id": "runesmith",
+      "base_damage": 14,
+      "attack_interval_ms": 450,
+      "projectile_speed_milli_tiles_per_second": 12000,
+      "range_milli_tiles": 8000,
+      "ability_id": "rune_turret",
+      "ability_cooldown_ms": 10000,
+      "turret_max": 1,
+      "turret_duration_ms": 8000,
+      "turret_range_milli_tiles": 6000,
+      "turret_attack_interval_ms": 600,
+      "turret_damage": 8,
+      "turret_placement_range_milli_tiles": 3000,
+      "turret_overflow": "replace_oldest"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "guard",
+      "max_health": 80,
+      "move_milli_tiles_per_second": 2500,
+      "damage": 14,
+      "attack_interval_ms": 1200,
+      "telegraph_ms": 500,
+      "attack_range_milli_tiles": 1200
+    },
+    {
+      "id": "archer",
+      "max_health": 60,
+      "move_milli_tiles_per_second": 2000,
+      "damage": 12,
+      "attack_interval_ms": 1800,
+      "telegraph_ms": 700,
+      "range_milli_tiles": 8000,
+      "projectile_speed_milli_tiles_per_second": 6000
+    },
+    {
+      "id": "charger",
+      "max_health": 110,
+      "move_milli_tiles_per_second": 2000,
+      "damage": 22,
+      "attack_interval_ms": 3500,
+      "telegraph_ms": 800,
+      "charge_speed_milli_tiles_per_second": 6000,
+      "charge_duration_ms": 600,
+      "recovery_ms": 1000
+    },
+    {
+      "id": "elite",
+      "max_health": 280,
+      "move_milli_tiles_per_second": 2400,
+      "damage": 26,
+      "attack_interval_ms": 1600,
+      "telegraph_ms": 750,
+      "attack_range_milli_tiles": 1500,
+      "phase_pattern": [
+        "melee",
+        "charge"
+      ],
+      "contract_kill_eligible": true
+    },
+    {
+      "id": "boss",
+      "max_health": 1400,
+      "move_milli_tiles_per_second": 1500,
+      "phase_2_threshold_percent": 50,
+      "stomp_damage": 30,
+      "stomp_radius_milli_tiles": 3000,
+      "stomp_telegraph_ms": 1000,
+      "stomp_interval_ms": 7000,
+      "fan_damage": 18,
+      "fan_angles_deg": [
+        -25,
+        0,
+        25
+      ],
+      "fan_telegraph_ms": 800,
+      "fan_interval_ms": 5000,
+      "projectile_speed_milli_tiles_per_second": 6000,
+      "summon_interval_ms": 25000,
+      "summon_per_wave": 2,
+      "summon_total_limit": 6,
+      "summon_alive_limit": 2,
+      "summon_id": "guard",
+      "summon_contract_kill_eligible": false,
+      "phase_1": [
+        "fan",
+        "stomp"
+      ],
+      "phase_2": [
+        "stomp",
+        "fan",
+        "summon"
+      ]
+    }
+  ],
+  "scaling": [
+    {
+      "players": 1,
+      "count_milli": 1000,
+      "health_milli": 1000
+    },
+    {
+      "players": 2,
+      "count_milli": 1400,
+      "health_milli": 1250
+    },
+    {
+      "players": 3,
+      "count_milli": 1800,
+      "health_milli": 1500
+    },
+    {
+      "players": 4,
+      "count_milli": 2200,
+      "health_milli": 1750
+    }
+  ],
+  "rooms": [
+    {
+      "id": "entry",
+      "origin": [
+        0,
+        0
+      ],
+      "archetype": "tutorial",
+      "spawn": [
+        3,
+        6
+      ],
+      "checkpoint_id": "cp_entry",
+      "waves": []
+    },
+    {
+      "id": "foyer",
+      "origin": [
+        16,
+        0
+      ],
+      "archetype": "arena",
+      "waves": [
+        {
+          "count": 8,
+          "mix": [
+            "guard",
+            "archer"
+          ],
+          "weights": [
+            3,
+            1
+          ]
+        }
+      ],
+      "safe_node_id": "choice_1",
+      "branch_socket": "branch_a"
+    },
+    {
+      "id": "mechanism",
+      "origin": [
+        32,
+        0
+      ],
+      "archetype": "corridor",
+      "waves": [
+        {
+          "count": 8,
+          "mix": [
+            "guard",
+            "charger"
+          ],
+          "weights": [
+            3,
+            1
+          ]
+        }
+      ],
+      "interact_target": "hub_a",
+      "objective_id": "hub_a",
+      "reach_target": "inspect_zone"
+    },
+    {
+      "id": "court",
+      "origin": [
+        48,
+        0
+      ],
+      "archetype": "defense",
+      "waves": [
+        {
+          "count": 8,
+          "mix": [
+            "guard",
+            "archer"
+          ],
+          "weights": [
+            2,
+            1
+          ]
+        },
+        {
+          "count": 8,
+          "mix": [
+            "guard",
+            "charger"
+          ],
+          "weights": [
+            2,
+            1
+          ]
+        },
+        {
+          "count": 8,
+          "mix": [
+            "guard",
+            "archer",
+            "charger"
+          ],
+          "weights": [
+            2,
+            1,
+            1
+          ]
+        }
+      ],
+      "wave_gap_ms": 2000,
+      "interact_target": "hub_b",
+      "objective_id": "hub_b",
+      "requires_objective": "hub_a",
+      "safe_node_id": "choice_2",
+      "checkpoint_id": "cp_court",
+      "supply_id": "supply_court"
+    },
+    {
+      "id": "antechamber",
+      "origin": [
+        64,
+        0
+      ],
+      "archetype": "elite",
+      "waves": [
+        {
+          "count": 4,
+          "mix": [
+            "guard",
+            "archer"
+          ],
+          "weights": [
+            1,
+            1
+          ]
+        }
+      ],
+      "elite_count": 1,
+      "requires_objective": "hub_b",
+      "safe_node_id": "choice_3",
+      "branch_socket": "branch_b",
+      "checkpoint_id": "cp_antechamber"
+    },
+    {
+      "id": "boss_room",
+      "origin": [
+        80,
+        0
+      ],
+      "archetype": "boss",
+      "boss_count": 1,
+      "boss_warning_ms": 3000,
+      "objective_id": "boss",
+      "requires_objective": "hub_b",
+      "waves": []
+    }
+  ],
+  "branches": [
+    {
+      "id": "rune_cache",
+      "reward": "team_shield",
+      "amount": 15,
+      "duration_ms": 30000,
+      "location": "north_socket",
+      "width_tiles": 10,
+      "height_tiles": 8
+    },
+    {
+      "id": "healing_shrine",
+      "reward": "individual_supply",
+      "amount": 30,
+      "location": "south_socket",
+      "width_tiles": 10,
+      "height_tiles": 8
+    }
+  ],
+  "objectives": [
+    {
+      "id": "hub_a",
+      "kind": "interact",
+      "target_id": "hub_a",
+      "required": 1,
+      "depends_on": []
+    },
+    {
+      "id": "hub_b",
+      "kind": "interact",
+      "target_id": "hub_b",
+      "required": 1,
+      "depends_on": [
+        "hub_a"
+      ]
+    },
+    {
+      "id": "boss",
+      "kind": "kill",
+      "target_id": "boss",
+      "required": 1,
+      "depends_on": [
+        "hub_b"
+      ]
+    }
+  ],
+  "upgrades": [
+    {
+      "id": "swift_dodge",
+      "scope": "common",
+      "max_stacks": 1,
+      "cooldown_delta_ms": -600
+    },
+    {
+      "id": "landing_impact",
+      "scope": "common",
+      "max_stacks": 1,
+      "damage": 10,
+      "radius_milli_tiles": 1500
+    },
+    {
+      "id": "frost",
+      "scope": "common",
+      "max_stacks": 1,
+      "slow_percent": 20,
+      "duration_ms": 2000,
+      "boss_slow_percent": 5,
+      "stack_policy": "refresh"
+    },
+    {
+      "id": "rune_shield",
+      "scope": "common",
+      "max_stacks": 1,
+      "shield": 15,
+      "duration_ms": 3000,
+      "trigger": "ability",
+      "stack_policy": "refresh"
+    },
+    {
+      "id": "piercing_bolt",
+      "scope": "ranger",
+      "max_stacks": 1,
+      "additional_targets": 1
+    },
+    {
+      "id": "fan_shot",
+      "scope": "ranger",
+      "max_stacks": 1,
+      "projectile_angles_deg": [
+        -12,
+        0,
+        12
+      ],
+      "damage_multiplier_milli": 650
+    },
+    {
+      "id": "charged_volley",
+      "scope": "ranger",
+      "max_stacks": 1,
+      "ability_projectiles": 5,
+      "projectile_angles_deg": [
+        -24,
+        -12,
+        0,
+        12,
+        24
+      ]
+    },
+    {
+      "id": "chain_rune",
+      "scope": "runesmith",
+      "max_stacks": 1,
+      "additional_targets": 1,
+      "chain_range_milli_tiles": 3000,
+      "secondary_damage_multiplier_milli": 700
+    },
+    {
+      "id": "dual_turret",
+      "scope": "runesmith",
+      "max_stacks": 1,
+      "turret_max": 2
+    },
+    {
+      "id": "heavy_turret",
+      "scope": "runesmith",
+      "max_stacks": 1,
+      "damage_multiplier_milli": 1500
+    }
+  ],
+  "tasks": [
+    {
+      "id": "dc_hunter",
+      "version": "dc_ruins.v1",
+      "reward": 30,
+      "next": "dc_precision",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "kills",
+          "kind": "kill",
+          "scope": "team",
+          "required": 8,
+          "persistent": true,
+          "target": "eligible_enemy"
+        }
+      ]
+    },
+    {
+      "id": "dc_precision",
+      "version": "dc_ruins.v1",
+      "reward": 50,
+      "next": "",
+      "locked": true,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 6,
+          "persistent": true,
+          "target": "eligible_enemy"
+        }
+      ]
+    },
+    {
+      "id": "dc_scout",
+      "version": "dc_ruins.v1",
+      "reward": 25,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "self",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone"
+        }
+      ]
+    },
+    {
+      "id": "dc_technician",
+      "version": "dc_ruins.v1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "eligible",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        }
+      ]
+    },
+    {
+      "id": "dc_inspector",
+      "version": "dc_ruins.v1",
+      "reward": 40,
+      "next": "",
+      "locked": false,
+      "requires_success": false,
+      "no_deaths": false,
+      "objectives": [
+        {
+          "id": "install",
+          "kind": "interact",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "hub_a"
+        },
+        {
+          "id": "reach",
+          "kind": "reach",
+          "scope": "team",
+          "required": 1,
+          "persistent": true,
+          "target": "inspect_zone",
+          "depends_on": [
+            "install"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc_survivor",
+      "version": "dc_ruins.v1",
+      "reward": 45,
+      "next": "",
+      "locked": false,
+      "requires_success": true,
+      "no_deaths": true,
+      "objectives": [
+        {
+          "id": "hits",
+          "kind": "damage",
+          "scope": "self",
+          "required": 3,
+          "persistent": false,
+          "target": "eligible_enemy"
+        }
+      ]
+    }
+  ],
+  "trial": {
+    "id": "dc_ruins_trial",
+    "version": "trial.v1",
+    "seed": 20261011,
+    "layout_id": "dc_layout_fixed.v1",
+    "branch_a": "rune_cache",
+    "branch_b": "healing_shrine",
+    "candidate_priority": {
+      "ranger": [
+        "piercing_bolt",
+        "fan_shot",
+        "charged_volley",
+        "rune_shield",
+        "swift_dodge",
+        "frost",
+        "landing_impact"
+      ],
+      "runesmith": [
+        "chain_rune",
+        "dual_turret",
+        "heavy_turret",
+        "rune_shield",
+        "swift_dodge",
+        "frost",
+        "landing_impact"
+      ]
+    },
+    "candidate_node_rotation": 2,
+    "initial_player_counts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "same_loadout_same_candidates": true,
+    "choice_default": "first_candidate",
+    "technical_wait_invalidates_record": true
+  },
+  "network": {
+    "server_host": "127.0.0.1",
+    "control_port": 12880,
+    "internal_port": 12890,
+    "metrics_port": 12891,
+    "game_port_udp": 12777,
+    "mysql_host": "127.0.0.1",
+    "mysql_port": 23316,
+    "mysql_database": "game_realtime_dc_demo",
+    "redis_host": "127.0.0.1",
+    "redis_port": 26389,
+    "redis_database": 0,
+    "redis_namespace": "dc:",
+    "compose_project": "dc-demo"
+  }
+}

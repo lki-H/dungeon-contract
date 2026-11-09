@@ -1,0 +1,40 @@
+CREATE TABLE IF NOT EXISTS pve_dc_v3_run_clocks (
+    run_id VARCHAR(64) NOT NULL,
+    operation_version VARCHAR(64) NOT NULL,
+    protocol_version INT NOT NULL,
+    mode VARCHAR(16) NOT NULL,
+    initial_player_count TINYINT UNSIGNED NOT NULL,
+    clock_state VARCHAR(32) NOT NULL,
+    game_elapsed_ms BIGINT UNSIGNED NOT NULL DEFAULT 0,
+    wall_elapsed_ms BIGINT UNSIGNED NOT NULL DEFAULT 0,
+    manual_pause_ms BIGINT UNSIGNED NOT NULL DEFAULT 0,
+    clock_revision BIGINT UNSIGNED NOT NULL DEFAULT 0,
+    updated_at DATETIME(3) NOT NULL,
+    PRIMARY KEY (run_id),
+    KEY idx_dc_v3_clock_state (clock_state, updated_at),
+    CONSTRAINT chk_dc_v3_clock_protocol CHECK (protocol_version = 3),
+    CONSTRAINT chk_dc_v3_clock_players CHECK (initial_player_count BETWEEN 1 AND 4),
+    CONSTRAINT chk_dc_v3_clock_elapsed CHECK (game_elapsed_ms <= wall_elapsed_ms),
+    CONSTRAINT chk_dc_v3_clock_pause CHECK (manual_pause_ms <= wall_elapsed_ms)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS pve_dc_v3_pause_intervals (
+    run_id VARCHAR(64) NOT NULL,
+    pause_id VARCHAR(64) NOT NULL,
+    operation_id VARCHAR(120) NOT NULL,
+    begin_control_version BIGINT UNSIGNED NOT NULL,
+    begin_frame BIGINT UNSIGNED NOT NULL,
+    begin_game_elapsed_ms BIGINT UNSIGNED NOT NULL,
+    begin_wall_elapsed_ms BIGINT UNSIGNED NOT NULL,
+    end_control_version BIGINT UNSIGNED NULL,
+    end_frame BIGINT UNSIGNED NULL,
+    end_game_elapsed_ms BIGINT UNSIGNED NULL,
+    end_wall_elapsed_ms BIGINT UNSIGNED NULL,
+    status VARCHAR(16) NOT NULL,
+    created_at DATETIME(3) NOT NULL,
+    closed_at DATETIME(3) NULL,
+    PRIMARY KEY (run_id, pause_id),
+    UNIQUE KEY uq_dc_v3_pause_operation (run_id, operation_id),
+    KEY idx_dc_v3_pause_status (status, created_at),
+    CONSTRAINT chk_dc_v3_pause_status CHECK (status IN ('open', 'closed', 'aborted'))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

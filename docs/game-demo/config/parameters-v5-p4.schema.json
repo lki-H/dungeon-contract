@@ -1,0 +1,5731 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "specification_version",
+    "status",
+    "balance_status",
+    "published",
+    "versions",
+    "clocks",
+    "player",
+    "loadouts",
+    "enemies",
+    "scaling",
+    "rooms",
+    "terrain",
+    "growth",
+    "tasks",
+    "rewards",
+    "network",
+    "budgets",
+    "input",
+    "ai",
+    "pause",
+    "performance",
+    "projectile_rules",
+    "provenance",
+    "camera",
+    "window",
+    "encounters",
+    "inheritance",
+    "ui"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "maxLength": 1024,
+      "minLength": 1
+    },
+    "specification_version": {
+      "type": "string",
+      "const": "2.2"
+    },
+    "status": {
+      "type": "string",
+      "const": "stage_runtime_subset"
+    },
+    "balance_status": {
+      "type": "string",
+      "const": "unverified_initial"
+    },
+    "published": {
+      "type": "boolean",
+      "const": false
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation",
+        "content",
+        "world",
+        "tasks",
+        "trial",
+        "battle_protocol",
+        "control_schema"
+      ],
+      "properties": {
+        "operation": {
+          "type": "string",
+          "const": "dc_ruins.v5"
+        },
+        "content": {
+          "type": "string",
+          "const": "dc_content.v5.p4.1"
+        },
+        "world": {
+          "type": "string",
+          "const": "dc_rooms.v5.p4.1"
+        },
+        "tasks": {
+          "type": "string",
+          "const": "dc_tasks.v5.p4.1"
+        },
+        "trial": {
+          "type": "string",
+          "const": "trial.v5.draft1"
+        },
+        "battle_protocol": {
+          "type": "integer",
+          "const": 5
+        },
+        "control_schema": {
+          "type": "integer",
+          "const": 2
+        }
+      }
+    },
+    "clocks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "simulation_hz",
+        "network_hz",
+        "render_target_fps",
+        "target_duration_min_ms",
+        "target_duration_max_ms",
+        "active_limit_ms",
+        "wall_limit_ms",
+        "choice_timeout_game_ms",
+        "normal_warning_ms",
+        "boss_warning_ms",
+        "reconnect_grace_wall_ms",
+        "technical_wait_after_wall_ms",
+        "technical_abort_after_wall_ms"
+      ],
+      "properties": {
+        "simulation_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "network_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "render_target_fps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "target_duration_min_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "target_duration_max_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "active_limit_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "wall_limit_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "choice_timeout_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "normal_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "boss_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reconnect_grace_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "technical_wait_after_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "technical_abort_after_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "player": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_health",
+        "move_milli_tiles_per_second",
+        "collision_radius_milli_tiles",
+        "dodge_distance_milli_tiles",
+        "dodge_duration_ms",
+        "dodge_invulnerable_ms",
+        "dodge_cooldown_ms",
+        "dodge_min_cooldown_ms",
+        "interaction_ms",
+        "interaction_range_milli_tiles",
+        "defense_window_ms",
+        "defense_range_milli_tiles",
+        "input_buffer_ms",
+        "downed_duration_ms",
+        "rescue_ms",
+        "rescue_range_milli_tiles",
+        "rescue_health",
+        "rescue_protection_ms",
+        "reinforcement_budget",
+        "reinforcement_delay_ms",
+        "reinforcement_health",
+        "reinforcement_protection_ms",
+        "supply_health",
+        "branch_shield",
+        "branch_shield_duration_game_ms",
+        "hurt_invulnerable_ms",
+        "hit_stun_ms",
+        "hurt_knockback_milli_tiles",
+        "normal_enemy_body_blocks"
+      ],
+      "properties": {
+        "max_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "move_milli_tiles_per_second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "collision_radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dodge_distance_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dodge_duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dodge_invulnerable_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dodge_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dodge_min_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "interaction_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "interaction_range_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "defense_window_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "defense_range_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "input_buffer_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "downed_duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "rescue_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "rescue_range_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "rescue_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "rescue_protection_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reinforcement_budget": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reinforcement_delay_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reinforcement_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reinforcement_protection_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "supply_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "branch_shield": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "branch_shield_duration_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hurt_invulnerable_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hit_stun_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hurt_knockback_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "normal_enemy_body_blocks": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "loadouts": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "ranged",
+            "melee",
+            "primary",
+            "secondary"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "ranger"
+            },
+            "ranged": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "weapon",
+                "damage",
+                "interval_ms",
+                "projectile_speed_milli_tiles_per_second",
+                "magazine_size",
+                "reload_ms",
+                "projectile_radius_milli_tiles",
+                "initial_extra_targets",
+                "travel_mode"
+              ],
+              "properties": {
+                "weapon": {
+                  "type": "string",
+                  "const": "repeating_crossbow"
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "interval_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "magazine_size": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "reload_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "initial_extra_targets": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "travel_mode": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            "melee": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "weapon",
+                "damage",
+                "range_milli_tiles",
+                "arc_deg",
+                "windup_ticks",
+                "active_ticks",
+                "recovery_ticks",
+                "charge_supported",
+                "move_milli_factor"
+              ],
+              "properties": {
+                "weapon": {
+                  "type": "string",
+                  "const": "ruin_blade"
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "range_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "arc_deg": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "windup_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "active_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "recovery_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "charge_supported": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "move_milli_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "primary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "cooldown_ms",
+                "angles_deg",
+                "consumes_magazine",
+                "dash_distance_milli_tiles",
+                "dash_duration_ms",
+                "dash_invulnerable_ms",
+                "dash_direction_priority",
+                "during_existing_dash",
+                "uses_space_cooldown",
+                "source_weapon",
+                "base_damage_milli_factor",
+                "projectile_radius_milli_tiles",
+                "projectile_speed_milli_tiles_per_second",
+                "fan_composition",
+                "maximum_projectiles_per_cast",
+                "target_hit_policy",
+                "snapshot_scope",
+                "copies_magazine",
+                "copies_reload",
+                "copies_base_fire_interval",
+                "travel_mode"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "gust_volley"
+                },
+                "cooldown_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "angles_deg": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "prefixItems": [
+                    {
+                      "type": "integer",
+                      "minimum": -2147483648,
+                      "maximum": 2147483647
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    }
+                  ],
+                  "items": false
+                },
+                "consumes_magazine": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "dash_distance_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "dash_duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "dash_invulnerable_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "dash_direction_priority": {
+                  "type": "array",
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "prefixItems": [
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    }
+                  ],
+                  "items": false
+                },
+                "during_existing_dash": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "uses_space_cooldown": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "source_weapon": {
+                  "type": "string",
+                  "const": "repeating_crossbow"
+                },
+                "base_damage_milli_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "fan_composition": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "maximum_projectiles_per_cast": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "target_hit_policy": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "snapshot_scope": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "copies_magazine": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "copies_reload": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "copies_base_fire_interval": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "travel_mode": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            "secondary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "cooldown_ms",
+                "anchor",
+                "radius_milli_tiles",
+                "duration_ms",
+                "push_speed_milli_tiles_per_second",
+                "edge_margin_milli_tiles",
+                "interrupt_normal_attacks",
+                "interrupt_normal_charge",
+                "block_normal_attack_inside",
+                "elite_boss_push_immune",
+                "remove_hostile_projectiles",
+                "remove_friendly_projectiles",
+                "remove_ground_damage",
+                "push_crosses_terrain"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "wind_bind"
+                },
+                "cooldown_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "anchor": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "push_speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "edge_margin_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "interrupt_normal_attacks": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "interrupt_normal_charge": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "block_normal_attack_inside": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "elite_boss_push_immune": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "remove_hostile_projectiles": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "remove_friendly_projectiles": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "remove_ground_damage": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "push_crosses_terrain": {
+                  "type": "boolean",
+                  "const": false
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "ranged",
+            "melee",
+            "primary",
+            "secondary"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "runesmith"
+            },
+            "ranged": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "weapon",
+                "damage",
+                "interval_ms",
+                "projectile_speed_milli_tiles_per_second",
+                "magazine_size",
+                "reload_ms",
+                "projectile_radius_milli_tiles",
+                "bounce_count",
+                "bounce_damage_milli_factor",
+                "bounce_surfaces",
+                "enemy_hit_ends",
+                "travel_mode"
+              ],
+              "properties": {
+                "weapon": {
+                  "type": "string",
+                  "const": "rune_bolt"
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "interval_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "magazine_size": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "reload_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "bounce_count": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "bounce_damage_milli_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "bounce_surfaces": {
+                  "type": "array",
+                  "minItems": 5,
+                  "maxItems": 5,
+                  "prefixItems": [
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    }
+                  ],
+                  "items": false
+                },
+                "enemy_hit_ends": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "travel_mode": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            "melee": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "weapon",
+                "damage",
+                "range_milli_tiles",
+                "arc_deg",
+                "windup_ticks",
+                "active_ticks",
+                "recovery_ticks",
+                "charge_supported",
+                "move_milli_factor",
+                "charge"
+              ],
+              "properties": {
+                "weapon": {
+                  "type": "string",
+                  "const": "rune_hammer"
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "range_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "arc_deg": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "windup_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "active_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "recovery_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "charge_supported": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "move_milli_factor": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "charge": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "minimum_ms",
+                    "full_ms",
+                    "move_milli_factor",
+                    "below_minimum",
+                    "minimum_wave_damage",
+                    "full_wave_damage",
+                    "direct_total_damage_milli_factor",
+                    "landing_distance_milli_tiles",
+                    "direct_contact_radius_milli_tiles",
+                    "wave_radius_milli_tiles",
+                    "release_windup_ticks",
+                    "recovery_ticks",
+                    "damage_timing",
+                    "occlusion",
+                    "shape",
+                    "maximum_hold",
+                    "damage_resolution"
+                  ],
+                  "properties": {
+                    "minimum_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "full_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "move_milli_factor": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "below_minimum": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "minimum_wave_damage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "full_wave_damage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "direct_total_damage_milli_factor": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "landing_distance_milli_tiles": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "direct_contact_radius_milli_tiles": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "wave_radius_milli_tiles": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "release_windup_ticks": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "recovery_ticks": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "damage_timing": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "occlusion": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "shape": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "maximum_hold": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "damage_resolution": {
+                      "type": "string",
+                      "const": "floor_wave_with_all_modifiers_then_exact_double_direct"
+                    }
+                  }
+                }
+              }
+            },
+            "primary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "cooldown_ms",
+                "lifetime_ms",
+                "damage",
+                "interval_ms",
+                "max_count",
+                "twin_damage",
+                "twin_offset_milli_tiles",
+                "anchor",
+                "placement_search_step_milli_tiles",
+                "placement_search_max_milli_tiles",
+                "placement_search_max_candidates",
+                "blocks_players",
+                "blocks_enemies",
+                "target_range_milli_tiles",
+                "source_weapon",
+                "damage_source",
+                "projectile_speed_milli_tiles_per_second",
+                "projectile_radius_milli_tiles",
+                "bounce_count",
+                "copy_weapon_chain",
+                "snapshot_scope",
+                "owner_downed_dead_room_change",
+                "travel_mode"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "rune_turret"
+                },
+                "cooldown_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "lifetime_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "interval_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "max_count": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "twin_damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "twin_offset_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "anchor": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "placement_search_step_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "placement_search_max_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "placement_search_max_candidates": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "blocks_players": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "blocks_enemies": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "target_range_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "source_weapon": {
+                  "type": "string",
+                  "const": "rune_bolt"
+                },
+                "damage_source": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "projectile_speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "projectile_radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "bounce_count": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "copy_weapon_chain": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "snapshot_scope": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "owner_downed_dead_room_change": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "travel_mode": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            "secondary": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "cooldown_ms",
+                "radius_milli_tiles",
+                "field_duration_ms",
+                "shield",
+                "shield_duration_ms",
+                "grants_per_member_per_cast",
+                "anchor"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "const": "shield_field"
+                },
+                "cooldown_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "radius_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "field_duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "shield": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "shield_duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "grants_per_member_per_cast": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "anchor": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "enemies": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "max_health",
+            "move_milli_tiles_per_second",
+            "damage",
+            "attack_interval_ms",
+            "telegraph_ms",
+            "attack_range_milli_tiles",
+            "recovery_ms"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "guard"
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "move_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_interval_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "telegraph_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "recovery_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "max_health",
+            "move_milli_tiles_per_second",
+            "damage",
+            "attack_interval_ms",
+            "telegraph_ms",
+            "projectile_speed_milli_tiles_per_second",
+            "recovery_ms",
+            "attack_start_range_milli_tiles",
+            "ideal_range_milli_tiles",
+            "patterns",
+            "fan_angles_deg",
+            "burst_shots",
+            "burst_interval_ms",
+            "burst_tracks_after_commit"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "archer"
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "move_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_interval_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "telegraph_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "projectile_speed_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "recovery_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_start_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "ideal_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "patterns": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "fan_angles_deg": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "burst_shots": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "burst_interval_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "burst_tracks_after_commit": {
+              "type": "boolean",
+              "const": false
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "max_health",
+            "move_milli_tiles_per_second",
+            "damage",
+            "attack_interval_ms",
+            "telegraph_ms",
+            "charge_speed_milli_tiles_per_second",
+            "charge_duration_ms",
+            "recovery_ms"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "charger"
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "move_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_interval_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "telegraph_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "charge_speed_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "charge_duration_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "recovery_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "max_health",
+            "move_milli_tiles_per_second",
+            "damage",
+            "attack_interval_ms",
+            "telegraph_ms",
+            "attack_range_milli_tiles",
+            "phase_pattern",
+            "contract_kill_eligible",
+            "recovery_ms",
+            "charge"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "elite"
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "move_milli_tiles_per_second": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "damage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_interval_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "telegraph_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "phase_pattern": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "contract_kill_eligible": {
+              "type": "boolean",
+              "const": true
+            },
+            "recovery_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "charge": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "telegraph_ms",
+                "speed_milli_tiles_per_second",
+                "duration_ms",
+                "recovery_ms"
+              ],
+              "properties": {
+                "telegraph_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "speed_milli_tiles_per_second": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "recovery_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "max_health",
+            "phase_2_threshold_percent",
+            "recovery_ms",
+            "attack_start_range_milli_tiles",
+            "barrage_telegraph_ms",
+            "phases",
+            "barrage",
+            "dash",
+            "melee",
+            "summon"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "boss"
+            },
+            "max_health": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "phase_2_threshold_percent": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "recovery_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "attack_start_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "barrage_telegraph_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "phases": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "move_milli_tiles_per_second",
+                    "dash_speed_milli_tiles_per_second",
+                    "barrage_duration_ms",
+                    "barrage_interval_ms",
+                    "barrage_projectiles_per_pulse",
+                    "projectile_speed_milli_tiles_per_second",
+                    "projectile_damage",
+                    "dashes_per_barrage"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "move_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "dash_speed_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_duration_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_interval_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_projectiles_per_pulse": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "projectile_speed_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "projectile_damage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "dashes_per_barrage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "move_milli_tiles_per_second",
+                    "dash_speed_milli_tiles_per_second",
+                    "barrage_duration_ms",
+                    "barrage_interval_ms",
+                    "barrage_projectiles_per_pulse",
+                    "projectile_speed_milli_tiles_per_second",
+                    "projectile_damage",
+                    "dashes_per_barrage"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "move_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "dash_speed_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_duration_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_interval_ms": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "barrage_projectiles_per_pulse": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "projectile_speed_milli_tiles_per_second": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "projectile_damage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "dashes_per_barrage": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "barrage": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "gap_deg",
+                "rotation_deg_per_pulse",
+                "first_pulse_at_ms",
+                "end_exclusive",
+                "gap_retargets_player",
+                "origin",
+                "overlap",
+                "reserve"
+              ],
+              "properties": {
+                "gap_deg": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "rotation_deg_per_pulse": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "first_pulse_at_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "end_exclusive": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "gap_retargets_player": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "origin": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "overlap": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "reserve": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            "dash": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "telegraph_ms",
+                "duration_ms",
+                "recovery_ms",
+                "lock_final_ms",
+                "stops_at_wall",
+                "damage"
+              ],
+              "properties": {
+                "telegraph_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "duration_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "recovery_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "lock_final_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "stops_at_wall": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "melee": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "damage",
+                "range_milli_tiles",
+                "arc_deg",
+                "telegraph_ms",
+                "active_ticks",
+                "recovery_ms"
+              ],
+              "properties": {
+                "damage": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "range_milli_tiles": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "arc_deg": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "telegraph_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "active_ticks": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "recovery_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            "summon": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "batch_size",
+                "composition",
+                "total_limit",
+                "max_alive_and_reserved",
+                "room_cap_including_boss",
+                "first_request_game_ms",
+                "minimum_actual_spawn_interval_game_ms",
+                "max_pending_batches",
+                "cast_window_ms",
+                "spawn_warning_ms",
+                "atomic_batch",
+                "contract_positive_progress",
+                "extra_rewards",
+                "keep_true_run_contribution"
+              ],
+              "properties": {
+                "batch_size": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "composition": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "archer",
+                    "guard",
+                    "charger",
+                    "elite"
+                  ],
+                  "properties": {
+                    "archer": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "guard": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "charger": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "elite": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    }
+                  }
+                },
+                "total_limit": {
+                  "type": "null"
+                },
+                "max_alive_and_reserved": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "room_cap_including_boss": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "first_request_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "minimum_actual_spawn_interval_game_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "max_pending_batches": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "cast_window_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "spawn_warning_ms": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "atomic_batch": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "contract_positive_progress": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "extra_rewards": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "keep_true_run_contribution": {
+                  "type": "boolean",
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "scaling": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "players",
+            "count_milli",
+            "health_milli",
+            "room_alive_cap"
+          ],
+          "properties": {
+            "players": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "count_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "health_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "room_alive_cap": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "players",
+            "count_milli",
+            "health_milli",
+            "room_alive_cap"
+          ],
+          "properties": {
+            "players": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "count_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "health_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "room_alive_cap": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "players",
+            "count_milli",
+            "health_milli",
+            "room_alive_cap"
+          ],
+          "properties": {
+            "players": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "count_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "health_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "room_alive_cap": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "players",
+            "count_milli",
+            "health_milli",
+            "room_alive_cap"
+          ],
+          "properties": {
+            "players": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "count_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "health_milli": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "room_alive_cap": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "rooms": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "entry"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 0,
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "foyer"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node",
+            "objective"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "mechanism"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "null"
+            },
+            "objective": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node",
+            "objective"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "defense"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "objective": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "elite_count",
+            "covers",
+            "traps",
+            "node"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "sanctum"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "elite_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "boss_count",
+            "covers",
+            "traps",
+            "node"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "boss_room"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 0,
+              "maxItems": 0,
+              "items": false
+            },
+            "boss_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node",
+            "existence_milli_probability",
+            "reward"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "rune_branch"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "null"
+            },
+            "existence_milli_probability": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "reward": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "variants",
+            "waves",
+            "covers",
+            "traps",
+            "node",
+            "existence_milli_probability",
+            "reward"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "supply_branch"
+            },
+            "variants": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              ],
+              "items": false
+            },
+            "waves": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "covers": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "traps": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "node": {
+              "type": "null"
+            },
+            "existence_milli_probability": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "reward": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "terrain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tile_pixels",
+        "pixels_per_unit",
+        "reference_width",
+        "reference_height",
+        "max_room_width_tiles",
+        "max_room_height_tiles",
+        "camera_transition_ms",
+        "cover_health",
+        "cover_radius_milli_tiles",
+        "trap_warning_ms",
+        "trap_active_ms",
+        "trap_cooldown_ms",
+        "trap_player_damage",
+        "trap_normal_enemy_damage",
+        "spawn_player_distance_milli_tiles",
+        "spawn_retry_ms",
+        "stuck_ms",
+        "recovery_attempts",
+        "knockback_milli_tiles",
+        "knockback_repeat_ms",
+        "hit_presentation_hold_ms",
+        "spawn_warning_ms",
+        "spawn_normal_entry_ms",
+        "spawn_elite_boss_entry_ms"
+      ],
+      "properties": {
+        "tile_pixels": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "pixels_per_unit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reference_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reference_height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_room_width_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_room_height_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "camera_transition_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "cover_health": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "cover_radius_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "trap_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "trap_active_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "trap_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "trap_player_damage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "trap_normal_enemy_damage": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "spawn_player_distance_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "spawn_retry_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "stuck_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "recovery_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "knockback_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "knockback_repeat_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hit_presentation_hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "spawn_warning_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "spawn_normal_entry_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "spawn_elite_boss_entry_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "growth": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "dodge_cooldown_delta_ms"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "swift"
+            },
+            "scope": {
+              "type": "string",
+              "const": "common"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "dodge_cooldown_delta_ms": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "slow_milli_factor",
+            "duration_ms",
+            "boss_slow_milli_factor"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "frost"
+            },
+            "scope": {
+              "type": "string",
+              "const": "common"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "slow_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "duration_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "boss_slow_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "shield",
+            "duration_ms"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "ward"
+            },
+            "scope": {
+              "type": "string",
+              "const": "common"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "shield": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "duration_ms": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "max_health_delta",
+            "heal_on_install"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "vitality"
+            },
+            "scope": {
+              "type": "string",
+              "const": "common"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "max_health_delta": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "heal_on_install": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "ranged_extra_targets",
+            "melee_range_delta_milli_tiles"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "ranger_pierce"
+            },
+            "scope": {
+              "type": "string",
+              "const": "ranger"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "ranged_extra_targets": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "melee_range_delta_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "ranged_angles_deg",
+            "ranged_damage_milli_factor",
+            "melee_arc_delta_deg",
+            "melee_damage_milli_factor"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "ranger_fan"
+            },
+            "scope": {
+              "type": "string",
+              "const": "ranger"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "ranged_angles_deg": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "prefixItems": [
+                {
+                  "type": "integer",
+                  "minimum": -2147483648,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              ],
+              "items": false
+            },
+            "ranged_damage_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "melee_arc_delta_deg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "melee_damage_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "magazine_delta",
+            "reload_delta_ms",
+            "melee_cycle_milli_factor"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "ranger_tension"
+            },
+            "scope": {
+              "type": "string",
+              "const": "ranger"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "magazine_delta": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "reload_delta_ms": {
+              "type": "integer",
+              "minimum": -2147483648,
+              "maximum": 2147483647
+            },
+            "melee_cycle_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "extra_targets",
+            "chain_damage_milli_factor",
+            "chain_range_milli_tiles"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "runesmith_chain"
+            },
+            "scope": {
+              "type": "string",
+              "const": "runesmith"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "extra_targets": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "chain_damage_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "chain_range_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "turret_count",
+            "turret_damage",
+            "melee_interval_milli_factor"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "runesmith_twin"
+            },
+            "scope": {
+              "type": "string",
+              "const": "runesmith"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "turret_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "turret_damage": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "melee_interval_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "scope",
+            "name",
+            "max_stacks",
+            "turret_damage_milli_factor",
+            "slam_wave_radius_delta_milli_tiles"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "runesmith_heavy"
+            },
+            "scope": {
+              "type": "string",
+              "const": "runesmith"
+            },
+            "name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "max_stacks": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "turret_damage_milli_factor": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "slam_wave_radius_delta_milli_tiles": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "prefixItems": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_hunter"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "locked": {
+              "type": "boolean",
+              "const": false
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": false
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target",
+                    "excluded_spawn_origins"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "kills"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "kill"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "team"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "excluded_spawn_origins": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": false
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_precision"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "locked": {
+              "type": "boolean",
+              "const": true
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": false
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target",
+                    "excluded_spawn_origins"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "hits"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "damage"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "self"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "excluded_spawn_origins": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": false
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_scout"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "locked": {
+              "type": "boolean",
+              "const": false
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": false
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "reach"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "reach"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "self"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": false
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_technician"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "locked": {
+              "type": "boolean",
+              "const": false
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": false
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "install"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "interact"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "eligible"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": false
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_inspector"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "locked": {
+              "type": "boolean",
+              "const": false
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": false
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "install"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "interact"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "team"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target",
+                    "depends_on"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "reach"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "reach"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "team"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "depends_on": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 1,
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": false
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "version",
+            "reward",
+            "next",
+            "locked",
+            "requires_success",
+            "no_deaths",
+            "objectives",
+            "no_knockdowns",
+            "display_name"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "dc_survivor"
+            },
+            "version": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            "reward": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "next": {
+              "type": "string",
+              "maxLength": 1024
+            },
+            "locked": {
+              "type": "boolean",
+              "const": false
+            },
+            "requires_success": {
+              "type": "boolean",
+              "const": true
+            },
+            "no_deaths": {
+              "type": "boolean",
+              "const": false
+            },
+            "objectives": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "prefixItems": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "kind",
+                    "scope",
+                    "required",
+                    "persistent",
+                    "target",
+                    "excluded_spawn_origins"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "hits"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "const": "damage"
+                    },
+                    "scope": {
+                      "type": "string",
+                      "const": "self"
+                    },
+                    "required": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 2147483647
+                    },
+                    "persistent": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "target": {
+                      "type": "string",
+                      "maxLength": 1024,
+                      "minLength": 1
+                    },
+                    "excluded_spawn_origins": {
+                      "type": "array",
+                      "minItems": 2,
+                      "maxItems": 2,
+                      "prefixItems": [
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        },
+                        {
+                          "type": "string",
+                          "maxLength": 1024,
+                          "minLength": 1
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ],
+              "items": false
+            },
+            "no_knockdowns": {
+              "type": "boolean",
+              "const": true
+            },
+            "display_name": {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          }
+        }
+      ],
+      "items": false
+    },
+    "rewards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "success_base",
+        "failed_base",
+        "aborted_base",
+        "practice_base"
+      ],
+      "properties": {
+        "success_base": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "failed_base": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "aborted_base": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "practice_base": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dynamic_packet_max_bytes",
+        "baseline_max_bytes",
+        "max_dynamic_groups",
+        "input_timeout_wall_ms",
+        "input_history_samples",
+        "max_actions_per_second",
+        "max_input_packets_per_second",
+        "max_pending_frames",
+        "max_pending_bytes",
+        "max_key_frames",
+        "max_facts",
+        "max_frame_facts",
+        "max_frame_bytes",
+        "event_retention_game_ms",
+        "presentation_event_cache",
+        "heartbeat_wall_ms",
+        "lease_wall_ms",
+        "internal_request_timeout_wall_ms",
+        "reorder_window",
+        "max_pending_dependent_actions",
+        "switch_dependency_wall_ms",
+        "dynamic_delivery",
+        "baseline_chunk_payload_max_bytes",
+        "baseline_max_chunks",
+        "baseline_transfer_timeout_wall_ms",
+        "max_pending_baselines_per_connection",
+        "max_pending_dynamic_messages",
+        "pending_dynamic_max_wall_ms",
+        "terminal_confirm_grace_wall_ms",
+        "dynamic_projectiles_per_group",
+        "dynamic_binary_record_max_bytes",
+        "dynamic_full_sweep_application_bytes_per_second_candidate",
+        "dynamic_dictionary_miss_messages"
+      ],
+      "properties": {
+        "dynamic_packet_max_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "baseline_max_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_dynamic_groups": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "input_timeout_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "input_history_samples": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_actions_per_second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_input_packets_per_second": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_pending_frames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_pending_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_key_frames": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_frame_facts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_frame_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "event_retention_game_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "presentation_event_cache": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "heartbeat_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "lease_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "internal_request_timeout_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "reorder_window": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_pending_dependent_actions": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "switch_dependency_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dynamic_delivery": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "baseline_chunk_payload_max_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "baseline_max_chunks": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "baseline_transfer_timeout_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_pending_baselines_per_connection": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_pending_dynamic_messages": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "pending_dynamic_max_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "terminal_confirm_grace_wall_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dynamic_projectiles_per_group": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dynamic_binary_record_max_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dynamic_full_sweep_application_bytes_per_second_candidate": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dynamic_dictionary_miss_messages": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "global_alive_enemies",
+        "projectiles",
+        "turrets",
+        "shield_fields",
+        "wind_fields",
+        "damage_numbers",
+        "presentation_effects",
+        "combat_audio_voices",
+        "markers_per_player",
+        "marker_interval_ms",
+        "simulation_catchup_steps",
+        "projection_page_max",
+        "projectile_capacity_status",
+        "committed_enemy_emitters",
+        "summon_pending_batches",
+        "stat_snapshots"
+      ],
+      "properties": {
+        "global_alive_enemies": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "projectiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "turrets": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "shield_fields": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "wind_fields": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "damage_numbers": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "presentation_effects": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "combat_audio_voices": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "markers_per_player": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "marker_interval_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "simulation_catchup_steps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "projection_page_max": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "projectile_capacity_status": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "committed_enemy_emitters": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "summon_pending_batches": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "stat_snapshots": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        }
+      }
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_weapon",
+        "weapon_slots",
+        "attack",
+        "switch_keyboard",
+        "switch_scroll",
+        "dodge",
+        "primary",
+        "secondary",
+        "reload",
+        "interact_rescue",
+        "menu",
+        "right_mouse_combat",
+        "switch_requires_release",
+        "switch_cooldown_ms",
+        "switch_cancels",
+        "skills_independent_of_weapon",
+        "ability_buffer_ms",
+        "charge_binding",
+        "charge_supported_weapons",
+        "right_button_priority",
+        "resume_left_after_charge",
+        "switched_weapon_requires_new_left_press",
+        "recovery_scope",
+        "dodge_cancels_pending_released_melee",
+        "dodge_during_held_charge",
+        "active_skills_during_weapon_actions",
+        "charge_transition_from_uncommitted_windup"
+      ],
+      "properties": {
+        "default_weapon": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "weapon_slots": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "attack": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "switch_keyboard": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "switch_scroll": {
+          "type": "boolean",
+          "const": true
+        },
+        "dodge": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "primary": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "secondary": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "reload": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "interact_rescue": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "menu": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "right_mouse_combat": {
+          "type": "boolean",
+          "const": true
+        },
+        "switch_requires_release": {
+          "type": "boolean",
+          "const": true
+        },
+        "switch_cooldown_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "switch_cancels": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          ],
+          "items": false
+        },
+        "skills_independent_of_weapon": {
+          "type": "boolean",
+          "const": true
+        },
+        "ability_buffer_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "charge_binding": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "charge_supported_weapons": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          ],
+          "items": false
+        },
+        "right_button_priority": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "resume_left_after_charge": {
+          "type": "boolean",
+          "const": true
+        },
+        "switched_weapon_requires_new_left_press": {
+          "type": "boolean",
+          "const": true
+        },
+        "recovery_scope": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "dodge_cancels_pending_released_melee": {
+          "type": "boolean",
+          "const": true
+        },
+        "dodge_during_held_charge": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "active_skills_during_weapon_actions": {
+          "type": "boolean",
+          "const": true
+        },
+        "charge_transition_from_uncommitted_windup": {
+          "type": "string",
+          "const": "replace_uncommitted_cycle_reservation_only"
+        }
+      }
+    },
+    "ai": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attack_warning",
+        "attack_ground_geometry",
+        "attack_commit_ms",
+        "probe_move_milli_factor",
+        "probe_lateral_distance_milli_tiles",
+        "probe_direction_hold_ms",
+        "sense_interval_ms",
+        "path_replan_interval_ms",
+        "target_hysteresis_milli_tiles",
+        "target_min_hold_ms",
+        "normal_spacing_milli_tiles",
+        "group_min_spacing_milli_tiles",
+        "group_probability_milli",
+        "group_min_members",
+        "group_max_members",
+        "group_duration_ms",
+        "group_decision",
+        "contact_damage",
+        "avoid_entity_overlap",
+        "maintain_player_passage"
+      ],
+      "properties": {
+        "attack_warning": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "attack_ground_geometry": {
+          "type": "boolean",
+          "const": false
+        },
+        "attack_commit_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "probe_move_milli_factor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "probe_lateral_distance_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "probe_direction_hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "sense_interval_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "path_replan_interval_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "target_hysteresis_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "target_min_hold_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "normal_spacing_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_min_spacing_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_probability_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_min_members": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_max_members": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_duration_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "group_decision": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "contact_damage": {
+          "type": "boolean",
+          "const": false
+        },
+        "avoid_entity_overlap": {
+          "type": "boolean",
+          "const": true
+        },
+        "maintain_player_passage": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "pause": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "normal_initial_single_only",
+        "practice_local",
+        "trial_allowed",
+        "multiplayer_allowed",
+        "focus_loss_requests_pause",
+        "focus_gain_resumes",
+        "resume_requires_explicit_action",
+        "resume_clears_held_input",
+        "freeze_scene_audio",
+        "freeze_presentation",
+        "keep_wall_clock",
+        "keep_heartbeat_auth_and_exit"
+      ],
+      "properties": {
+        "normal_initial_single_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "practice_local": {
+          "type": "boolean",
+          "const": true
+        },
+        "trial_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "multiplayer_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "focus_loss_requests_pause": {
+          "type": "boolean",
+          "const": true
+        },
+        "focus_gain_resumes": {
+          "type": "boolean",
+          "const": false
+        },
+        "resume_requires_explicit_action": {
+          "type": "boolean",
+          "const": true
+        },
+        "resume_clears_held_input": {
+          "type": "boolean",
+          "const": true
+        },
+        "freeze_scene_audio": {
+          "type": "boolean",
+          "const": true
+        },
+        "freeze_presentation": {
+          "type": "boolean",
+          "const": true
+        },
+        "keep_wall_clock": {
+          "type": "boolean",
+          "const": true
+        },
+        "keep_heartbeat_auth_and_exit": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "performance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_median_max_microseconds",
+        "frame_p95_max_microseconds",
+        "frame_p99_max_microseconds",
+        "client_render_hz",
+        "authority_tick_hz",
+        "network_update_hz",
+        "interpolation_delay_ms",
+        "max_extrapolation_ms",
+        "input_hard_correction_milli_tiles",
+        "soft_correction_ms",
+        "warmup_ms",
+        "sample_window_ms",
+        "sample_repeats",
+        "profile_cpu_gpu_gc_and_network",
+        "measurement_status",
+        "normal_runtime_snapshot_file_writes"
+      ],
+      "properties": {
+        "frame_median_max_microseconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "frame_p95_max_microseconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "frame_p99_max_microseconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "client_render_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "authority_tick_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "network_update_hz": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "interpolation_delay_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_extrapolation_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "input_hard_correction_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "soft_correction_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "warmup_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "sample_window_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "sample_repeats": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "profile_cpu_gpu_gc_and_network": {
+          "type": "boolean",
+          "const": true
+        },
+        "measurement_status": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "normal_runtime_snapshot_file_writes": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "projectile_rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "range_and_lifetime_reset_on_bounce",
+        "corner_bounce_policy",
+        "reflection_surface_offset_milli_tiles",
+        "max_collision_steps_per_tick",
+        "chain_retriggers_bounce",
+        "bounce_retargets_enemies",
+        "melee_and_cover_use_frame_start_geometry",
+        "hit_deduplication",
+        "contract_action_deduplication",
+        "normal_distance_limit_milli_tiles",
+        "normal_lifetime_game_ms",
+        "melee_clear_scope",
+        "slam_wave_clears",
+        "tie_policy",
+        "projectile_cleared_counts_as_protection_only_with_actual_threat_proof"
+      ],
+      "properties": {
+        "range_and_lifetime_reset_on_bounce": {
+          "type": "boolean",
+          "const": false
+        },
+        "corner_bounce_policy": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "reflection_surface_offset_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_collision_steps_per_tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "chain_retriggers_bounce": {
+          "type": "boolean",
+          "const": false
+        },
+        "bounce_retargets_enemies": {
+          "type": "boolean",
+          "const": false
+        },
+        "melee_and_cover_use_frame_start_geometry": {
+          "type": "boolean",
+          "const": true
+        },
+        "hit_deduplication": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "contract_action_deduplication": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "normal_distance_limit_milli_tiles": {
+          "type": "null"
+        },
+        "normal_lifetime_game_ms": {
+          "type": "null"
+        },
+        "melee_clear_scope": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "slam_wave_clears": {
+          "type": "boolean",
+          "const": false
+        },
+        "tie_policy": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "projectile_cleared_counts_as_protection_only_with_actual_threat_proof": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "materialization",
+        "answers"
+      ],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "maxLength": 1024,
+                  "minLength": 1
+                }
+              }
+            }
+          ],
+          "items": false
+        },
+        "materialization": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "answers": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        }
+      }
+    },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "visible_width_milli_tiles",
+        "visible_height_milli_tiles",
+        "dead_zone_half_width_milli_tiles",
+        "dead_zone_half_height_milli_tiles",
+        "smoothing_ms",
+        "max_lag_milli_tiles",
+        "room_transition_ms",
+        "mouse_pan",
+        "small_room_policy",
+        "room_boundary"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "orthographic_character_follow"
+        },
+        "visible_width_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "visible_height_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dead_zone_half_width_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "dead_zone_half_height_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "smoothing_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "max_lag_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "room_transition_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "mouse_pan": {
+          "type": "boolean",
+          "const": false
+        },
+        "small_room_policy": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "room_boundary": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        }
+      }
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_width",
+        "default_height",
+        "minimum_width",
+        "minimum_height",
+        "integer_world_scaling",
+        "allow_letterbox",
+        "work_area_fallback",
+        "ui_reference_width",
+        "ui_reference_height",
+        "hud_outside_battle_view_required"
+      ],
+      "properties": {
+        "default_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "default_height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "minimum_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "minimum_height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "integer_world_scaling": {
+          "type": "boolean",
+          "const": true
+        },
+        "allow_letterbox": {
+          "type": "boolean",
+          "const": true
+        },
+        "work_area_fallback": {
+          "type": "boolean",
+          "const": true
+        },
+        "ui_reference_width": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "ui_reference_height": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "hud_outside_battle_view_required": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "encounters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "main_ordinary_base_total",
+        "main_fixed_elites",
+        "main_bosses",
+        "ordinary_wave_rule",
+        "seeded_charger_fractions",
+        "sanctum_charger_fraction",
+        "branch_charger_fraction",
+        "elite_counts_in_ratio",
+        "boss_summons_use_fixed_composition",
+        "boss_room_overrides_ordinary_room_cap"
+      ],
+      "properties": {
+        "main_ordinary_base_total": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "main_fixed_elites": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "main_bosses": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "ordinary_wave_rule": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "seeded_charger_fractions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "numerator",
+                "denominator"
+              ],
+              "properties": {
+                "numerator": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "denominator": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "numerator",
+                "denominator"
+              ],
+              "properties": {
+                "numerator": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                },
+                "denominator": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 2147483647
+                }
+              }
+            }
+          ],
+          "items": false
+        },
+        "sanctum_charger_fraction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "numerator",
+            "denominator"
+          ],
+          "properties": {
+            "numerator": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "denominator": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "branch_charger_fraction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "numerator",
+            "denominator"
+          ],
+          "properties": {
+            "numerator": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            "denominator": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          }
+        },
+        "elite_counts_in_ratio": {
+          "type": "boolean",
+          "const": false
+        },
+        "boss_summons_use_fixed_composition": {
+          "type": "boolean",
+          "const": true
+        },
+        "boss_room_overrides_ordinary_room_cap": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "inheritance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "volley",
+        "turret",
+        "exclusions",
+        "rounding",
+        "chain_factor_of_actual_parent_damage_milli",
+        "chain_range_milli_tiles",
+        "chain_count",
+        "chain_retriggers_chain_or_bounce",
+        "chain_root_selection"
+      ],
+      "properties": {
+        "volley": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          ],
+          "items": false
+        },
+        "turret": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          ],
+          "items": false
+        },
+        "exclusions": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "prefixItems": [
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            },
+            {
+              "type": "string",
+              "maxLength": 1024,
+              "minLength": 1
+            }
+          ],
+          "items": false
+        },
+        "rounding": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "chain_factor_of_actual_parent_damage_milli": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "chain_range_milli_tiles": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "chain_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "chain_retriggers_chain_or_bounce": {
+          "type": "boolean",
+          "const": false
+        },
+        "chain_root_selection": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        }
+      }
+    },
+    "ui": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theme",
+        "skill_icons_clickable",
+        "full_key_help",
+        "player_panel",
+        "cooldowns",
+        "growth",
+        "current_weapon",
+        "boss_bar",
+        "boss_head_bar",
+        "enemy_head_bars",
+        "enemy_numbers_default",
+        "boss_health_percent",
+        "charge_bar",
+        "warning_height_body_milli_factor",
+        "warning_min_reference_pixels",
+        "warning_max_reference_pixels",
+        "warning_scale_options_milli",
+        "font_scales_milli",
+        "danger_over_friendly_effects",
+        "text_generated_as_images"
+      ],
+      "properties": {
+        "theme": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "skill_icons_clickable": {
+          "type": "boolean",
+          "const": false
+        },
+        "full_key_help": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "player_panel": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "cooldowns": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "growth": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "current_weapon": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "boss_bar": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "boss_head_bar": {
+          "type": "boolean",
+          "const": false
+        },
+        "enemy_head_bars": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "enemy_numbers_default": {
+          "type": "boolean",
+          "const": false
+        },
+        "boss_health_percent": {
+          "type": "boolean",
+          "const": true
+        },
+        "charge_bar": {
+          "type": "string",
+          "maxLength": 1024,
+          "minLength": 1
+        },
+        "warning_height_body_milli_factor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "warning_min_reference_pixels": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "warning_max_reference_pixels": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2147483647
+        },
+        "warning_scale_options_milli": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          ],
+          "items": false
+        },
+        "font_scales_milli": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            },
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2147483647
+            }
+          ],
+          "items": false
+        },
+        "danger_over_friendly_effects": {
+          "type": "boolean",
+          "const": true
+        },
+        "text_generated_as_images": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dungeon Contract 2.2 planned independent parameters; semantic checks required"
+}

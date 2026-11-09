@@ -1,0 +1,513 @@
+{
+  "specification_version": "2.2",
+  "operation": "dc_ruins.v5",
+  "battle_protocol": 5,
+  "status": "NOT_RUN",
+  "evidence_scope": "new_v5_behavior_not_covered_by_historical_P4",
+  "cases": [
+    {
+      "id": "D22-001",
+      "name": "版本准入",
+      "expected": "v4/v5、operation/内容/世界/任务/hash不匹配拒绝；旧左键语义不能默认升级",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-002",
+      "name": "短点击",
+      "expected": "press/release在发送周期内完成仍只产生一次普攻，不等待250ms",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-003",
+      "name": "持续近战",
+      "expected": "held按周期产生独立root；release停止下一次，不吞已合法首击",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-004",
+      "name": "不支持蓄力",
+      "expected": "短刃/远程右键无攻击；非法charge请求有原因且不消耗",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-005",
+      "name": "蓄力边界",
+      "expected": "250/900ms按实际game量化；不足取消、部分线性、满可保持无自动砸",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-006",
+      "name": "左右键竞争",
+      "expected": "右键取消未承诺前摇；已有效等回正；结束后held左键自然续，最多一待charge",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-007",
+      "name": "瞄准与移动",
+      "expected": "前摇可瞄，active锁向；短刃100%/锤80%/蓄力70%，不转圈扩成360°",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-008",
+      "name": "阶段时序",
+      "expected": "短刃2/3/4tick、锤6/3/12；缩放按总tick分配，挥空照常冷却",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-009",
+      "name": "闪避取消",
+      "expected": "未生效释放攻击取消，已伤保留；原武器ready不刷新，held charge闪避可继续",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-010",
+      "name": "切换连段",
+      "expected": "另一武器就绪可立即攻击；切回原武器仍等原ready，不错误加全局锁",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-011",
+      "name": "切换重按",
+      "expected": "Q/滚轮去抖、旧revision拒绝、资源保持，切换后必须松左再新按",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-012",
+      "name": "主动兼容",
+      "expected": "E/F在近战和恢复可用；齐射短闪不叠Space，失败动作不中断装填/不扣资源",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-013",
+      "name": "受伤兼容",
+      "expected": "无硬直/击退/停火，真实HP/盾损仅断J，200ms保护无效hit不刷新",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-014",
+      "name": "扫掠几何",
+      "expected": "小/大半圆随武器扫掠，墙柱箱遮挡，每次同life一次而非整held一次",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-015",
+      "name": "重砸双档",
+      "expected": "波D、锤头总2D，部分蓄力和所有倍率最终floor一次，不累计3D",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-016",
+      "name": "重砸遮挡",
+      "expected": "合法落点不越墙、帧起始完整箱遮挡，同击碎箱不打后方，视觉波无二次伤害",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-017",
+      "name": "清弹窗口",
+      "expected": "仅active武器/锤头清飞行敌弹，前摇/回正/地波/友弹/本体攻击不被误清",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-018",
+      "name": "清弹同刻",
+      "expected": "按最早TOI，同刻先清后伤；已经发生的伤害不回滚，多人清同弹只一次",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-019",
+      "name": "真实保护",
+      "expected": "只有实际威胁对象proof才记保护/eligible，空挥或清无威胁弹不刷资格",
+      "document": "data-design.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-020",
+      "name": "成长动作",
+      "expected": "tension短刃8tick、twin锤19tick，三次任意合法候选仍三项，旧弹/CD不刷新",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-021",
+      "name": "齐射来源",
+      "expected": "持短刃仍取携带弩，伤害×2/弹速20/半径0.1，不扣弩弹或复制装填",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-022",
+      "name": "倍率取整",
+      "expected": "无强化24、fan每矢15、双塔heavy13；不重复套倍率/中途先取整",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-023",
+      "name": "九矢组合",
+      "expected": "三组三矢角求和，总9/各65%，不递归分裂或偷偷改自动瞄准",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-024",
+      "name": "多箭与root",
+      "expected": "普通散射和齐射每箭每life一次，不同箭可叠；多箭/穿透/多目标合同root只一次",
+      "document": "data-design.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-025",
+      "name": "有限穿透",
+      "expected": "弩初始2目标、模块3，风矢继承，墙箱门仍止，不跨房",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-026",
+      "name": "塔弹继承",
+      "expected": "14/双9与600ms独立，符弹10格/s/0.18/一次反弹和合法强化实际生效",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-027",
+      "name": "连锁边界",
+      "expected": "首次正伤直接根最多一跳70%/3格/视线，不回跳原目标或递归反弹/重复倍率",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-028",
+      "name": "属性冻结",
+      "expected": "齐射整cast冻结，炮塔下一炮吃新成长，旧弹不变；主人倒地/切房存续归属正确",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-029",
+      "name": "主动触发次数",
+      "expected": "ward每成功施放一次，不被每箭/塔每炮/反弹触发；空放不造贡献",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-030",
+      "name": "逐波射手比例",
+      "expected": "所有人数缩放和种子波N满足射手≥ceil(近卫冲锋/2)，总数保持142基础，不简单循环破坏比例",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-031",
+      "name": "射手招式",
+      "expected": "扇三/连三交替，0/180/360ms连发锁朝向，独立弹ID，起手/恢复不累加双重间隔",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-032",
+      "name": "六名原子出生",
+      "expected": "2射手2近卫1冲锋1精英同批，800ms确切点+入场缓冲，6槽原子预约",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-033",
+      "name": "出生点失效",
+      "expected": "玩家2格/地形变化重选该点完整预警，整批等齐；原槽/生命不重复记",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-034",
+      "name": "Boss并发例外",
+      "expected": "召唤live+reserved≤12、含Boss≤13、global≤24；单人不误套普通8，其他房仍公平",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-035",
+      "name": "召唤节奏",
+      "expected": "最早10秒请求、实际批次间≥20秒、最多1待批、容量等待不累计债",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-036",
+      "name": "召唤资格",
+      "expected": "含elite的boss_summon不计长期damage/kill或额外奖；真实统计/倒地失败不豁免",
+      "document": "data-design.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-037",
+      "name": "Boss阶段",
+      "expected": "50%记录切阶段，已承诺完成后切换，在途弹不变、无无敌停战/补发",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-038",
+      "name": "持续弹幕",
+      "expected": "4秒8×12=96、6秒15×16=240，单弹18、角度/缺口固定种子，持续源点正确",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-039",
+      "name": "突刺近战",
+      "expected": "阶段速度4/4.5与10/12，锁向不追踪/撞墙停，大弧替踏地，可走位路线两方案都验",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-040",
+      "name": "召唤窗口",
+      "expected": "组合间隙约1秒不新攻击，旧弹继续；位置预警延迟不堆新批或新无敌",
+      "document": "content-config.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-041",
+      "name": "Boss终态",
+      "expected": "同帧成功优先保留真实生命事实，不等召唤清空，可靠删剩余预约/发射器/弹体",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-042",
+      "name": "承诺容量",
+      "expected": "四方案最坏组合含旧弹与240预约，满额不扣新玩家资源、不吞承诺/删老弹",
+      "document": "contracts/planned-v5/capacity.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-043",
+      "name": "同步预算",
+      "expected": "实际二进制900包/64组及基线256KiB/768块预算、乱序/缺组/未知字典与弱网排队分别验",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-044",
+      "name": "完整恢复",
+      "expected": "重连/切房/fence含动作/两CD/charge/stat/emitter/index/预约；已确认前缀不改、无重复命中",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-045",
+      "name": "真正暂停",
+      "expected": "所有game动作/出生/发射器/技能/冷却/成长/音频冻结；wall/lease/退出继续，恢复清held不补攻击",
+      "document": "gdd.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-046",
+      "name": "技术等待",
+      "expected": "清弹与出弹预约、旧emitter取消，塔寿命继续，恢复完整起手无补射；普通断线不清全队",
+      "document": "protocols.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-047",
+      "name": "HUD位置",
+      "expected": "左上本人/两排图标、右下武器、顶中Boss、地图/队友/门条件及危险避让正确",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-048",
+      "name": "血条权限",
+      "expected": "普通精英屏内常显小条，Boss仅顶条/百分比；不漏外房/屏外坐标，迟包不复活",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-049",
+      "name": "帮助与鼠标",
+      "expected": "Esc完整按键，技能图标只读，HUD空底不吞射击；真实按钮焦点与改键冲突正确",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-050",
+      "name": "主题缩放",
+      "expected": "所有Unity页面石板青绿暖金，字体/100125150%/整数世界视口及小屏回退不遮危险",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-051",
+      "name": "界面状态",
+      "expected": "大厅/成长/救援/重连/结果正常空错加载恢复完整；未确认不展示预发奖励",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-052",
+      "name": "小感叹号",
+      "expected": "约身体1/4且4—6参考像素，放大/减闪/静音/屏外仍可读，不假报或画敌攻地面范围",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-053",
+      "name": "敌人动作",
+      "expected": "五敌类型各自prepare/attack/recover/hurt/death，射手两型、Boss三招和召唤辨识质量等同玩家",
+      "document": "image-generation-spec.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-054",
+      "name": "AI资源",
+      "expected": "原稿/加工/采用来源hash/条款/alpha/pivot/像素/帧序验收，文字条和判定不烘焙",
+      "document": "image-generation-spec.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-055",
+      "name": "友敌图层",
+      "expected": "红友方锤风/地波不盖敌弹/陷阱/!，对象池溢出不删除真实危险",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-056",
+      "name": "音画暂停",
+      "expected": "蓄力/挥击/弹幕合并音效及低闪预算，合法暂停场景音频冻结、菜单音继续且恢复不重播",
+      "document": "client-assets.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-057",
+      "name": "性能实测",
+      "expected": "练习/空房/普通/Boss及四人最坏组合记录CPU/GPU/GC/包/队列/对象，60FPS门槛按机器与失败留证",
+      "document": "contracts/planned-v5/capacity.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-058",
+      "name": "历史与迁移",
+      "expected": "旧501文件中受保护部分/hash不变；任务来源不同不强转，旧完成不补奖，未知来源留旧进度",
+      "document": "data-design.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-059",
+      "name": "权限负例",
+      "expected": "旧episode/revision/source、伪伤害/来源/清弹proof、超长/洪泛/未知字段拒绝，日志无秘密",
+      "document": "security-design.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "D22-060",
+      "name": "真人综合",
+      "expected": "3首次玩家各两方案各2正式尝试≥12，≥6有效成功后评价15—20分钟，含失败及双四人独立证据",
+      "document": "p1-human-playtest-and-pacing-guide.md",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "human": {
+    "status": "NOT_RUN",
+    "first_time_players_min": 3,
+    "attempts_per_loadout_per_player": 2,
+    "minimum_total_attempts": 12,
+    "minimum_valid_successes_before_median": 6,
+    "target_median_min_ms": 900000,
+    "target_median_max_ms": 1200000,
+    "retain_failures": true,
+    "solo_both_loadouts": true,
+    "duo_and_four_players_separate": true,
+    "physical_cross_pc_and_weak_network_separate": true
+  },
+  "performance": {
+    "status": "NOT_RUN",
+    "render_fps": 60,
+    "median_max_microseconds": 16700,
+    "p95_max_microseconds": 20000,
+    "p99_max_microseconds": 33300,
+    "warmup_ms": 30000,
+    "sample_window_ms": 120000,
+    "repeats": 3,
+    "record_hardware_and_network": true
+  }
+}

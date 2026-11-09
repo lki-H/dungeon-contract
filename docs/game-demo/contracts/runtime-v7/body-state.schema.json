@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "body_profile_id",
+    "body_facing",
+    "body_center_x",
+    "body_center_y"
+  ],
+  "properties": {
+    "body_profile_id": {
+      "type": "string",
+      "enum": [
+        "ranger:down",
+        "ranger:up",
+        "ranger:left",
+        "ranger:right",
+        "runesmith:down",
+        "runesmith:up",
+        "runesmith:left",
+        "runesmith:right",
+        "guard:down",
+        "guard:up",
+        "guard:left",
+        "guard:right",
+        "archer:down",
+        "archer:up",
+        "archer:left",
+        "archer:right",
+        "charger:down",
+        "charger:up",
+        "charger:left",
+        "charger:right",
+        "elite:down",
+        "elite:up",
+        "elite:left",
+        "elite:right",
+        "boss:down",
+        "boss:up",
+        "boss:left",
+        "boss:right"
+      ]
+    },
+    "body_facing": {
+      "type": "string",
+      "enum": [
+        "down",
+        "up",
+        "left",
+        "right"
+      ]
+    },
+    "body_center_x": {
+      "type": "number"
+    },
+    "body_center_y": {
+      "type": "number"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "ranger:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "ranger:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "ranger:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "ranger:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "runesmith:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "runesmith:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "runesmith:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "runesmith:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "guard:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "guard:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "guard:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "guard:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "archer:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "archer:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "archer:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "archer:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "charger:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "charger:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "charger:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "charger:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "elite:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "elite:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "elite:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "elite:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "boss:down"
+        },
+        "body_facing": {
+          "const": "down"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "boss:up"
+        },
+        "body_facing": {
+          "const": "up"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "boss:left"
+        },
+        "body_facing": {
+          "const": "left"
+        }
+      }
+    },
+    {
+      "properties": {
+        "body_profile_id": {
+          "const": "boss:right"
+        },
+        "body_facing": {
+          "const": "right"
+        }
+      }
+    }
+  ]
+}
