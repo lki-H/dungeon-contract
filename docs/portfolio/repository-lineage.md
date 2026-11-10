@@ -14,6 +14,8 @@ Dungeon Contract从[game-realtime-gm](https://github.com/lki-H/game-realtime-gm)
 
 各库实际提交与检查见各自PR、维护说明及GitHub Actions。相同问题的源代码可参考，但源码变化与测试成绩不互相替代；文档日期不是自动部署声明。旧仓库没有本库day41以后Schema、试炼、贡献卡或战斗协议，不能整包回移。
 
+本轮关联交付为[旧库PR #6](https://github.com/lki-H/game-realtime-gm/pull/6)和[本库PR #1](https://github.com/lki-H/dungeon-contract/pull/1)。本库运行源码基线为`7f76d141e1a80803a923705366355aa9f0019507`；旧库认证／Worker／Control对应`d262302`，隔离入口对应`feef71a`及`02bf794`，独立R5对应`eca8e8c`。逐项范围、后继修复与实际Actions见[旧库维护记录](https://github.com/lki-H/game-realtime-gm/blob/main/docs/maintenance/README.md)。旧库这轮额外增加了“缺少code的通知不能结束pending请求”的防御；本库这次仅同步文档，不宣称已经合入该额外分支或复制其测试成绩。
+
 R5只在前身仓库维护：RPC查询隔离恢复副本，MQ消费者写独立报表；主业务不依赖它发奖。本库未因此获得微服务、消息总线、跨进程战斗恢复或商业容量能力。
 
 本次关联更新仅改文档，不改变已验证二进制、SQL、运行配置和用户已取消的性能／整局复验范围。
