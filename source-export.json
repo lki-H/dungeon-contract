@@ -4726,6 +4726,11 @@
       "sha256": "fb773d9bee6ef0b98c00157837425b2de3fe53d825eb06117d54f6f74a3d37b9"
     },
     {
+      "path": "docs/portfolio/repository-lineage.md",
+      "bytes": 1805,
+      "sha256": "237f9cfef601f6f2af9d3ba868484fb56182fbbbd06416fc972105f9f84d1141"
+    },
+    {
       "path": "docs/portfolio/resume-project-summary.md",
       "bytes": 1655,
       "sha256": "370b3500bd14ec65d4cac97402093dd9f0934cb12725b875adb057cf2b4ff13f"
@@ -4757,8 +4762,8 @@
     },
     {
       "path": "docs/public-index.md",
-      "bytes": 2254,
-      "sha256": "41f55fa3d8418c6af2afdb8ba54f01add0b729c814fb014ef2cccc6a8fc8e7e3"
+      "bytes": 2333,
+      "sha256": "532e40d6f8b41a12d30328f8a5390b5ecfebd46919154bdd709d2f843a6d38f3"
     },
     {
       "path": "frontend/gm-admin/index.html",
@@ -4852,8 +4857,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7293,
-      "sha256": "a9307685b9aa1540d0614c1634ac1b5b824e4e87b6fb0169b264bd5ecb1bfbc3"
+      "bytes": 7683,
+      "sha256": "cb3f8c0c04c800c5319ac0838c875ec649091a1994ff8c50040440d614a602ff"
     },
     {
       "path": "SECURITY.md",

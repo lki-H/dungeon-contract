@@ -86,4 +86,6 @@ LAN路径只用于明确允许的私有／Radmin地址，不自动安装VPN、�
 
 本仓库由既有工程导出独立源码快照，保留真实来源，不伪造逐日Git历史。发布目录按允许清单生成，不提交凭据、数据库、Unity缓存、VHDX、私密测试记录或玩家二进制。
 
+前身[game-realtime-gm](https://github.com/lki-H/game-realtime-gm)保留V2／GM业务基础、实际旧版回退及独立RPC／消息报表实验；本仓库从其401247d基线派生并承担可玩战斗后继开发。两库的运行环境、数据与验证各自独立，共享缺陷按[维护对应表](docs/portfolio/repository-lineage.md)逐项核对，不重复计算项目成果。
+
 本地大厅有一张可选AI装饰背景，分发权尚未确立；公开源码排除该图及提供方记录，使用客户端已有替代背景。代码采用[MIT](LICENSE)，不改变Unity、字体、音频、素材或依赖的各自条款；分发前阅读[许可说明](LICENSE-NOTICE.md)和[第三方声明](THIRD_PARTY_NOTICES.md)。
