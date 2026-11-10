@@ -3472,8 +3472,8 @@
     },
     {
       "path": "deploy/test_dc_paths.py",
-      "bytes": 9096,
-      "sha256": "83370078f5ff3231d7716f050afa861454a43964b4647ae0723258ba9ae6f8d0"
+      "bytes": 9106,
+      "sha256": "0f87b97660bae82fc040777d8b2b098d1dec915a1ec6bf24d7a76fe94cd2dbd4"
     },
     {
       "path": "deploy/test_portfolio.ps1",
@@ -3487,8 +3487,8 @@
     },
     {
       "path": "deploy/test_tooling_audits.py",
-      "bytes": 27544,
-      "sha256": "64faf9d45731aac615943f475cd03daa52c1edb56118de73c4558076e9e74af7"
+      "bytes": 27744,
+      "sha256": "ca586387aaf70faa1bf7646b50bfdfbc4f3262afad7ce54ace83a8216a60f94e"
     },
     {
       "path": "deploy/v2-test-init.sql",

@@ -126,23 +126,26 @@ if($dcQuoted.ExitCode -ne 0){throw 'Quoted native argument probe failed.'}
 
     def test_source_receipt_rejects_windows_reparse_files_and_directories(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
+            root = Path(temporary).resolve()
             self.source_fixture(root)
             original_lstat = Path.lstat
             for name in ('client/unity-demo/Assets/Scripts',
                          'client/unity-demo/Assets/Scripts/PveControlClient.cs.meta',
                          'docs/game-demo/contracts/planned-v3/parameters.json'):
                 target = root / name
+                matched = []
 
                 def lstat(path, *args, **kwargs):
                     result = original_lstat(path, *args, **kwargs)
                     if path == target:
+                        matched.append(path)
                         return SimpleNamespace(st_mode=result.st_mode, st_file_attributes=stat.FILE_ATTRIBUTE_REPARSE_POINT)
                     return result
 
                 with self.subTest(name=name), patch.object(Path, 'lstat', lstat):
                     with self.assertRaisesRegex(ValueError, 'Reparse build input'):
                         BUILD.source_rows(root)
+                self.assertTrue(matched, 'The reparse attribute fixture must intercept the intended path: ' + name)
 
     def test_fresh_lan_package_uses_its_receipt_and_still_rejects_tampering(self):
         with tempfile.TemporaryDirectory() as temporary:

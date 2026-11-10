@@ -131,7 +131,7 @@ class PortablePathTests(unittest.TestCase):
 
     def test_complete_optional_component_may_be_excluded(self):
         with tempfile.TemporaryDirectory() as temporary:
-            root = self.create_source(temporary)
+            root = self.create_source(temporary).resolve()
             inventory = root / 'docs/game-demo/source-resources.json'
             inventory.parent.mkdir(parents=True)
             required = root / 'required.txt'
