@@ -4647,8 +4647,8 @@
     },
     {
       "path": "docs/portfolio/current-status.md",
-      "bytes": 3555,
-      "sha256": "10694bcfe1e9ee1c86b25996b6f0845bac5d09b507303f6d1fdb673f8a7ee79a"
+      "bytes": 3664,
+      "sha256": "3ea3811ca9dcd0abdc2f05495c2cc8f6b9669059a81f5e3267f7875135aa30ce"
     },
     {
       "path": "docs/portfolio/demo-walkthrough.md",
@@ -4716,6 +4716,11 @@
       "sha256": "1395d9ca19a1fbe24ada70604807f7fa3c3e58fa7019bd579eeaa7261a2b943a"
     },
     {
+      "path": "docs/portfolio/publication.md",
+      "bytes": 2878,
+      "sha256": "ebe35ef7bd5b8093b147047ef0b256218e52b1ab04e0e6f5bf6822702cb302cb"
+    },
+    {
       "path": "docs/portfolio/reliability-and-settlement.md",
       "bytes": 4793,
       "sha256": "fb773d9bee6ef0b98c00157837425b2de3fe53d825eb06117d54f6f74a3d37b9"
@@ -4752,8 +4757,8 @@
     },
     {
       "path": "docs/public-index.md",
-      "bytes": 2172,
-      "sha256": "befcda25fa2ccf7e8a62e2eddc9c9f3b13f180a206ea427bf63827f2f2caddbb"
+      "bytes": 2254,
+      "sha256": "41f55fa3d8418c6af2afdb8ba54f01add0b729c814fb014ef2cccc6a8fc8e7e3"
     },
     {
       "path": "frontend/gm-admin/index.html",
@@ -4847,8 +4852,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7244,
-      "sha256": "91f295a3424190e76fd8b6dde8b9c563aad6a2b0f0a62d43cc8d2ffd4d7b7f5e"
+      "bytes": 7293,
+      "sha256": "a9307685b9aa1540d0614c1634ac1b5b824e4e87b6fb0169b264bd5ecb1bfbc3"
     },
     {
       "path": "SECURITY.md",

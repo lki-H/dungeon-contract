@@ -4,7 +4,7 @@
 
 Go负责身份、组队匹配、版本准入和持久化；Unity权威服务负责高频移动、碰撞与战斗；玩家端负责输入、预测和表现。当前面向Windows本机及受限LAN／Radmin试玩，Go内部采用模块化单业务进程。
 
-[2分29秒Web演示与截图](docs/portfolio/demo-walkthrough.md) · [架构与三条时序](docs/portfolio/architecture-overview.md) · [后端快速启动](docs/portfolio/backend-quickstart.md) · [完整游戏构建](docs/portfolio/full-demo.md) · [当前验证范围](docs/portfolio/current-status.md)
+[2分29秒Web演示与截图](docs/portfolio/demo-walkthrough.md) · [架构与三条时序](docs/portfolio/architecture-overview.md) · [后端快速启动](docs/portfolio/backend-quickstart.md) · [完整游戏构建](docs/portfolio/full-demo.md) · [当前验证范围](docs/portfolio/current-status.md) · [公开交付](docs/portfolio/publication.md)
 
 | 游侠 | 工匠 |
 | --- | --- |

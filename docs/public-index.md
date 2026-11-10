@@ -1,6 +1,6 @@
 # Public documentation index
 
-This index is for a future public GitHub repository. It points to current, reviewable material and avoids presenting old phase notes as the current product state.
+This index belongs to the public Dungeon Contract source repository. It points to current, reviewable material and avoids presenting old phase notes as the current product state.
 
 ## Start here
 
@@ -27,6 +27,7 @@ This index is for a future public GitHub repository. It points to current, revie
 
 ## Release, security, and rights
 
+- [GitHub publication and final review](portfolio/publication.md)
 - [2026-11-10 real storage and race checks](portfolio/review-20261110.md)
 - [2026-11-10 browser verification](portfolio/browser-validation.md)
 - [2026-11-09 follow-up review and verification](portfolio/review-20261109.md)

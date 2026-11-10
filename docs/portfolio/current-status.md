@@ -21,7 +21,7 @@ Browser automation was rejected at the November 9 checkpoint. After the owner ex
 - Go service: identity, party/matchmaking, versioned admission, control, durable facts and settlement.
 - Unity authority: frame-by-frame combat and room simulation; Unity client: input/prediction/presentation.
 - Current source preparation: portable launch, isolated backend checks and a clean public-source directory.
-- GitHub publishing, release attachments and public CI results: separate actions after source review.
+- Public source is available in `lki-H/dungeon-contract`; [publication details](publication.md) and the actual target-commit Actions result define its review state. Prebuilt release attachments remain separate.
 - No claim of production throughput, SLO, public Internet operation, four-PC stability or finalized balance.
 
 See [S1–S3 results](s1-s3-results.md) for commands actually run and material limitations. Missing measurements are not filled with estimates.
