@@ -28,6 +28,7 @@ This index belongs to the public Dungeon Contract source repository. It points t
 ## Release, security, and rights
 
 - [GitHub publication and final review](portfolio/publication.md)
+- [Repository lineage and shared maintenance](portfolio/repository-lineage.md)
 - [2026-11-10 real storage and race checks](portfolio/review-20261110.md)
 - [2026-11-10 browser verification](portfolio/browser-validation.md)
 - [2026-11-09 follow-up review and verification](portfolio/review-20261109.md)
